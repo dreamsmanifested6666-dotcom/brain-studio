@@ -21,10 +21,15 @@
   /* Fonts: editorial does all running text. Mono is for numbers/code only.
      Hand is for marginalia only (10-instance soft cap). Thai is a fallback
      applied automatically via the font stack in body. */
-  --font-editorial: var(--font-editorial), "Iowan Old Style", Georgia, serif;
+  --font-editorial: var(--font-editorial-loaded), "Iowan Old Style", Georgia, serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
-  --font-hand: var(--font-hand), "Bradley Hand", cursive;
+  --font-hand: var(--font-hand-loaded), "Bradley Hand", cursive;
   --font-thai: var(--font-thai), "Sarabun", serif;
+  --font-thai-hand: var(--font-thai-hand), "Sarabun", cursive;
+  --font-jp: var(--font-jp), "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-jp-hand: var(--font-jp-hand), "Klee One", cursive;
+  --font-sc: var(--font-sc), "PingFang SC", "Hiragino Sans GB", serif;
+  --font-sc-hand: var(--font-sc-hand), "Kaiti SC", cursive;
 
   /* Type scale — four content sizes, no others. Responsive via clamp so
      the hero doesn't overflow narrow viewports. */
@@ -86,6 +91,62 @@ body {
   font-feature-settings: "ss01", "cv11", "ss03";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* ---------- Locale-aware typography rhythm ---------- */
+/*
+  Each html[lang] block overrides --font-editorial and --font-hand
+  on the <html> element. Because Tailwind's .font-editorial and
+  .font-hand utilities read these variables, every <Display>,
+  <Heading>, <Body>, <Caption>, <Hand> instance becomes locale-aware
+  automatically — the same Tailwind class resolves to a different
+  family per locale.
+
+  Latin scripts (en/es/ca) keep the default PP-Editorial stack
+  defined in @theme.
+
+  Thai blends Noto Serif Thai into the Latin paragraph (mixed-script
+  paragraphs render each glyph in the right font).
+
+  Japanese / Chinese lead with their own serif and adopt
+  CJK-appropriate line-break + leading rules.
+*/
+
+html[lang="th"] {
+  --font-editorial: var(--font-editorial-loaded), var(--font-thai), serif;
+  --font-hand: var(--font-thai-hand), var(--font-hand-loaded), cursive;
+  line-height: 1.5;
+}
+
+html[lang="ja"] {
+  --font-editorial: var(--font-jp), var(--font-editorial-loaded), serif;
+  --font-hand: var(--font-jp-hand), var(--font-hand-loaded), cursive;
+  line-height: 1.75;
+}
+html[lang="ja"] p,
+html[lang="ja"] li,
+html[lang="ja"] blockquote {
+  line-break: strict;
+  word-break: keep-all;
+}
+
+html[lang="zh-CN"] {
+  --font-editorial: var(--font-sc), var(--font-editorial-loaded), serif;
+  --font-hand: var(--font-sc-hand), var(--font-hand-loaded), cursive;
+  line-height: 1.75;
+}
+html[lang="zh-CN"] p,
+html[lang="zh-CN"] li,
+html[lang="zh-CN"] blockquote {
+  line-break: strict;
+  word-break: keep-all;
+}
+
+/* CJK paragraphs benefit from a slightly wider measure to compensate
+   for the higher information density per character. */
+html[lang="ja"] .max-w-\[36rem\],
+html[lang="zh-CN"] .max-w-\[36rem\] {
+  max-width: 42rem;
 }
 
 ::selection {
