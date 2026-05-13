@@ -43,6 +43,87 @@
     "dismiss": "Dismiss",
     "feedbackPrompt": "If you are a native speaker and notice issues, you can suggest corrections by opening an issue on the project repository."
   },
+  "home": {
+    "openingCaption": "The Brain Studio",
+    "hero": {
+      "line1": "There is a model",
+      "line2": "that predicts",
+      "line3": "what your brain will do."
+    },
+    "scrollPrompt": "Scroll to see",
+    "howItWorks": {
+      "step1": {
+        "label": "How it works · I",
+        "heading": "TRIBE is a brain-encoding model.",
+        "body": "Trained on thousands of hours of fMRI recordings, it learns the map from a stimulus — a sentence, a passage, a piece of music — to the brain's response. Then it predicts."
+      },
+      "step2": {
+        "label": "How it works · II",
+        "heading": "It is a model of the average brain.",
+        "body": "Not your brain. Not yet anyone's. A weighted echo of the participants who lay still in scanners while sentences played. What you see is the model's best guess about how a brain like theirs would respond."
+      },
+      "step3": {
+        "label": "How it works · III",
+        "heading": "That gap — between model and you — is part of the show.",
+        "body": "We'll surface it. The site keeps the limits of TRIBE visible, in every room, so you can use the predictions as a mirror without mistaking them for a portrait."
+      }
+    },
+    "rooms": {
+      "section": "Three rooms",
+      "heading": "We built three rooms to show you.",
+      "body": "Hover a doorway to see the pattern. Step inside when you're ready.",
+      "mirror": {
+        "title": "Brain Mirror",
+        "description": "Paste any text. Watch what your writing looks like underneath."
+      },
+      "music": {
+        "title": "NeuroMusic Lab",
+        "description": "Hear how sound moves the same regions that move you."
+      },
+      "crosscultural": {
+        "title": "Cross-Cultural Brain",
+        "description": "Where the model breaks down across languages — and what the silence reveals."
+      },
+      "threshold": {
+        "title": "The Threshold",
+        "description": "An essay in three movements about the seam between mind and brain."
+      },
+      "archetypes": {
+        "title": "The Archetypes",
+        "description": "Patterns old enough to have names, illustrated from the visual tradition Jung drew on."
+      },
+      "cellular": {
+        "title": "Cellular View",
+        "description": "Descend into real neuron reconstructions and watch a synapse fire."
+      }
+    },
+    "insights": {
+      "section": "What you'll learn",
+      "card1": {
+        "headline": "Language is a brain event before it is a sentence.",
+        "body": "Watch the inferior frontal gyrus warm before a word is found. The model lets us see meaning under construction — the half-second when a thought is still gathering itself."
+      },
+      "card2": {
+        "headline": "Music moves the same regions that move you.",
+        "body": "Sigur Rós, Coltrane, and a Thai luk thung lullaby all bring different fingerprints to the auditory cortex — and to the default-mode network, the part of you that's still you when you stop trying."
+      },
+      "card3": {
+        "headline": "What a model can't translate is itself a kind of knowledge.",
+        "body": "TRIBE was trained on English. The Thai prompts are not just a different input — they reveal the shape of what the model never learned. The silence is part of the finding."
+      }
+    },
+    "begin": {
+      "heading": "Begin.",
+      "mirror": "Brain Mirror",
+      "music": "NeuroMusic Lab",
+      "crosscultural": "Cross-Cultural Brain"
+    },
+    "footer": {
+      "built": "Built at Chulalongkorn JIPP",
+      "encoder": "TRIBE v2 encoder",
+      "about": "About"
+    }
+  },
   "notFound": {
     "label": "Out of the training distribution",
     "title": "We didn't learn that page.",

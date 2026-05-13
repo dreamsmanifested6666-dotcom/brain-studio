@@ -43,6 +43,87 @@
     "dismiss": "Descartar",
     "feedbackPrompt": "Si eres hablante nativo y detectas algún error, puedes proponer correcciones abriendo una incidencia en el repositorio del proyecto."
   },
+  "home": {
+    "openingCaption": "THE BRAIN STUDIO",
+    "hero": {
+      "line1": "Existe un modelo",
+      "line2": "que predice",
+      "line3": "lo que tu cerebro va a hacer."
+    },
+    "scrollPrompt": "Desliza para ver",
+    "howItWorks": {
+      "step1": {
+        "label": "Cómo funciona · I",
+        "heading": "TRIBE es un modelo codificador del cerebro.",
+        "body": "Entrenado con miles de horas de fMRI, aprende el mapa entre un estímulo — una frase, un pasaje, una pieza musical — y la respuesta del cerebro. Después, predice."
+      },
+      "step2": {
+        "label": "Cómo funciona · II",
+        "heading": "Es un modelo del cerebro promedio.",
+        "body": "No es tu cerebro. Todavía no es el de nadie. Un eco ponderado de los participantes que permanecieron inmóviles en los escáneres mientras sonaban frases. Lo que ves es la mejor conjetura del modelo sobre cómo respondería un cerebro como el de ellos."
+      },
+      "step3": {
+        "label": "Cómo funciona · III",
+        "heading": "Esa distancia — entre el modelo y tú — es parte de la obra.",
+        "body": "La haremos visible. El sitio mantiene a la vista los límites de TRIBE en cada sala, para que puedas usar las predicciones como espejo sin confundirlas con un retrato."
+      }
+    },
+    "rooms": {
+      "section": "Tres salas",
+      "heading": "Construimos tres salas para enseñártelo.",
+      "body": "Pasa el cursor sobre una puerta para ver el patrón. Entra cuando estés listo.",
+      "mirror": {
+        "title": "Espejo Cerebral",
+        "description": "Pega cualquier texto. Mira cómo se ve tu escritura por dentro."
+      },
+      "music": {
+        "title": "Laboratorio de NeuroMúsica",
+        "description": "Escucha cómo el sonido mueve las mismas regiones que te mueven a ti."
+      },
+      "crosscultural": {
+        "title": "Cerebro Transcultural",
+        "description": "Donde el modelo se rompe entre lenguas — y lo que ese silencio revela."
+      },
+      "threshold": {
+        "title": "El Umbral",
+        "description": "Un ensayo en tres movimientos sobre la costura entre mente y cerebro."
+      },
+      "archetypes": {
+        "title": "Los Arquetipos",
+        "description": "Patrones tan antiguos como para tener nombre, ilustrados con la tradición visual a la que Jung recurrió."
+      },
+      "cellular": {
+        "title": "Visión Celular",
+        "description": "Desciende a reconstrucciones reales de neuronas y observa una sinapsis dispararse."
+      }
+    },
+    "insights": {
+      "section": "Lo que aprenderás",
+      "card1": {
+        "headline": "El lenguaje es un evento cerebral antes de ser una frase.",
+        "body": "Observa cómo el giro frontal inferior se calienta antes de que se encuentre una palabra. El modelo deja ver el significado en construcción — la media décima de segundo en que un pensamiento todavía se está reuniendo."
+      },
+      "card2": {
+        "headline": "La música mueve las mismas regiones que te mueven a ti.",
+        "body": "Sigur Rós, Coltrane y una nana tailandesa de luk thung dejan huellas distintas en la corteza auditiva — y en la red por defecto, esa parte de ti que sigue siendo tú cuando dejas de intentarlo."
+      },
+      "card3": {
+        "headline": "Lo que un modelo no logra traducir es también una forma de conocimiento.",
+        "body": "TRIBE se entrenó en inglés. Las pruebas en tailandés no son simplemente otra entrada — revelan la forma de lo que el modelo nunca aprendió. El silencio forma parte del hallazgo."
+      }
+    },
+    "begin": {
+      "heading": "Empieza.",
+      "mirror": "Espejo Cerebral",
+      "music": "Laboratorio de NeuroMúsica",
+      "crosscultural": "Cerebro Transcultural"
+    },
+    "footer": {
+      "built": "Hecho en JIPP, Universidad de Chulalongkorn",
+      "encoder": "codificador TRIBE v2",
+      "about": "Acerca"
+    }
+  },
   "notFound": {
     "label": "Fuera de la distribución de entrenamiento",
     "title": "No aprendimos esa página.",

@@ -43,6 +43,87 @@
     "dismiss": "Descarta",
     "feedbackPrompt": "Si ets parlant natiu i detectes alguna errada, pots proposar correccions obrint una incidència al repositori del projecte."
   },
+  "home": {
+    "openingCaption": "THE BRAIN STUDIO",
+    "hero": {
+      "line1": "Hi ha un model",
+      "line2": "que prediu",
+      "line3": "què farà el teu cervell."
+    },
+    "scrollPrompt": "Desplaça per veure",
+    "howItWorks": {
+      "step1": {
+        "label": "Com funciona · I",
+        "heading": "TRIBE és un model codificador del cervell.",
+        "body": "Entrenat amb milers d'hores de fMRI, aprèn el mapa entre un estímul — una frase, un passatge, una peça musical — i la resposta del cervell. Després, prediu."
+      },
+      "step2": {
+        "label": "Com funciona · II",
+        "heading": "És un model del cervell mitjà.",
+        "body": "No el teu cervell. Encara no el de ningú. Un eco ponderat dels participants que van quedar quiets als escàners mentre sonaven frases. El que veus és la millor conjectura del model sobre com respondria un cervell com el d'ells."
+      },
+      "step3": {
+        "label": "Com funciona · III",
+        "heading": "Aquesta distància — entre el model i tu — forma part de l'obra.",
+        "body": "La farem visible. El lloc manté a la vista els límits de TRIBE a cada sala, perquè puguis fer servir les prediccions com a mirall sense confondre-les amb un retrat."
+      }
+    },
+    "rooms": {
+      "section": "Tres sales",
+      "heading": "Hem construït tres sales per mostrar-t'ho.",
+      "body": "Passa el cursor per sobre d'una porta per veure el patró. Entra quan estiguis a punt.",
+      "mirror": {
+        "title": "Mirall Cerebral",
+        "description": "Enganxa qualsevol text. Mira com es veu la teva escriptura per dins."
+      },
+      "music": {
+        "title": "Laboratori de NeuroMúsica",
+        "description": "Escolta com el so mou les mateixes regions que et mouen a tu."
+      },
+      "crosscultural": {
+        "title": "Cervell Transcultural",
+        "description": "Allà on el model es trenca entre llengües — i el que aquest silenci revela."
+      },
+      "threshold": {
+        "title": "El Llindar",
+        "description": "Un assaig en tres moviments sobre la costura entre ment i cervell."
+      },
+      "archetypes": {
+        "title": "Els Arquetips",
+        "description": "Patrons prou antics per tenir nom, il·lustrats amb la tradició visual de la qual va beure Jung."
+      },
+      "cellular": {
+        "title": "Visió Cel·lular",
+        "description": "Baixa fins a reconstruccions reals de neurones i observa una sinapsi disparar-se."
+      }
+    },
+    "insights": {
+      "section": "Què aprendràs",
+      "card1": {
+        "headline": "El llenguatge és un esdeveniment cerebral abans de ser una frase.",
+        "body": "Observa com el gir frontal inferior s'escalfa abans que es trobi una paraula. El model deixa veure el significat en construcció — la mitja dècima de segon en què un pensament encara s'està reunint."
+      },
+      "card2": {
+        "headline": "La música mou les mateixes regions que et mouen a tu.",
+        "body": "Sigur Rós, Coltrane i una cançó de bressol tailandesa de luk thung deixen empremtes diferents al còrtex auditiu — i a la xarxa per defecte, la part de tu que segueix sent tu quan deixes d'intentar-ho."
+      },
+      "card3": {
+        "headline": "Allò que un model no pot traduir també és una forma de coneixement.",
+        "body": "TRIBE va ser entrenat amb anglès. Les proves en tailandès no són només una entrada diferent — revelen la forma del que el model mai no va aprendre. El silenci forma part de la troballa."
+      }
+    },
+    "begin": {
+      "heading": "Comença.",
+      "mirror": "Mirall Cerebral",
+      "music": "Laboratori de NeuroMúsica",
+      "crosscultural": "Cervell Transcultural"
+    },
+    "footer": {
+      "built": "Fet al JIPP, Universitat de Chulalongkorn",
+      "encoder": "codificador TRIBE v2",
+      "about": "Sobre el projecte"
+    }
+  },
   "notFound": {
     "label": "Fora de la distribució d'entrenament",
     "title": "No vam aprendre aquesta pàgina.",
