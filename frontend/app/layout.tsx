@@ -8,10 +8,12 @@ import {
 import "./globals.css";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import BrainStage from "@/components/brain/BrainStage";
+import RegionAnnouncer from "@/components/brain/RegionAnnouncer";
 import SiteHeader from "@/components/nav/SiteHeader";
 import CursorFollower from "@/components/motion/CursorFollower";
 import AmbientDrone from "@/components/audio/AmbientDrone";
 import FilmGrain from "@/components/atmospheric/FilmGrain";
+import { Caption } from "@/components/typography/Typography";
 
 export const metadata: Metadata = {
   title: "The Brain Studio",
@@ -34,10 +36,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fontClass} h-full`}>
       <body className="text-bone-cream min-h-full antialiased">
+        {/* Skip link — keyboard users jump straight to <main>. */}
+        <a
+          href="#main"
+          className="focus:bg-brass focus:text-navy-deep sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[1100] focus:rounded-sm focus:px-4 focus:py-2"
+        >
+          <Caption uppercase>Skip to content</Caption>
+        </a>
         <SmoothScroll>
           <BrainStage />
           <SiteHeader />
-          <main className="relative z-10">{children}</main>
+          <main id="main" className="relative z-10">
+            {children}
+          </main>
+          <RegionAnnouncer />
           <CursorFollower />
           <AmbientDrone />
           <FilmGrain />
