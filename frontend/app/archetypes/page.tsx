@@ -142,6 +142,192 @@ export default async function ArchetypesPage() {
         </section>
       )}
 
+      {/* On Mandalas — full essay section before the closing meditation */}
+      <section className="relative px-6 py-32 md:px-10 md:py-48">
+        <Mandala
+          src="/mandalas/fludd_microcosm.jpg"
+          alt="Robert Fludd, De integra microcosmi harmonia, 1619, Wellcome Collection"
+          opacity={0.07}
+          rotationSeconds={360}
+          position="top-[15%] left-1/2 -translate-x-1/2"
+          size="w-[44rem]"
+        />
+        <div className="mx-auto max-w-[42rem]">
+          <Caption uppercase className="text-brass">
+            On mandalas
+          </Caption>
+          <Display italic className="mt-10">
+            How to look at a circle that is also a portrait of a psyche.
+          </Display>
+
+          <Body className="text-bone-cream/85 mt-12">
+            Jung started painting mandalas before he had a theory of them.
+            Through the years of his break with Freud and his slow descent
+            into what he later called his confrontation with the
+            unconscious, circular images appeared in his notebooks — first
+            as something he was compelled to draw, then as something his
+            patients independently produced during periods of psychic
+            upheaval, and finally as something he recognized across the
+            visual traditions of medieval Europe, Tibetan Buddhism,
+            alchemical manuscripts, Hindu yantras, Hildegard&apos;s
+            illuminations, and the rose windows of cathedrals he had
+            never planned to study.
+          </Body>
+          <Body className="text-bone-cream/85 mt-6">
+            What he came to believe, with appropriate hedging, was that
+            the mandala is the symbolic expression of what he called the
+            Self — the whole psyche of which the conscious ego is a small
+            part. Not the metaphysical Self of any one tradition, but a
+            pattern the psyche reaches for when it needs to organize
+            itself: a center, a containment, a quaternity, an integration
+            of opposites held in a single field.
+          </Body>
+
+          {/* Two mandalas, side by side, with their full provenance */}
+          <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+            <AttributedImage
+              prov={{
+                src: "/mandalas/fludd_microcosm.jpg",
+                title: "De integra microcosmi harmonia",
+                artist: "Robert Fludd",
+                date: "1619",
+                institution: "Wellcome Collection, London",
+                license: "Public domain (PD-old, pre-1929)",
+                source_url:
+                  "https://commons.wikimedia.org/wiki/File:De_integra_microcosmi_harmonia..._Fludd,_1619_Wellcome_L0016204.jpg",
+                note: "An alchemical mandala of the harmony of the microcosm.",
+              }}
+              width={1116}
+              height={1734}
+            />
+            <AttributedImage
+              prov={{
+                src: "/mandalas/hildegard_codex.jpg",
+                title: "Hildegardis-Codex illumination",
+                artist: "12th-century manuscript illuminator",
+                date: "12th century",
+                institution: "Biblioteca Statale di Lucca",
+                license: "Public domain (PD-old, medieval manuscript)",
+                source_url:
+                  "https://commons.wikimedia.org/wiki/File:Meister_des_Hildegardis-Codex_001.jpg",
+                note: "A medieval Christian cosmic mandala, four centuries before Jung wrote about them.",
+              }}
+              width={1000}
+              height={1287}
+            />
+          </div>
+
+          <Heading className="text-brass mt-20 font-[200]">
+            How to look at one.
+          </Heading>
+          <Body className="text-bone-cream/85 mt-8">
+            Jung had a practical method for looking at a mandala, his
+            patients&apos; or his own. The point was not interpretation in
+            the usual sense — not a key that decodes the image — but a
+            slower attending that lets the image do its work. Four
+            questions, asked roughly in order:
+          </Body>
+          <ol className="mt-8 space-y-6 [counter-reset:mandala]">
+            <li className="grid grid-cols-[3rem_1fr] items-baseline gap-4">
+              <Mono variant="label" className="text-brass">
+                01
+              </Mono>
+              <Body className="text-bone-cream/85">
+                <span className="text-brass font-[400]">What is at the center?</span>{" "}
+                Sometimes a figure, sometimes a flame, sometimes an empty
+                point, sometimes nothing identifiable at all. The center
+                is what the rest of the image is organized around. Whether
+                it is occupied or empty, occupied by what, empty in what
+                way — these matter.
+              </Body>
+            </li>
+            <li className="grid grid-cols-[3rem_1fr] items-baseline gap-4">
+              <Mono variant="label" className="text-brass">
+                02
+              </Mono>
+              <Body className="text-bone-cream/85">
+                <span className="text-brass font-[400]">What four things are around the center?</span>{" "}
+                Mandalas across traditions tend toward quaternity — four
+                directions, four elements, four evangelists, four
+                functions of consciousness in Jung&apos;s own typology.
+                The four are not arbitrary; they are the rhythm by which
+                the center is mapped into the field. Notice whether the
+                four are balanced or one is heavier, whether one is
+                missing, whether they repeat into eight or sixteen.
+              </Body>
+            </li>
+            <li className="grid grid-cols-[3rem_1fr] items-baseline gap-4">
+              <Mono variant="label" className="text-brass">
+                03
+              </Mono>
+              <Body className="text-bone-cream/85">
+                <span className="text-brass font-[400]">What contains it?</span>{" "}
+                Mandalas have boundaries — circles, walls, gates, sacred
+                precincts. The boundary holds energy that would otherwise
+                disperse. In the felt experience of looking, the
+                containment is what makes the center possible. Without
+                edge there is no center.
+              </Body>
+            </li>
+            <li className="grid grid-cols-[3rem_1fr] items-baseline gap-4">
+              <Mono variant="label" className="text-brass">
+                04
+              </Mono>
+              <Body className="text-bone-cream/85">
+                <span className="text-brass font-[400]">Where does it break?</span>{" "}
+                A working mandala is almost never perfectly symmetric. A
+                crack in the boundary, a missing quadrant, a figure
+                pulling sideways out of the frame. Jung paid close
+                attention to these — not as flaws but as the place where
+                the integration is incomplete and where the next work is
+                waiting.
+              </Body>
+            </li>
+          </ol>
+
+          <Heading className="text-brass mt-20 font-[200]">
+            Why Jung kept coming back.
+          </Heading>
+          <Body className="text-bone-cream/85 mt-8">
+            What Jung claimed about mandalas, and what he hedged about
+            them, are worth separating. He claimed that mandalas appear
+            spontaneously when the psyche is reorganizing itself — that
+            they are part of the actual work of individuation, not just
+            illustrations of it. He claimed that drawing them was a way
+            to participate in that reorganization. He claimed the
+            quaternity structure was not random but expressed something
+            structural about how consciousness orients itself.
+          </Body>
+          <Body className="text-bone-cream/85 mt-6">
+            What he hedged was metaphysics. He did not claim the mandala
+            was a portal to anything. He did not claim it was magical, or
+            that drawing one would heal you. He treated mandalas as
+            clinical data — observed reliably enough across patients and
+            traditions to deserve careful description, and reserved
+            judgment about anything beyond that. The wellness industry,
+            in its appropriation, has dropped the hedge and kept the
+            mystery, which is the wrong half to keep.
+          </Body>
+          <Body className="text-bone-cream/85 mt-6">
+            Looking at Fludd&apos;s engraving above or the Hildegard
+            codex beside it, both made centuries before Jung was born,
+            you can see what he was pointing at without endorsing the
+            cosmologies they came from. A center. A quaternity. A
+            containment. A break in the symmetry somewhere that lets the
+            life of the image stay alive. The work of looking is real
+            even when the metaphysics is contested.
+          </Body>
+          <Body italic className="text-bone-cream/80 mt-10 text-lg leading-[1.6]">
+            A mandala is not a picture of a finished self. It is a picture
+            of a self being worked on, sometimes by hands that did not
+            know what they were drawing until it was drawn.
+          </Body>
+          <Mono variant="label" className="text-bone-cream/40 mt-14 block">
+            On Mandalas · ~700 words · 4 min read
+          </Mono>
+        </div>
+      </section>
+
       {/* Closing */}
       <section className="relative flex min-h-[80vh] items-center px-6 pb-24 pt-32 md:px-10">
         <AtmosphericGlow preset="amber-lamp" position="bottom" intensity="subtle" />

@@ -4,9 +4,18 @@
       "id": "persona",
       "title": "The Persona",
       "subtitle": "The face you wear, the face you forget you're wearing.",
-      "shipped": false,
-      "todo_note": "Source a Holbein or Tissot portrait at Wikimedia in a follow-up — must be PD-old, museum-hosted.",
-      "primary_image": null
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/persona/holbein_lady_squirrel.jpg",
+        "title": "A Lady with a Squirrel and a Starling (Anne Lovell?)",
+        "artist": "Hans Holbein the Younger",
+        "date": "c. 1526–1528",
+        "institution": "National Gallery, London",
+        "license": "Public domain (PD-old; Holbein d. 1543)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:A_Lady_with_a_Squirrel_by_Hans_Holbein_d._J._(National_Gallery,_London).jpg",
+        "note": "Holbein's lady is composed, finished, sittable. The squirrel and starling are accessories — small private creatures kept close to a public face."
+      },
+      "prose_id": "persona"
     },
     {
       "id": "shadow",
@@ -61,19 +70,37 @@
     },
     {
       "id": "wise",
-      "title": "The Wise Old Man / Wise Woman",
+      "title": "The Wise Old Man",
       "subtitle": "The interior guide. Not always old. Not always a man.",
-      "shipped": false,
-      "todo_note": "Source a Rembrandt Aristotle or late self-portrait from the Met Open Access — confirmed PD but the exact filename needs an API lookup.",
-      "primary_image": null
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/wise/rembrandt_aristotle.jpg",
+        "title": "Aristotle with a Bust of Homer",
+        "artist": "Rembrandt van Rijn",
+        "date": "1653",
+        "institution": "The Metropolitan Museum of Art, New York (Open Access)",
+        "license": "Public domain (CC0 / PD-old; Rembrandt d. 1669)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aristotle_with_a_Bust_of_Homer_MET_DP319026.jpg",
+        "note": "The living thinker meets the dead poet through touch. One Wise Old Man recognizing another."
+      },
+      "prose_id": "wise"
     },
     {
       "id": "trickster",
       "title": "The Trickster",
       "subtitle": "The boundary-crosser. The destroyer who clears the way.",
-      "shipped": false,
-      "todo_note": "Source a Bosch fragment from Garden of Earthly Delights (Prado, PD-old) — needs filename verification in a follow-up.",
-      "primary_image": null
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/trickster/bosch_garden.jpg",
+        "title": "The Garden of Earthly Delights (full triptych)",
+        "artist": "Hieronymus Bosch",
+        "date": "c. 1490–1510",
+        "institution": "Museo del Prado, Madrid",
+        "license": "Public domain (PD-old)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg",
+        "note": "Eden on the left, delight in the middle, the consequences on the right. The Trickster is the whole triptych — what gets crossed, what gets crossed again."
+      },
+      "prose_id": "trickster"
     }
   ],
   "mandalas": [
