@@ -29,6 +29,11 @@ venv/
 Thumbs.db
 desktop.ini
 
+# Local audit artifacts
+lighthouse.json
+lighthouse.html
+lighthouse.report.*
+
 # Editors
 .vscode/
 .idea/
