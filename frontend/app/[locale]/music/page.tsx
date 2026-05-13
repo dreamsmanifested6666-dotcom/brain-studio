@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import ScrollScene from "@/components/motion/ScrollScene";
 import PinnedSequence, {
   PinnedStep,
@@ -34,15 +35,16 @@ type Mode = "library" | "compare" | "upload";
  * scrubber interpolates. Audio asset licensing is Phase 11 work.
  */
 export default function MusicPage() {
+  const t = useTranslations("music");
   const [mode, setMode] = useState<Mode>("library");
   const [activeId, setActiveId] = useState(musicTracks[0].id);
   const active =
-    musicTracks.find((t) => t.id === activeId) ?? musicTracks[0];
+    musicTracks.find((track) => track.id === activeId) ?? musicTracks[0];
 
   const modes: { id: Mode; label: string }[] = [
-    { id: "library", label: "Library" },
-    { id: "compare", label: "Compare" },
-    { id: "upload", label: "Upload" },
+    { id: "library", label: t("modes.library") },
+    { id: "compare", label: t("modes.compare") },
+    { id: "upload", label: t("modes.upload") },
   ];
 
   return (
@@ -62,17 +64,13 @@ export default function MusicPage() {
         <AtmosphericGlow preset="cool-cathedral" intensity="subtle" />
         <div className="md:col-span-7">
           <Caption uppercase className="text-brass">
-            NeuroMusic Lab · Phase 6
+            {t("label")}
           </Caption>
           <Display italic className="mt-8">
-            Hearing is the oldest of the senses to fully form.
+            {t("title")}
           </Display>
           <Body className="text-bone-cream/65 mt-8 max-w-[34rem]">
-            It begins in the womb. Below: three tracks, each accompanied by
-            a 60-second region timeline. Scrub a player and watch the brain
-            follow the music in real time — Heschl&apos;s gyrus on the
-            attack, posterior STG holding the melody, default-mode regions
-            stepping in when the piece stops trying.
+            {t("intro")}
           </Body>
         </div>
         <div aria-hidden className="md:col-span-5" />
@@ -138,24 +136,24 @@ export default function MusicPage() {
             <InsightEssay
               index={0}
               trackId="sigur-ros-meditation"
-              headline="Sigur Rós and the default-mode network."
-              body="The PCC and precuneus warm not because there's a 'meditation circuit,' but because the listener stops trying to follow. Default-mode is shorthand for the part of you that's still you when you stop trying."
+              headline={t("essay1.headline")}
+              body={t("essay1.body")}
             />
           </PinnedStep>
           <PinnedStep>
             <InsightEssay
               index={1}
               trackId="coltrane-naima"
-              headline="Coltrane and the limbic warmth."
-              body="Naima was written as a love letter. The amygdala isn't sounding a fear alarm here — it's weighting salience, marking the lines that matter. Feeling and form arriving on the same beat."
+              headline={t("essay2.headline")}
+              body={t("essay2.body")}
             />
           </PinnedStep>
           <PinnedStep>
             <InsightEssay
               index={2}
               trackId="thai-lullaby"
-              headline="The lullaby remembered first by the body."
-              body="The hippocampus carries the scene before the language regions arrive at the lyrics. We learn what a kitchen smells like through music; we learn it again every time we hear the song."
+              headline={t("essay3.headline")}
+              body={t("essay3.body")}
             />
           </PinnedStep>
         </PinnedSequence>
@@ -163,7 +161,7 @@ export default function MusicPage() {
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/40">
-          NeuroMusic Lab · timelines simulated locally
+          {t("footerNote")}
         </Caption>
       </footer>
     </>

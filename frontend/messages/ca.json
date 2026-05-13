@@ -124,6 +124,69 @@
       "about": "Sobre el projecte"
     }
   },
+  "mirror": {
+    "label": "Mirall Cerebral · Fase 5",
+    "title": "Escriu alguna cosa. El que sigui.",
+    "intro": "El cervell de dalt és el model pensant — activació predita en vint regions, lliscant cap al que recluta la teva escriptura. Enganxa una frase, un paràgraf, un fragment. Mira què s'escalfa.",
+    "exportLabel": "PNG · 1080 × 1080",
+    "step1": {
+      "label": "Pas · I",
+      "heading": "El cervell no llegeix paraules. Reconstrueix significat.",
+      "body": "TRIBE prediu on, a la còrtex, s'encén una frase — no perquè el cervell desi diccionaris, sinó perquè el significat es construeix entre regions, cadascuna portant una part del que és una paraula."
+    },
+    "step2": {
+      "label": "Pas · II",
+      "heading": "El que acabes de veure és una predicció — no el teu cervell.",
+      "body": "Un model del cervell mitjà, entrenat amb participants que van quedar quiets a escàners mentre sonaven frases. La distància entre aquesta mitjana i la teva forma part de l'obra."
+    },
+    "step3": {
+      "label": "Pas · III",
+      "heading": "Aquí tens uns quants textos que ens van sorprendre.",
+      "body": "Passa el cursor per sentir el patró. Fes clic per carregar-lo al mirall de dalt."
+    },
+    "examplesHeading": "Tres textos que ens van sorprendre",
+    "footerStudio": "The Brain Studio",
+    "footerNote": "Prediccions simulades localment"
+  },
+  "music": {
+    "label": "Laboratori de NeuroMúsica · Fase 6",
+    "title": "L'oïda és el sentit més antic en acabar de formar-se.",
+    "intro": "Comença al ventre. A sota: tres peces, cadascuna amb una línia de temps regional de 60 segons. Mou el reproductor i mira el cervell seguir la música en temps real — el gir de Heschl a l'atac, l'STG posterior sostenint la melodia, les regions per defecte entrant quan la peça deixa d'intentar-ho.",
+    "modes": {
+      "library": "Biblioteca",
+      "compare": "Comparar",
+      "upload": "Pujar"
+    },
+    "essay1": {
+      "headline": "Sigur Rós i la xarxa per defecte.",
+      "body": "El PCC i el precuni s'escalfen no perquè existeixi un 'circuit de meditació', sinó perquè qui escolta deixa d'intentar seguir-la. Default-mode és l'abreviatura d'aquella part de tu que segueix sent tu quan deixes d'intentar-ho."
+    },
+    "essay2": {
+      "headline": "Coltrane i la calidesa límbica.",
+      "body": "Naima va ser escrita com una carta d'amor. L'amígdala no està fent sonar aquí l'alarma de la por — està pesant la sortença, marcant les línies que importen. Sentiment i forma arribant al mateix compàs."
+    },
+    "essay3": {
+      "headline": "La cançó de bressol que el cos recorda primer.",
+      "body": "L'hipocamp porta l'escena abans que les regions del llenguatge arribin a la lletra. Aprenem a què fa olor una cuina a través de la música; ho tornem a aprendre cada cop que sentim la cançó."
+    },
+    "footerNote": "Laboratori de NeuroMúsica · línies de temps simulades localment"
+  },
+  "crosscultural": {
+    "label": "Cervell Transcultural · Fase 7",
+    "entry1": "Aquest model va ser entrenat en anglès.",
+    "label2": "La troballa honesta",
+    "entry2": "El que no pot traduir és la troballa més honesta.",
+    "entry3": "Comença.",
+    "pairLabel": "Selector de parelles",
+    "pairHeading": "Tres parelles que el model carrega de forma desigual.",
+    "pairBody": "Cada parella mostra una frase en anglès i una en tailandès que envolten el mateix sentiment. La predicció en anglès és plausible; la predicció en tailandès és el model buscant suport fora de la seva distribució d'entrenament.",
+    "closingLabel": "Cloenda",
+    "closingDisplay": "El que queda sense traduir és l'ànima d'una llengua.",
+    "closingBody": "La capa sota la gramàtica que coneix les coses a la seva manera. El silenci del model també és una forma de coneixement — el que no pot dir és, en si mateix, una mesura.",
+    "closingHand": "(envia'ns una parella que el model hauria de sentir — aviat)",
+    "submissionForm": "Formulari d'enviament de parelles · Fase 11",
+    "footerNote": "Cervell Transcultural · prediccions simulades localment"
+  },
   "about": {
     "opening": {
       "label": "Sobre el projecte · Fase 9",

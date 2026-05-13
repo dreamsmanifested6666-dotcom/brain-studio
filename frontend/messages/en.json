@@ -124,6 +124,69 @@
       "about": "About"
     }
   },
+  "mirror": {
+    "label": "Brain Mirror · Phase 5",
+    "title": "Type something. Anything.",
+    "intro": "The brain above is the model thinking — predicted activation across twenty regions, lerping toward what your writing recruits. Paste a sentence, a paragraph, a fragment. Watch what warms.",
+    "exportLabel": "PNG · 1080 × 1080",
+    "step1": {
+      "label": "Step · I",
+      "heading": "The brain doesn't read words. It reconstructs meaning.",
+      "body": "TRIBE predicts where in the cortex a sentence lights up — not because the brain stores dictionaries, but because meaning is built across regions, each carrying some part of what a word is."
+    },
+    "step2": {
+      "label": "Step · II",
+      "heading": "What you just saw is a prediction — not your brain.",
+      "body": "A model of the average brain, trained on participants who lay still in scanners while sentences played. The gap between that average and yours is part of the show."
+    },
+    "step3": {
+      "label": "Step · III",
+      "heading": "Here are some texts that surprised us.",
+      "body": "Hover one to feel the pattern. Click to load it into the mirror above."
+    },
+    "examplesHeading": "Three texts that surprised us",
+    "footerStudio": "The Brain Studio",
+    "footerNote": "Predictions simulated locally"
+  },
+  "music": {
+    "label": "NeuroMusic Lab · Phase 6",
+    "title": "Hearing is the oldest of the senses to fully form.",
+    "intro": "It begins in the womb. Below: three tracks, each accompanied by a 60-second region timeline. Scrub a player and watch the brain follow the music in real time — Heschl's gyrus on the attack, posterior STG holding the melody, default-mode regions stepping in when the piece stops trying.",
+    "modes": {
+      "library": "Library",
+      "compare": "Compare",
+      "upload": "Upload"
+    },
+    "essay1": {
+      "headline": "Sigur Rós and the default-mode network.",
+      "body": "The PCC and precuneus warm not because there's a 'meditation circuit,' but because the listener stops trying to follow. Default-mode is shorthand for the part of you that's still you when you stop trying."
+    },
+    "essay2": {
+      "headline": "Coltrane and the limbic warmth.",
+      "body": "Naima was written as a love letter. The amygdala isn't sounding a fear alarm here — it's weighting salience, marking the lines that matter. Feeling and form arriving on the same beat."
+    },
+    "essay3": {
+      "headline": "The lullaby remembered first by the body.",
+      "body": "The hippocampus carries the scene before the language regions arrive at the lyrics. We learn what a kitchen smells like through music; we learn it again every time we hear the song."
+    },
+    "footerNote": "NeuroMusic Lab · timelines simulated locally"
+  },
+  "crosscultural": {
+    "label": "Cross-Cultural Brain · Phase 7",
+    "entry1": "This model was trained on English.",
+    "label2": "The honest finding",
+    "entry2": "What it cannot translate is the most honest finding.",
+    "entry3": "Begin.",
+    "pairLabel": "Pair selector",
+    "pairHeading": "Three pairs the model carries unevenly.",
+    "pairBody": "Each pair shows an English sentence and a Thai sentence that circle the same feeling. The English prediction is plausible; the Thai prediction is the model trying to find a foothold outside its training distribution.",
+    "closingLabel": "Closing",
+    "closingDisplay": "What stays untranslated is the anima of a language.",
+    "closingBody": "The layer below grammar that knows things in its own way. The model's silence is also a kind of knowledge — what it cannot say is itself a measurement.",
+    "closingHand": "(send us a pair the model should hear — soon)",
+    "submissionForm": "Pair submission form · Phase 11",
+    "footerNote": "Cross-Cultural Brain · predictions simulated locally"
+  },
   "about": {
     "opening": {
       "label": "About · Phase 9",

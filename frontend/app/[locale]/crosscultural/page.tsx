@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import ScrollScene from "@/components/motion/ScrollScene";
 import PinnedSequence, {
   PinnedStep,
@@ -30,6 +31,7 @@ import { signaturePatterns } from "@/lib/regions";
  * placements — the count stays at 6.
  */
 export default function CrossCulturalPage() {
+  const t = useTranslations("crosscultural");
   return (
     <>
       {/* Shot 1 — pinned entry */}
@@ -53,26 +55,26 @@ export default function CrossCulturalPage() {
           <PinnedStep>
             <div className="mx-auto max-w-[36rem] text-center">
               <Caption uppercase className="text-brass">
-                Cross-Cultural Brain · Phase 7
+                {t("label")}
               </Caption>
               <Display italic className="mt-8">
-                This model was trained on English.
+                {t("entry1")}
               </Display>
             </div>
           </PinnedStep>
           <PinnedStep>
             <div className="mx-auto max-w-[36rem] text-center">
               <Caption uppercase className="text-brass">
-                The honest finding
+                {t("label2")}
               </Caption>
               <Display italic className="mt-8">
-                What it cannot translate is the most honest finding.
+                {t("entry2")}
               </Display>
             </div>
           </PinnedStep>
           <PinnedStep>
             <div className="mx-auto max-w-[28rem] text-center">
-              <Display italic>Begin.</Display>
+              <Display italic>{t("entry3")}</Display>
             </div>
           </PinnedStep>
         </PinnedSequence>
@@ -83,16 +85,11 @@ export default function CrossCulturalPage() {
         <div className="mx-auto max-w-[1180px]">
           <div className="mx-auto max-w-[44rem]">
             <Caption uppercase className="text-brass">
-              Pair selector
+              {t("pairLabel")}
             </Caption>
-            <Heading className="mt-6">
-              Three pairs the model carries unevenly.
-            </Heading>
+            <Heading className="mt-6">{t("pairHeading")}</Heading>
             <Body className="text-bone-cream/65 mt-6 max-w-[34rem]">
-              Each pair shows an English sentence and a Thai sentence that
-              circle the same feeling. The English prediction is plausible;
-              the Thai prediction is the model trying to find a foothold
-              outside its training distribution.
+              {t("pairBody")}
             </Body>
           </div>
           <div className="mt-16">
@@ -130,30 +127,26 @@ export default function CrossCulturalPage() {
       <section className="relative px-6 py-32 md:px-10 md:py-48">
         <div className="mx-auto max-w-[40rem]">
           <Caption uppercase className="text-brass">
-            Closing
+            {t("closingLabel")}
           </Caption>
           <Display italic className="mt-8">
-            What stays untranslated is the anima of a language.
+            {t("closingDisplay")}
           </Display>
           <Body className="text-bone-cream/70 mt-10">
-            The layer below grammar that knows things in its own way. The
-            model&apos;s silence is also a kind of knowledge — what it
-            cannot say is itself a measurement.
+            {t("closingBody")}
           </Body>
           <p className="mt-10">
-            <Hand className="text-cyan-glow">
-              (send us a pair the model should hear — soon)
-            </Hand>
+            <Hand className="text-cyan-glow">{t("closingHand")}</Hand>
           </p>
           <Caption uppercase className="text-bone-cream/45 mt-10 block">
-            Pair submission form · Phase 11
+            {t("submissionForm")}
           </Caption>
         </div>
       </section>
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/40">
-          Cross-Cultural Brain · predictions simulated locally
+          {t("footerNote")}
         </Caption>
       </footer>
     </>

@@ -124,6 +124,69 @@
       "about": "Acerca"
     }
   },
+  "mirror": {
+    "label": "Espejo Cerebral · Fase 5",
+    "title": "Escribe algo. Lo que sea.",
+    "intro": "El cerebro de arriba es el modelo pensando — activación predicha en veinte regiones, deslizándose hacia lo que recluta tu escritura. Pega una frase, un párrafo, un fragmento. Mira qué se calienta.",
+    "exportLabel": "PNG · 1080 × 1080",
+    "step1": {
+      "label": "Paso · I",
+      "heading": "El cerebro no lee palabras. Reconstruye significado.",
+      "body": "TRIBE predice dónde, en la corteza, se enciende una frase — no porque el cerebro guarde diccionarios, sino porque el significado se construye entre regiones, cada una cargando una parte de lo que una palabra es."
+    },
+    "step2": {
+      "label": "Paso · II",
+      "heading": "Lo que acabas de ver es una predicción — no tu cerebro.",
+      "body": "Un modelo del cerebro promedio, entrenado con participantes que permanecieron inmóviles en escáneres mientras sonaban frases. La distancia entre ese promedio y el tuyo es parte de la obra."
+    },
+    "step3": {
+      "label": "Paso · III",
+      "heading": "Aquí van algunos textos que nos sorprendieron.",
+      "body": "Pasa el cursor para sentir el patrón. Haz clic para cargarlo en el espejo de arriba."
+    },
+    "examplesHeading": "Tres textos que nos sorprendieron",
+    "footerStudio": "The Brain Studio",
+    "footerNote": "Predicciones simuladas localmente"
+  },
+  "music": {
+    "label": "Laboratorio de NeuroMúsica · Fase 6",
+    "title": "El oído es el sentido más antiguo en terminar de formarse.",
+    "intro": "Comienza en el útero. Abajo: tres pistas, cada una con una línea de tiempo regional de 60 segundos. Mueve el reproductor y mira al cerebro seguir la música en tiempo real — el giro de Heschl en el ataque, el STG posterior sosteniendo la melodía, las regiones por defecto entrando cuando la pieza deja de intentar.",
+    "modes": {
+      "library": "Biblioteca",
+      "compare": "Comparar",
+      "upload": "Subir"
+    },
+    "essay1": {
+      "headline": "Sigur Rós y la red por defecto.",
+      "body": "El PCC y el precúneo se calientan no porque exista un 'circuito de meditación', sino porque quien escucha deja de intentar seguirlo. Default-mode es la abreviatura de esa parte de ti que sigue siendo tú cuando dejas de intentarlo."
+    },
+    "essay2": {
+      "headline": "Coltrane y la calidez límbica.",
+      "body": "Naima fue escrita como carta de amor. La amígdala no está dando aquí la alarma del miedo — está pesando la saliencia, marcando las líneas que importan. Sentimiento y forma llegando al mismo compás."
+    },
+    "essay3": {
+      "headline": "La nana que el cuerpo recuerda antes.",
+      "body": "El hipocampo lleva la escena antes de que las regiones del lenguaje lleguen a la letra. Aprendemos a qué huele una cocina a través de la música; volvemos a aprenderlo cada vez que oímos la canción."
+    },
+    "footerNote": "Laboratorio de NeuroMúsica · líneas de tiempo simuladas localmente"
+  },
+  "crosscultural": {
+    "label": "Cerebro Transcultural · Fase 7",
+    "entry1": "Este modelo fue entrenado en inglés.",
+    "label2": "El hallazgo honesto",
+    "entry2": "Lo que no puede traducir es el hallazgo más honesto.",
+    "entry3": "Empieza.",
+    "pairLabel": "Selector de pares",
+    "pairHeading": "Tres pares que el modelo carga de forma desigual.",
+    "pairBody": "Cada par muestra una frase en inglés y otra en tailandés que rodean el mismo sentimiento. La predicción inglesa es plausible; la predicción tailandesa es el modelo buscando apoyo fuera de su distribución de entrenamiento.",
+    "closingLabel": "Cierre",
+    "closingDisplay": "Lo que queda sin traducir es el ánima de una lengua.",
+    "closingBody": "La capa bajo la gramática que conoce las cosas a su manera. El silencio del modelo también es una forma de conocimiento — lo que no puede decir es, en sí mismo, una medida.",
+    "closingHand": "(envíanos un par que el modelo debería oír — pronto)",
+    "submissionForm": "Formulario de envío de pares · Fase 11",
+    "footerNote": "Cerebro Transcultural · predicciones simuladas localmente"
+  },
   "about": {
     "opening": {
       "label": "Acerca · Fase 9",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { useTranslations } from "next-intl";
 import ScrollScene from "@/components/motion/ScrollScene";
 import PinnedSequence, {
   PinnedStep,
@@ -34,6 +35,7 @@ import { savedExamples } from "@/lib/savedExamples";
  * with the user). Reduced-motion users get a static medium glow.
  */
 export default function MirrorPage() {
+  const t = useTranslations("mirror");
   const [seedText, setSeedText] = useState<string>("");
   const [latest, setLatest] = useState<{
     text: string;
@@ -70,15 +72,13 @@ export default function MirrorPage() {
 
         <div className="mx-auto max-w-[44rem]">
           <Caption uppercase className="text-brass">
-            Brain Mirror · Phase 5
+            {t("label")}
           </Caption>
           <Display italic className="mt-8">
-            Type something. Anything.
+            {t("title")}
           </Display>
           <Body className="text-bone-cream/65 mt-8 max-w-[34rem]">
-            The brain above is the model thinking — predicted activation
-            across twenty regions, lerping toward what your writing recruits.
-            Paste a sentence, a paragraph, a fragment. Watch what warms.
+            {t("intro")}
           </Body>
 
           <div className="mt-12">
@@ -91,7 +91,7 @@ export default function MirrorPage() {
               <div className="mt-16 flex flex-wrap items-center gap-4 md:mt-20">
                 <SaveInsightButton text={latest?.text ?? ""} topRegion={topFirst} />
                 <Caption uppercase className="text-bone-cream/45">
-                  PNG · 1080 × 1080
+                  {t("exportLabel")}
                 </Caption>
               </div>
             </>
@@ -117,46 +117,28 @@ export default function MirrorPage() {
             <PinnedStep>
               <div className="max-w-[34rem]">
                 <Caption uppercase className="text-brass">
-                  Step · I
+                  {t("step1.label")}
                 </Caption>
-                <Heading className="mt-6">
-                  The brain doesn&apos;t read words. It reconstructs meaning.
-                </Heading>
-                <Body className="text-bone-cream/70 mt-6">
-                  TRIBE predicts where in the cortex a sentence lights up —
-                  not because the brain stores dictionaries, but because
-                  meaning is built across regions, each carrying some part
-                  of what a word *is*.
-                </Body>
+                <Heading className="mt-6">{t("step1.heading")}</Heading>
+                <Body className="text-bone-cream/70 mt-6">{t("step1.body")}</Body>
               </div>
             </PinnedStep>
             <PinnedStep>
               <div className="max-w-[34rem]">
                 <Caption uppercase className="text-brass">
-                  Step · II
+                  {t("step2.label")}
                 </Caption>
-                <Heading italic className="mt-6">
-                  What you just saw is a prediction — not your brain.
-                </Heading>
-                <Body className="text-bone-cream/70 mt-6">
-                  A model of the average brain, trained on participants who
-                  lay still in scanners while sentences played. The gap
-                  between that average and yours is part of the show.
-                </Body>
+                <Heading italic className="mt-6">{t("step2.heading")}</Heading>
+                <Body className="text-bone-cream/70 mt-6">{t("step2.body")}</Body>
               </div>
             </PinnedStep>
             <PinnedStep>
               <div className="max-w-[34rem]">
                 <Caption uppercase className="text-brass">
-                  Step · III
+                  {t("step3.label")}
                 </Caption>
-                <Heading className="mt-6">
-                  Here are some texts that surprised us.
-                </Heading>
-                <Body italic className="text-bone-cream/70 mt-6">
-                  Hover one to feel the pattern. Click to load it into the
-                  mirror above.
-                </Body>
+                <Heading className="mt-6">{t("step3.heading")}</Heading>
+                <Body italic className="text-bone-cream/70 mt-6">{t("step3.body")}</Body>
               </div>
             </PinnedStep>
           </PinnedSequence>
@@ -177,7 +159,7 @@ export default function MirrorPage() {
       >
         <div className="mx-auto max-w-[1080px]">
           <Caption uppercase className="text-brass">
-            Three texts that surprised us
+            {t("examplesHeading")}
           </Caption>
           <div className="mt-12 grid grid-cols-1 gap-16 md:gap-20">
             {savedExamples.map((ex, i) => (
@@ -199,13 +181,13 @@ export default function MirrorPage() {
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/40">
-          The Brain Studio
+          {t("footerStudio")}
         </Caption>
         <Caption uppercase aria-hidden className="text-bone-cream/40 mx-3">
           ·
         </Caption>
         <Caption uppercase className="text-bone-cream/40">
-          Predictions simulated locally
+          {t("footerNote")}
         </Caption>
       </footer>
     </>
