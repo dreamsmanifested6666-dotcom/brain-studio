@@ -17,7 +17,7 @@
     "fieldNotes": "Cuaderno de Campo",
     "about": "Acerca",
     "muteAria": "Silenciar el ambiente",
-    "searchAria": "Search The Brain Studio (Ctrl-K)",
+    "searchAria": "Buscar en The Brain Studio (Ctrl-K)",
     "unmuteAria": "Activar el ambiente",
     "githubAria": "Código fuente en GitHub",
     "openMenu": "Abrir menú",
@@ -149,6 +149,7 @@
       "body": "Pasa el cursor para sentir el patrón. Haz clic para cargarlo en el espejo de arriba."
     },
     "examplesHeading": "Tres textos que nos sorprendieron",
+    "openInAtlas": "Abrir en el atlas",
     "footerStudio": "The Brain Studio",
     "footerNote": "Predicciones simuladas localmente"
   },
@@ -192,8 +193,8 @@
   "essays": {
     "fieldNote": "Nota de campo",
     "endOfNote": "— fin de la nota",
-    "relatedBridgeLabel": "Related bridge",
-    "relatedBridgeOpen": "Continue in the Bridges page",
+    "relatedBridgeLabel": "Puente relacionado",
+    "relatedBridgeOpen": "Continuar en la página de Puentes",
     "moreFieldNotes": "Más notas de campo",
     "returnThreshold": "Volver al umbral",
     "hippocampus": {
@@ -240,143 +241,143 @@
     }
   },
   "atlas": {
-    "label": "Region Atlas",
-    "title": "The brain, room by room.",
-    "intro": "Twenty regions, written carefully. Each page holds the anatomy, the function as the literature currently tells it, the cell types underneath, the connections that route the signal, the clinical context, the history of who first noticed, and the thread of meaning the depth-psychological reading wants nearby.",
-    "statusNote": "{complete} of {total} pages are complete. The others render their architecture while their prose is written.",
-    "inProgress": "Under review",
-    "openCard": "Open",
-    "previewCard": "Preview",
-    "emptySection": "This section is being written. The architecture below — sidebar metadata, citation discipline, network membership — is in place.",
+    "label": "Atlas de regiones",
+    "title": "El cerebro, sala a sala.",
+    "intro": "Veinte regiones, escritas con cuidado. Cada página sostiene la anatomía, la función tal como la literatura la describe hoy, los tipos celulares que hay debajo, las conexiones que enrutan la señal, el contexto clínico, la historia de quién lo notó por primera vez, y el hilo de sentido que la lectura desde la psicología profunda quiere mantener cerca.",
+    "statusNote": "{complete} de {total} páginas están completas. Las demás muestran su arquitectura mientras se escribe su prosa.",
+    "inProgress": "En revisión",
+    "openCard": "Abrir",
+    "previewCard": "Vista previa",
+    "emptySection": "Esta sección se está escribiendo. La arquitectura de abajo — metadatos del margen, disciplina de citación, pertenencia a red — ya está en su sitio.",
     "inProgressBanner": {
-      "label": "Under careful review",
-      "body": "This page's prose hasn't been written yet. Architecture and metadata are in place; full sections are forthcoming."
+      "label": "En revisión cuidadosa",
+      "body": "Aún no se ha escrito la prosa de esta página. La arquitectura y los metadatos ya están en su sitio; las secciones completas llegarán."
     },
     "breadcrumb": {
       "studio": "The Brain Studio",
       "atlas": "Atlas"
     },
     "sections": {
-      "anatomy": "Anatomy & landmarks",
-      "function": "Function",
-      "cells": "Cell types",
-      "connections": "Connections",
-      "clinical": "In clinical context",
-      "discovery": "History of discovery",
-      "thread": "The thread"
+      "anatomy": "Anatomía y referencias",
+      "function": "Función",
+      "cells": "Tipos celulares",
+      "connections": "Conexiones",
+      "clinical": "En contexto clínico",
+      "discovery": "Historia del descubrimiento",
+      "thread": "El hilo"
     },
     "sidebar": {
-      "network": "Network",
-      "adjacent": "Adjacent regions",
-      "disorders": "Implicated in",
-      "cells": "Cell types here",
-      "descend": "Descend to cellular view",
-      "sources": "Sources",
-      "lastReviewed": "Last reviewed {date}",
-      "wordCount": "{count} words",
-      "connectome": "Connectome"
+      "network": "Red",
+      "adjacent": "Regiones contiguas",
+      "disorders": "Implicada en",
+      "cells": "Tipos celulares aquí",
+      "descend": "Descender a la vista celular",
+      "sources": "Fuentes",
+      "lastReviewed": "Última revisión {date}",
+      "wordCount": "{count} palabras",
+      "connectome": "Conectoma"
     },
     "connectome": {
-      "connectedIntro": "White-matter tracts with an endpoint in this region. Toggle one to see it inside the brain above.",
-      "unconnectedIntro": "No canonical tract has this region as one of its endpoints in our 8-tract set. Use \"Show all\" to view the wider connectome anyway.",
-      "showAll": "Show all tracts",
-      "hideAll": "Hide all tracts",
-      "clear": "Clear",
-      "disclosure": "Geometry is stylized — quadratic Bezier curves between region positions, not real diffusion-MRI tractography. Endpoints, function, and discovery credits are faithful to the literature."
+      "connectedIntro": "Tractos de materia blanca con un extremo en esta región. Activa uno para verlo dentro del cerebro de arriba.",
+      "unconnectedIntro": "Ningún tracto canónico tiene a esta región entre sus extremos en nuestro conjunto de 8 tractos. Usa «Mostrar todo» para ver el conectoma completo igualmente.",
+      "showAll": "Mostrar todos los tractos",
+      "hideAll": "Ocultar todos los tractos",
+      "clear": "Limpiar",
+      "disclosure": "La geometría está estilizada — curvas de Bézier cuadráticas entre posiciones regionales, no tractografía real por RMN-difusión. Los extremos, la función y los créditos del descubrimiento son fieles a la literatura."
     },
-    "footerNote": "Region Atlas · cite or omit",
+    "footerNote": "Atlas de regiones · citar o omitir",
     "bridgeCard": {
-      "label": "Bridge to depth psychology",
-      "open": "Open in the Bridges page"
+      "label": "Puente con la psicología profunda",
+      "open": "Abrir en la página de Puentes"
     }
   },
   "bridges": {
-    "label": "Bridges",
-    "title": "Where neuroscience and depth psychology touch — and where they don't.",
-    "subtitle": "Eleven sections mapping the bridges between mechanism and meaning. Some are tight; some are partial; some do not exist at all. Naming each honestly is the page's discipline.",
-    "legendLabel": "Strength legend",
+    "label": "Puentes",
+    "title": "Donde la neurociencia y la psicología profunda se tocan — y donde no.",
+    "subtitle": "Once secciones que cartografían los puentes entre mecanismo y sentido. Algunos son firmes; otros, parciales; otros no existen en absoluto. Nombrar cada uno con honestidad es la disciplina de esta página.",
+    "legendLabel": "Leyenda de intensidad",
     "breadcrumb": {
       "studio": "The Brain Studio",
-      "bridges": "Bridges"
+      "bridges": "Puentes"
     },
-    "bibliographyLabel": "Bibliography",
-    "bibliographyHeading": "Every empirical claim, traceable.",
-    "bibliographyIntro": "Each citation here was confirmed against PubMed or its original journal record. Hover any superscript in the prose above to see its source; this list is the full set, in order of first mention.",
+    "bibliographyLabel": "Bibliografía",
+    "bibliographyHeading": "Cada afirmación empírica, rastreable.",
+    "bibliographyIntro": "Cada cita aquí fue confirmada contra PubMed o el registro original de la revista. Pasa el cursor por cualquier superíndice de la prosa de arriba para ver su fuente; esta lista es el conjunto completo, en orden de primera mención.",
     "network": {
-      "label": "The network at a glance",
-      "heading": "Every region, every bridge, on one page.",
-      "intro": "Twenty regions on the left, the Bridges sections that any region points into on the right. Brass lines are tight bridges; bone lines are partial; dashed lines are distant. The page below expands every line in detail; this diagram is the index.",
-      "compactIntro": "Twenty regions, the bridge each points into, the empirical strength of each connection. Hover any line to read it; click to land in the corresponding Bridges section.",
-      "svgLabel": "Diagram: 20 brain regions connected by lines to the Bridges page sections they engage, weighted by empirical bridge strength.",
+      "label": "La red de un vistazo",
+      "heading": "Cada región, cada puente, en una sola página.",
+      "intro": "Veinte regiones a la izquierda, las secciones de Puentes hacia las que apunta cualquier región a la derecha. Las líneas de latón son puentes firmes; las líneas color hueso son parciales; las líneas discontinuas son distantes. La página de abajo desarrolla cada línea en detalle; este diagrama es el índice.",
+      "compactIntro": "Veinte regiones, el puente al que apunta cada una, la fuerza empírica de cada conexión. Pasa el cursor por cualquier línea para leerla; haz clic para aterrizar en la sección de Puentes correspondiente.",
+      "svgLabel": "Diagrama: 20 regiones cerebrales conectadas por líneas a las secciones de la página de Puentes con las que se relacionan, ponderadas por la fuerza empírica del puente.",
       "filter": {
-        "all": "All",
-        "tightOnly": "Tight only",
-        "tightAndPartial": "Tight + partial",
-        "distantOnly": "Distant only"
+        "all": "Todos",
+        "tightOnly": "Solo firmes",
+        "tightAndPartial": "Firmes + parciales",
+        "distantOnly": "Solo distantes"
       }
     },
-    "footerNote": "Bridges · cite or omit"
+    "footerNote": "Puentes · citar o omitir"
   },
   "tours": {
-    "label": "Guided Tours",
-    "title": "Choreographed brain experiences.",
-    "intro": "Two- to three-minute tours in which the brain animates through a sequence of activations while a calm narration walks beside it. Watch, don't navigate — the tour unfolds at its own pace.",
-    "tour": "Tour",
-    "duration": "Duration",
-    "openTour": "Open the tour",
-    "scene": "Scene",
-    "pause": "Pause",
-    "play": "Play",
-    "restart": "Restart",
-    "ended": "Tour complete.",
-    "continueLabel": "Continue exploring",
-    "emptyState": "No tours available yet.",
-    "comingSoon": "More tours are forthcoming: how you read this sentence (language network), when something matters (salience), what's still you when you stop trying (default mode), how a face becomes someone you know (face processing), and hearing music (auditory and reward).",
-    "footerNote": "Guided Tours · the brain in motion"
+    "label": "Recorridos guiados",
+    "title": "Experiencias coreografiadas del cerebro.",
+    "intro": "Recorridos de dos a tres minutos en los que el cerebro se anima a través de una secuencia de activaciones mientras una narración serena camina a su lado. Mira, no navegues — el recorrido se despliega a su propio ritmo.",
+    "tour": "Recorrido",
+    "duration": "Duración",
+    "openTour": "Abrir el recorrido",
+    "scene": "Escena",
+    "pause": "Pausar",
+    "play": "Reproducir",
+    "restart": "Reiniciar",
+    "ended": "Recorrido completado.",
+    "continueLabel": "Seguir explorando",
+    "emptyState": "Aún no hay recorridos disponibles.",
+    "comingSoon": "Más recorridos por venir: cómo lees esta frase (red del lenguaje), cuando algo importa (saliencia), qué sigue siendo tú cuando dejas de intentarlo (modo por defecto), cómo un rostro se convierte en alguien a quien conoces (procesamiento facial), y oír música (auditivo y recompensa).",
+    "footerNote": "Recorridos guiados · el cerebro en movimiento"
   },
   "depthPsychology": {
-    "label": "Depth Psychology",
-    "title": "The other half of the conversation.",
-    "intro": "Neuroscience gives us mechanism. Depth psychology gives us meaning. The pages in this section take the depth-psychological tradition seriously without losing the empirical discipline the rest of the site keeps. Where the bridges hold, they are named. Where they don't, the page says so.",
-    "minRead": "min read",
-    "words": "words",
-    "openPage": "Open",
-    "backToIndex": "Back to Depth Psychology",
+    "label": "Psicología profunda",
+    "title": "La otra mitad de la conversación.",
+    "intro": "La neurociencia nos da mecanismo. La psicología profunda nos da sentido. Las páginas de esta sección toman en serio la tradición de la psicología profunda sin perder la disciplina empírica que mantiene el resto del sitio. Donde los puentes se sostienen, se nombran. Donde no, la página lo dice.",
+    "minRead": "min de lectura",
+    "words": "palabras",
+    "openPage": "Abrir",
+    "backToIndex": "Volver a Psicología profunda",
     "featured": {
-      "label": "Featured · the synthesizing index",
-      "title": "Bridges",
-      "subtitle": "Where neuroscience and depth psychology touch — and where they don't.",
-      "blurb": "Eleven sections rating the empirical correspondence between specific neural mechanisms and specific depth-psychological concepts. Tight, partial, distant, none — each bridge named honestly. Read this first.",
-      "open": "Open the Bridges page"
+      "label": "Destacado · el índice sintetizador",
+      "title": "Puentes",
+      "subtitle": "Donde la neurociencia y la psicología profunda se tocan — y donde no.",
+      "blurb": "Once secciones que califican la correspondencia empírica entre mecanismos neuronales específicos y conceptos específicos de la psicología profunda. Firme, parcial, distante, ninguno — cada puente nombrado con honestidad. Léelo primero.",
+      "open": "Abrir la página de Puentes"
     },
     "longForm": {
-      "label": "Long-form",
-      "heading": "Jung, Reich, Perls — written for the careful reader."
+      "label": "Texto largo",
+      "heading": "Jung, Reich, Perls — escritos para el lector cuidadoso."
     },
     "existing": {
-      "label": "Adjacent essays",
-      "heading": "The contemplative layer.",
+      "label": "Ensayos contiguos",
+      "heading": "La capa contemplativa.",
       "threshold": {
-        "label": "Essay",
-        "title": "The Threshold",
-        "blurb": "A contemplative essay that sits between the macro and the cellular views of the site. Three movements; about ten minutes."
+        "label": "Ensayo",
+        "title": "El umbral",
+        "blurb": "Un ensayo contemplativo que se sitúa entre las vistas macro y celular del sitio. Tres movimientos; unos diez minutos."
       },
       "archetypes": {
-        "label": "Essay + gallery",
-        "title": "The Archetypes",
-        "blurb": "Jungian images paired with anatomical neuroscience. A reading of how the inherited symbolic vocabulary of culture meets the cortical machinery that received it."
+        "label": "Ensayo + galería",
+        "title": "Los arquetipos",
+        "blurb": "Imágenes junguianas emparejadas con la neurociencia anatómica. Una lectura de cómo el vocabulario simbólico heredado de la cultura encuentra la maquinaria cortical que lo recibió."
       },
       "fieldNotes": {
-        "label": "Essay collection",
-        "title": "Field Notes",
-        "blurb": "Long-form pieces from the seam between mind and brain. The hippocampus and the act of remembering. What the brain knows before you do."
+        "label": "Colección de ensayos",
+        "title": "Cuaderno de campo",
+        "blurb": "Textos largos desde la costura entre la mente y el cerebro. El hipocampo y el acto de recordar. Lo que el cerebro sabe antes que tú."
       }
     },
     "sidebar": {
-      "bridges": "Related Bridges sections",
-      "atlas": "Related Atlas regions"
+      "bridges": "Secciones de Puentes relacionadas",
+      "atlas": "Regiones del Atlas relacionadas"
     },
-    "footerNote": "Depth Psychology · the careful register"
+    "footerNote": "Psicología profunda · el registro cuidadoso"
   },
   "fieldNotes": {
     "label": "Cuaderno de Campo",
@@ -888,38 +889,38 @@
       "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences. Bangkok y las parejas de estímulos tailandeses vienen de aquí."
     },
     "howToUse": {
-      "label": "How to use this brain",
-      "heading": "A short guide to the affordances.",
-      "intro": "The site has more entry points than the home page suggests. The list below names the discoverable ones — the small affordances that turn a beautiful piece into a navigable research instrument.",
+      "label": "Cómo usar este cerebro",
+      "heading": "Una guía breve de los recursos.",
+      "intro": "El sitio tiene más puntos de entrada de los que sugiere la página de inicio. La lista siguiente nombra los descubribles — los pequeños recursos que convierten una pieza bella en un instrumento de investigación navegable.",
       "search": {
-        "label": "Search",
-        "body": "Press Cmd-K (or Ctrl-K on Windows / Linux) anywhere on the site to open a keyboard-first search palette. It indexes every region, every Bridges section, every tour, every long-form essay, and a small set of cross-cutting concepts. Type a researcher's surname, a disorder, a Jungian concept, a brain region — the palette finds it."
+        "label": "Búsqueda",
+        "body": "Pulsa Cmd-K (o Ctrl-K en Windows / Linux) en cualquier lugar del sitio para abrir una paleta de búsqueda con prioridad de teclado. Indexa todas las regiones, todas las secciones de Puentes, todos los recorridos, todos los ensayos extensos y un pequeño conjunto de conceptos transversales. Escribe el apellido de una investigadora, un trastorno, un concepto junguiano, una región cerebral — la paleta lo encontrará."
       },
       "atlas": {
         "label": "Atlas",
-        "body": "The Region Atlas has twenty pages, one per region we surface. Each page carries seven sections: anatomy, function, cell types, connections, clinical context, history of discovery, and the depth-psychological thread. Every functional claim cites a peer-reviewed primary source; hover any superscript in the prose to see the reference."
+        "body": "El Atlas de regiones tiene veinte páginas, una por región que mostramos. Cada página sostiene siete secciones: anatomía, función, tipos celulares, conexiones, contexto clínico, historia del descubrimiento, y el hilo de la psicología profunda. Cada afirmación funcional cita una fuente primaria revisada por pares; pasa el cursor por cualquier superíndice en la prosa para ver la referencia."
       },
       "bridges": {
-        "label": "Bridges",
-        "body": "Where neuroscience and depth psychology touch, the Bridges page rates the empirical correspondence — tight, partial, distant, or none. Each Atlas page's Thread section carries a bridge-strength card linking to the matching Bridges section. Following the cards is the cleanest way to see how the two layers of the site interlock."
+        "label": "Puentes",
+        "body": "Donde la neurociencia y la psicología profunda se tocan, la página de Puentes califica la correspondencia empírica — firme, parcial, distante, o ninguna. La sección «El hilo» de cada página del Atlas lleva una tarjeta de intensidad-de-puente que enlaza con la sección de Puentes correspondiente. Seguir las tarjetas es la forma más limpia de ver cómo se entrelazan las dos capas del sitio."
       },
       "connectome": {
-        "label": "Connectome",
-        "body": "Each Atlas page has a Connectome panel in the sidebar listing the white-matter tracts that have an endpoint in this region. Toggle a tract and it appears inside the persistent brain as a glowing curve. The geometry is stylized; the endpoints, function, and discovery credits are faithful to the literature."
+        "label": "Conectoma",
+        "body": "Cada página del Atlas tiene un panel de Conectoma en el margen que enumera los tractos de materia blanca con un extremo en esa región. Activa un tracto y aparece dentro del cerebro persistente como una curva luminosa. La geometría está estilizada; los extremos, la función y los créditos del descubrimiento son fieles a la literatura."
       },
       "cellular": {
-        "label": "Cellular descent",
-        "body": "The Cellular View is the deepest scale on the site — reconstructed individual neurons and a frame-by-frame synapse simulation with selectable neurotransmitter. The macro brain is hidden while you are there so the cellular canvases own the visual field; clicking back into any room restores it."
+        "label": "Descenso celular",
+        "body": "La Vista celular es la escala más profunda del sitio — neuronas individuales reconstruidas y una simulación de sinapsis cuadro por cuadro con neurotransmisor seleccionable. El cerebro macro queda oculto mientras estás allí para que los lienzos celulares dominen el campo visual; al volver a cualquier sala se restaura."
       },
       "tours": {
-        "label": "Guided Tours",
-        "body": "Six choreographed two-to-three-minute experiences in which the brain animates through a sequence of activations with synchronized narration. Watch them rather than navigate them — the pacing is deliberate. Each tour links into the Bridges page or the relevant Atlas region at the end."
+        "label": "Recorridos guiados",
+        "body": "Seis experiencias coreografiadas de dos a tres minutos en las que el cerebro se anima a través de una secuencia de activaciones con narración sincronizada. Míralos en vez de navegarlos — el ritmo es deliberado. Cada recorrido enlaza con la página de Puentes o con la región del Atlas pertinente al final."
       },
       "depthPsychology": {
-        "label": "Depth Psychology",
-        "body": "A separate section for the depth-psychological layer of the site: Bridges as the synthesizing index, long-form pages on Aion, the Red Book, and Gestalt therapy, and adjacent essays in Field Notes, Threshold, and Archetypes. The voice is restrained and the cross-references back to the empirical side are explicit."
+        "label": "Psicología profunda",
+        "body": "Una sección aparte para la capa de psicología profunda del sitio: Puentes como índice sintetizador, páginas extensas sobre Aion, El libro rojo y la terapia Gestalt, y ensayos contiguos en Cuaderno de campo, El umbral y Arquetipos. La voz es contenida y las referencias cruzadas hacia el lado empírico son explícitas."
       },
-      "closing": "None of this is hidden. None of it is gamified. The affordances are here for the reader who wants them; the reader who doesn't can ignore them and have the cinematic version of the site instead."
+      "closing": "Nada de esto está oculto. Nada está gamificado. Los recursos están aquí para la lectora que los quiere; quien no, puede ignorarlos y tener la versión cinematográfica del sitio."
     },
     "roadmap": {
       "label": "Hoja de ruta",
