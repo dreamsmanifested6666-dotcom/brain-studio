@@ -171,6 +171,42 @@
     },
     "footerNote": "Laboratori de NeuroMúsica · línies de temps simulades localment"
   },
+  "threshold": {
+    "label": "El Llindar",
+    "openingDisplay": "Dues llengües anomenen el que una sola no pot anomenar del tot.",
+    "openingBody": "El que segueix és un assaig en tres moviments sobre la costura entre neurociència i psicologia profunda — les llengües que aquest lloc sosté en paral·lel, i per què sosté totes dues.",
+    "m1": {
+      "heading": "Moviment un — el problema de l'escala.",
+      "body1": "Un zoom continu real des de la superfície cortical fins a una sola sinapsi creuaria uns deu milions de cops d'augment. No existeix cap visualització honesta d'aquesta davallada. Qualsevol lloc que fingeixi el contrari — qualsevol animació que es llanci del cervell sencer a una neurona brillant en una sola presa — està mentint en alguna cosa concreta: que les escales es connecten sense salts, i que mirar més de prop és seguir mirant el mateix.",
+      "body2": "El que realment tens, quan mires més de prop, és un objecte diferent. La predicció de superfície cortical que produeix TRIBE i la reconstrucció de cèl·lula única que guarda NeuroMorpho no són etapes d'una mateixa indagació. Són indagacions diferents. La feina interessant passa a les costures, no en la falsa continuïtat.",
+      "body3": "El mateix passa entre les llengües de la ment. La neurociència parla de regions i xarxes i neurotransmissors i escales de mil·lisegons. La psicologia profunda parla de l'inconscient, de l'ombra, de la individuació, del treball lent d'integrar parts desconegudes al llarg de dècades. Tampoc fan zoom l'una a l'altra. La temptació de forçar-les a fer-ho és comprensible: un sol marc explicatiu és més fàcil de portar que dos. Però el marc més fàcil no és el més honest.",
+      "italic": "Sostenir dues llengües no és un fracàs de la síntesi. És el reconeixement que algunes preguntes són més grans que qualsevol llengua per a elles.",
+      "meta": "Moviment u · ~290 paraules · 2 min de lectura"
+    },
+    "m2": {
+      "heading": "Moviment dos — què és l'inconscient, en dues llengües.",
+      "body1": "En neurociència, l'inconscient és el fet més gran sobre com funcionen els cervells. La finestra conscient és petita. Gairebé tot el que el cervell fa — predir, comparar, decidir, classificar, preparar-se — passa per sota de la consciència. La xarxa per defecte continua brunzint encara que no se li demani cap tasca. La memòria implícita organitza el reconeixement abans que la recuperació arribi a les paraules. L'avaluació afectiva automàtica marca rellevància mil·lisegons abans que cap sistema deliberatiu se n'adoni. L'aritmètica de l'atenció i l'arquitectura de la percepció són, sobretot, invisibles per a qui percep.",
+      "body2": "A Jung, l'inconscient també és el fet més gran, però la llengua és diferent. Allà no és només un enunciat estadístic sobre quanta ment viu sota la consciència. És més a prop d'un territori — amb estructura, amb patrons que es repeteixen entre cultures i al llarg dels segles, amb alguna cosa semblant a una intenció pròpia. La individuació, la paraula de Jung per al treball de tota una vida d'integrar el desconegut, era un procés amb direcció: cap a una totalitat que no és la idea que l'ego té de si mateix.",
+      "body3": "On els dos marcs es toquen: tots dos coincideixen que la consciència és la part petita. Tots dos coincideixen que alguna cosa més profunda fa la major part del treball, i que ignorar-ho produeix danys previsibles — a la persona, als qui l'envolten, a les relacions i decisions que es prenen a partir d'un autoconeixement que no ho és.",
+      "body4": "On divergeixen: l'inconscient de Jung té direcció i estructura que la neurociència no reclama. El Si Mateix, els arquetips, la vida simbòlica de la psique — són observacions fenomenològiques, no fets neurals. La neurociència no els ha avalat, i no hi ha cap maniobra honesta que digui que sí. Viuen en un registre on el que importa és la forma sentida de l'experiència interior, no el seu mecanisme.",
+      "italic": "Totes dues llengües són veritables. Cap no és suficient. La feina interessant, una altra vegada, passa a les costures.",
+      "meta": "Moviment dos · ~440 paraules · 3 min de lectura"
+    },
+    "m3": {
+      "heading": "Moviment tres — per què les dues llengües.",
+      "body1": "La neurociència és rigorosa amb el mecanisme i feble amb el significat. Et pot dir amb precisió extraordinària amb quina rapidesa el sistema visual analitza una vora, quines cèl·lules es disparen quan reconeixes una cara, on a la còrtex s'acobla una frase. No et pot dir què va significar aquella cara per a tu, ni per a què era la frase. El mecanisme queda al descobert; el significat es deixa a qui ho viu.",
+      "body2": "La psicologia profunda és rigorosa amb el significat i feble amb el mecanisme. Té un segle de fenomenologia atenta — atenció acurada al que la gent realment explica sobre somnis, símptomes, transferències, la sensació de ser mogut o aturat o interpel·lat per alguna cosa. No sempre sap què fa que això passi a nivell de cèl·lules. Sap, però, què és viure-hi a dins.",
+      "body3": "Un lloc que sosté totes dues està fent allò que cap pot fer tota sola. Està deixant que la pregunta per la ment sigui més gran que qualsevol vocabulari per a ella. Està rebutjant col·lapsar l'experiència sentida en maquinària, i rebutjant dissoldre la maquinària en metàfora. Està reconeixent que la mateixa persona és, alhora, una superfície cortical predint la pròxima paraula i algú que es pregunta, a les 3 de la matinada, per què una frase concreta encara fa mal.",
+      "italic": "No ets el teu cervell. No ets el teu inconscient. Ets allò que es pregunta quin dels dos és.",
+      "meta": "Moviment tres · ~310 paraules · 2 min de lectura"
+    },
+    "closing": {
+      "hand": "— fi del llindar",
+      "linkHome": "Tornar a la superfície",
+      "linkFieldNotes": "Llegir més notes de camp",
+      "linkCellular": "Baixar a la visió cel·lular"
+    }
+  },
   "cellular": {
     "label": "Visió Cel·lular",
     "title": "On l'activació es torna biologia.",

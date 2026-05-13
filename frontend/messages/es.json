@@ -171,6 +171,42 @@
     },
     "footerNote": "Laboratorio de NeuroMúsica · líneas de tiempo simuladas localmente"
   },
+  "threshold": {
+    "label": "El Umbral",
+    "openingDisplay": "Dos lenguas nombran lo que una sola no puede nombrar por completo.",
+    "openingBody": "Lo que sigue es un ensayo en tres movimientos sobre la costura entre neurociencia y psicología profunda — las lenguas que este sitio sostiene en paralelo, y por qué sostiene las dos.",
+    "m1": {
+      "heading": "Movimiento uno — el problema de la escala.",
+      "body1": "Un zoom continuo real desde la superficie cortical hasta una sola sinapsis cruzaría unas diez millones de veces el aumento. No existe una visualización honesta de ese descenso. Cualquier sitio que finja lo contrario — cualquier animación que se lance del cerebro entero a una neurona brillante en una sola toma — está mintiendo en algo concreto: que las escalas se conectan sin saltos, y que mirar más de cerca es seguir mirando lo mismo.",
+      "body2": "Lo que realmente tienes, cuando miras más de cerca, es un objeto distinto. La predicción de superficie cortical que produce TRIBE y la reconstrucción de célula única que guarda NeuroMorpho no son estadios de una misma indagación. Son indagaciones distintas. El trabajo interesante ocurre en las costuras, no en la falsa continuidad.",
+      "body3": "Lo mismo pasa entre las lenguas de la mente. La neurociencia habla de regiones y redes y neurotransmisores y escalas de milisegundos. La psicología profunda habla del inconsciente, de la sombra, de la individuación, del trabajo lento de integrar partes desconocidas a lo largo de décadas. Tampoco se hacen zoom una a la otra. La tentación de obligarlas a hacerlo es comprensible: un único marco explicativo es más fácil de llevar que dos. Pero el marco más fácil no es el más honesto.",
+      "italic": "Sostener dos lenguas no es un fracaso de la síntesis. Es el reconocimiento de que algunas preguntas son más grandes que cualquier lengua para ellas.",
+      "meta": "Movimiento uno · ~290 palabras · 2 min de lectura"
+    },
+    "m2": {
+      "heading": "Movimiento dos — qué es el inconsciente, en dos lenguas.",
+      "body1": "En neurociencia, el inconsciente es el dato mayor sobre cómo funcionan los cerebros. La ventana consciente es pequeña. Casi todo lo que el cerebro hace — predecir, comparar, decidir, clasificar, prepararse — ocurre por debajo de la conciencia. La red por defecto zumba incluso cuando no se le pide ninguna tarea. La memoria implícita organiza el reconocimiento antes de que la evocación llegue a las palabras. La evaluación afectiva automática marca relevancia milisegundos antes de que ningún sistema deliberativo se entere. La aritmética de la atención y la arquitectura de la percepción son, en su mayor parte, invisibles para quien percibe.",
+      "body2": "En Jung, el inconsciente también es el dato mayor, pero la lengua es otra. Allí no es sólo un enunciado estadístico sobre cuánta mente vive bajo la conciencia. Es algo más cercano a un territorio — con estructura, con patrones que se repiten entre culturas y a través de los siglos, con algo parecido a una intención propia. La individuación, la palabra de Jung para el trabajo de toda una vida de integrar lo desconocido, era un proceso con dirección: hacia una totalidad que no es la idea que el ego tiene de sí.",
+      "body3": "Donde los dos marcos se tocan: ambos coinciden en que la conciencia es la parte pequeña. Ambos coinciden en que algo más profundo hace la mayor parte del trabajo y en que ignorarlo produce daños previsibles — a la persona, a quienes la rodean, a las relaciones y decisiones que se toman a partir de un autoconocimiento que no lo es.",
+      "body4": "Donde divergen: el inconsciente de Jung tiene dirección y estructura que la neurociencia no reclama. El Sí Mismo, los arquetipos, la vida simbólica de la psique — son observaciones fenomenológicas, no hechos neurales. La neurociencia no los ha respaldado, y no hay maniobra honesta que diga que sí. Viven en un registro donde lo que importa es la forma sentida de la experiencia interior, no su mecanismo.",
+      "italic": "Las dos lenguas son verdaderas. Ninguna basta. El trabajo interesante, otra vez, ocurre en las costuras.",
+      "meta": "Movimiento dos · ~440 palabras · 3 min de lectura"
+    },
+    "m3": {
+      "heading": "Movimiento tres — por qué las dos lenguas.",
+      "body1": "La neurociencia es rigurosa con el mecanismo y débil con el significado. Puede decirte con extraordinaria precisión con qué rapidez el sistema visual analiza un borde, qué células se disparan al reconocer una cara, dónde en la corteza se ensambla una frase. No puede decirte qué significó esa cara para ti, ni para qué era la frase. El mecanismo queda al descubierto; el significado se le deja a la persona que lo vive.",
+      "body2": "La psicología profunda es rigurosa con el significado y débil con el mecanismo. Lleva un siglo de fenomenología cuidadosa — atención atenta a lo que la gente cuenta de hecho sobre sueños, síntomas, transferencias, la sensación de ser movida o detenida o interpelada por algo. No siempre sabe qué hace que eso ocurra a nivel celular. Sí sabe qué es vivir dentro de eso.",
+      "body3": "Un sitio que sostiene las dos está haciendo lo que ninguna puede hacer sola. Está dejando que la pregunta por la mente sea más grande que cualquier vocabulario para ella. Está rehusando colapsar la experiencia sentida en maquinaria, y rehusando disolver la maquinaria en metáfora. Está reconociendo que la misma persona es, a la vez, una superficie cortical prediciendo la próxima palabra y alguien que se pregunta, a las 3 a.m., por qué una frase determinada todavía duele.",
+      "italic": "No eres tu cerebro. No eres tu inconsciente. Eres aquello que se pregunta cuál de los dos es.",
+      "meta": "Movimiento tres · ~310 palabras · 2 min de lectura"
+    },
+    "closing": {
+      "hand": "— fin del umbral",
+      "linkHome": "Volver a la superficie",
+      "linkFieldNotes": "Leer más notas de campo",
+      "linkCellular": "Descender a la visión celular"
+    }
+  },
   "cellular": {
     "label": "Visión Celular",
     "title": "Donde la activación se vuelve biología.",
