@@ -140,6 +140,28 @@ import { amygRightAtlasJa } from "./ja/amyg_right";
 import { hippLeftAtlasJa } from "./ja/hipp_left";
 import { hippRightAtlasJa } from "./ja/hipp_right";
 
+// Simplified Chinese translations.
+import { ifgLeftAtlasZhCn } from "./zh-CN/ifg_left";
+import { ifgRightAtlasZhCn } from "./zh-CN/ifg_right";
+import { pstgLeftAtlasZhCn } from "./zh-CN/pstg_left";
+import { pstgRightAtlasZhCn } from "./zh-CN/pstg_right";
+import { mtgLeftAtlasZhCn } from "./zh-CN/mtg_left";
+import { mtgRightAtlasZhCn } from "./zh-CN/mtg_right";
+import { atlLeftAtlasZhCn } from "./zh-CN/atl_left";
+import { atlRightAtlasZhCn } from "./zh-CN/atl_right";
+import { aglLeftAtlasZhCn } from "./zh-CN/agl_left";
+import { aglRightAtlasZhCn } from "./zh-CN/agl_right";
+import { hgLeftAtlasZhCn } from "./zh-CN/hg_left";
+import { hgRightAtlasZhCn } from "./zh-CN/hg_right";
+import { vmpfcAtlasZhCn } from "./zh-CN/vmpfc";
+import { dmpfcAtlasZhCn } from "./zh-CN/dmpfc";
+import { pccAtlasZhCn } from "./zh-CN/pcc";
+import { precuneusAtlasZhCn } from "./zh-CN/precuneus";
+import { amygLeftAtlasZhCn } from "./zh-CN/amyg_left";
+import { amygRightAtlasZhCn } from "./zh-CN/amyg_right";
+import { hippLeftAtlasZhCn } from "./zh-CN/hipp_left";
+import { hippRightAtlasZhCn } from "./zh-CN/hipp_right";
+
 /**
  * Helper for creating a stub entry. Retained for the convenience of
  * any future additions or temporary reverts; not used in this file
@@ -301,6 +323,28 @@ const translationsByLocale: Record<
     amyg_right: amygRightAtlasJa,
     hipp_left: hippLeftAtlasJa,
     hipp_right: hippRightAtlasJa,
+  },
+  "zh-CN": {
+    ifg_left: ifgLeftAtlasZhCn,
+    ifg_right: ifgRightAtlasZhCn,
+    pstg_left: pstgLeftAtlasZhCn,
+    pstg_right: pstgRightAtlasZhCn,
+    mtg_left: mtgLeftAtlasZhCn,
+    mtg_right: mtgRightAtlasZhCn,
+    atl_left: atlLeftAtlasZhCn,
+    atl_right: atlRightAtlasZhCn,
+    agl_left: aglLeftAtlasZhCn,
+    agl_right: aglRightAtlasZhCn,
+    hg_left: hgLeftAtlasZhCn,
+    hg_right: hgRightAtlasZhCn,
+    vmpfc: vmpfcAtlasZhCn,
+    dmpfc: dmpfcAtlasZhCn,
+    pcc: pccAtlasZhCn,
+    precuneus: precuneusAtlasZhCn,
+    amyg_left: amygLeftAtlasZhCn,
+    amyg_right: amygRightAtlasZhCn,
+    hipp_left: hippLeftAtlasZhCn,
+    hipp_right: hippRightAtlasZhCn,
   },
 };
 
