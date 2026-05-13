@@ -7,7 +7,7 @@ import {
   Mono,
 } from "@/components/typography/Typography";
 import { Link } from "@/i18n/navigation";
-import { tours } from "@/content/tours";
+import { toursForLocale } from "@/content/tours";
 import { tourDuration } from "@/lib/tours";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -25,6 +25,7 @@ export default async function ToursIndex({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "tours" });
+  const tours = toursForLocale(locale);
 
   return (
     <>

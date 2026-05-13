@@ -4,8 +4,8 @@ import { useEffect, useMemo, useRef, useState, use } from "react";
 import { notFound } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
-import { tourById } from "@/content/tours";
+import { useTranslations, useLocale } from "next-intl";
+import { tourByIdAndLocale } from "@/content/tours";
 import { sceneAtTime, tourDuration } from "@/lib/tours";
 import { useBrainStageStore } from "@/store/useBrainStageStore";
 import {
@@ -40,8 +40,9 @@ export default function TourPlayerPage({
 }) {
   const { tourId } = use(params);
   const t = useTranslations("tours");
+  const locale = useLocale();
 
-  const tour = tourById(tourId);
+  const tour = tourByIdAndLocale(tourId, locale);
   if (!tour) notFound();
 
   const setTransform = useBrainStageStore((s) => s.setTransform);
