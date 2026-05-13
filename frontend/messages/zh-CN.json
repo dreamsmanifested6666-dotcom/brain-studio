@@ -171,6 +171,87 @@
     },
     "footerNote": "神经音乐实验室 · 时间线在本地模拟运行"
   },
+  "cellular": {
+    "label": "细胞层面",
+    "title": "活动在此变成生物学。",
+    "intro": "我们即将下沉。在其他页面看到的大脑，是皮层的表面——TRIBE 的预测就生活在那个尺度上。下面这些神经元是另一回事：来自 NeuroMorpho.org 的真实重建，由世界各地的实验室贡献。同一颗大脑，不同的尺度，不同的看法。",
+    "introItalic": "从皮层到突触的真正连续放大要跨越一千万倍。我们不假装在演示那个过程。我们把不同尺度并列呈现，作为不同的看法。",
+    "oneOfThese": "其中之一",
+    "neuronDefault": "神经元",
+    "labSuffix": "实验室",
+    "pmid": "PMID",
+    "neuroMorphoLink": "NeuroMorpho ↗",
+    "colorKey": "颜色对应：",
+    "colorKeyBrass": "黄铜色",
+    "colorKeyApical": "顶端树突（那条标志性的主干）",
+    "colorKeyBone": "米色",
+    "colorKeyBasal": "基底树突",
+    "colorKeyCyan": "青色",
+    "colorKeyAxon": "轴突",
+    "colorKeyYellow": "黄色",
+    "colorKeySoma": "胞体",
+    "transition": "以及它一万条连接中的一条。",
+    "triggerButton": "触发动作电位",
+    "speedLabel": "速度",
+    "hand": "同样的机制，不同的递质，下游影响截然不同",
+    "footer": "细胞层面 · 神经元来自 NeuroMorpho.org · 突触动画为示意",
+    "transmitters": {
+      "glutamate": {
+        "label": "谷氨酸",
+        "effect": "兴奋性。结合 AMPA / NMDA。快速，去极化。",
+        "step1": "动作电位到达突触前小球…",
+        "step2": "钙离子内流触发囊泡融合…",
+        "step3": "谷氨酸越过突触间隙…",
+        "step4": "结合到 AMPA 与 NMDA 受体…",
+        "step5": "兴奋性突触后电位生成。"
+      },
+      "gaba": {
+        "label": "γ-氨基丁酸",
+        "effect": "抑制性。结合 GABA-A。快速，超极化。",
+        "step1": "动作电位到达抑制性末端…",
+        "step2": "钙触发 GABA 囊泡融合…",
+        "step3": "GABA 越过突触间隙…",
+        "step4": "结合 GABA-A 受体，打开氯通道…",
+        "step5": "抑制性突触后电位——这个细胞更难放电了。"
+      },
+      "dopamine": {
+        "label": "多巴胺",
+        "effect": "神经调质。容积传递；更慢、扩散更广。",
+        "step1": "中脑多巴胺神经元的一阵放电…",
+        "step2": "向细胞外空间的容积释放…",
+        "step3": "多巴胺缓慢扩散，同时到达许多突触…",
+        "step4": "在数百毫秒间调节 D1 / D2 受容体…",
+        "step5": "一个不像开关、更像潮汐的信号。"
+      },
+      "serotonin": {
+        "label": "血清素",
+        "effect": "神经调质。持续释放；受体多样性很关键。",
+        "step1": "中缝核末端缓慢释放…",
+        "step2": "稳定的外流而非一次性爆发…",
+        "step3": "多种受体家族响应——5-HT1A、5-HT2A 等等…",
+        "step4": "调节情绪、睡眠、感觉门控…",
+        "step5": "同一种分子在不同房间里说着不同的话。"
+      },
+      "norepinephrine": {
+        "label": "去甲肾上腺素",
+        "effect": "唤起／警觉。稀疏但显著。",
+        "step1": "蓝斑核发出的唤起信号…",
+        "step2": "向皮层稀疏但显著的释放…",
+        "step3": "结合 α / β 肾上腺素受体…",
+        "step4": "在接收细胞中提高信噪比…",
+        "step5": "短暂以化学物质形态出现的「注意力」。"
+      },
+      "acetylcholine": {
+        "label": "乙酰胆碱",
+        "effect": "注意、可塑性。平衡的释放。",
+        "step1": "胆碱能末端被激活…",
+        "step2": "乙酰胆碱释放…",
+        "step3": "结合烟碱型与毒蕈碱型受体…",
+        "step4": "门控注意与可塑性…",
+        "step5": "帮助大脑决定「保留什么」的那种递质。"
+      }
+    }
+  },
   "crosscultural": {
     "label": "跨文化大脑 · 阶段 7",
     "entry1": "这台模型是用英语训练的。",

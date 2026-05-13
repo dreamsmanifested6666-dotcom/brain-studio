@@ -171,6 +171,87 @@
     },
     "footerNote": "Laboratorio de NeuroMúsica · líneas de tiempo simuladas localmente"
   },
+  "cellular": {
+    "label": "Visión Celular",
+    "title": "Donde la activación se vuelve biología.",
+    "intro": "Estamos a punto de bajar. El cerebro que ves en las demás páginas es la superficie cortical — la predicción de TRIBE vive en esa escala. Las neuronas de abajo son otra cosa: reconstrucciones reales de NeuroMorpho.org, aportadas por laboratorios de todo el mundo. Mismo cerebro. Distintas escalas. Distintas formas de ver.",
+    "introItalic": "Un zoom continuo real desde la corteza hasta la sinapsis cruzaría diez millones de aumentos. No fingimos mostrarlo. Mostramos escalas distintas como formas distintas de mirar.",
+    "oneOfThese": "Una de estas",
+    "neuronDefault": "Neurona",
+    "labSuffix": "laboratorio",
+    "pmid": "PMID",
+    "neuroMorphoLink": "NeuroMorpho ↗",
+    "colorKey": "Clave de color:",
+    "colorKeyBrass": "latón",
+    "colorKeyApical": "dendrita apical (el tronco icónico)",
+    "colorKeyBone": "hueso",
+    "colorKeyBasal": "dendritas basales",
+    "colorKeyCyan": "cian",
+    "colorKeyAxon": "axón",
+    "colorKeyYellow": "amarillo",
+    "colorKeySoma": "soma",
+    "transition": "Y una de sus diez mil conexiones.",
+    "triggerButton": "Disparar potencial de acción",
+    "speedLabel": "Velocidad",
+    "hand": "misma mecánica, transmisores distintos, efectos aguas abajo muy distintos",
+    "footer": "Visión Celular · neuronas de NeuroMorpho.org · animación de sinapsis ilustrativa",
+    "transmitters": {
+      "glutamate": {
+        "label": "Glutamato",
+        "effect": "Excitatorio. Se une a AMPA / NMDA. Rápido, despolarizante.",
+        "step1": "Potencial de acción llegando al botón presináptico…",
+        "step2": "Entrada de calcio que dispara la fusión de vesículas…",
+        "step3": "Glutamato cruzando la hendidura sináptica…",
+        "step4": "Unión a receptores AMPA y NMDA…",
+        "step5": "Se genera el potencial postsináptico excitatorio."
+      },
+      "gaba": {
+        "label": "GABA",
+        "effect": "Inhibitorio. Se une a GABA-A. Rápido, hiperpolarizante.",
+        "step1": "Potencial de acción llegando al terminal inhibitorio…",
+        "step2": "Fusión de vesículas de GABA disparada por calcio…",
+        "step3": "GABA cruzando la hendidura…",
+        "step4": "Unión a receptores GABA-A, abriendo canales de cloro…",
+        "step5": "Potencial postsináptico inhibitorio — la célula tiene ahora más resistencia a dispararse."
+      },
+      "dopamine": {
+        "label": "Dopamina",
+        "effect": "Neuromodulador. Transmisión por volumen; más lenta, de difusión más amplia.",
+        "step1": "Disparo de una neurona dopaminérgica del mesencéfalo…",
+        "step2": "Liberación volumétrica al espacio extracelular…",
+        "step3": "La dopamina difunde lentamente y alcanza muchas sinapsis a la vez…",
+        "step4": "Modulando receptores D1 / D2 durante cientos de milisegundos…",
+        "step5": "Una señal menos parecida a un interruptor y más parecida a una marea."
+      },
+      "serotonin": {
+        "label": "Serotonina",
+        "effect": "Neuromodulador. Liberación sostenida; importa la diversidad de receptores.",
+        "step1": "Liberación lenta desde un terminal del rafé…",
+        "step2": "Eflujo constante en lugar de un estallido…",
+        "step3": "Distintas familias de receptores responden — 5-HT1A, 5-HT2A, más…",
+        "step4": "Modulando el ánimo, el sueño, el filtrado sensorial…",
+        "step5": "La misma molécula dice cosas distintas en distintas estancias."
+      },
+      "norepinephrine": {
+        "label": "Noradrenalina",
+        "effect": "Arousal / vigilancia. Escasa pero saliente.",
+        "step1": "Señal de arousal desde el locus coeruleus…",
+        "step2": "Liberación escasa pero saliente por la corteza…",
+        "step3": "Unión a receptores adrenérgicos α / β…",
+        "step4": "Afinando la relación señal-ruido en la célula receptora…",
+        "step5": "Atención convertida brevemente en química."
+      },
+      "acetylcholine": {
+        "label": "Acetilcolina",
+        "effect": "Atención, plasticidad. Liberación equilibrada.",
+        "step1": "Se activa un terminal colinérgico…",
+        "step2": "Liberación de acetilcolina…",
+        "step3": "Unión a receptores nicotínicos y muscarínicos…",
+        "step4": "Modulando atención y plasticidad…",
+        "step5": "El transmisor que ayuda al cerebro a decidir qué guardar."
+      }
+    }
+  },
   "crosscultural": {
     "label": "Cerebro Transcultural · Fase 7",
     "entry1": "Este modelo fue entrenado en inglés.",

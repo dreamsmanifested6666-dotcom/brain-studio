@@ -171,6 +171,87 @@
     },
     "footerNote": "Laboratori de NeuroMúsica · línies de temps simulades localment"
   },
+  "cellular": {
+    "label": "Visió Cel·lular",
+    "title": "On l'activació es torna biologia.",
+    "intro": "Estem a punt de baixar. El cervell que veus a la resta de pàgines és la superfície cortical — la predicció de TRIBE viu en aquesta escala. Les neurones de sota són una altra cosa: reconstruccions reals de NeuroMorpho.org, aportades per laboratoris d'arreu del món. Mateix cervell. Escales diferents. Maneres diferents de veure.",
+    "introItalic": "Un zoom continu real des de la còrtex fins a la sinapsi creuaria deu milions d'augments. No fem veure que ho mostrem. Mostrem escales diferents com a maneres diferents de mirar.",
+    "oneOfThese": "Una d'aquestes",
+    "neuronDefault": "Neurona",
+    "labSuffix": "laboratori",
+    "pmid": "PMID",
+    "neuroMorphoLink": "NeuroMorpho ↗",
+    "colorKey": "Clau de color:",
+    "colorKeyBrass": "llautó",
+    "colorKeyApical": "dendrita apical (el tronc icònic)",
+    "colorKeyBone": "os",
+    "colorKeyBasal": "dendrites basals",
+    "colorKeyCyan": "cian",
+    "colorKeyAxon": "axó",
+    "colorKeyYellow": "groc",
+    "colorKeySoma": "soma",
+    "transition": "I una de les seves deu mil connexions.",
+    "triggerButton": "Disparar potencial d'acció",
+    "speedLabel": "Velocitat",
+    "hand": "mateixa mecànica, transmissors diferents, efectes molt diferents aigües avall",
+    "footer": "Visió Cel·lular · neurones de NeuroMorpho.org · animació de sinapsi il·lustrativa",
+    "transmitters": {
+      "glutamate": {
+        "label": "Glutamat",
+        "effect": "Excitatori. S'uneix a AMPA / NMDA. Ràpid, despolaritzant.",
+        "step1": "Potencial d'acció arribant al botó presinàptic…",
+        "step2": "Entrada de calci que dispara la fusió de vesícules…",
+        "step3": "Glutamat travessant l'escletxa sinàptica…",
+        "step4": "Unió als receptors AMPA i NMDA…",
+        "step5": "Es genera el potencial postsinàptic excitatori."
+      },
+      "gaba": {
+        "label": "GABA",
+        "effect": "Inhibitori. S'uneix a GABA-A. Ràpid, hiperpolaritzant.",
+        "step1": "Potencial d'acció arribant al terminal inhibitori…",
+        "step2": "Fusió de vesícules de GABA disparada per calci…",
+        "step3": "GABA travessant l'escletxa…",
+        "step4": "Unió als receptors GABA-A, obrint canals de clor…",
+        "step5": "Potencial postsinàptic inhibitori — la cèl·lula es dispara amb més dificultat ara."
+      },
+      "dopamine": {
+        "label": "Dopamina",
+        "effect": "Neuromodulador. Transmissió per volum; més lenta, de difusió més àmplia.",
+        "step1": "Dispar d'una neurona dopaminèrgica del mesencèfal…",
+        "step2": "Alliberament volumètric a l'espai extracel·lular…",
+        "step3": "La dopamina difon lentament i arriba a moltes sinapsis alhora…",
+        "step4": "Modulant receptors D1 / D2 durant centenars de mil·lisegons…",
+        "step5": "Un senyal menys com un interruptor i més com una marea."
+      },
+      "serotonin": {
+        "label": "Serotonina",
+        "effect": "Neuromodulador. Alliberament sostingut; importa la diversitat de receptors.",
+        "step1": "Alliberament lent des d'un terminal del rafe…",
+        "step2": "Eflux constant en lloc d'una esclatada…",
+        "step3": "Diferents famílies de receptors responen — 5-HT1A, 5-HT2A, més…",
+        "step4": "Modulant l'estat d'ànim, la son, el filtratge sensorial…",
+        "step5": "La mateixa molècula diu coses diferents a estances diferents."
+      },
+      "norepinephrine": {
+        "label": "Noradrenalina",
+        "effect": "Activació / vigilància. Escassa però saliente.",
+        "step1": "Senyal d'activació des del locus coeruleus…",
+        "step2": "Alliberament escàs però salient per la còrtex…",
+        "step3": "Unió a receptors adrenèrgics α / β…",
+        "step4": "Afinant la relació senyal-soroll a la cèl·lula receptora…",
+        "step5": "Atenció convertida breument en química."
+      },
+      "acetylcholine": {
+        "label": "Acetilcolina",
+        "effect": "Atenció, plasticitat. Alliberament equilibrat.",
+        "step1": "S'activa un terminal colinèrgic…",
+        "step2": "Alliberament d'acetilcolina…",
+        "step3": "Unió a receptors nicotínics i muscarínics…",
+        "step4": "Modulant atenció i plasticitat…",
+        "step5": "El transmissor que ajuda el cervell a decidir què conservar."
+      }
+    }
+  },
   "crosscultural": {
     "label": "Cervell Transcultural · Fase 7",
     "entry1": "Aquest model va ser entrenat en anglès.",

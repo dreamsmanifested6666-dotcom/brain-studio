@@ -171,6 +171,87 @@
     },
     "footerNote": "NeuroMusic Lab · timelines simulated locally"
   },
+  "cellular": {
+    "label": "Cellular View",
+    "title": "Where activation becomes biology.",
+    "intro": "We are about to descend. The brain you see on every other page is the cortical surface — TRIBE's prediction is on that scale. The neurons below are something else: real reconstructions from NeuroMorpho.org, contributed by labs around the world. Same brain. Different scales. Different ways of seeing.",
+    "introItalic": "A real continuous zoom from cortex to synapse would cross ten million-fold magnification. We don't pretend to show that. We show different scales as different ways of looking.",
+    "oneOfThese": "One of these",
+    "neuronDefault": "Neuron",
+    "labSuffix": "lab",
+    "pmid": "PMID",
+    "neuroMorphoLink": "NeuroMorpho ↗",
+    "colorKey": "Color key:",
+    "colorKeyBrass": "brass",
+    "colorKeyApical": "apical dendrite (the iconic trunk)",
+    "colorKeyBone": "bone",
+    "colorKeyBasal": "basal dendrites",
+    "colorKeyCyan": "cyan",
+    "colorKeyAxon": "axon",
+    "colorKeyYellow": "yellow",
+    "colorKeySoma": "soma",
+    "transition": "And one of its ten thousand connections.",
+    "triggerButton": "Trigger action potential",
+    "speedLabel": "Speed",
+    "hand": "same mechanics, different transmitters, very different downstream effects",
+    "footer": "Cellular View · neurons from NeuroMorpho.org · synapse animation illustrative",
+    "transmitters": {
+      "glutamate": {
+        "label": "Glutamate",
+        "effect": "Excitatory. Binds AMPA / NMDA. Fast, depolarizing.",
+        "step1": "Action potential arriving at the presynaptic bouton…",
+        "step2": "Calcium influx triggering vesicle fusion…",
+        "step3": "Glutamate crossing the synaptic cleft…",
+        "step4": "Binding to AMPA and NMDA receptors…",
+        "step5": "Excitatory postsynaptic potential generated."
+      },
+      "gaba": {
+        "label": "GABA",
+        "effect": "Inhibitory. Binds GABA-A. Fast, hyperpolarizing.",
+        "step1": "Action potential arriving at the inhibitory terminal…",
+        "step2": "Calcium-triggered fusion of GABA vesicles…",
+        "step3": "GABA crossing the cleft…",
+        "step4": "Binding to GABA-A receptors, opening chloride channels…",
+        "step5": "Inhibitory postsynaptic potential — the cell is now harder to fire."
+      },
+      "dopamine": {
+        "label": "Dopamine",
+        "effect": "Neuromodulator. Volume transmission; slower, broader spread.",
+        "step1": "Burst from a midbrain dopamine neuron…",
+        "step2": "Volume release into the extracellular space…",
+        "step3": "Dopamine diffusing slowly, reaching many synapses at once…",
+        "step4": "Modulating D1 / D2 receptors over hundreds of milliseconds…",
+        "step5": "A signal less like a switch, more like a tide."
+      },
+      "serotonin": {
+        "label": "Serotonin",
+        "effect": "Neuromodulator. Steady release; receptor diversity matters.",
+        "step1": "Slow release from a raphe terminal…",
+        "step2": "Steady efflux rather than a burst…",
+        "step3": "Diverse receptor families respond — 5-HT1A, 5-HT2A, more…",
+        "step4": "Modulating mood, sleep, sensory gating…",
+        "step5": "The same molecule says different things in different rooms."
+      },
+      "norepinephrine": {
+        "label": "Norepinephrine",
+        "effect": "Arousal / vigilance. Sparse but salient.",
+        "step1": "Arousal signal from locus coeruleus…",
+        "step2": "Sparse but salient release across cortex…",
+        "step3": "Binding to α / β adrenergic receptors…",
+        "step4": "Sharpening signal-to-noise on the receiving cell…",
+        "step5": "Attention as a chemical, briefly."
+      },
+      "acetylcholine": {
+        "label": "Acetylcholine",
+        "effect": "Attention, plasticity. Balanced release.",
+        "step1": "Cholinergic terminal activates…",
+        "step2": "Acetylcholine release…",
+        "step3": "Binding nicotinic and muscarinic receptors…",
+        "step4": "Gating attention and plasticity…",
+        "step5": "The transmitter that helps the brain decide what to keep."
+      }
+    }
+  },
   "crosscultural": {
     "label": "Cross-Cultural Brain · Phase 7",
     "entry1": "This model was trained on English.",

@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { Suspense } from "react";
 import * as THREE from "three";
+import { useTranslations } from "next-intl";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import NeuronGeometry from "@/components/cellular/NeuronGeometry";
 import Synapse, {
@@ -47,52 +48,8 @@ const NT_ORDER: Neurotransmitter[] = [
   "acetylcholine",
 ];
 
-const NT_STEPS: Record<Neurotransmitter, string[]> = {
-  glutamate: [
-    "Action potential arriving at the presynaptic bouton…",
-    "Calcium influx triggering vesicle fusion…",
-    "Glutamate crossing the synaptic cleft…",
-    "Binding to AMPA and NMDA receptors…",
-    "Excitatory postsynaptic potential generated.",
-  ],
-  gaba: [
-    "Action potential arriving at the inhibitory terminal…",
-    "Calcium-triggered fusion of GABA vesicles…",
-    "GABA crossing the cleft…",
-    "Binding to GABA-A receptors, opening chloride channels…",
-    "Inhibitory postsynaptic potential — the cell is now harder to fire.",
-  ],
-  dopamine: [
-    "Burst from a midbrain dopamine neuron…",
-    "Volume release into the extracellular space…",
-    "Dopamine diffusing slowly, reaching many synapses at once…",
-    "Modulating D1 / D2 receptors over hundreds of milliseconds…",
-    "A signal less like a switch, more like a tide.",
-  ],
-  serotonin: [
-    "Slow release from a raphe terminal…",
-    "Steady efflux rather than a burst…",
-    "Diverse receptor families respond — 5-HT1A, 5-HT2A, more…",
-    "Modulating mood, sleep, sensory gating…",
-    "The same molecule says different things in different rooms.",
-  ],
-  norepinephrine: [
-    "Arousal signal from locus coeruleus…",
-    "Sparse but salient release across cortex…",
-    "Binding to α / β adrenergic receptors…",
-    "Sharpening signal-to-noise on the receiving cell…",
-    "Attention as a chemical, briefly.",
-  ],
-  acetylcholine: [
-    "Cholinergic terminal activates…",
-    "Acetylcholine release…",
-    "Binding nicotinic and muscarinic receptors…",
-    "Gating attention and plasticity…",
-    "The transmitter that helps the brain decide what to keep.",
-  ],
-};
-
 export default function CellularPage() {
+  const t = useTranslations("cellular");
   const [manifest, setManifest] = useState<ManifestEntry[]>([]);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [nt, setNt] = useState<Neurotransmitter>("glutamate");
@@ -100,6 +57,16 @@ export default function CellularPage() {
   const [speed, setSpeed] = useState(1);
   const [stepIdx, setStepIdx] = useState(0);
   const setVisible = useBrainStageStore((s) => s.setVisible);
+
+  // Per-neurotransmitter step copy comes from translations so each locale
+  // ships its own five-line play-by-play.
+  const stepsFor = (id: Neurotransmitter): string[] => [
+    t(`transmitters.${id}.step1`),
+    t(`transmitters.${id}.step2`),
+    t(`transmitters.${id}.step3`),
+    t(`transmitters.${id}.step4`),
+    t(`transmitters.${id}.step5`),
+  ];
 
   // Hide the persistent macro brain while this page is mounted — the
   // cellular canvases stand alone and the cortical render would only bleed
@@ -125,7 +92,7 @@ export default function CellularPage() {
       return;
     }
     setStepIdx(0);
-    const steps = NT_STEPS[nt];
+    const steps = stepsFor(nt);
     const intervals: number[] = [];
     for (let i = 1; i < steps.length; i++) {
       intervals.push(
@@ -146,23 +113,16 @@ export default function CellularPage() {
         />
         <div className="mx-auto max-w-[44rem]">
           <Caption uppercase className="text-brass">
-            Cellular View
+            {t("label")}
           </Caption>
           <Display italic className="mt-8">
-            Where activation becomes biology.
+            {t("title")}
           </Display>
           <Body className="text-bone-cream/70 mt-10 max-w-[36rem]">
-            We are about to descend. The brain you see on every other page
-            is the cortical surface — TRIBE&apos;s prediction is on that
-            scale. The neurons below are something else: real
-            reconstructions from <a href="https://neuromorpho.org" target="_blank" rel="noopener noreferrer" className="underline decoration-brass/40 underline-offset-4 hover:text-bone-cream">NeuroMorpho.org</a>, contributed
-            by labs around the world. Same brain. Different scales. Different
-            ways of seeing.
+            {t("intro")}
           </Body>
           <Body italic className="text-bone-cream/55 mt-8 max-w-[34rem]">
-            A real continuous zoom from cortex to synapse would cross ten
-            million-fold magnification. We don&apos;t pretend to show that.
-            We show different scales as different ways of looking.
+            {t("introItalic")}
           </Body>
         </div>
       </section>
@@ -220,19 +180,19 @@ export default function CellularPage() {
 
           <div className="md:col-span-5">
             <Caption uppercase className="text-brass">
-              One of these
+              {t("oneOfThese")}
             </Caption>
             <Heading className="mt-6 font-[200]">
               {selected?.cell_type
                 ? Array.isArray(selected.cell_type)
                   ? selected.cell_type.join(" · ")
                   : selected.cell_type
-                : "Neuron"}
+                : t("neuronDefault")}
             </Heading>
             {selected && (
               <>
                 <Caption className="text-bone-cream/55 mt-2 block">
-                  {selected.species} · {selected.archive} lab ·{" "}
+                  {selected.species} · {selected.archive} {t("labSuffix")} ·{" "}
                   {Array.isArray(selected.neuromorpho_region)
                     ? selected.neuromorpho_region.join(", ")
                     : selected.neuromorpho_region}
@@ -249,7 +209,7 @@ export default function CellularPage() {
                       rel="noopener noreferrer"
                       className="hover:text-brass"
                     >
-                      <Mono variant="label">PMID {selected.reference_pmid[0]}</Mono>
+                      <Mono variant="label">{t("pmid")} {selected.reference_pmid[0]}</Mono>
                     </a>
                   ) : null}
                   {selected.neuromorpho_page && (
@@ -259,19 +219,18 @@ export default function CellularPage() {
                       rel="noopener noreferrer"
                       className="hover:text-brass"
                     >
-                      <Mono variant="label">NeuroMorpho ↗</Mono>
+                      <Mono variant="label">{t("neuroMorphoLink")}</Mono>
                     </a>
                   )}
                 </div>
               </>
             )}
             <Body italic className="text-bone-cream/45 mt-10">
-              Color key: <span className="text-brass">brass</span> apical
-              dendrite (the iconic trunk), <span className="text-bone-cream">
-                bone
-              </span>{" "}
-              basal dendrites, <span className="text-cyan-glow">cyan</span>{" "}
-              axon, <span style={{ color: "#fde047" }}>yellow</span> soma.
+              {t("colorKey")} <span className="text-brass">{t("colorKeyBrass")}</span>{" "}
+              {t("colorKeyApical")}, <span className="text-bone-cream">{t("colorKeyBone")}</span>{" "}
+              {t("colorKeyBasal")}, <span className="text-cyan-glow">{t("colorKeyCyan")}</span>{" "}
+              {t("colorKeyAxon")}, <span style={{ color: "#fde047" }}>{t("colorKeyYellow")}</span>{" "}
+              {t("colorKeySoma")}.
             </Body>
           </div>
         </div>
@@ -280,7 +239,7 @@ export default function CellularPage() {
       {/* Transition line */}
       <section className="relative px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-[36rem] text-center">
-          <Display italic>And one of its ten thousand connections.</Display>
+          <Display italic>{t("transition")}</Display>
         </div>
       </section>
 
@@ -331,7 +290,7 @@ export default function CellularPage() {
                       className="inline-block h-2 w-2 rounded-full"
                       style={{ backgroundColor: p.color }}
                     />
-                    <Caption uppercase>{p.label}</Caption>
+                    <Caption uppercase>{t(`transmitters.${id}.label`)}</Caption>
                   </button>
                 );
               })}
@@ -344,11 +303,11 @@ export default function CellularPage() {
                 data-hover
                 className="border-brass text-brass hover:bg-brass hover:text-navy-deep inline-flex items-center justify-center rounded-sm border px-5 py-2.5 transition-colors duration-300"
               >
-                <Caption uppercase>Trigger action potential</Caption>
+                <Caption uppercase>{t("triggerButton")}</Caption>
               </button>
               <div className="flex items-center gap-3 text-bone-cream/60">
                 <Caption uppercase className="text-bone-cream/40">
-                  Speed
+                  {t("speedLabel")}
                 </Caption>
                 {[0.25, 0.5, 1, 2].map((s) => (
                   <button
@@ -370,13 +329,13 @@ export default function CellularPage() {
 
           <div className="md:col-span-5">
             <Caption uppercase className="text-brass">
-              {NEUROTRANSMITTERS[nt].label}
+              {t(`transmitters.${nt}.label`)}
             </Caption>
             <Heading className="mt-6 font-[200]">
-              {NEUROTRANSMITTERS[nt].effect}
+              {t(`transmitters.${nt}.effect`)}
             </Heading>
             <div className="mt-10 space-y-3">
-              {NT_STEPS[nt].map((line, i) => (
+              {stepsFor(nt).map((line, i) => (
                 <Body
                   key={i}
                   italic
@@ -393,10 +352,7 @@ export default function CellularPage() {
               ))}
             </div>
             <p className="mt-10">
-              <Hand className="text-cyan-glow">
-                same mechanics, different transmitters, very different
-                downstream effects
-              </Hand>
+              <Hand className="text-cyan-glow">{t("hand")}</Hand>
             </p>
           </div>
         </div>
@@ -404,7 +360,7 @@ export default function CellularPage() {
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/40">
-          Cellular View · neurons from NeuroMorpho.org · synapse animation illustrative
+          {t("footer")}
         </Caption>
       </footer>
     </>
