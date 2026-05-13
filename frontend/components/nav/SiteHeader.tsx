@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Caption } from "@/components/typography/Typography";
+import { easeStandard } from "@/lib/animations";
 
 function GithubMark({ size = 18 }: { size?: number }) {
   return (
@@ -47,12 +50,94 @@ function MuteIcon({ muted, size = 16 }: { muted: boolean; size?: number }) {
   );
 }
 
+function MenuIcon({ open, size = 18 }: { open: boolean; size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="none" aria-hidden>
+      <line
+        x1="4"
+        y1={open ? 12 : 8}
+        x2="20"
+        y2={open ? 12 : 8}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        style={{ transition: "all 220ms cubic-bezier(0.4,0,0.2,1)" }}
+      />
+      <line
+        x1="4"
+        y1={open ? 12 : 16}
+        x2="20"
+        y2={open ? 12 : 16}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        style={{ transition: "all 220ms cubic-bezier(0.4,0,0.2,1)" }}
+      />
+    </svg>
+  );
+}
+
+type NavItem = { href: string; label: string };
+
+const navItems: NavItem[] = [
+  { href: "/mirror", label: "Mirror" },
+  { href: "/music", label: "Music" },
+  { href: "/crosscultural", label: "Cross-Cultural" },
+  { href: "/about", label: "About" },
+];
+
+function NavLink({
+  href,
+  label,
+  active,
+  className = "",
+  onClick,
+}: NavItem & {
+  active: boolean;
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      prefetch
+      onClick={onClick}
+      className={`group relative inline-flex items-center transition-colors duration-200 ${
+        active ? "text-bone-cream" : "text-bone-cream/70 hover:text-bone-cream"
+      } ${className}`}
+      aria-current={active ? "page" : undefined}
+    >
+      <Caption>{label}</Caption>
+      {active && (
+        <motion.span
+          layoutId="nav-underline"
+          aria-hidden
+          className="bg-brass absolute -bottom-1 left-0 h-px w-full"
+          transition={{ duration: 0.35, ease: easeStandard }}
+        />
+      )}
+    </Link>
+  );
+}
+
 /**
- * Sticky persistent nav. Wordmark + room links + mute + GitHub.
- * All labels rendered through <Caption uppercase> — single text-caption size.
+ * Sticky persistent nav.
+ *  - Brass Fraunces wordmark, top-left
+ *  - Active-route underline animates between items via Framer Motion's
+ *    layoutId (the underline glides from old to new active item)
+ *  - Mobile: a hamburger toggle reveals a full-width sheet with the same
+ *    items (Cross-Cultural is no longer hidden on small screens)
+ *  - Mute + GitHub icons remain on the right
  */
 export default function SiteHeader() {
+  const pathname = usePathname();
   const [muted, setMuted] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  // Close mobile sheet whenever the route changes.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const sync = (e: Event) => {
@@ -69,53 +154,31 @@ export default function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 backdrop-blur-md">
-      <div
-        className="absolute inset-0 -z-10 bg-navy-deep/70"
-        aria-hidden
-      />
+      <div className="absolute inset-0 -z-10 bg-navy-deep/70" aria-hidden />
       <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 md:px-10">
-        <Link href="/" className="text-brass">
+        <Link
+          href="/"
+          className="text-brass"
+          aria-label="The Brain Studio — home"
+        >
           <Caption uppercase className="text-brass tracking-[0.22em]">
             The Brain Studio
           </Caption>
         </Link>
-        <ul className="flex items-center gap-6 text-bone-cream/80 md:gap-8">
-          <li>
-            <Link
-              href="/mirror"
-              prefetch
-              className="text-bone-cream/80 transition-colors duration-200 hover:text-bone-cream"
-            >
-              <Caption>Mirror</Caption>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/music"
-              prefetch
-              className="text-bone-cream/80 transition-colors duration-200 hover:text-bone-cream"
-            >
-              <Caption>Music</Caption>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/crosscultural"
-              prefetch
-              className="hidden text-bone-cream/80 transition-colors duration-200 hover:text-bone-cream md:inline"
-            >
-              <Caption>Cross-Cultural</Caption>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              prefetch
-              className="text-bone-cream/80 transition-colors duration-200 hover:text-bone-cream"
-            >
-              <Caption>About</Caption>
-            </Link>
-          </li>
+
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(item.href + "/");
+            return (
+              <li key={item.href}>
+                <NavLink {...item} active={active} />
+              </li>
+            );
+          })}
           <li>
             <button
               type="button"
@@ -139,7 +202,73 @@ export default function SiteHeader() {
             </a>
           </li>
         </ul>
+
+        {/* Mobile: mute + menu */}
+        <div className="flex items-center gap-4 md:hidden">
+          <button
+            type="button"
+            onClick={toggleAmbient}
+            aria-label={muted ? "Unmute ambient" : "Mute ambient"}
+            aria-pressed={!muted}
+            className="text-bone-cream/70"
+          >
+            <MuteIcon muted={muted} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="text-bone-cream/85"
+          >
+            <MenuIcon open={open} />
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile sheet */}
+      <motion.div
+        id="mobile-nav"
+        initial={false}
+        animate={{
+          opacity: open ? 1 : 0,
+          y: open ? 0 : -8,
+          pointerEvents: open ? "auto" : "none",
+        }}
+        transition={{ duration: 0.22, ease: easeStandard }}
+        className="md:hidden"
+      >
+        <ul className="bg-navy-deep/95 border-bone-cream/10 mx-6 mb-4 mt-2 space-y-3 rounded-sm border px-6 py-5 backdrop-blur">
+          {navItems.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href ||
+                  pathname.startsWith(item.href + "/");
+            return (
+              <li key={item.href}>
+                <NavLink
+                  {...item}
+                  active={active}
+                  className="block py-1"
+                  onClick={() => setOpen(false)}
+                />
+              </li>
+            );
+          })}
+          <li className="border-bone-cream/10 border-t pt-3">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-bone-cream/70 inline-flex items-center gap-2 transition-colors duration-200 hover:text-brass"
+            >
+              <GithubMark />
+              <Caption>GitHub</Caption>
+            </a>
+          </li>
+        </ul>
+      </motion.div>
     </header>
   );
 }
