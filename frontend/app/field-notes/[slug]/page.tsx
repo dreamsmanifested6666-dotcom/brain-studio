@@ -1,0 +1,125 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { notFound } from "next/navigation";
+import { use } from "react";
+import Link from "next/link";
+import Mandala from "@/components/decoration/Mandala";
+import {
+  Body,
+  Caption,
+  Display,
+  Hand,
+  Heading,
+  Mono,
+} from "@/components/typography/Typography";
+import { essayHippocampus } from "@/content/field-notes/hippocampus";
+
+const essaysBySlug: Record<string, typeof essayHippocampus> = {
+  [essayHippocampus.slug]: essayHippocampus,
+};
+
+export default function FieldNoteReader({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = use(params);
+  const essay = essaysBySlug[slug];
+
+  const [readingProgress, setReadingProgress] = useState(0);
+
+  useEffect(() => {
+    if (!essay) return;
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const p = max <= 0 ? 0 : window.scrollY / max;
+      setReadingProgress(Math.min(1, Math.max(0, p)));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [essay]);
+
+  if (!essay) {
+    notFound();
+  }
+
+  return (
+    <main className="relative min-h-screen px-6 pt-36 pb-32 md:px-10 md:pt-44">
+      {/* Reading-progress bar */}
+      <div
+        aria-hidden
+        className="bg-brass fixed inset-x-0 top-0 z-[60] h-px origin-left"
+        style={{
+          transform: `scaleX(${readingProgress})`,
+          transition: "transform 60ms linear",
+        }}
+      />
+
+      <Mandala
+        src="/mandalas/hildegard_codex.jpg"
+        alt="12th-century Hildegard codex"
+        opacity={0.04}
+        rotationSeconds={360}
+        position="top-[60%] right-[-14rem]"
+        size="w-[48rem]"
+      />
+
+      <article className="mx-auto max-w-[42rem]">
+        <Caption uppercase className="text-brass">
+          Field Note
+        </Caption>
+        <Display italic className="mt-8">
+          {essay.title}
+        </Display>
+        <Body italic className="text-bone-cream/60 mt-6">
+          {essay.summary}
+        </Body>
+        <Mono variant="label" className="text-bone-cream/40 mt-8 block">
+          {essay.wordCount.toLocaleString()} words · {essay.readMinutes} min read ·{" "}
+          {essay.publishedAt}
+        </Mono>
+
+        <div className="mt-14 space-y-6">
+          {essay.paragraphs.map((p, i) => (
+            <Body
+              key={i}
+              className={
+                i === 0
+                  ? "text-bone-cream/85"
+                  : "text-bone-cream/80"
+              }
+            >
+              {p}
+            </Body>
+          ))}
+        </div>
+
+        <p className="mt-16 text-center">
+          <Hand className="text-cyan-glow">— end of the note</Hand>
+        </p>
+
+        <div className="mt-12 space-y-4 text-center">
+          <div>
+            <Link
+              href="/field-notes"
+              className="text-bone-cream/70 hover:text-brass border-bone-cream/15 hover:border-brass border-b transition-colors"
+            >
+              <Body italic>More field notes</Body>
+            </Link>
+          </div>
+          <div>
+            <Link
+              href="/threshold"
+              className="text-bone-cream/70 hover:text-brass border-bone-cream/15 hover:border-brass border-b transition-colors"
+            >
+              <Body italic>Return to the threshold</Body>
+            </Link>
+          </div>
+        </div>
+      </article>
+    </main>
+  );
+}

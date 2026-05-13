@@ -1,0 +1,101 @@
+{
+  "archetypes": [
+    {
+      "id": "persona",
+      "title": "The Persona",
+      "subtitle": "The face you wear, the face you forget you're wearing.",
+      "shipped": false,
+      "todo_note": "Source a Holbein or Tissot portrait at Wikimedia in a follow-up — must be PD-old, museum-hosted.",
+      "primary_image": null
+    },
+    {
+      "id": "shadow",
+      "title": "The Shadow",
+      "subtitle": "What you have refused to know about yourself.",
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/shadow/caravaggio_david_goliath.jpg",
+        "title": "David with the Head of Goliath",
+        "artist": "Michelangelo Merisi da Caravaggio",
+        "date": "c. 1610",
+        "institution": "Galleria Borghese, Rome",
+        "license": "Public domain (PD-old / pre-1929)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:David_and_Goliath_by_Caravaggio.jpg",
+        "note": "Caravaggio painted himself as the severed head of Goliath. The canonical Shadow image."
+      },
+      "prose_id": "shadow"
+    },
+    {
+      "id": "anima",
+      "title": "The Anima",
+      "subtitle": "The interior figure of the gender you are not.",
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/anima/waterhouse_lady_of_shalott.jpg",
+        "title": "The Lady of Shalott",
+        "artist": "John William Waterhouse",
+        "date": "1888",
+        "institution": "Tate Britain, London",
+        "license": "Public domain (PD-old)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project_edit.jpg",
+        "note": "Waterhouse's Anima — the interior feminine, leaving the tower into the river of her own becoming."
+      },
+      "prose_id": "anima"
+    },
+    {
+      "id": "self",
+      "title": "The Self",
+      "subtitle": "The whole of which the conscious self is a small part.",
+      "shipped": true,
+      "primary_image": {
+        "src": "/archetypes/self/hildegard_universal_man.jpg",
+        "title": "Liber Divinorum Operum, Universal Man",
+        "artist": "Hildegard von Bingen (12th century)",
+        "date": "c. 1163–1174",
+        "institution": "Biblioteca Statale di Lucca",
+        "license": "Public domain (PD-old, medieval manuscript)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hildegard_von_Bingen_Liber_Divinorum_Operum.jpg",
+        "note": "Hildegard's vision of the figure of humanity contained within the cosmos. Pre-figures everything Jung later named about the Self."
+      },
+      "prose_id": "self"
+    },
+    {
+      "id": "wise",
+      "title": "The Wise Old Man / Wise Woman",
+      "subtitle": "The interior guide. Not always old. Not always a man.",
+      "shipped": false,
+      "todo_note": "Source a Rembrandt Aristotle or late self-portrait from the Met Open Access — confirmed PD but the exact filename needs an API lookup.",
+      "primary_image": null
+    },
+    {
+      "id": "trickster",
+      "title": "The Trickster",
+      "subtitle": "The boundary-crosser. The destroyer who clears the way.",
+      "shipped": false,
+      "todo_note": "Source a Bosch fragment from Garden of Earthly Delights (Prado, PD-old) — needs filename verification in a follow-up.",
+      "primary_image": null
+    }
+  ],
+  "mandalas": [
+    {
+      "id": "fludd_microcosm",
+      "src": "/mandalas/fludd_microcosm.jpg",
+      "title": "De integra microcosmi harmonia (from Utriusque Cosmi Historia)",
+      "artist": "Robert Fludd",
+      "date": "1619",
+      "institution": "Wellcome Collection, London",
+      "license": "Public domain (PD-old, pre-1929)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:De_integra_microcosmi_harmonia..._Fludd,_1619_Wellcome_L0016204.jpg"
+    },
+    {
+      "id": "hildegard_codex",
+      "src": "/mandalas/hildegard_codex.jpg",
+      "title": "Hildegardis-Codex (Master of the Hildegard Codex)",
+      "artist": "12th-century manuscript illuminator",
+      "date": "12th century",
+      "institution": "Biblioteca Statale di Lucca",
+      "license": "Public domain (PD-old, medieval manuscript)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Meister_des_Hildegardis-Codex_001.jpg"
+    }
+  ]
+}

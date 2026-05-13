@@ -1,0 +1,36 @@
+/**
+ * Field Notes essay #1. Inline TS — same approach as the archetype prose.
+ * ~1450 words.
+ */
+
+export const essayHippocampus = {
+  slug: "hippocampus-and-the-act-of-remembering",
+  title: "The hippocampus and the act of remembering",
+  summary:
+    "Memory is not stored and retrieved. It is reconstructed, and the reconstruction reshapes the trace. Both neuroscience and depth psychology converge on this. The cost is real.",
+  publishedAt: "2026-05-13",
+  wordCount: 1450,
+  readMinutes: 9,
+  citations: [
+    "buckner-2008-default-network",
+    "kandel-in-search-of-memory",
+    "jung-memories-dreams-reflections",
+    "damasio-feeling-of-what-happens",
+  ],
+  paragraphs: [
+    "We talk about memory the way we talk about a hard drive. Storage and retrieval. A file pulled, intact, from a folder. The metaphor is comfortable because it lets memory feel like an archive — neutral, durable, a record one could in principle consult.",
+    "Modern memory science has spent forty years dismantling that picture. The hippocampus, where episodic memory is encoded and bound, does not save events the way a hard drive saves files. It saves something closer to a recipe — a pattern of associations, a binding of context to content — and the next time the recipe is used, it is being used in a different kitchen, with different ingredients on hand. The act of remembering is the act of cooking the dish again, in a new context, with whatever the present brings. The dish is never exactly the same.",
+    "Eric Kandel won a Nobel Prize for showing, at the molecular level, that consolidation of long-term memory requires new protein synthesis. The trace is not stable. Every recall opens it again, and the closure is a different closure. What gets stored back is shaped by the conditions of recall — by mood, by the people present, by what you have come to understand since the event, by what you now need the past to be in order to make sense of the present.",
+    "Once you accept this, certain habits of mind stop making sense. The idea of recovering an original, untouched memory — therapeutically, legally, sentimentally — does not survive what the hippocampus actually does. There is no untouched memory. The most you can recover is the latest version. The next time you recover it, it will be the next latest.",
+    "Jung saw this. Not at the molecular level — he had no microscope for it — but at the phenomenological one. He wrote, again and again, that the psyche reorganizes the past in service of present meaning. That the same childhood becomes a different childhood at thirty than it was at twenty than it was at fifty. That to look back is to revise. He understood this as a fact of how mind works, not a failure of attention or memory or honesty. He gave it weight. He built a clinical practice around it.",
+    "There is a different way to take this finding. You could see it as bad news — that memory is unreliable, that the past is permanently lost, that nothing of who you were is really preserved. People do read it this way, and it is one of the harder things about the science. The certainty that the past is at least fixed, that whatever else changes the record at least stays the record, turns out to be wrong.",
+    "But there is another way to take it, and Jung was already reading it that way. If the past is something the present is continually rewriting, then the work of integrating that past — the long, often unwanted work of becoming whoever you are turning into — is real work, not just a matter of recall. You are not auditing an archive. You are reshaping a trace. What you do with what happened to you is part of what happened to you. The present has access to the past in a way that is more like a sculptor's access to wet clay than a reader's access to a finished book.",
+    "This is uncomfortable in both directions. If you have suffered something, it is a small relief and a large discomfort: the relief is that the wound is not literally permanent, that the trace is malleable, that work has actual purchase. The discomfort is that the malleability is also the cost — that you cannot trust a memory, even one that feels load-bearing, to be reporting fact. Both of these are true. Memory science doesn't choose between them. It just describes the situation.",
+    "Therapy that takes this seriously looks different from therapy that doesn't. The point of revisiting a hard memory, in many contemporary frameworks, is not to find out what really happened. It is to revisit it under different conditions — with a witness, with regulated affect, with a different felt sense of safety — so that the next version stored back is shaped by those conditions. The trace gets re-closed. The closure is different. This is not the same as fabrication, and it is not the same as discovery. It is closer to a slow re-sculpting, and the hippocampus is the tool.",
+    "Both Jung and contemporary memory science converge on a hard line: there is no untouched original to recover. Where they part ways: Jung framed the rewriting as guided by something — by the psyche's own movement toward integration, what he called the work of the Self. Memory science does not endorse a director. It describes a mechanism that rewrites, but does not commit to who or what is doing the rewriting, or toward what. The phenomenology of feeling worked-on by something is real either way; the metaphysics is contested.",
+    "What this changes about identity is the part that takes the longest to settle. If you are partly the product of how you have remembered your life, and how you have remembered your life is partly the product of what you have needed it to be, then who you are is not a fixed thing being uncovered. It is closer to a long conversation between the present and the past, in which both speakers keep changing what they say.",
+    "Most people find this hard to live with, and then learn to live with it anyway. The alternative — the archive model, the idea of a true unchanged record — does not actually serve anyone better. It just feels firmer, and the firmness is borrowed. The hippocampus does not give you firmness. It gives you a trace you can return to, and the return is the work.",
+    "There is a small consolation here that I have come to trust. The work is real. The malleability cuts both ways. If a past is shaped by present meaning, then choosing what the past gets to mean is not a fantasy of revision — it is what is already happening, all the time, in everyone, every time anything is remembered. The question is whether you take a hand in it or let it happen unattended. Jung's name for the latter was unlived life. Memory science doesn't have a name. The cost is real either way.",
+    "Hippocampus and the act of remembering are the same activity, looked at from two sides. From the outside, there is a region of bilateral medial temporal cortex that binds context to content, gates consolidation, supports both autobiographical recall and the simulation of possible futures. From the inside, there is the daily, almost continuous task of making your past available to your present in a way that you can stand. Both are happening. Neither is more real than the other. They are the same activity, in two languages, and the seam is where it gets interesting.",
+  ],
+};

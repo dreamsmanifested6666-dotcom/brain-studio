@@ -103,6 +103,69 @@ export const citations: Record<string, Citation> = {
     journal: "Trends in Cognitive Sciences",
     doi: "10.1016/j.tics.2011.10.001",
   },
+  // --- Bridge thinkers + Jung primary sources ----------------------------
+  // Jung primary sources are listed without DOIs (predate the system).
+  // Volume references follow the Collected Works (CW) standard.
+  "jung-cw9i": {
+    id: "jung-cw9i",
+    authors: "Jung, C. G.",
+    year: 1959,
+    title: "The Archetypes and the Collective Unconscious (Collected Works, vol. 9i).",
+    journal: "Princeton University Press",
+  },
+  "jung-cw6-types": {
+    id: "jung-cw6-types",
+    authors: "Jung, C. G.",
+    year: 1971,
+    title: "Psychological Types (Collected Works, vol. 6).",
+    journal: "Princeton University Press",
+  },
+  "jung-memories-dreams-reflections": {
+    id: "jung-memories-dreams-reflections",
+    authors: "Jung, C. G., recorded and edited by A. Jaffé",
+    year: 1963,
+    title: "Memories, Dreams, Reflections.",
+    journal: "Pantheon Books",
+  },
+  "solms-hidden-spring": {
+    id: "solms-hidden-spring",
+    authors: "Solms, M.",
+    year: 2021,
+    title:
+      "The Hidden Spring: A Journey to the Source of Consciousness.",
+    journal: "W. W. Norton",
+  },
+  "mcgilchrist-master-emissary": {
+    id: "mcgilchrist-master-emissary",
+    authors: "McGilchrist, I.",
+    year: 2009,
+    title:
+      "The Master and His Emissary: The Divided Brain and the Making of the Western World.",
+    journal: "Yale University Press",
+  },
+  "sacks-man-who-mistook": {
+    id: "sacks-man-who-mistook",
+    authors: "Sacks, O.",
+    year: 1985,
+    title: "The Man Who Mistook His Wife for a Hat and Other Clinical Tales.",
+    journal: "Summit Books",
+  },
+  "damasio-feeling-of-what-happens": {
+    id: "damasio-feeling-of-what-happens",
+    authors: "Damasio, A.",
+    year: 1999,
+    title:
+      "The Feeling of What Happens: Body and Emotion in the Making of Consciousness.",
+    journal: "Harcourt Brace",
+  },
+  "kandel-in-search-of-memory": {
+    id: "kandel-in-search-of-memory",
+    authors: "Kandel, E. R.",
+    year: 2006,
+    title:
+      "In Search of Memory: The Emergence of a New Science of Mind.",
+    journal: "W. W. Norton",
+  },
 };
 
 export function getCitation(id: string): Citation | undefined {

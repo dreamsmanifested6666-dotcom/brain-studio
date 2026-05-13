@@ -201,6 +201,170 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* 4b — On holding two languages */}
+      <section className="relative px-6 py-32 md:px-10 md:py-48">
+        <div className="mx-auto max-w-[40rem]">
+          <Caption uppercase className="text-brass">
+            On holding two languages
+          </Caption>
+          <Heading className="mt-6 font-[200]">
+            Neuroscience and depth psychology, held in parallel.
+          </Heading>
+          <div className="mt-12 space-y-6">
+            <Body className="text-bone-cream/85">
+              Carl Jung built a phenomenology of inner experience — a
+              vocabulary for patterns he observed in dreams, art, myth,
+              and clinical work. He was not doing neuroscience. He was
+              naming the felt structure of the psyche, with the rigor
+              that careful observation allows when mechanism is out of
+              reach.
+            </Body>
+            <Body className="text-bone-cream/85">
+              This site does not claim that brain regions <em>are</em>
+              {" "}Jungian concepts. It does not claim that neurotransmitters
+              correspond to archetypes. It does not claim that
+              synchronicity, the collective unconscious as literal
+              storehouse, or active imagination have direct neuroscience
+              grounding. Some of what Jung saw was right in different
+              language; some was wrong; much lives in a register where
+              neither side can fully claim the territory. Holding the
+              tension honestly is the work.
+            </Body>
+            <Body className="text-bone-cream/85">
+              A small number of contemporary thinkers do this bridge work
+              with care. Mark Solms&apos; <em>The Hidden Spring</em> argues
+              for an affective basis of consciousness that touches both
+              neuropsychoanalysis and Damasio&apos;s somatic-marker
+              framework. Iain McGilchrist&apos;s <em>The Master and His
+              Emissary</em>, despite a pop appropriation that has been
+              worse than the book itself, is rigorous about hemispheric
+              specialization without overclaiming. Oliver Sacks&apos;
+              clinical neurology is what it looks like to take both
+              mechanism and meaning seriously. These are the company this
+              site keeps.
+            </Body>
+            <Body className="text-bone-cream/85">
+              The temptation to mystify is real. Energy, frequencies,
+              vibration, manifestation — words that have done damage to
+              both neuroscience and to Jung&apos;s actual project. The
+              discipline of refusing them is part of the site.
+            </Body>
+            <Body className="text-bone-cream/85">
+              The opposite temptation — to reduce — is also real.
+              &ldquo;The brain&rdquo; as the only legitimate explanation,
+              with everything that can&apos;t be reduced to mechanism
+              treated as illusion or as not-yet-mechanism. The discipline
+              of refusing this is also part of the site. Some questions
+              are larger than any one vocabulary for them.
+            </Body>
+            <Body italic className="text-bone-cream/80 mt-2">
+              You are not your brain. You are not your unconscious. You
+              are whatever it is that gets to wonder which of those it is.
+            </Body>
+          </div>
+        </div>
+      </section>
+
+      {/* 4c — Further reading */}
+      <section className="relative px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[40rem]">
+          <Caption uppercase className="text-brass">
+            Further reading
+          </Caption>
+          <Heading className="mt-6 font-[200]">
+            Eight books that informed this site.
+          </Heading>
+
+          <div className="mt-12">
+            <Caption uppercase className="text-bone-cream/55">
+              Neuroscience that takes phenomenology seriously
+            </Caption>
+            <ul className="mt-4 space-y-4">
+              <li>
+                <Body className="text-bone-cream/85">
+                  Solms, M. <em>The Hidden Spring.</em> 2021.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    The affective basis of consciousness, from neuropsychoanalysis.
+                  </Body>
+                </Body>
+              </li>
+              <li>
+                <Body className="text-bone-cream/85">
+                  Damasio, A. <em>The Feeling of What Happens.</em> 1999.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    Somatic markers, the felt self, the body in the brain.
+                  </Body>
+                </Body>
+              </li>
+              <li>
+                <Body className="text-bone-cream/85">
+                  Sacks, O. <em>The Man Who Mistook His Wife for a Hat.</em> 1985.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    Clinical neurology written in a humane voice.
+                  </Body>
+                </Body>
+              </li>
+              <li>
+                <Body className="text-bone-cream/85">
+                  Kandel, E. R. <em>In Search of Memory.</em> 2006.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    The molecular basis of memory as reconstruction.
+                  </Body>
+                </Body>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-12">
+            <Caption uppercase className="text-bone-cream/55">
+              Jung primary sources
+            </Caption>
+            <ul className="mt-4 space-y-4">
+              <li>
+                <Body className="text-bone-cream/85">
+                  Jung, C. G. <em>Memories, Dreams, Reflections.</em> 1963.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    Recorded by Aniela Jaffé. The clearest entry to his thought.
+                  </Body>
+                </Body>
+              </li>
+              <li>
+                <Body className="text-bone-cream/85">
+                  Jung, C. G. <em>The Archetypes and the Collective Unconscious.</em> CW 9i. 1959.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    The technical statement of the archetypes.
+                  </Body>
+                </Body>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-12">
+            <Caption uppercase className="text-bone-cream/55">
+              Contemporary thinkers at the seam
+            </Caption>
+            <ul className="mt-4 space-y-4">
+              <li>
+                <Body className="text-bone-cream/85">
+                  McGilchrist, I. <em>The Master and His Emissary.</em> 2009.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    Hemispheric perspectives. Better than its pop reception suggests.
+                  </Body>
+                </Body>
+              </li>
+              <li>
+                <Body className="text-bone-cream/85">
+                  Seth, A. <em>Being You.</em> 2021.
+                  <Body italic className="text-bone-cream/55 mt-1">
+                    Predictive processing and the controlled hallucination of being a self.
+                  </Body>
+                </Body>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* 5 — Citations */}
       <section className="relative px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[920px]">
