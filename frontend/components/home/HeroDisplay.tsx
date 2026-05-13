@@ -1,18 +1,12 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Display } from "@/components/typography/Typography";
-import { easeCinematic } from "@/lib/animations";
 
 /**
  * Home page hero. Renders the three lines as one <Display italic> with
- * each word entering in a 60ms stagger.
+ * each word entering in a 50ms stagger.
  *
- * Each line is its own `block` so wrapping is controlled — at narrow
- * widths, the type-scale clamp drops the size enough that lines no
- * longer awkwardly break onto multiple visual rows. We also wrap each
- * word in a non-breaking `inline-block` so the space between words can
- * collapse but words themselves stay intact.
+ * Stagger is a CSS keyframe (see globals.css `.hero-word`) — pure CSS so
+ * there are no Framer Motion hydration races in Next 16 / React 19 strict.
+ * Per-word animation-delay is set inline.
  */
 export default function HeroDisplay({
   line1,
@@ -26,6 +20,8 @@ export default function HeroDisplay({
   className?: string;
 }) {
   const lines = [line1, line2, line3];
+  // Build a flat sequence so the staggered delays are continuous across lines.
+  let wordIndex = 0;
   return (
     <Display
       italic
@@ -37,22 +33,21 @@ export default function HeroDisplay({
           const words = line.split(" ");
           return (
             <span key={li} className="block">
-              {words.map((word, wi) => (
-                <motion.span
-                  key={`${li}-${wi}`}
-                  className="inline-block whitespace-nowrap"
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.7,
-                    ease: easeCinematic,
-                    delay: 0.2 + li * 0.16 + wi * 0.05,
-                  }}
-                >
-                  {word}
-                  {wi < words.length - 1 ? " " : ""}
-                </motion.span>
-              ))}
+              {words.map((word, wi) => {
+                const delay = 0.18 + wordIndex * 0.06;
+                wordIndex++;
+                const last = wi === words.length - 1;
+                return (
+                  <span
+                    key={`${li}-${wi}`}
+                    className="hero-word"
+                    style={{ animationDelay: `${delay}s` }}
+                  >
+                    {word}
+                    {last ? "" : " "}
+                  </span>
+                );
+              })}
             </span>
           );
         })}

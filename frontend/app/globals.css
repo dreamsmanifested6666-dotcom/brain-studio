@@ -104,6 +104,45 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Hero word stagger — CSS keyframe so the animation doesn't depend on
+   Framer Motion's hydration timing. Each word sets its own
+   animation-delay inline. */
+@keyframes hero-word-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-word {
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: hero-word-in;
+  animation-duration: 0.7s;
+  animation-timing-function: var(--ease-cinematic);
+  animation-fill-mode: forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-word {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Page-transition fade-up. Applied by app/template.tsx via .route-enter
+   so each new route gets the gentle entrance without needing a JS
+   animation library to be alive on first paint. */
+@keyframes route-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.route-enter {
+  animation: route-enter 0.65s var(--ease-cinematic) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-enter {
+    animation: none;
+  }
+}
+
 /* Reduced motion: kill transitions/animations. Component-level fallbacks
    keep crossfades for information continuity. */
 @media (prefers-reduced-motion: reduce) {
