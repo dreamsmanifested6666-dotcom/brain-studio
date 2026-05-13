@@ -1,0 +1,176 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useBrainStageStore } from "@/store/useBrainStageStore";
+import {
+  Body,
+  Caption,
+  Mono,
+} from "@/components/typography/Typography";
+import AttributedImage from "@/components/content/AttributedImage";
+import { mandalas, type Mandala } from "@/content/archetypes/mandalas";
+import { regionById } from "@/lib/regions";
+
+/**
+ * "Looking at a mandala" interactive.
+ *
+ * The user picks one of the seven mandalas. The persistent macro brain
+ * (mounted at root layout) receives the literature-informed activation
+ * pattern for that mandala — and the side panel surfaces the four
+ * regions that show the most lift, with what the contemplative /
+ * visual-neuroscience literature suggests they're doing during this
+ * kind of viewing.
+ *
+ * Honest framing throughout: this is a predicted, illustrative pattern.
+ * Not a real fMRI scan. Not a TRIBE prediction (TRIBE wasn't trained on
+ * "viewing a mandala"). Composed from the published literature on
+ * contemplative attention and visual symmetry.
+ */
+export default function MandalaBrainViewer() {
+  const [selectedId, setSelectedId] = useState<string>(mandalas[0].id);
+  const setActivations = useBrainStageStore((s) => s.setActivations);
+  const resetIdle = useBrainStageStore((s) => s.resetIdle);
+  const setTransform = useBrainStageStore((s) => s.setTransform);
+
+  const selected = mandalas.find((m) => m.id === selectedId)!;
+
+  // Re-center the brain when this component is in view so the persistent
+  // canvas is positioned for the side-by-side reading.
+  useEffect(() => {
+    setTransform({
+      position: [0.85, 0.05, 0],
+      scale: 0.55,
+      rotation: [0, -0.25, 0],
+    });
+    setActivations(selected.activation as Record<string, number>);
+    return () => {
+      resetIdle();
+    };
+  }, [selected, setActivations, resetIdle, setTransform]);
+
+  const topRegions = Object.entries(selected.activation)
+    .map(([id, v]) => ({ id, v: v ?? 0 }))
+    .sort((a, b) => b.v - a.v)
+    .slice(0, 4);
+
+  return (
+    <div>
+      <Caption uppercase className="text-brass">
+        What looking at a mandala does to the brain
+      </Caption>
+      <Body italic className="text-bone-cream/60 mt-3 max-w-[36rem]">
+        Pick any mandala below. The brain above (persistent across this
+        site) shifts to the activation pattern published research on
+        contemplative looking would predict for an image of that kind.
+        Not a scan of you. Not a TRIBE prediction. A literature-informed
+        synthesis — pedagogical, not personal.
+      </Body>
+
+      {/* Mandala chooser */}
+      <div className="mt-10 flex flex-wrap gap-2">
+        {mandalas.map((m) => {
+          const active = m.id === selectedId;
+          return (
+            <button
+              key={m.id}
+              type="button"
+              onClick={() => setSelectedId(m.id)}
+              data-hover
+              className={`rounded-sm border px-3 py-1.5 transition-colors duration-200 ${
+                active
+                  ? "border-brass bg-brass text-navy-deep"
+                  : "border-bone-cream/15 text-bone-cream/70 hover:border-bone-cream/40 hover:text-bone-cream"
+              }`}
+            >
+              <Caption uppercase>{m.tradition}</Caption>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-10">
+        <div className="md:col-span-6">
+          <AttributedImage
+            prov={{
+              src: selected.src,
+              title: selected.title,
+              artist: selected.provenance.artist,
+              date: selected.provenance.date,
+              institution: selected.provenance.institution,
+              license: selected.provenance.license,
+              source_url: selected.provenance.source_url,
+              note: selected.provenance.note,
+            }}
+            width={1400}
+            height={1400}
+            priority
+          />
+        </div>
+        <div className="md:col-span-6">
+          <Caption uppercase className="text-bone-cream/55">
+            {selected.tradition} · {selected.date}
+          </Caption>
+          <Body className="text-bone-cream/85 mt-6">{selected.description}</Body>
+          <Caption uppercase className="text-brass mt-10 block">
+            A Jungian reading
+          </Caption>
+          <Body italic className="text-bone-cream/75 mt-3">
+            {selected.jungian_reading}
+          </Body>
+        </div>
+      </div>
+
+      {/* Predicted regions panel */}
+      <div className="border-bone-cream/10 mt-14 border-t pt-10">
+        <Caption uppercase className="text-brass">
+          Regions predicted to lift while viewing
+        </Caption>
+        <Body italic className="text-bone-cream/55 mt-2 max-w-[40rem]">
+          The macro brain above is now displaying the literature-informed
+          pattern below. Predicted, not measured. Composed pedagogically
+          from contemplative-attention and visual-symmetry studies — not
+          from TRIBE, which doesn&apos;t take images of mandalas as input.
+        </Body>
+        <ul className="mt-8 space-y-4">
+          {topRegions.map(({ id, v }) => {
+            const r = regionById[id as keyof typeof regionById];
+            return (
+              <li
+                key={id}
+                className="border-b border-bone-cream/5 grid grid-cols-1 gap-2 pb-4 md:grid-cols-12 md:items-baseline"
+              >
+                <div className="md:col-span-4">
+                  <Caption className="text-bone-cream/85">
+                    {r?.displayName ?? id}
+                  </Caption>
+                  <Caption className="text-bone-cream/45 mt-1 block">
+                    {r?.anatomyName}
+                  </Caption>
+                </div>
+                <div className="md:col-span-6">
+                  <Body italic className="text-bone-cream/70">
+                    {r?.scienceGloss}
+                  </Body>
+                </div>
+                <div className="md:col-span-2 md:text-right">
+                  <Mono variant="label" className="text-brass">
+                    {Math.round(v * 100)}%
+                  </Mono>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        <Body italic className="text-bone-cream/45 mt-8">
+          Why this composition, briefly: contemplative looking quiets the
+          amygdala&apos;s salience pull, lifts the precuneus and PCC
+          (default-mode integration, visuospatial), engages the angular
+          gyri (heteromodal hub), and gently recruits the dmPFC for
+          self-referential processing without strong emotional load. The
+          lowness of the amygdala is part of why this kind of attention
+          feels different from arousal.
+        </Body>
+      </div>
+    </div>
+  );
+}

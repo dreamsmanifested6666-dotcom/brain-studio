@@ -4,6 +4,7 @@ import Link from "next/link";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import Mandala from "@/components/decoration/Mandala";
 import AttributedImage from "@/components/content/AttributedImage";
+import MandalaBrainViewer from "@/components/content/MandalaBrainViewer";
 import {
   Body,
   Caption,
@@ -325,6 +326,33 @@ export default async function ArchetypesPage() {
           <Mono variant="label" className="text-bone-cream/40 mt-14 block">
             On Mandalas · ~700 words · 4 min read
           </Mono>
+        </div>
+      </section>
+
+      {/* Mandalas from many traditions + brain viewer */}
+      <section className="relative px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1280px]">
+          <Caption uppercase className="text-brass">
+            Mandalas from many traditions
+          </Caption>
+          <Heading className="mt-6 font-[200]">
+            Same shape, different vocabularies.
+          </Heading>
+          <Body className="text-bone-cream/65 mt-6 max-w-[42rem]">
+            Jung observed that mandalic forms recur across cultures with
+            no plausible chain of transmission between them. Medieval
+            Christian rose windows. Tibetan dependent-origination wheels.
+            The Sri Yantra. The Mexica Sun Stone. European alchemical
+            engravings. Same shape, organized differently, used for
+            different work. The convergence interested him for the rest
+            of his life. Below are seven, with what depth psychology
+            sees in each — and what published neuroimaging literature
+            would predict your brain to do while looking at them.
+          </Body>
+
+          <div className="mt-16">
+            <MandalaBrainViewer />
+          </div>
         </div>
       </section>
 
