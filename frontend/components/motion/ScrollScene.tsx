@@ -1,0 +1,85 @@
+"use client";
+
+import { useEffect, useRef, type ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useBrainStageStore } from "@/store/useBrainStageStore";
+import type { ScrollSceneConfig } from "@/lib/scrollScenes";
+
+type Props = ScrollSceneConfig & {
+  children: ReactNode;
+  className?: string;
+  /** Used to identify which scene fired in dev. */
+  debug?: boolean;
+};
+
+/**
+ * Wraps a `<section>` that should drive brain camera + lighting + activations.
+ * When the section enters the viewport (top crosses center), it writes its
+ * targets into the brain stage store. The brain itself lerps toward those
+ * targets in its own `useFrame` loop, so motion stays smooth even if scroll
+ * is fast.
+ *
+ * Two-way trigger: also fires on scroll back up (`onEnterBack`).
+ */
+export default function ScrollScene({
+  id,
+  brain,
+  lighting,
+  children,
+  className,
+  debug,
+}: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const setTransform = useBrainStageStore((s) => s.setTransform);
+  const setLighting = useBrainStageStore((s) => s.setLighting);
+  const setActivations = useBrainStageStore((s) => s.setActivations);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const apply = () => {
+      if (debug) console.log("[ScrollScene]", id);
+      setTransform({
+        position: brain.position,
+        scale: brain.scale,
+        rotation: brain.rotation,
+      });
+      if (lighting) setLighting(lighting);
+      if (brain.activations) {
+        setActivations(brain.activations as Record<string, number>);
+      }
+    };
+
+    const trigger = ScrollTrigger.create({
+      trigger: ref.current,
+      start: "top 65%",
+      end: "bottom 35%",
+      onEnter: apply,
+      onEnterBack: apply,
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, [
+    id,
+    brain.position,
+    brain.scale,
+    brain.rotation,
+    brain.activations,
+    lighting,
+    setTransform,
+    setLighting,
+    setActivations,
+    debug,
+  ]);
+
+  return (
+    <section ref={ref} data-scene={id} className={className}>
+      {children}
+    </section>
+  );
+}
