@@ -135,7 +135,8 @@ export default function Home() {
             </Body>
           </div>
 
-          <div className="mt-20 grid grid-cols-1 gap-14 md:mt-24 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
+          {/* TRIBE-driven rooms — the primary row */}
+          <div className="mt-20 grid grid-cols-1 gap-14 md:mt-24 md:grid-cols-3 md:gap-10">
             <RoomCard
               index={0}
               title="Brain Mirror"
@@ -157,13 +158,45 @@ export default function Home() {
               href="/crosscultural"
               pattern={signaturePatterns.crosscultural}
             />
-            <RoomCard
-              index={3}
-              title="Cellular View"
-              description="Descend into real neuron reconstructions and watch a synapse fire."
-              href="/cellular"
-              pattern={signaturePatterns.mirror}
-            />
+          </div>
+
+          {/* Depth-psychology rooms — quieter middle row, indented */}
+          <div className="mt-20 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
+            <div aria-hidden className="hidden md:col-span-2 md:block" />
+            <div className="md:col-span-4">
+              <RoomCard
+                index={3}
+                title="The Threshold"
+                description="An essay in three movements about the seam between mind and brain."
+                href="/threshold"
+                pattern={signaturePatterns.mirror}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <RoomCard
+                index={4}
+                title="The Archetypes"
+                description="Patterns old enough to have names, illustrated from the visual tradition Jung drew on."
+                href="/archetypes"
+                pattern={signaturePatterns.crosscultural}
+              />
+            </div>
+            <div aria-hidden className="hidden md:col-span-2 md:block" />
+          </div>
+
+          {/* Deepest descent */}
+          <div className="mt-20 grid grid-cols-1 gap-10 md:mt-20 md:grid-cols-12">
+            <div aria-hidden className="hidden md:col-span-4 md:block" />
+            <div className="md:col-span-4">
+              <RoomCard
+                index={5}
+                title="Cellular View"
+                description="Descend into real neuron reconstructions and watch a synapse fire."
+                href="/cellular"
+                pattern={signaturePatterns.mirror}
+              />
+            </div>
+            <div aria-hidden className="hidden md:col-span-4 md:block" />
           </div>
         </div>
       </ScrollScene>
