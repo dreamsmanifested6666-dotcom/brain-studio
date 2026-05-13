@@ -17,7 +17,7 @@
     "fieldNotes": "田野笔记",
     "about": "关于",
     "muteAria": "静音环境声",
-    "searchAria": "Search The Brain Studio (Ctrl-K)",
+    "searchAria": "搜索 The Brain Studio (Ctrl-K)",
     "unmuteAria": "打开环境声",
     "githubAria": "在 GitHub 查看源代码",
     "openMenu": "打开菜单",
@@ -149,6 +149,7 @@
       "body": "把光标悬停其上感受图样。点击则会把它装入上方的镜像。"
     },
     "examplesHeading": "让我们意外的三段文字",
+    "openInAtlas": "在图谱中打开",
     "footerStudio": "The Brain Studio",
     "footerNote": "预测在本地模拟运行"
   },
@@ -192,8 +193,8 @@
   "essays": {
     "fieldNote": "田野笔记",
     "endOfNote": "—— 本篇至此结束",
-    "relatedBridgeLabel": "Related bridge",
-    "relatedBridgeOpen": "Continue in the Bridges page",
+    "relatedBridgeLabel": "相关之桥",
+    "relatedBridgeOpen": "继续在「桥」页面阅读",
     "moreFieldNotes": "更多田野笔记",
     "returnThreshold": "回到阈值",
     "hippocampus": {
@@ -240,143 +241,143 @@
     }
   },
   "atlas": {
-    "label": "Region Atlas",
-    "title": "The brain, room by room.",
-    "intro": "Twenty regions, written carefully. Each page holds the anatomy, the function as the literature currently tells it, the cell types underneath, the connections that route the signal, the clinical context, the history of who first noticed, and the thread of meaning the depth-psychological reading wants nearby.",
-    "statusNote": "{complete} of {total} pages are complete. The others render their architecture while their prose is written.",
-    "inProgress": "Under review",
-    "openCard": "Open",
-    "previewCard": "Preview",
-    "emptySection": "This section is being written. The architecture below — sidebar metadata, citation discipline, network membership — is in place.",
+    "label": "区域图谱",
+    "title": "大脑，一间一间地看。",
+    "intro": "二十个区域，每一个都被仔细地写下来。每一页承载着解剖、当下文献所讲述的功能、其下的细胞类型、负责传递信号的连接、临床语境、最先注意到它的人的历史，以及深度心理学解读愿意置于近旁的那一条意义之线。",
+    "statusNote": "已完成 {complete} / {total} 页。其余页面在文章被写下之时先呈现其结构。",
+    "inProgress": "审阅中",
+    "openCard": "打开",
+    "previewCard": "预览",
+    "emptySection": "本节正在撰写中。下方的结构 —— 侧栏元数据、引文规范、所属网络 —— 已经就位。",
     "inProgressBanner": {
-      "label": "Under careful review",
-      "body": "This page's prose hasn't been written yet. Architecture and metadata are in place; full sections are forthcoming."
+      "label": "正在认真审阅",
+      "body": "本页的正文尚未写就。结构与元数据已经就位；完整内容随后呈上。"
     },
     "breadcrumb": {
       "studio": "The Brain Studio",
-      "atlas": "Atlas"
+      "atlas": "图谱"
     },
     "sections": {
-      "anatomy": "Anatomy & landmarks",
-      "function": "Function",
-      "cells": "Cell types",
-      "connections": "Connections",
-      "clinical": "In clinical context",
-      "discovery": "History of discovery",
-      "thread": "The thread"
+      "anatomy": "解剖与定位",
+      "function": "功能",
+      "cells": "细胞类型",
+      "connections": "连接",
+      "clinical": "临床语境",
+      "discovery": "发现的历史",
+      "thread": "线索"
     },
     "sidebar": {
-      "network": "Network",
-      "adjacent": "Adjacent regions",
-      "disorders": "Implicated in",
-      "cells": "Cell types here",
-      "descend": "Descend to cellular view",
-      "sources": "Sources",
-      "lastReviewed": "Last reviewed {date}",
-      "wordCount": "{count} words",
-      "connectome": "Connectome"
+      "network": "网络",
+      "adjacent": "邻近区域",
+      "disorders": "涉及的病症",
+      "cells": "此处的细胞类型",
+      "descend": "下沉至细胞层面",
+      "sources": "出处",
+      "lastReviewed": "最近审阅于 {date}",
+      "wordCount": "{count} 字",
+      "connectome": "连接组"
     },
     "connectome": {
-      "connectedIntro": "White-matter tracts with an endpoint in this region. Toggle one to see it inside the brain above.",
-      "unconnectedIntro": "No canonical tract has this region as one of its endpoints in our 8-tract set. Use \"Show all\" to view the wider connectome anyway.",
-      "showAll": "Show all tracts",
-      "hideAll": "Hide all tracts",
-      "clear": "Clear",
-      "disclosure": "Geometry is stylized — quadratic Bezier curves between region positions, not real diffusion-MRI tractography. Endpoints, function, and discovery credits are faithful to the literature."
+      "connectedIntro": "在本区域有一端的白质纤维束。切换某一束，即可在上方的大脑中看到它。",
+      "unconnectedIntro": "在我们的 8 条标准纤维束中，没有任何一束以本区域为其端点。点击「显示全部」仍可查看更广的连接组。",
+      "showAll": "显示全部纤维束",
+      "hideAll": "隐藏全部纤维束",
+      "clear": "清除",
+      "disclosure": "几何形态经过样式化处理 —— 区域位置之间的二次 Bézier 曲线，而非真正的弥散 MRI 纤维束追踪。端点、功能与发现归属皆忠实于文献。"
     },
-    "footerNote": "Region Atlas · cite or omit",
+    "footerNote": "区域图谱 · 引用或略去",
     "bridgeCard": {
-      "label": "Bridge to depth psychology",
-      "open": "Open in the Bridges page"
+      "label": "通往深度心理学的桥",
+      "open": "在「桥」页面打开"
     }
   },
   "bridges": {
-    "label": "Bridges",
-    "title": "Where neuroscience and depth psychology touch — and where they don't.",
-    "subtitle": "Eleven sections mapping the bridges between mechanism and meaning. Some are tight; some are partial; some do not exist at all. Naming each honestly is the page's discipline.",
-    "legendLabel": "Strength legend",
+    "label": "桥",
+    "title": "神经科学与深度心理学相触之处 —— 以及它们并不相触之处。",
+    "subtitle": "十一个章节绘出机制与意义之间的桥。有些紧密，有些只是部分，有些则根本不存在。诚实地为每一座桥命名，便是本页的规约。",
+    "legendLabel": "强度图例",
     "breadcrumb": {
       "studio": "The Brain Studio",
-      "bridges": "Bridges"
+      "bridges": "桥"
     },
-    "bibliographyLabel": "Bibliography",
-    "bibliographyHeading": "Every empirical claim, traceable.",
-    "bibliographyIntro": "Each citation here was confirmed against PubMed or its original journal record. Hover any superscript in the prose above to see its source; this list is the full set, in order of first mention.",
+    "bibliographyLabel": "参考文献",
+    "bibliographyHeading": "每一个经验性主张，皆可追溯。",
+    "bibliographyIntro": "此处每条引文都经过 PubMed 或原始期刊记录的核对。将光标悬停于上文正文中任一上标即可看到其出处；此处的列表即是完整集合，按首次提及的顺序排列。",
     "network": {
-      "label": "The network at a glance",
-      "heading": "Every region, every bridge, on one page.",
-      "intro": "Twenty regions on the left, the Bridges sections that any region points into on the right. Brass lines are tight bridges; bone lines are partial; dashed lines are distant. The page below expands every line in detail; this diagram is the index.",
-      "compactIntro": "Twenty regions, the bridge each points into, the empirical strength of each connection. Hover any line to read it; click to land in the corresponding Bridges section.",
-      "svgLabel": "Diagram: 20 brain regions connected by lines to the Bridges page sections they engage, weighted by empirical bridge strength.",
+      "label": "一目了然的网络",
+      "heading": "每一个区域，每一座桥，尽在一页。",
+      "intro": "左侧为二十个区域，右侧为各区域所指向的「桥」页章节。黄铜色线条代表紧密的桥；骨色线条代表部分的桥；虚线代表遥远的桥。下方页面将每一条线展开详述；本图便是其索引。",
+      "compactIntro": "二十个区域，各自所指的桥，每一连接的经验性强度。将光标悬停于任意线条即可阅读；点击即可落入相应的「桥」章节。",
+      "svgLabel": "示意图：20 个脑区通过线条连接到它们所牵涉的「桥」页章节，并按经验性的桥强度加权。",
       "filter": {
-        "all": "All",
-        "tightOnly": "Tight only",
-        "tightAndPartial": "Tight + partial",
-        "distantOnly": "Distant only"
+        "all": "全部",
+        "tightOnly": "仅紧密",
+        "tightAndPartial": "紧密 + 部分",
+        "distantOnly": "仅遥远"
       }
     },
-    "footerNote": "Bridges · cite or omit"
+    "footerNote": "桥 · 引用或略去"
   },
   "tours": {
-    "label": "Guided Tours",
-    "title": "Choreographed brain experiences.",
-    "intro": "Two- to three-minute tours in which the brain animates through a sequence of activations while a calm narration walks beside it. Watch, don't navigate — the tour unfolds at its own pace.",
-    "tour": "Tour",
-    "duration": "Duration",
-    "openTour": "Open the tour",
-    "scene": "Scene",
-    "pause": "Pause",
-    "play": "Play",
-    "restart": "Restart",
-    "ended": "Tour complete.",
-    "continueLabel": "Continue exploring",
-    "emptyState": "No tours available yet.",
-    "comingSoon": "More tours are forthcoming: how you read this sentence (language network), when something matters (salience), what's still you when you stop trying (default mode), how a face becomes someone you know (face processing), and hearing music (auditory and reward).",
-    "footerNote": "Guided Tours · the brain in motion"
+    "label": "导览",
+    "title": "经过编排的大脑体验。",
+    "intro": "两到三分钟的导览：大脑依一连串激活逐一动起来，沉静的旁白在一旁相伴。请观看，而不是导航 —— 导览会按自己的节奏徐徐展开。",
+    "tour": "导览",
+    "duration": "时长",
+    "openTour": "打开导览",
+    "scene": "场景",
+    "pause": "暂停",
+    "play": "播放",
+    "restart": "重新开始",
+    "ended": "导览结束。",
+    "continueLabel": "继续探索",
+    "emptyState": "暂无可用导览。",
+    "comingSoon": "更多导览即将上线：你如何读这一句话（语言网络）、当某事变得要紧之时（显著性）、当你不再用力时仍是你的部分（默认模式）、一张脸如何成为你认得的某人（面孔加工），以及聆听音乐（听觉与奖赏）。",
+    "footerNote": "导览 · 运动中的大脑"
   },
   "depthPsychology": {
-    "label": "Depth Psychology",
-    "title": "The other half of the conversation.",
-    "intro": "Neuroscience gives us mechanism. Depth psychology gives us meaning. The pages in this section take the depth-psychological tradition seriously without losing the empirical discipline the rest of the site keeps. Where the bridges hold, they are named. Where they don't, the page says so.",
-    "minRead": "min read",
-    "words": "words",
-    "openPage": "Open",
-    "backToIndex": "Back to Depth Psychology",
+    "label": "深度心理学",
+    "title": "对话的另一半。",
+    "intro": "神经科学给我们机制，深度心理学给我们意义。本节诸页认真对待深度心理学的传统，又不放下本站其余部分所守的经验性规约。桥能立起的地方，我们便为它命名；不能立起的地方，本页也直说。",
+    "minRead": "分钟阅读",
+    "words": "字",
+    "openPage": "打开",
+    "backToIndex": "返回深度心理学",
     "featured": {
-      "label": "Featured · the synthesizing index",
-      "title": "Bridges",
-      "subtitle": "Where neuroscience and depth psychology touch — and where they don't.",
-      "blurb": "Eleven sections rating the empirical correspondence between specific neural mechanisms and specific depth-psychological concepts. Tight, partial, distant, none — each bridge named honestly. Read this first.",
-      "open": "Open the Bridges page"
+      "label": "精选 · 综合索引",
+      "title": "桥",
+      "subtitle": "神经科学与深度心理学相触之处 —— 以及它们并不相触之处。",
+      "blurb": "十一个章节，评估具体的神经机制与具体的深度心理学概念之间的经验性对应。紧密、部分、遥远、无 —— 每一座桥都被诚实地命名。请先读这一篇。",
+      "open": "打开「桥」页面"
     },
     "longForm": {
-      "label": "Long-form",
-      "heading": "Jung, Reich, Perls — written for the careful reader."
+      "label": "长文",
+      "heading": "荣格、赖希、皮尔斯 —— 写给细心的读者。"
     },
     "existing": {
-      "label": "Adjacent essays",
-      "heading": "The contemplative layer.",
+      "label": "近旁的随笔",
+      "heading": "观想的一层。",
       "threshold": {
-        "label": "Essay",
-        "title": "The Threshold",
-        "blurb": "A contemplative essay that sits between the macro and the cellular views of the site. Three movements; about ten minutes."
+        "label": "随笔",
+        "title": "阈值",
+        "blurb": "一篇观想性的文章，介乎本站宏观视角与细胞层面视角之间。三个乐章；约十分钟。"
       },
       "archetypes": {
-        "label": "Essay + gallery",
-        "title": "The Archetypes",
-        "blurb": "Jungian images paired with anatomical neuroscience. A reading of how the inherited symbolic vocabulary of culture meets the cortical machinery that received it."
+        "label": "随笔 + 图集",
+        "title": "原型",
+        "blurb": "荣格式的图像与解剖学神经科学并置。一种解读：文化所承传的象征语汇，如何与承接它的皮层机制相遇。"
       },
       "fieldNotes": {
-        "label": "Essay collection",
-        "title": "Field Notes",
-        "blurb": "Long-form pieces from the seam between mind and brain. The hippocampus and the act of remembering. What the brain knows before you do."
+        "label": "随笔合集",
+        "title": "田野笔记",
+        "blurb": "来自心智与大脑之缝隙的长文。海马区与「记起」这件事。在你之前大脑已知之事。"
       }
     },
     "sidebar": {
-      "bridges": "Related Bridges sections",
-      "atlas": "Related Atlas regions"
+      "bridges": "相关的「桥」章节",
+      "atlas": "相关的图谱区域"
     },
-    "footerNote": "Depth Psychology · the careful register"
+    "footerNote": "深度心理学 · 谨慎的语域"
   },
   "fieldNotes": {
     "label": "田野笔记",
@@ -888,38 +889,38 @@
       "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences。曼谷和泰文刺激对都来自这里。"
     },
     "howToUse": {
-      "label": "How to use this brain",
-      "heading": "A short guide to the affordances.",
-      "intro": "The site has more entry points than the home page suggests. The list below names the discoverable ones — the small affordances that turn a beautiful piece into a navigable research instrument.",
+      "label": "如何使用这个大脑",
+      "heading": "对各种入口的简要指引。",
+      "intro": "本站的入口比首页所示的要多。下面这份清单为可被发现的入口逐一命名 —— 那些将一件美的作品转变为可被穿梭的研究器具的小小入口。",
       "search": {
-        "label": "Search",
-        "body": "Press Cmd-K (or Ctrl-K on Windows / Linux) anywhere on the site to open a keyboard-first search palette. It indexes every region, every Bridges section, every tour, every long-form essay, and a small set of cross-cutting concepts. Type a researcher's surname, a disorder, a Jungian concept, a brain region — the palette finds it."
+        "label": "搜索",
+        "body": "在本站任何位置按下 Cmd-K（Windows / Linux 上为 Ctrl-K）即可打开一个以键盘为先的搜索面板。它为每一个区域、每一个「桥」章节、每一次导览、每一篇长文随笔，以及一小组横跨多处的概念建立了索引。输入研究者的姓、某种疾患、某个荣格式概念、某个脑区 —— 面板都能找到它。"
       },
       "atlas": {
-        "label": "Atlas",
-        "body": "The Region Atlas has twenty pages, one per region we surface. Each page carries seven sections: anatomy, function, cell types, connections, clinical context, history of discovery, and the depth-psychological thread. Every functional claim cites a peer-reviewed primary source; hover any superscript in the prose to see the reference."
+        "label": "图谱",
+        "body": "区域图谱共有二十页，每一页对应我们呈现的一个区域。每页承载七个章节：解剖、功能、细胞类型、连接、临床语境、发现的历史，以及深度心理学的线索。每一项关于功能的主张都引自经过同行评议的一手文献；将光标悬停于正文中的上标即可看到引文。"
       },
       "bridges": {
-        "label": "Bridges",
-        "body": "Where neuroscience and depth psychology touch, the Bridges page rates the empirical correspondence — tight, partial, distant, or none. Each Atlas page's Thread section carries a bridge-strength card linking to the matching Bridges section. Following the cards is the cleanest way to see how the two layers of the site interlock."
+        "label": "桥",
+        "body": "在神经科学与深度心理学相触之处，「桥」页面为这种经验性对应打分 —— 紧密、部分、遥远，或者无。每一个图谱页面的「线索」一节都附有一张桥强度卡片，链接到相应的「桥」章节。沿着这些卡片走，是看清本站两层结构如何咬合的最干净的方式。"
       },
       "connectome": {
-        "label": "Connectome",
-        "body": "Each Atlas page has a Connectome panel in the sidebar listing the white-matter tracts that have an endpoint in this region. Toggle a tract and it appears inside the persistent brain as a glowing curve. The geometry is stylized; the endpoints, function, and discovery credits are faithful to the literature."
+        "label": "连接组",
+        "body": "每个图谱页面的侧栏都有一个连接组面板，列出在本区域有一端的白质纤维束。切换某束纤维，它便会以发光曲线的形式出现在那个一直留在场上的大脑之中。几何形态经过样式化处理；端点、功能与发现归属则忠实于文献。"
       },
       "cellular": {
-        "label": "Cellular descent",
-        "body": "The Cellular View is the deepest scale on the site — reconstructed individual neurons and a frame-by-frame synapse simulation with selectable neurotransmitter. The macro brain is hidden while you are there so the cellular canvases own the visual field; clicking back into any room restores it."
+        "label": "下沉至细胞层面",
+        "body": "细胞层面视图是本站最深的尺度 —— 个体神经元的重建，以及一帧一帧、神经递质可选的突触模拟。你身处其中之时，宏观的大脑会被隐去，让细胞层面的画布独占视野；点击返回任一房间，大脑便会归位。"
       },
       "tours": {
-        "label": "Guided Tours",
-        "body": "Six choreographed two-to-three-minute experiences in which the brain animates through a sequence of activations with synchronized narration. Watch them rather than navigate them — the pacing is deliberate. Each tour links into the Bridges page or the relevant Atlas region at the end."
+        "label": "导览",
+        "body": "六段经过编排的两到三分钟体验，大脑按一连串激活逐次动起来，伴有同步的旁白。请观看它们，而不是导航 —— 节奏是经过深思的。每一段导览结束时都会接入「桥」页面或相关的图谱区域。"
       },
       "depthPsychology": {
-        "label": "Depth Psychology",
-        "body": "A separate section for the depth-psychological layer of the site: Bridges as the synthesizing index, long-form pages on Aion, the Red Book, and Gestalt therapy, and adjacent essays in Field Notes, Threshold, and Archetypes. The voice is restrained and the cross-references back to the empirical side are explicit."
+        "label": "深度心理学",
+        "body": "本站深度心理学层的独立区域：作为综合索引的「桥」、关于 Aion、《红书》与格式塔疗法的长文页面，以及田野笔记、阈值、原型中近旁的随笔。语气克制，对经验性一面的回引清晰直白。"
       },
-      "closing": "None of this is hidden. None of it is gamified. The affordances are here for the reader who wants them; the reader who doesn't can ignore them and have the cinematic version of the site instead."
+      "closing": "其中任何一项都不曾被藏起，也没有任何一项被游戏化。入口为想要它们的读者而设；不想要的读者大可忽略，安然享受本站电影般的那一版。"
     },
     "roadmap": {
       "label": "路线图",
