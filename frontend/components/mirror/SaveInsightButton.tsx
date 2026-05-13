@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Caption } from "@/components/typography/Typography";
 import { regionById, type RegionId } from "@/lib/regions";
 
@@ -18,7 +19,12 @@ type Props = {
  * the canvas is unreachable, fall back to a text-only PNG.
  */
 export default function SaveInsightButton({ text, topRegion }: Props) {
+  const tMirror = useTranslations("mirror");
+  const tRegions = useTranslations("regions");
   const [working, setWorking] = useState(false);
+  const tr = (t: ReturnType<typeof useTranslations>, key: string, fb: string) => {
+    try { return t(key); } catch { return fb; }
+  };
 
   const onSave = async () => {
     if (working) return;
@@ -67,7 +73,7 @@ export default function SaveInsightButton({ text, topRegion }: Props) {
       const maxW = W - margin * 2;
       ctx.font = '500 22px "Fraunces", Georgia, serif';
       ctx.fillStyle = "#c9a961";
-      ctx.fillText("WHAT YOUR WRITING REVEALS", margin, textTop);
+      ctx.fillText(tr(tMirror, "revealLabel", "What your writing reveals").toUpperCase(), margin, textTop);
 
       ctx.font = 'italic 32px "Fraunces", Georgia, serif';
       ctx.fillStyle = "#f0e8d8";
@@ -76,15 +82,17 @@ export default function SaveInsightButton({ text, topRegion }: Props) {
 
       if (topRegion) {
         const r = regionById[topRegion.id];
+        const poetic = tr(tRegions, `${topRegion.id}.poeticGloss`, r.poeticGloss);
+        const anatomy = tr(tRegions, `${topRegion.id}.anatomyName`, r.anatomyName);
         ctx.font = '400 20px "Fraunces", Georgia, serif';
         ctx.fillStyle = "rgba(240, 232, 216, 0.6)";
         const poeticY = H - margin - 80;
-        wrapText(ctx, "— " + r.poeticGloss, margin, poeticY, maxW, 28);
+        wrapText(ctx, "— " + poetic, margin, poeticY, maxW, 28);
 
         ctx.font = 'italic 14px "Fraunces", Georgia, serif';
         ctx.fillStyle = "#c9a961";
         ctx.fillText(
-          `${r.anatomyName.toUpperCase()}  ·  ${(topRegion.activation * 100).toFixed(0)}%`,
+          `${anatomy.toUpperCase()}  ·  ${(topRegion.activation * 100).toFixed(0)}%`,
           margin,
           H - margin - 16,
         );

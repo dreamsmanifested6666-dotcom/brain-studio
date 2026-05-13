@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { regionById, type RegionId } from "@/lib/regions";
 import {
   Caption,
@@ -9,6 +10,10 @@ import {
   Mono,
 } from "@/components/typography/Typography";
 import { easeCinematic, staggerLoose } from "@/lib/animations";
+
+function tr(t: ReturnType<typeof useTranslations>, key: string, fb: string): string {
+  try { return t(key); } catch { return fb; }
+}
 
 type Props = {
   topRegions: { id: RegionId; activation: number }[];
@@ -26,6 +31,8 @@ type Props = {
  * re-renders feel like the cards rearrange in place rather than rebuild.
  */
 export default function MirrorReveal({ topRegions }: Props) {
+  const tRegions = useTranslations("regions");
+  const tMirror = useTranslations("mirror");
   if (topRegions.length === 0) return null;
 
   return (
@@ -34,11 +41,10 @@ export default function MirrorReveal({ topRegions }: Props) {
       className="mt-16 md:mt-24"
     >
       <Caption uppercase className="text-brass">
-        What your writing reveals
+        {tr(tMirror, "revealLabel", "What your writing reveals")}
       </Caption>
       <Body italic className="text-bone-cream/55 mt-2 max-w-[34rem]">
-        Predictions in this preview are simulated locally; real TRIBE
-        inference comes in Phase 10.
+        {tr(tMirror, "revealIntro", "Predictions in this preview are simulated locally; real TRIBE inference comes in Phase 10.")}
       </Body>
 
       <div className="mt-10 space-y-12 md:space-y-16">
@@ -61,14 +67,16 @@ export default function MirrorReveal({ topRegions }: Props) {
               >
                 <div className="md:col-span-7">
                   <Caption uppercase className="text-brass">
-                    {r.anatomyName}
+                    {tr(tRegions, `${entry.id}.anatomyName`, r.anatomyName)}
                   </Caption>
-                  <Heading className="mt-3">{r.displayName}</Heading>
+                  <Heading className="mt-3">
+                    {tr(tRegions, `${entry.id}.displayName`, r.displayName)}
+                  </Heading>
                   <Body className="text-bone-cream/75 mt-4 max-w-[34rem]">
-                    {r.scienceGloss}
+                    {tr(tRegions, `${entry.id}.scienceGloss`, r.scienceGloss)}
                   </Body>
                   <Body italic className="text-bone-cream/60 mt-4 max-w-[34rem]">
-                    {r.poeticGloss}
+                    {tr(tRegions, `${entry.id}.poeticGloss`, r.poeticGloss)}
                   </Body>
                 </div>
                 <div className="md:col-span-5 md:text-right">
@@ -79,7 +87,7 @@ export default function MirrorReveal({ topRegions }: Props) {
                     {(entry.activation * 100).toFixed(0)}
                   </Mono>
                   <Caption uppercase className="text-bone-cream/45 mt-2 block">
-                    Predicted activation
+                    {tr(tMirror, "predictedActivation", "Predicted activation")}
                   </Caption>
                 </div>
               </motion.article>

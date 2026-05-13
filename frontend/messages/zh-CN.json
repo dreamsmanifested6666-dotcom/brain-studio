@@ -129,6 +129,9 @@
     "title": "随便写点什么吧。",
     "intro": "上面的大脑是模型在思考——二十个区域上的预测激活，正在向你写下的内容所征召的方向缓慢滑过去。粘贴一句话、一段、一节。看什么会变温。",
     "exportLabel": "PNG · 1080 × 1080",
+    "revealLabel": "你的写作所揭示的",
+    "revealIntro": "本预览中的预测在本地模拟运行；真正的 TRIBE 推理会在第 10 阶段接入。",
+    "predictedActivation": "预测的激活",
     "step1": {
       "label": "步骤 · I",
       "heading": "大脑并不「读」词，而是在重建意义。",
@@ -243,6 +246,128 @@
     "essay3": {
       "title": "声音与显著性网络",
       "summary": "为什么某些音乐似乎带着分量到来——听觉皮层、默认模式的参与，以及荣格所说的「数性（numinous）」。"
+    }
+  },
+  "regions": {
+    "ifg_left": {
+      "displayName": "布罗卡区（左）",
+      "anatomyName": "额下回 BA 44/45（左）",
+      "scienceGloss": "参与句法处理与构音。此处的损伤会扰乱言语产生，而理解则可能部分保留。",
+      "poeticGloss": "你身上那个找出下一个词的部分——和那个在词不太对时自己卡住舌头的部分。"
+    },
+    "ifg_right": {
+      "displayName": "IFG（右）",
+      "anatomyName": "额下回（右）",
+      "scienceGloss": "参与韵律、比喻性言语的语义整合和语言的抑制性控制。",
+      "poeticGloss": "倾听语调的那个半球——倾听某人在说出的话之下究竟想说什么。"
+    },
+    "pstg_left": {
+      "displayName": "后部颞上回（左）",
+      "anatomyName": "颞上回后部（左）",
+      "scienceGloss": "参与音韵与词汇加工。有时（有争议地）被称作「韦尼克区」。",
+      "poeticGloss": "声音变成词的地方。呼吸的河流开始看上去像意义的地方。"
+    },
+    "pstg_right": {
+      "displayName": "后部颞上回（右）",
+      "anatomyName": "颞上回后部（右）",
+      "scienceGloss": "参与音调与韵律加工，包括旋律知觉以及言语的情感面。",
+      "poeticGloss": "音乐与感受第一次相遇的房间。一句话不能独自走进去的房间。"
+    },
+    "mtg_left": {
+      "displayName": "颞中回（左）",
+      "anatomyName": "颞中回（左）",
+      "scienceGloss": "参与词汇语义和词语提取。此处的活动随着句意而非仅仅随着声音而升降。",
+      "poeticGloss": "一个词与它的分量相遇的地方。「母亲」不只是一个名词的地方。"
+    },
+    "mtg_right": {
+      "displayName": "颞中回（右）",
+      "anatomyName": "颞中回（右）",
+      "scienceGloss": "参与比喻性意义、叙事理解，以及生物运动知觉。",
+      "poeticGloss": "处理隐喻而不动眉头的那个半球。故事在拥有结尾之前就生活着的地方。"
+    },
+    "atl_left": {
+      "displayName": "颞前部（左）",
+      "anatomyName": "颞叶前部（左）",
+      "scienceGloss": "语义枢纽：参与把多模态的概念性知识整合为意义。",
+      "poeticGloss": "你身上那个知道一个东西「是」什么、而不只是它「叫」什么的部分。"
+    },
+    "atl_right": {
+      "displayName": "颞前部（右）",
+      "anatomyName": "颞叶前部（右）",
+      "scienceGloss": "参与人物知识、社会语义，以及面孔所承载的意义。",
+      "poeticGloss": "一张脸还不是一个名字——但已经是一种感受——的地方。"
+    },
+    "agl_left": {
+      "displayName": "角回（左）",
+      "anatomyName": "角回（左）",
+      "scienceGloss": "异模态枢纽：参与语义整合、隐喻和默认模式网络。",
+      "poeticGloss": "感官被译为观念的十字路口。「红」可以指一种颜色，也可以指一个国家的地方。"
+    },
+    "agl_right": {
+      "displayName": "角回（右）",
+      "anatomyName": "角回（右）",
+      "scienceGloss": "参与数感、空间认知，以及默认模式网络的右侧成分。",
+      "poeticGloss": "数、身体和自我相遇的地方——一间屋子知道自己是一间屋子的方式。"
+    },
+    "hg_left": {
+      "displayName": "赫氏回（左）",
+      "anatomyName": "赫氏回 / 初级听觉皮层（左）",
+      "scienceGloss": "初级听觉皮层：接收来自耳朵的最初皮层信号。按声调拓扑（tonotopic）组织。",
+      "poeticGloss": "声音穿过去变成思想的那道门。听觉这座房子里最早的一间房。"
+    },
+    "hg_right": {
+      "displayName": "赫氏回（右）",
+      "anatomyName": "赫氏回 / 初级听觉皮层（右）",
+      "scienceGloss": "初级听觉皮层（右）。比左侧更精细的频谱加工。",
+      "poeticGloss": "能听出小提琴与某人在哭之间区别的那只耳朵。"
+    },
+    "vmpfc": {
+      "displayName": "vmPFC",
+      "anatomyName": "腹内侧前额叶皮层",
+      "scienceGloss": "参与估值、自我参照思维和默认模式网络。不是「自我中枢」——是一个节点。",
+      "poeticGloss": "你身上那个知道什么对你好的部分——而它有时也会判断错。"
+    },
+    "dmpfc": {
+      "displayName": "dmPFC",
+      "anatomyName": "背内侧前额叶皮层",
+      "scienceGloss": "参与心智化——为他人的心理状态建模——以及自我反思。",
+      "poeticGloss": "那个会去想「别人在想什么」的你——以及那个有时也会在这件事上判断错的你。"
+    },
+    "pcc": {
+      "displayName": "PCC",
+      "anatomyName": "后扣带回皮层",
+      "scienceGloss": "默认模式网络的核心节点。在记忆、思绪漫游、自我相关思考中活跃。",
+      "poeticGloss": "当你不再用力时仍然是你的那部分。其他房间都熄灭时仍亮着的那间房。"
+    },
+    "precuneus": {
+      "displayName": "楔前叶",
+      "anatomyName": "楔前叶",
+      "scienceGloss": "参与自传性记忆、心理意象和视觉空间整合。",
+      "poeticGloss": "当你回想起祖母厨房的气味时，你去的那个地方。"
+    },
+    "amyg_left": {
+      "displayName": "杏仁核（左）",
+      "anatomyName": "杏仁核（左）",
+      "scienceGloss": "参与显著性与情绪学习——也包括积极情绪。不是「恐惧中枢」。",
+      "poeticGloss": "你身上那个在你还没有词去说明「为什么」之前，就先注意到什么要紧的部分。"
+    },
+    "amyg_right": {
+      "displayName": "杏仁核（右）",
+      "anatomyName": "杏仁核（右）",
+      "scienceGloss": "参与显著性与情绪学习。在奖赏和威胁中都会激活。",
+      "poeticGloss": "在心智赶上之前，身体决定「这是真的」的那一处。"
+    },
+    "hipp_left": {
+      "displayName": "海马（左）",
+      "anatomyName": "海马（左）",
+      "scienceGloss": "参与情景记忆的编码和空间认知地图的建构。",
+      "poeticGloss": "你身上那个把经验编织成一个你可以回去的故事的部分。"
+    },
+    "hipp_right": {
+      "displayName": "海马（右）",
+      "anatomyName": "海马（右）",
+      "scienceGloss": "参与空间记忆和对可能未来的想象，也参与对过去场景的提取。",
+      "poeticGloss": "你在尚未被建起来的房间里行走的地方。"
     }
   },
   "mandalas": {

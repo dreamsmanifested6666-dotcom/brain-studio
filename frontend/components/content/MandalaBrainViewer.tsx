@@ -153,6 +153,7 @@ export default function MandalaBrainViewer() {
         <ul className="mt-8 space-y-4">
           {topRegions.map(({ id, v }) => {
             const r = regionById[id as keyof typeof regionById];
+            const tr = (key: string, fb: string) => { try { return tRegions(key); } catch { return fb; } };
             return (
               <li
                 key={id}
@@ -160,15 +161,15 @@ export default function MandalaBrainViewer() {
               >
                 <div className="md:col-span-4">
                   <Caption className="text-bone-cream/85">
-                    {r?.displayName ?? id}
+                    {r ? tr(`${id}.displayName`, r.displayName) : id}
                   </Caption>
                   <Caption className="text-bone-cream/45 mt-1 block">
-                    {r?.anatomyName}
+                    {r ? tr(`${id}.anatomyName`, r.anatomyName) : ""}
                   </Caption>
                 </div>
                 <div className="md:col-span-6">
                   <Body italic className="text-bone-cream/70">
-                    {r?.scienceGloss}
+                    {r ? tr(`${id}.scienceGloss`, r.scienceGloss) : ""}
                   </Body>
                 </div>
                 <div className="md:col-span-2 md:text-right">

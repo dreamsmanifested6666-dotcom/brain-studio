@@ -14,6 +14,11 @@ import { regionById, type RegionId } from "@/lib/regions";
  * Posterior STG (left), 64%; …". Three regions max.
  */
 export default function RegionAnnouncer() {
+  // Mounted in the root layout (outside the NextIntlClientProvider) so the
+  // persistent canvas/screen-reader announcer survives locale switches.
+  // The announcement stays in English; translating it would require moving
+  // the announcer inside the locale layout and remounting on language
+  // change, which we are explicitly avoiding here.
   const activations = useBrainStageStore((s) => s.targetActivations);
   const [message, setMessage] = useState("");
 

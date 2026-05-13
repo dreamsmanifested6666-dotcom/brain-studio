@@ -129,6 +129,9 @@
     "title": "Escribe algo. Lo que sea.",
     "intro": "El cerebro de arriba es el modelo pensando — activación predicha en veinte regiones, deslizándose hacia lo que recluta tu escritura. Pega una frase, un párrafo, un fragmento. Mira qué se calienta.",
     "exportLabel": "PNG · 1080 × 1080",
+    "revealLabel": "Lo que tu escritura revela",
+    "revealIntro": "Las predicciones de esta vista previa están simuladas localmente; la inferencia real de TRIBE llega en la Fase 10.",
+    "predictedActivation": "Activación predicha",
     "step1": {
       "label": "Paso · I",
       "heading": "El cerebro no lee palabras. Reconstruye significado.",
@@ -243,6 +246,128 @@
     "essay3": {
       "title": "El sonido y la red de saliencia",
       "summary": "Por qué ciertas piezas musicales parecen llegar con peso — corteza auditiva, implicación de la red por defecto, y lo que Jung llamó lo numinoso."
+    }
+  },
+  "regions": {
+    "ifg_left": {
+      "displayName": "Región de Broca (I)",
+      "anatomyName": "Giro frontal inferior, BA 44/45 (izq.)",
+      "scienceGloss": "Implicado en el procesamiento sintáctico y la articulación. Una lesión aquí altera la producción del habla mientras la comprensión puede permanecer parcialmente intacta.",
+      "poeticGloss": "La parte de ti que encuentra la siguiente palabra — y la parte que se atasca cuando la palabra no termina de ser la justa."
+    },
+    "ifg_right": {
+      "displayName": "GFI (D)",
+      "anatomyName": "Giro frontal inferior (der.)",
+      "scienceGloss": "Implicado en la prosodia, la integración semántica del lenguaje figurado y el control inhibitorio del lenguaje.",
+      "poeticGloss": "El hemisferio que escucha el tono — lo que alguien quiere decir por debajo de lo que dijo."
+    },
+    "pstg_left": {
+      "displayName": "STG posterior (I)",
+      "anatomyName": "Giro temporal superior posterior (izq.)",
+      "scienceGloss": "Implicado en el procesamiento fonológico y léxico. A veces llamado (de forma discutida) 'área de Wernicke'.",
+      "poeticGloss": "Donde los sonidos se vuelven palabras. Donde el río del aliento empieza a parecer significado."
+    },
+    "pstg_right": {
+      "displayName": "STG posterior (D)",
+      "anatomyName": "Giro temporal superior posterior (der.)",
+      "scienceGloss": "Implicado en el procesamiento tonal y prosódico, incluyendo la percepción de la melodía y el lado afectivo del habla.",
+      "poeticGloss": "La sala donde la música y el sentimiento se encuentran por primera vez. La sala en la que una frase no puede entrar sola."
+    },
+    "mtg_left": {
+      "displayName": "Temporal medio (I)",
+      "anatomyName": "Giro temporal medio (izq.)",
+      "scienceGloss": "Implicado en la semántica léxica y la recuperación de palabras. La actividad aquí escala con el significado de la frase, no sólo con el sonido.",
+      "poeticGloss": "Donde una palabra y su peso se encuentran. Donde 'madre' no es sólo un sustantivo."
+    },
+    "mtg_right": {
+      "displayName": "Temporal medio (D)",
+      "anatomyName": "Giro temporal medio (der.)",
+      "scienceGloss": "Implicado en el significado figurado, la comprensión narrativa y la percepción del movimiento biológico.",
+      "poeticGloss": "El hemisferio que maneja la metáfora sin pestañear. Donde las historias viven antes de tener final."
+    },
+    "atl_left": {
+      "displayName": "Temporal anterior (I)",
+      "anatomyName": "Lóbulo temporal anterior (izq.)",
+      "scienceGloss": "Un nodo semántico: implicado en integrar conocimiento conceptual multimodal en significado.",
+      "poeticGloss": "La parte de ti que sabe qué es una cosa, no sólo cómo se llama."
+    },
+    "atl_right": {
+      "displayName": "Temporal anterior (D)",
+      "anatomyName": "Lóbulo temporal anterior (der.)",
+      "scienceGloss": "Implicado en el conocimiento de personas, la semántica social y los significados que portan los rostros.",
+      "poeticGloss": "Donde una cara aún no es un nombre — pero ya es un sentimiento."
+    },
+    "agl_left": {
+      "displayName": "Giro angular (I)",
+      "anatomyName": "Giro angular (izq.)",
+      "scienceGloss": "Un nodo heteromodal: implicado en la integración semántica, la metáfora y la red por defecto.",
+      "poeticGloss": "El cruce donde los sentidos se traducen en ideas. Donde 'rojo' puede significar un color o un país."
+    },
+    "agl_right": {
+      "displayName": "Giro angular (D)",
+      "anatomyName": "Giro angular (der.)",
+      "scienceGloss": "Implicado en la cognición numérica, espacial y en el componente derecho de la red por defecto.",
+      "poeticGloss": "Donde número, cuerpo y yo se encuentran — la manera en que una habitación sabe que es una habitación."
+    },
+    "hg_left": {
+      "displayName": "Giro de Heschl (I)",
+      "anatomyName": "Giro de Heschl / corteza auditiva primaria (izq.)",
+      "scienceGloss": "Corteza auditiva primaria: recibe la primera señal cortical del oído. Está organizada tonotópicamente.",
+      "poeticGloss": "La puerta por la que el sonido camina para convertirse en pensamiento. La habitación más antigua de la casa del oír."
+    },
+    "hg_right": {
+      "displayName": "Giro de Heschl (D)",
+      "anatomyName": "Giro de Heschl / corteza auditiva primaria (der.)",
+      "scienceGloss": "Corteza auditiva primaria (der.). Procesamiento espectral más fino que su contraparte izquierda.",
+      "poeticGloss": "El oído que oye la diferencia entre un violín y alguien llorando."
+    },
+    "vmpfc": {
+      "displayName": "vmPFC",
+      "anatomyName": "Corteza prefrontal ventromedial",
+      "scienceGloss": "Implicada en la valoración, el pensamiento autorreferencial y la red por defecto. No un 'centro del yo' — un nodo.",
+      "poeticGloss": "La parte de ti que sabe lo que te conviene — y a veces se equivoca."
+    },
+    "dmpfc": {
+      "displayName": "dmPFC",
+      "anatomyName": "Corteza prefrontal dorsomedial",
+      "scienceGloss": "Implicada en la mentalización — modelar los estados mentales de los otros — y en la autorreflexión.",
+      "poeticGloss": "La parte de ti que se pregunta qué está pensando el otro. La parte que, a veces, también se equivoca en eso."
+    },
+    "pcc": {
+      "displayName": "PCC",
+      "anatomyName": "Corteza cingulada posterior",
+      "scienceGloss": "Un nodo central de la red por defecto. Activa en memoria, vagabundeo mental y pensamiento referido al sí mismo.",
+      "poeticGloss": "La parte de ti que sigue siendo tú cuando dejas de intentarlo. La habitación que queda encendida cuando las demás no."
+    },
+    "precuneus": {
+      "displayName": "Precúneo",
+      "anatomyName": "Precúneo",
+      "scienceGloss": "Implicado en la memoria autobiográfica, la imaginería mental y la integración visuoespacial.",
+      "poeticGloss": "A donde vas cuando recuerdas el olor de la cocina de tu abuela."
+    },
+    "amyg_left": {
+      "displayName": "Amígdala (I)",
+      "anatomyName": "Amígdala (izq.)",
+      "scienceGloss": "Implicada en la saliencia y el aprendizaje emocional — incluyendo emociones positivas. No un 'centro del miedo'.",
+      "poeticGloss": "La parte de ti que nota qué importa antes de que tengas palabras para por qué."
+    },
+    "amyg_right": {
+      "displayName": "Amígdala (D)",
+      "anatomyName": "Amígdala (der.)",
+      "scienceGloss": "Implicada en la saliencia y el aprendizaje emocional. Se activa tanto en recompensa como ante amenaza.",
+      "poeticGloss": "Donde el cuerpo decide que esto es real, antes de que la mente se entere."
+    },
+    "hipp_left": {
+      "displayName": "Hipocampo (I)",
+      "anatomyName": "Hipocampo (izq.)",
+      "scienceGloss": "Implicado en la codificación de la memoria episódica y la construcción de mapas cognitivos espaciales.",
+      "poeticGloss": "La parte de ti que teje la experiencia en una historia a la que puedes volver."
+    },
+    "hipp_right": {
+      "displayName": "Hipocampo (D)",
+      "anatomyName": "Hipocampo (der.)",
+      "scienceGloss": "Implicado en la memoria espacial y en imaginar futuros posibles, además de recordar escenas pasadas.",
+      "poeticGloss": "Donde caminas por habitaciones que todavía no se han construido."
     }
   },
   "mandalas": {

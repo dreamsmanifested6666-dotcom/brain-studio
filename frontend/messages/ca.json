@@ -129,6 +129,9 @@
     "title": "Escriu alguna cosa. El que sigui.",
     "intro": "El cervell de dalt és el model pensant — activació predita en vint regions, lliscant cap al que recluta la teva escriptura. Enganxa una frase, un paràgraf, un fragment. Mira què s'escalfa.",
     "exportLabel": "PNG · 1080 × 1080",
+    "revealLabel": "El que la teva escriptura revela",
+    "revealIntro": "Les prediccions d'aquesta vista prèvia es simulen localment; la inferència real de TRIBE arriba a la Fase 10.",
+    "predictedActivation": "Activació predita",
     "step1": {
       "label": "Pas · I",
       "heading": "El cervell no llegeix paraules. Reconstrueix significat.",
@@ -243,6 +246,128 @@
     "essay3": {
       "title": "El so i la xarxa de saliència",
       "summary": "Per què algunes peces musicals semblen arribar amb pes — còrtex auditiva, implicació de la xarxa per defecte, i el que Jung anomenava el numinós."
+    }
+  },
+  "regions": {
+    "ifg_left": {
+      "displayName": "Regió de Broca (E)",
+      "anatomyName": "Gir frontal inferior, BA 44/45 (esq.)",
+      "scienceGloss": "Implicat en el processament sintàctic i l'articulació. Una lesió aquí altera la producció de la parla mentre la comprensió pot quedar parcialment intacta.",
+      "poeticGloss": "La part de tu que troba la paraula següent — i la part que s'encalla quan la paraula no acaba de ser la justa."
+    },
+    "ifg_right": {
+      "displayName": "GFI (D)",
+      "anatomyName": "Gir frontal inferior (dret)",
+      "scienceGloss": "Implicat en la prosòdia, la integració semàntica del llenguatge figurat i el control inhibitori del llenguatge.",
+      "poeticGloss": "L'hemisferi que escolta el to — el que algú vol dir per sota del que ha dit."
+    },
+    "pstg_left": {
+      "displayName": "STG posterior (E)",
+      "anatomyName": "Gir temporal superior posterior (esq.)",
+      "scienceGloss": "Implicat en el processament fonològic i lèxic. De vegades anomenat (de manera discutida) 'àrea de Wernicke'.",
+      "poeticGloss": "On els sons esdevenen paraules. On el riu de l'alè comença a semblar significat."
+    },
+    "pstg_right": {
+      "displayName": "STG posterior (D)",
+      "anatomyName": "Gir temporal superior posterior (dret)",
+      "scienceGloss": "Implicat en el processament tonal i prosòdic, incloent la percepció de la melodia i el costat afectiu de la parla.",
+      "poeticGloss": "La sala on la música i el sentiment es troben per primera vegada. La sala on una frase no pot entrar sola."
+    },
+    "mtg_left": {
+      "displayName": "Temporal mitjà (E)",
+      "anatomyName": "Gir temporal mitjà (esq.)",
+      "scienceGloss": "Implicat en la semàntica lèxica i la recuperació de paraules. L'activitat aquí escala amb el significat de la frase, no només amb el so.",
+      "poeticGloss": "On una paraula i el seu pes es troben. On 'mare' no és només un substantiu."
+    },
+    "mtg_right": {
+      "displayName": "Temporal mitjà (D)",
+      "anatomyName": "Gir temporal mitjà (dret)",
+      "scienceGloss": "Implicat en el significat figurat, la comprensió narrativa i la percepció del moviment biològic.",
+      "poeticGloss": "L'hemisferi que maneja la metàfora sense pestanyejar. On les històries viuen abans de tenir final."
+    },
+    "atl_left": {
+      "displayName": "Temporal anterior (E)",
+      "anatomyName": "Lòbul temporal anterior (esq.)",
+      "scienceGloss": "Un node semàntic: implicat en integrar coneixement conceptual multimodal en significat.",
+      "poeticGloss": "La part de tu que sap què és una cosa, no només com es diu."
+    },
+    "atl_right": {
+      "displayName": "Temporal anterior (D)",
+      "anatomyName": "Lòbul temporal anterior (dret)",
+      "scienceGloss": "Implicat en el coneixement de persones, la semàntica social i els significats que porten els rostres.",
+      "poeticGloss": "On una cara encara no és un nom — però ja és un sentiment."
+    },
+    "agl_left": {
+      "displayName": "Gir angular (E)",
+      "anatomyName": "Gir angular (esq.)",
+      "scienceGloss": "Un node heteromodal: implicat en la integració semàntica, la metàfora i la xarxa per defecte.",
+      "poeticGloss": "La cruïlla on els sentits es tradueixen en idees. On 'vermell' pot significar un color o un país."
+    },
+    "agl_right": {
+      "displayName": "Gir angular (D)",
+      "anatomyName": "Gir angular (dret)",
+      "scienceGloss": "Implicat en la cognició numèrica, espacial i en el component dret de la xarxa per defecte.",
+      "poeticGloss": "On nombre, cos i jo es troben — la manera com una sala sap que és una sala."
+    },
+    "hg_left": {
+      "displayName": "Gir d'Heschl (E)",
+      "anatomyName": "Gir d'Heschl / còrtex auditiu primari (esq.)",
+      "scienceGloss": "Còrtex auditiu primari: rep el primer senyal cortical de l'oïda. Està organitzat tonotòpicament.",
+      "poeticGloss": "La porta per la qual el so passa per esdevenir pensament. La sala més antiga de la casa del sentir."
+    },
+    "hg_right": {
+      "displayName": "Gir d'Heschl (D)",
+      "anatomyName": "Gir d'Heschl / còrtex auditiu primari (dret)",
+      "scienceGloss": "Còrtex auditiu primari (dret). Processament espectral més fi que el seu homòleg esquerre.",
+      "poeticGloss": "L'oïda que sent la diferència entre un violí i algú plorant."
+    },
+    "vmpfc": {
+      "displayName": "vmPFC",
+      "anatomyName": "Còrtex prefrontal ventromedial",
+      "scienceGloss": "Implicada en la valoració, el pensament autoreferencial i la xarxa per defecte. No un 'centre del jo' — un node.",
+      "poeticGloss": "La part de tu que sap què et convé — i de vegades s'equivoca."
+    },
+    "dmpfc": {
+      "displayName": "dmPFC",
+      "anatomyName": "Còrtex prefrontal dorsomedial",
+      "scienceGloss": "Implicada en la mentalització — modelar els estats mentals dels altres — i en l'autoreflexió.",
+      "poeticGloss": "La part de tu que es pregunta què està pensant l'altre. La part que, de vegades, també s'equivoca en això."
+    },
+    "pcc": {
+      "displayName": "PCC",
+      "anatomyName": "Còrtex cingulada posterior",
+      "scienceGloss": "Un node central de la xarxa per defecte. Activa en memòria, divagació mental i pensament referit al si mateix.",
+      "poeticGloss": "La part de tu que segueix sent tu quan deixes d'intentar-ho. La sala que queda encesa quan les altres no."
+    },
+    "precuneus": {
+      "displayName": "Precuneus",
+      "anatomyName": "Precuneus",
+      "scienceGloss": "Implicat en la memòria autobiogràfica, la imatgeria mental i la integració visuoespacial.",
+      "poeticGloss": "On vas quan recordes l'olor de la cuina de la teva àvia."
+    },
+    "amyg_left": {
+      "displayName": "Amígdala (E)",
+      "anatomyName": "Amígdala (esq.)",
+      "scienceGloss": "Implicada en la saliència i l'aprenentatge emocional — incloent emocions positives. No un 'centre de la por'.",
+      "poeticGloss": "La part de tu que nota què importa abans de tenir paraules per al perquè."
+    },
+    "amyg_right": {
+      "displayName": "Amígdala (D)",
+      "anatomyName": "Amígdala (dret)",
+      "scienceGloss": "Implicada en la saliència i l'aprenentatge emocional. S'activa tant en recompensa com davant amenaça.",
+      "poeticGloss": "On el cos decideix que això és real, abans que la ment se n'adoni."
+    },
+    "hipp_left": {
+      "displayName": "Hipocamp (E)",
+      "anatomyName": "Hipocamp (esq.)",
+      "scienceGloss": "Implicat en la codificació de la memòria episòdica i la construcció de mapes cognitius espacials.",
+      "poeticGloss": "La part de tu que teixeix l'experiència en una història a la qual pots tornar."
+    },
+    "hipp_right": {
+      "displayName": "Hipocamp (D)",
+      "anatomyName": "Hipocamp (dret)",
+      "scienceGloss": "Implicat en la memòria espacial i en imaginar futurs possibles, així com en recordar escenes passades.",
+      "poeticGloss": "On camines per habitacions que encara no han estat construïdes."
     }
   },
   "mandalas": {

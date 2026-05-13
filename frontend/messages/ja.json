@@ -129,6 +129,9 @@
     "title": "何か書いてみてください。何でも。",
     "intro": "上に見える脳は、考えている最中のモデルです — 20の領野にわたる予測活性が、あなたの書いたものが呼び起こすものへと滑らかに近づきます。文を、段落を、断片を貼ってみてください。何が温まるか見てみましょう。",
     "exportLabel": "PNG · 1080 × 1080",
+    "revealLabel": "あなたの書いたものが明らかにすること",
+    "revealIntro": "このプレビューの予測はローカルでシミュレートされています。本物の TRIBE 推論はフェーズ 10 で接続されます。",
+    "predictedActivation": "予測される活性",
     "step1": {
       "label": "ステップ · I",
       "heading": "脳は言葉を「読む」のではなく、意味を組み立て直しています。",
@@ -243,6 +246,128 @@
     "essay3": {
       "title": "音とサリエンス・ネットワーク",
       "summary": "なぜ特定の音楽は重みを伴って届くように感じられるのか — 聴覚野、デフォルト・モードの関与、そしてユングが「ヌミノース」と呼んだもの。"
+    }
+  },
+  "regions": {
+    "ifg_left": {
+      "displayName": "ブローカ野(左)",
+      "anatomyName": "下前頭回 BA 44/45(左)",
+      "scienceGloss": "統語処理と構音に関与する。ここの損傷は発話の産生を乱す一方で、理解は部分的に保たれることがある。",
+      "poeticGloss": "次の語を見つけるあなたの一部 — そして、語がしっくり来ないときに自分の舌をつかまえる一部。"
+    },
+    "ifg_right": {
+      "displayName": "IFG(右)",
+      "anatomyName": "下前頭回(右)",
+      "scienceGloss": "プロソディ、比喩的言語の意味統合、言語の抑制的制御に関与する。",
+      "poeticGloss": "声色を聴く半球 — 言われたことの下で誰かが意味していることに耳を澄ます半球。"
+    },
+    "pstg_left": {
+      "displayName": "Posterior STG(左)",
+      "anatomyName": "後上側頭回(左)",
+      "scienceGloss": "音韻・語彙処理に関与する。(議論はあるが)ウェルニッケ野と呼ばれることがある。",
+      "poeticGloss": "音が言葉になる場所。呼気の川が意味らしく見えはじめる場所。"
+    },
+    "pstg_right": {
+      "displayName": "Posterior STG(右)",
+      "anatomyName": "後上側頭回(右)",
+      "scienceGloss": "トーン処理とプロソディに関与する。旋律知覚や情動的な発話の側面も含む。",
+      "poeticGloss": "音楽と感情がはじめて出会う部屋。一文だけでは入れない部屋。"
+    },
+    "mtg_left": {
+      "displayName": "中側頭(左)",
+      "anatomyName": "中側頭回(左)",
+      "scienceGloss": "語彙意味と語想起に関与する。ここの活動は音だけでなく文意味とともにスケールする。",
+      "poeticGloss": "語とその重みが出会う場所。「母」が単なる名詞ではないと知る場所。"
+    },
+    "mtg_right": {
+      "displayName": "中側頭(右)",
+      "anatomyName": "中側頭回(右)",
+      "scienceGloss": "比喩的な意味、物語理解、生物学的運動の知覚に関与する。",
+      "poeticGloss": "比喩をひるまずに扱う半球。物語が終わりを持つ前に生きている場所。"
+    },
+    "atl_left": {
+      "displayName": "前側頭(左)",
+      "anatomyName": "前側頭葉(左)",
+      "scienceGloss": "意味のハブ:マルチモーダルな概念知識を意味に統合することに関与する。",
+      "poeticGloss": "物が何「と呼ばれているか」だけでなく、何「であるか」を知るあなたの部分。"
+    },
+    "atl_right": {
+      "displayName": "前側頭(右)",
+      "anatomyName": "前側頭葉(右)",
+      "scienceGloss": "人物知識、社会的意味、顔が運ぶ意味に関与する。",
+      "poeticGloss": "顔がまだ名前ではない — しかしすでに感じである場所。"
+    },
+    "agl_left": {
+      "displayName": "角回(左)",
+      "anatomyName": "角回(左)",
+      "scienceGloss": "ヘテロモーダルなハブ:意味統合、比喩、デフォルト・モード・ネットワークに関与する。",
+      "poeticGloss": "感覚が観念へと翻訳される交差点。「赤」が色にも国にもなりうる場所。"
+    },
+    "agl_right": {
+      "displayName": "角回(右)",
+      "anatomyName": "角回(右)",
+      "scienceGloss": "数的・空間的認知、およびデフォルト・モード・ネットワークの右側構成要素に関与する。",
+      "poeticGloss": "数、身体、自己が出会う場所 — 部屋が自分を「部屋」と知るその仕方。"
+    },
+    "hg_left": {
+      "displayName": "ヘッシュル回(左)",
+      "anatomyName": "ヘッシュル回 / 一次聴覚野(左)",
+      "scienceGloss": "一次聴覚野:耳からの最初の皮質信号を受ける。音調的(tonotopic)に組織化されている。",
+      "poeticGloss": "音が思考になるために通る扉。聴覚の家の最も古い部屋。"
+    },
+    "hg_right": {
+      "displayName": "ヘッシュル回(右)",
+      "anatomyName": "ヘッシュル回 / 一次聴覚野(右)",
+      "scienceGloss": "一次聴覚野(右)。左に比べてより細かいスペクトル処理を行う。",
+      "poeticGloss": "ヴァイオリンと、誰かが泣く声との違いを聴き分ける耳。"
+    },
+    "vmpfc": {
+      "displayName": "vmPFC",
+      "anatomyName": "腹内側前頭前皮質",
+      "scienceGloss": "価値評価、自己参照的思考、デフォルト・モード・ネットワークに関与する。「自己の中枢」ではなく、ひとつのノード。",
+      "poeticGloss": "何が自分にとって良いかを知っているあなたの部分 — そして時に間違える部分。"
+    },
+    "dmpfc": {
+      "displayName": "dmPFC",
+      "anatomyName": "背内側前頭前皮質",
+      "scienceGloss": "メンタライジング — 他者の心的状態をモデル化すること — と自己省察に関与する。",
+      "poeticGloss": "誰か他人が何を考えているかを問うあなたの部分。そして、時にそれを間違えるあなたの部分。"
+    },
+    "pcc": {
+      "displayName": "PCC",
+      "anatomyName": "後部帯状回皮質",
+      "scienceGloss": "デフォルト・モード・ネットワークの中核ノード。記憶、心の彷徨、自己関連思考に活動する。",
+      "poeticGloss": "努めるのをやめたときにも残るあなたの部分。他の部屋が暗くなったときに灯っている部屋。"
+    },
+    "precuneus": {
+      "displayName": "楔前部(Precuneus)",
+      "anatomyName": "楔前部",
+      "scienceGloss": "自伝的記憶、心的イメージ、視空間統合に関与する。",
+      "poeticGloss": "祖母の台所のにおいを思い出すとき、あなたが行く場所。"
+    },
+    "amyg_left": {
+      "displayName": "扁桃体(左)",
+      "anatomyName": "扁桃体(左)",
+      "scienceGloss": "サリエンスと情動学習 — 肯定的な情動も含む — に関与する。「恐怖の中枢」ではない。",
+      "poeticGloss": "なぜ大事なのかを言葉にする前に、何が大事かを気づくあなたの部分。"
+    },
+    "amyg_right": {
+      "displayName": "扁桃体(右)",
+      "anatomyName": "扁桃体(右)",
+      "scienceGloss": "サリエンスと情動学習に関与する。報酬と脅威のどちらでも活動する。",
+      "poeticGloss": "心が追いつく前に、身体が「これは本当だ」と決める場所。"
+    },
+    "hipp_left": {
+      "displayName": "海馬(左)",
+      "anatomyName": "海馬(左)",
+      "scienceGloss": "エピソード記憶の符号化と、空間的認知地図の構築に関与する。",
+      "poeticGloss": "経験を、戻れる物語へと編むあなたの部分。"
+    },
+    "hipp_right": {
+      "displayName": "海馬(右)",
+      "anatomyName": "海馬(右)",
+      "scienceGloss": "空間記憶と、起こりうる未来の想像に関与する。過去の場面の想起にも関わる。",
+      "poeticGloss": "まだ建てられていない部屋を歩く場所。"
     }
   },
   "mandalas": {

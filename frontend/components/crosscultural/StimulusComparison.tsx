@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useBrainStageStore } from "@/store/useBrainStageStore";
 import {
   Body,
@@ -23,6 +24,8 @@ import BrainMap2D from "./BrainMap2D";
  *   - Click a side to send that side's activations to the persistent brain
  */
 export default function StimulusComparison() {
+  const tRegions = useTranslations("regions");
+  const trReg = (key: string, fb: string) => { try { return tRegions(key); } catch { return fb; } };
   const [pairIndex, setPairIndex] = useState(0);
   const [focused, setFocused] = useState<"english" | "thai">("english");
 
@@ -158,10 +161,10 @@ export default function StimulusComparison() {
                   >
                     <span>
                       <Caption className="text-bone-cream/80">
-                        {r.displayName}
+                        {trReg(`${d.id}.displayName`, r.displayName)}
                       </Caption>{" "}
                       <Caption className="text-bone-cream/40">
-                        · {r.anatomyName}
+                        · {trReg(`${d.id}.anatomyName`, r.anatomyName)}
                       </Caption>
                     </span>
                     <Mono variant="label" className="text-brass">
