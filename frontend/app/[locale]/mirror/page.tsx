@@ -7,6 +7,7 @@ import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import MirrorInput from "@/components/mirror/MirrorInput";
 import MirrorReveal from "@/components/mirror/MirrorReveal";
 import MirrorCaption from "@/components/mirror/MirrorCaption";
+import BrainViews from "@/components/brain/BrainViews";
 import SavedExampleCard from "@/components/mirror/SavedExampleCard";
 import SaveInsightButton from "@/components/mirror/SaveInsightButton";
 import {
@@ -15,7 +16,7 @@ import {
   Display,
   Heading,
 } from "@/components/typography/Typography";
-import { signaturePatterns } from "@/lib/regions";
+import { signaturePatterns, type RegionId } from "@/lib/regions";
 import { topRegions, type Prediction } from "@/lib/fakePredictor";
 import { savedExamples } from "@/lib/savedExamples";
 
@@ -102,6 +103,22 @@ export default function MirrorPage() {
             <div className="mt-12 md:mt-16">
               <MirrorCaption
                 activations={latest.prediction.activations}
+              />
+            </div>
+          )}
+
+          {/* Four-angle brain views: anterior / right / posterior /
+              left. Live-renders the user's same activation pattern
+              from four anatomical perspectives so they can see
+              what's happening in regions the main brain hides. */}
+          {hasResult && latest && (
+            <div className="mt-16 md:mt-20">
+              <BrainViews
+                activations={
+                  latest.prediction.activations as Partial<
+                    Record<RegionId, number>
+                  >
+                }
               />
             </div>
           )}
