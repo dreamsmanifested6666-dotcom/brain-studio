@@ -167,6 +167,18 @@ export const brainAnchors: Record<RoomId, BrainAnchor> = {
     meshResolution: "fsaverage5",
     visible: true,
   },
+  // PR 8: /map — three-column catalog page. The brain sits small in
+  // the upper-right as a reference figure, same posture as the
+  // other reference-layer pages (Atlas, Bridges). Cinematic
+  // lighting matches the catalogue character.
+  map: {
+    position: [1.2, 0.55, 0],
+    scale: 0.28,
+    rotation: [0, -0.18, 0],
+    lighting: "cinematic",
+    meshResolution: "fsaverage5",
+    visible: true,
+  },
 };
 
 export function anchorFor(room: RoomId): BrainAnchor {

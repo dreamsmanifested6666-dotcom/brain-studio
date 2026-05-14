@@ -33,7 +33,11 @@ export type RoomId =
   | "tours"
   | "depth-psychology"
   | "faust"
-  | "dante";
+  | "dante"
+  // PR 8: /map route added in PR 7 needs a RoomId so the
+  // persistent brain orchestrator can resolve it without falling
+  // through to home and inheriting the wrong anchor.
+  | "map";
 
 export const ALL_ROOM_IDS: readonly RoomId[] = [
   "home",
@@ -51,6 +55,7 @@ export const ALL_ROOM_IDS: readonly RoomId[] = [
   "depth-psychology",
   "faust",
   "dante",
+  "map",
 ];
 
 /**
@@ -97,6 +102,8 @@ export const ROOM_DEPTH: Record<RoomId, number> = {
   // existing two (neuroscience, depth psychology).
   faust: 2,
   dante: 2,
+  // PR 8: /map is a reference layer, same depth as Atlas/Bridges/Tours.
+  map: 1,
   cellular: 3,
 };
 
@@ -134,4 +141,5 @@ export const ROOM_HREF: Record<RoomId, string> = {
   "depth-psychology": "/depth-psychology",
   faust: "/faust",
   dante: "/dante",
+  map: "/map",
 };

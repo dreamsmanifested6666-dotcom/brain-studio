@@ -140,6 +140,13 @@ const ROOM_ATMOSPHERE: Record<RoomId, RoomAtmosphere> = {
       "radial-gradient(ellipse 1300px 900px at 50% -5%, rgba(232, 160, 74, 0.10) 0%, transparent 50%), radial-gradient(ellipse 1100px 700px at 50% 50%, rgba(201, 169, 97, 0.05) 0%, transparent 60%), radial-gradient(ellipse 900px 500px at 50% 100%, rgba(139, 58, 58, 0.06) 0%, transparent 60%)",
     opacity: 0.92,
   },
+  // PR 8: /map — a quiet, even wash. The page is the index, not a
+  // staged experience, so the atmosphere recedes.
+  map: {
+    backgroundImage:
+      "radial-gradient(ellipse 1400px 1000px at 50% 0%, rgba(201, 169, 97, 0.04) 0%, transparent 60%)",
+    opacity: 0.7,
+  },
 };
 
 function prefersReducedMotion(): boolean {

@@ -316,6 +316,20 @@ export default function BrainAnatomy() {
   const tmpQuat = useMemo(() => new THREE.Quaternion(), []);
   const tmpEuler = useMemo(() => new THREE.Euler(), []);
 
+  // PR 8: honor prefers-reduced-motion for the continuous Y rotation.
+  // Position/scale/rotation lerping toward an explicit target stays
+  // intact (those are anchor transitions, not gratuitous motion); only
+  // the always-on idle rotation is gated.
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener?.("change", sync);
+    return () => mq.removeEventListener?.("change", sync);
+  }, []);
+
   useFrame((_, delta) => {
     const g = groupRef.current;
     if (!g) return;
@@ -326,7 +340,7 @@ export default function BrainAnatomy() {
     tmpEuler.set(targetRot[0], targetRot[1], targetRot[2]);
     tmpQuat.setFromEuler(tmpEuler);
     g.quaternion.slerp(tmpQuat, Math.min(1, delta * 2.5));
-    g.rotation.y += delta * 0.05;
+    if (!reduced) g.rotation.y += delta * 0.05;
   });
 
   return (
