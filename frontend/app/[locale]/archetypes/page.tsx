@@ -90,8 +90,11 @@ export default async function ArchetypesPage({
 
   return (
     <>
-      {/* Opening */}
-      <section className="relative flex min-h-[90vh] items-center justify-center px-6 pt-36 md:px-10 md:pt-44">
+      {/* Opening — was min-h-[90vh] which parked the user in a near
+          full-viewport hero before any archetype prose. Tightened to
+          min-h-[70vh] so the scroll has forward momentum and the
+          first archetype appears within reach. */}
+      <section className="relative flex min-h-[70vh] items-center justify-center px-6 pb-12 pt-36 md:px-10 md:pt-44">
         <Mandala
           src="/mandalas/hildegard_codex.jpg"
           alt="12th-century Hildegard codex illumination"
@@ -349,7 +352,13 @@ function ArchetypeScene({
   const ps = paragraphs ?? prose?.paragraphs ?? [];
   const img = archetype.primary_image!;
   return (
-    <section className="relative px-6 py-28 md:px-10 md:py-40">
+    // Inter-scene padding was py-28 md:py-40 (= 112-160px top + 112-
+    // 160px bottom per scene). Stacked across six archetypes that
+    // accumulated to roughly 1,900px of dead space, which is why
+    // scrolling the page felt stuck mid-essay. Tightened to py-16
+    // md:py-24 so the prose flows continuously and the eye finds
+    // the next painting without losing momentum.
+    <section className="relative px-6 py-16 md:px-10 md:py-24">
       <Mandala
         src={mandalaSrc}
         alt="Mandala decoration"

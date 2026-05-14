@@ -24,7 +24,11 @@
     "closeMenu": "メニューを閉じる",
     "skipToContent": "本文へスキップ",
     "languageSelector": "言語",
-    "languageSelectorFooter": "一部のコンテンツは校閲中です。英語版が正典です。"
+    "languageSelectorFooter": "一部のコンテンツは校閲中です。英語版が正典です。",
+    "atlas": "アトラス",
+    "bridges": "橋",
+    "tours": "ツアー",
+    "depthPsychology": "深層心理学"
   },
   "common": {
     "loading": "読み込み中…",

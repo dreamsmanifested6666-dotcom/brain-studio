@@ -102,13 +102,33 @@ type NavLabelKey =
   | "mirror"
   | "music"
   | "crosscultural"
+  | "atlas"
+  | "bridges"
+  | "tours"
+  | "threshold"
+  | "archetypes"
+  | "depthPsychology"
+  | "fieldNotes"
   | "cellular"
   | "about";
 
+// Ordered to read as a progression:
+//   the three TRIBE interactive rooms
+//   the structured reference layer (atlas, bridges, tours)
+//   the contemplative layer (threshold, archetypes, depth-psychology, field-notes)
+//   the deep scale (cellular)
+//   meta (about)
 const navItems: NavItem[] = [
   { href: "/mirror", labelKey: "mirror" },
   { href: "/music", labelKey: "music" },
   { href: "/crosscultural", labelKey: "crosscultural" },
+  { href: "/atlas", labelKey: "atlas" },
+  { href: "/bridges", labelKey: "bridges" },
+  { href: "/tours", labelKey: "tours" },
+  { href: "/threshold", labelKey: "threshold" },
+  { href: "/archetypes", labelKey: "archetypes" },
+  { href: "/depth-psychology", labelKey: "depthPsychology" },
+  { href: "/field-notes", labelKey: "fieldNotes" },
   { href: "/cellular", labelKey: "cellular" },
   { href: "/about", labelKey: "about" },
 ];
@@ -196,8 +216,12 @@ export default function SiteHeader() {
           </Caption>
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Desktop nav — flex-wraps to a second row on mid-width
+            desktops since the site now exposes the full 12-route
+            map. On wide screens (≥1440px) everything fits on one
+            line; on narrower the items wrap. py-5 below absorbs
+            the extra row height. */}
+        <ul className="ml-auto hidden flex-wrap items-center justify-end gap-x-5 gap-y-2 md:flex lg:gap-x-6">
           {navItems.map((item) => {
             const active =
               item.href === "/"

@@ -24,7 +24,11 @@
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content",
     "languageSelector": "Language",
-    "languageSelectorFooter": "Translations in review for some content. English is the canonical version."
+    "languageSelectorFooter": "Translations in review for some content. English is the canonical version.",
+    "atlas": "Atlas",
+    "bridges": "Bridges",
+    "tours": "Tours",
+    "depthPsychology": "Depth Psychology"
   },
   "common": {
     "loading": "Loading…",

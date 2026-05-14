@@ -24,7 +24,11 @@
     "closeMenu": "关闭菜单",
     "skipToContent": "跳到正文",
     "languageSelector": "语言",
-    "languageSelectorFooter": "部分翻译仍在审阅中。英文版为本站的标准版本。"
+    "languageSelectorFooter": "部分翻译仍在审阅中。英文版为本站的标准版本。",
+    "atlas": "图谱",
+    "bridges": "桥",
+    "tours": "导览",
+    "depthPsychology": "深度心理学"
   },
   "common": {
     "loading": "加载中…",

@@ -24,7 +24,11 @@
     "closeMenu": "ปิดเมนู",
     "skipToContent": "ข้ามไปยังเนื้อหา",
     "languageSelector": "ภาษา",
-    "languageSelectorFooter": "เนื้อหาบางส่วนยังอยู่ในระหว่างการตรวจทาน ฉบับภาษาอังกฤษคือฉบับมาตรฐาน"
+    "languageSelectorFooter": "เนื้อหาบางส่วนยังอยู่ในระหว่างการตรวจทาน ฉบับภาษาอังกฤษคือฉบับมาตรฐาน",
+    "atlas": "แอตลาส",
+    "bridges": "สะพาน",
+    "tours": "ทัวร์",
+    "depthPsychology": "จิตวิทยาเชิงลึก"
   },
   "common": {
     "loading": "กำลังโหลด…",

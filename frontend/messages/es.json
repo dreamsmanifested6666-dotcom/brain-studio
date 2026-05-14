@@ -24,7 +24,11 @@
     "closeMenu": "Cerrar menú",
     "skipToContent": "Saltar al contenido",
     "languageSelector": "Idioma",
-    "languageSelectorFooter": "Algunas traducciones aún están en revisión. La versión inglesa es la canónica."
+    "languageSelectorFooter": "Algunas traducciones aún están en revisión. La versión inglesa es la canónica.",
+    "atlas": "Atlas",
+    "bridges": "Puentes",
+    "tours": "Recorridos",
+    "depthPsychology": "Psicología profunda"
   },
   "common": {
     "loading": "Cargando…",
