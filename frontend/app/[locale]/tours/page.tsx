@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import {
   Body,
@@ -12,10 +13,14 @@ import { tourDuration } from "@/lib/tours";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 /**
- * Tours index. Lists every available guided tour as a card with
- * title, subtitle, blurb, and estimated duration. Currently shows
- * one tour ("the-act-of-remembering"); future tours simply register
- * in content/tours/index.ts and appear here automatically.
+ * Tours index. Lists every available guided tour as a card.
+ *
+ * Single-tour auto-redirect: when there's only one tour available
+ * (which is currently the case — "the-act-of-remembering"), the
+ * index page would force the reader through an unnecessary click
+ * before anything plays. Instead we redirect straight into the tour
+ * so the page is autonomous: arrive at /tours and the tour begins.
+ * Once a second tour ships, the index renders as before.
  */
 export default async function ToursIndex({
   params,
@@ -26,6 +31,11 @@ export default async function ToursIndex({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "tours" });
   const tours = toursForLocale(locale);
+
+  // Autonomous mode: single tour → redirect into the player.
+  if (tours.length === 1) {
+    redirect(`/${locale}/tours/${tours[0].id}`);
+  }
 
   return (
     <>

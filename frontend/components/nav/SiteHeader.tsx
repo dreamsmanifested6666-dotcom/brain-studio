@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Caption } from "@/components/typography/Typography";
@@ -112,26 +112,54 @@ type NavLabelKey =
   | "cellular"
   | "about";
 
-// Ordered to read as a progression:
-//   the three TRIBE interactive rooms
-//   the structured reference layer (atlas, bridges, tours)
-//   the contemplative layer (threshold, archetypes, depth-psychology, field-notes)
-//   the deep scale (cellular)
-//   meta (about)
+// Primary nav: kept short so the top bar reads as a single
+// editorial line, not a sitemap. The three TRIBE-driven rooms +
+// About + the Sections dropdown.
 const navItems: NavItem[] = [
   { href: "/mirror", labelKey: "mirror" },
   { href: "/music", labelKey: "music" },
   { href: "/crosscultural", labelKey: "crosscultural" },
-  { href: "/atlas", labelKey: "atlas" },
-  { href: "/bridges", labelKey: "bridges" },
-  { href: "/tours", labelKey: "tours" },
-  { href: "/threshold", labelKey: "threshold" },
-  { href: "/archetypes", labelKey: "archetypes" },
-  { href: "/depth-psychology", labelKey: "depthPsychology" },
-  { href: "/field-notes", labelKey: "fieldNotes" },
-  { href: "/cellular", labelKey: "cellular" },
   { href: "/about", labelKey: "about" },
 ];
+
+// Sections dropdown — everything else, grouped so the menu reads
+// as a layered map of the site rather than an alphabetical dump:
+//   The reference layer (Atlas, Bridges, Tours)
+//   The contemplative layer (Threshold, Archetypes, Depth Psychology, Field Notes)
+//   The deep scale (Cellular)
+type SectionGroup = {
+  /** Translation key in `nav` for the group heading, or null for an
+   *  ungrouped trailing item. */
+  headingKey: string | null;
+  items: NavItem[];
+};
+
+const sectionGroups: SectionGroup[] = [
+  {
+    headingKey: null,
+    items: [
+      { href: "/atlas", labelKey: "atlas" },
+      { href: "/bridges", labelKey: "bridges" },
+      { href: "/tours", labelKey: "tours" },
+    ],
+  },
+  {
+    headingKey: null,
+    items: [
+      { href: "/threshold", labelKey: "threshold" },
+      { href: "/archetypes", labelKey: "archetypes" },
+      { href: "/depth-psychology", labelKey: "depthPsychology" },
+      { href: "/field-notes", labelKey: "fieldNotes" },
+    ],
+  },
+  {
+    headingKey: null,
+    items: [{ href: "/cellular", labelKey: "cellular" }],
+  },
+];
+
+// Flattened version for the mobile sheet (one vertical list).
+const allSecondaryItems: NavItem[] = sectionGroups.flatMap((g) => g.items);
 
 function NavLink({
   href,
@@ -183,11 +211,42 @@ export default function SiteHeader() {
   const t = useTranslations("nav");
   const [muted, setMuted] = useState(true);
   const [open, setOpen] = useState(false);
+  // Sections dropdown — small popover under the "Sections" trigger.
+  const [sectionsOpen, setSectionsOpen] = useState(false);
 
   // Close mobile sheet whenever the route changes.
   useEffect(() => {
     setOpen(false);
+    setSectionsOpen(false);
   }, [pathname]);
+
+  // Close sections dropdown on Escape or click-outside.
+  useEffect(() => {
+    if (!sectionsOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSectionsOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && !target.closest("[data-sections-menu]")) {
+        setSectionsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("mousedown", onClick);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("mousedown", onClick);
+    };
+  }, [sectionsOpen]);
+
+  // Compute whether any secondary route is currently active so the
+  // Sections button reads as the "current page" indicator when the
+  // reader is somewhere inside one of those pages.
+  const sectionsActive = allSecondaryItems.some((item) => {
+    if (item.href === "/") return pathname === "/";
+    return pathname === item.href || pathname.startsWith(item.href + "/");
+  });
 
   useEffect(() => {
     const sync = (e: Event) => {
@@ -216,24 +275,122 @@ export default function SiteHeader() {
           </Caption>
         </Link>
 
-        {/* Desktop nav — flex-wraps to a second row on mid-width
-            desktops since the site now exposes the full 12-route
-            map. On wide screens (≥1440px) everything fits on one
-            line; on narrower the items wrap. py-5 below absorbs
-            the extra row height. */}
-        <ul className="ml-auto hidden flex-wrap items-center justify-end gap-x-5 gap-y-2 md:flex lg:gap-x-6">
-          {navItems.map((item) => {
+        {/* Desktop nav — three primary rooms + a Sections dropdown
+            that holds the rest, so the top bar reads as a single
+            editorial line rather than a sitemap dump. */}
+        <ul className="ml-auto hidden items-center gap-x-7 md:flex">
+          {navItems.slice(0, 3).map((item) => {
             const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(item.href + "/");
+              pathname === item.href || pathname.startsWith(item.href + "/");
             return (
               <li key={item.href}>
                 <NavLink href={item.href} label={t(item.labelKey)} active={active} />
               </li>
             );
           })}
-          <li>
+
+          {/* Sections dropdown trigger */}
+          <li className="relative" data-sections-menu>
+            <button
+              type="button"
+              data-hover
+              onClick={() => setSectionsOpen((v) => !v)}
+              aria-expanded={sectionsOpen}
+              aria-haspopup="menu"
+              className={`group relative inline-flex items-center gap-1.5 transition-colors duration-200 ${
+                sectionsActive
+                  ? "text-bone-cream"
+                  : "text-bone-cream/70 hover:text-bone-cream"
+              }`}
+            >
+              <Caption>Sections</Caption>
+              <span
+                aria-hidden
+                className={`text-[0.6em] transition-transform duration-200 ${
+                  sectionsOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▾
+              </span>
+              {sectionsActive && (
+                <motion.span
+                  layoutId="nav-underline"
+                  aria-hidden
+                  className="bg-brass absolute -bottom-1 left-0 h-px w-full"
+                  transition={{ duration: 0.35, ease: easeStandard }}
+                />
+              )}
+            </button>
+
+            <AnimatePresence>
+              {sectionsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.22, ease: easeStandard }}
+                  role="menu"
+                  className="bg-navy-deep/95 border-bone-cream/10 absolute right-0 top-full mt-3 w-[15rem] rounded-sm border px-1.5 py-2 shadow-lg backdrop-blur"
+                >
+                  {sectionGroups.map((group, gi) => (
+                    <div
+                      key={gi}
+                      className={
+                        gi > 0
+                          ? "border-bone-cream/10 mt-1 border-t pt-1"
+                          : ""
+                      }
+                    >
+                      {group.items.map((item) => {
+                        const active =
+                          pathname === item.href ||
+                          pathname.startsWith(item.href + "/");
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            prefetch
+                            onClick={() => setSectionsOpen(false)}
+                            role="menuitem"
+                            data-hover
+                            className={`block rounded-sm px-3 py-2 transition-colors duration-150 ${
+                              active
+                                ? "text-brass bg-bone-cream/5"
+                                : "text-bone-cream/80 hover:text-brass hover:bg-bone-cream/5"
+                            }`}
+                          >
+                            <Caption uppercase className="tracking-[0.14em]">
+                              {t(item.labelKey)}
+                            </Caption>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </li>
+
+          {/* About — kept visible because it's the meta page anyone
+              new to the site will hit first. */}
+          {(() => {
+            const aboutItem = navItems[3];
+            const active =
+              pathname === aboutItem.href ||
+              pathname.startsWith(aboutItem.href + "/");
+            return (
+              <li>
+                <NavLink
+                  href={aboutItem.href}
+                  label={t(aboutItem.labelKey)}
+                  active={active}
+                />
+              </li>
+            );
+          })()}
+
+          <li className="ml-2">
             <LanguageSelector />
           </li>
           <li>
@@ -307,7 +464,9 @@ export default function SiteHeader() {
         </div>
       </nav>
 
-      {/* Mobile sheet */}
+      {/* Mobile sheet — shows the full route map as a vertical list,
+          grouped the same way the desktop Sections dropdown groups
+          them. The sheet has scroll room; clutter isn't an issue here. */}
       <motion.div
         id="mobile-nav"
         initial={false}
@@ -319,31 +478,70 @@ export default function SiteHeader() {
         transition={{ duration: 0.22, ease: easeStandard }}
         className="md:hidden"
       >
-        <ul className="bg-navy-deep/95 border-bone-cream/10 mx-6 mb-4 mt-2 space-y-3 rounded-sm border px-6 py-5 backdrop-blur">
-          {navItems.map((item) => {
+        <ul className="bg-navy-deep/95 border-bone-cream/10 mx-6 mb-4 mt-2 max-h-[80vh] space-y-1.5 overflow-y-auto rounded-sm border px-6 py-5 backdrop-blur">
+          {/* Primary trio */}
+          {navItems.slice(0, 3).map((item) => {
             const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href ||
-                  pathname.startsWith(item.href + "/");
+              pathname === item.href ||
+              pathname.startsWith(item.href + "/");
             return (
               <li key={item.href}>
                 <NavLink
                   href={item.href}
                   label={t(item.labelKey)}
                   active={active}
-                  className="block py-1"
+                  className="block py-2"
                   onClick={() => setOpen(false)}
                 />
               </li>
             );
           })}
-          <li className="border-bone-cream/10 border-t pt-3">
+
+          {/* Sections — flat list with a small heading separator */}
+          <li className="border-bone-cream/10 mt-3 border-t pt-3">
+            <Caption
+              uppercase
+              className="text-bone-cream/40 mb-2 block tracking-[0.18em]"
+            >
+              Sections
+            </Caption>
+          </li>
+          {allSecondaryItems.map((item) => {
+            const active =
+              pathname === item.href ||
+              pathname.startsWith(item.href + "/");
+            return (
+              <li key={item.href}>
+                <NavLink
+                  href={item.href}
+                  label={t(item.labelKey)}
+                  active={active}
+                  className="block py-2"
+                  onClick={() => setOpen(false)}
+                />
+              </li>
+            );
+          })}
+
+          {/* About + GitHub */}
+          <li className="border-bone-cream/10 mt-3 border-t pt-3">
+            <NavLink
+              href={navItems[3].href}
+              label={t(navItems[3].labelKey)}
+              active={
+                pathname === navItems[3].href ||
+                pathname.startsWith(navItems[3].href + "/")
+              }
+              className="block py-2"
+              onClick={() => setOpen(false)}
+            />
+          </li>
+          <li>
             <a
               href="https://github.com/dreamsmanifested6666-dotcom/brain-studio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-bone-cream/70 inline-flex items-center gap-2 transition-colors duration-200 hover:text-brass"
+              className="text-bone-cream/70 inline-flex items-center gap-2 py-2 transition-colors duration-200 hover:text-brass"
             >
               <GithubMark />
               <Caption>GitHub</Caption>
