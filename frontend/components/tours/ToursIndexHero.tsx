@@ -2,10 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useBrainStageStore } from "@/store/useBrainStageStore";
 import { Caption, Mono } from "@/components/typography/Typography";
 import { sceneAtTime, tourDuration, type Tour } from "@/lib/tours";
 import { easeImportant, easeStandard } from "@/lib/animations";
+import { regionById, type RegionId } from "@/lib/regions";
+import { activationColor } from "@/lib/brain/activation-palette";
 
 /**
  * Tours index hero — runs the featured tour autonomously on the
@@ -46,7 +49,9 @@ type Props = {
   tour: Tour;
   /** Translation strings — the parent index passes its `t("tour")`,
    *  `t("scene")` etc. so this component doesn't need its own
-   *  next-intl hook (keeps the chunk small). */
+   *  next-intl hook for the tour-namespace labels. The regions
+   *  namespace is read locally so the active-regions readout
+   *  localizes alongside the rest of the site. */
   labels: {
     nowShowing: string;
     scene: string;
@@ -193,6 +198,14 @@ export default function ToursIndexHero({ tour, labels }: Props) {
         </AnimatePresence>
       </div>
 
+      {/* Active regions — compact horizontal readout so the index
+          hero stays one-glance-readable while still telling the
+          reader which areas of the brain are firing in this scene. */}
+      <ActiveRegionsRow
+        key={currentScene.id}
+        activeRegions={currentScene.activeRegions}
+      />
+
       {/* Progress bar */}
       <div
         aria-hidden
@@ -205,5 +218,68 @@ export default function ToursIndexHero({ tour, labels }: Props) {
         />
       </div>
     </div>
+  );
+}
+
+/**
+ * Compact active-regions row used in the index hero. Flat chip
+ * style so the hero stays one band tall — the full vertical
+ * "lit up in this scene" panel lives inside the tour player.
+ */
+function ActiveRegionsRow({
+  activeRegions,
+}: {
+  activeRegions: Partial<Record<RegionId, number>>;
+}) {
+  const tRegions = useTranslations("regions");
+  const top = useMemo(() => {
+    return (Object.entries(activeRegions) as [RegionId, number][])
+      .filter(([, v]) => v > 0.08)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3);
+  }, [activeRegions]);
+
+  if (top.length === 0) return null;
+
+  const localName = (id: RegionId, fallback: string): string => {
+    try {
+      return tRegions(`${id}.displayName`);
+    } catch {
+      return fallback;
+    }
+  };
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={top.map(([id]) => id).join("|")}
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.45, ease: easeImportant, delay: 0.1 }}
+        className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5"
+      >
+        {top.map(([id, value]) => {
+          const r = regionById[id];
+          if (!r) return null;
+          const color = activationColor(value);
+          return (
+            <span
+              key={id}
+              className="border-bone-cream/10 bg-bone-cream/[0.02] inline-flex items-center gap-2 rounded-sm border px-2.5 py-1"
+            >
+              <span
+                aria-hidden
+                className="inline-block h-1.5 w-1.5 shrink-0 rounded-full"
+                style={{ backgroundColor: color }}
+              />
+              <Caption className="text-bone-cream/80 text-[0.74rem]">
+                {localName(id, r.displayName)}
+              </Caption>
+            </span>
+          );
+        })}
+      </motion.div>
+    </AnimatePresence>
   );
 }

@@ -351,7 +351,8 @@
     "emptyState": "Encara no hi ha recorreguts disponibles.",
     "comingSoon": "Més recorreguts a venir: com llegeixes aquesta frase (xarxa del llenguatge), quan alguna cosa importa (saliència), què continua sent tu quan deixes d'intentar-ho (mode per defecte), com un rostre esdevé algú a qui coneixes (processament facial), i sentir música (auditiu i recompensa).",
     "footerNote": "Recorreguts guiats · el cervell en moviment",
-    "nowShowing": "En reproducció"
+    "nowShowing": "En reproducció",
+    "activeRegions": "Activat en aquesta escena"
   },
   "depthPsychology": {
     "label": "Psicologia profunda",

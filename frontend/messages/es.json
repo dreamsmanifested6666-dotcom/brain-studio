@@ -351,7 +351,8 @@
     "emptyState": "Aún no hay recorridos disponibles.",
     "comingSoon": "Más recorridos por venir: cómo lees esta frase (red del lenguaje), cuando algo importa (saliencia), qué sigue siendo tú cuando dejas de intentarlo (modo por defecto), cómo un rostro se convierte en alguien a quien conoces (procesamiento facial), y oír música (auditivo y recompensa).",
     "footerNote": "Recorridos guiados · el cerebro en movimiento",
-    "nowShowing": "En reproducción"
+    "nowShowing": "En reproducción",
+    "activeRegions": "Activado en esta escena"
   },
   "depthPsychology": {
     "label": "Psicología profunda",

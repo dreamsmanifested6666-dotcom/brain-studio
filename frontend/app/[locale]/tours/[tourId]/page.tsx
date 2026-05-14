@@ -16,6 +16,8 @@ import {
   Mono,
 } from "@/components/typography/Typography";
 import { easeCinematic, easeStandard } from "@/lib/animations";
+import { regionById, type RegionId } from "@/lib/regions";
+import { activationColor } from "@/lib/brain/activation-palette";
 
 /**
  * Tour player. Drives the persistent brain through the scene-by-scene
@@ -195,6 +197,16 @@ export default function TourPlayerPage({
                 </motion.div>
               </AnimatePresence>
 
+              {/* Active regions panel — shows which regions the brain
+                  is lighting up in this scene, with names + activation
+                  strength. Lets viewers connect "the brain glows here"
+                  to "this is Broca's area." Localized via the regions
+                  namespace. */}
+              <ActiveRegionsPanel
+                key={currentScene.id}
+                activeRegions={currentScene.activeRegions}
+              />
+
               {/* Controls */}
               <div className="mt-12 flex items-center gap-3">
                 {!ended ? (
@@ -264,5 +276,124 @@ export default function TourPlayerPage({
         />
       </div>
     </>
+  );
+}
+
+/**
+ * Active regions panel — shows the top-N regions firing in the
+ * current scene, each with its localized name + activation
+ * strength. The strength is communicated three ways:
+ *
+ *   1. A coloured pip on the left, in the same activation ramp the
+ *      WebGL brain uses (idle → cold → cool → warm → hot).
+ *   2. A horizontal brass bar whose width tracks activation 0→1.
+ *   3. A mono activation % on the right.
+ *
+ * Region names come from the `regions` i18n namespace so the
+ * Spanish tour shows Spanish names, the Thai tour shows Thai names,
+ * etc. Falls back to the canonical `displayName` if the locale
+ * doesn't have a translation. Anatomy name renders in caption type
+ * underneath each display name for the reader who wants the
+ * clinical anchor.
+ *
+ * Crossfade is handled by the parent (we key the whole panel on
+ * scene id), so the panel slides in cleanly on each scene boundary.
+ */
+function ActiveRegionsPanel({
+  activeRegions,
+}: {
+  activeRegions: Partial<Record<RegionId, number>>;
+}) {
+  const tRegions = useTranslations("regions");
+  const tTour = useTranslations("tours");
+
+  const top = useMemo(() => {
+    return (Object.entries(activeRegions) as [RegionId, number][])
+      .filter(([, v]) => v > 0.05)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4);
+  }, [activeRegions]);
+
+  // Localized region label helper — falls back to the canonical
+  // English displayName if the locale bundle doesn't define it.
+  const localName = (id: RegionId, fallback: string): string => {
+    try {
+      return tRegions(`${id}.displayName`);
+    } catch {
+      return fallback;
+    }
+  };
+  const localAnatomy = (id: RegionId, fallback: string): string => {
+    try {
+      return tRegions(`${id}.anatomyName`);
+    } catch {
+      return fallback;
+    }
+  };
+
+  if (top.length === 0) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: easeCinematic, delay: 0.15 }}
+      className="mt-10 max-w-[30rem]"
+    >
+      <Caption
+        uppercase
+        className="text-brass tracking-[0.22em] mb-3 block"
+      >
+        {tTour("activeRegions")}
+      </Caption>
+      <ul className="space-y-3">
+        {top.map(([id, value]) => {
+          const r = regionById[id];
+          if (!r) return null;
+          const color = activationColor(value);
+          const pct = Math.round(value * 100);
+          return (
+            <li key={id} className="flex items-baseline gap-3">
+              {/* Pip — activation-coloured dot */}
+              <span
+                aria-hidden
+                className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full"
+                style={{ backgroundColor: color }}
+              />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline justify-between gap-3">
+                  <Caption className="text-bone-cream/90">
+                    {localName(id, r.displayName)}
+                  </Caption>
+                  <Mono
+                    variant="label"
+                    className="text-brass tabular-nums tracking-[0.12em]"
+                  >
+                    {pct}%
+                  </Mono>
+                </div>
+                <Caption className="text-bone-cream/45 mt-0.5 block text-[0.72rem]">
+                  {localAnatomy(id, r.anatomyName)}
+                </Caption>
+                {/* Strength bar */}
+                <div
+                  aria-hidden
+                  className="bg-bone-cream/8 mt-2 h-px w-full overflow-hidden"
+                >
+                  <div
+                    className="h-px origin-left"
+                    style={{
+                      width: `${pct}%`,
+                      backgroundColor: color,
+                      opacity: 0.85,
+                    }}
+                  />
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </motion.div>
   );
 }
