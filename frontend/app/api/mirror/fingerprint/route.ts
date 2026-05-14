@@ -18,18 +18,20 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { renderFingerprintImage } from "@/lib/mirror/fingerprint-image";
-import { regions, type RegionId } from "@/lib/regions";
+import { REGION_IDS } from "@/lib/mirror/region-positions";
+import type { RegionId } from "@/lib/regions";
 
 export const runtime = "edge";
 
 type Activations = Partial<Record<RegionId, number>>;
 
+const VALID_REGION_IDS = new Set<string>(REGION_IDS);
+
 function sanitizeActivations(input: unknown): Activations {
   if (!input || typeof input !== "object") return {};
-  const valid = new Set<string>(regions.map((r) => r.id));
   const out: Activations = {};
   for (const [k, v] of Object.entries(input as Record<string, unknown>)) {
-    if (!valid.has(k)) continue;
+    if (!VALID_REGION_IDS.has(k)) continue;
     const n = typeof v === "number" ? v : Number(v);
     if (Number.isFinite(n)) {
       out[k as RegionId] = Math.max(0, Math.min(1, n));

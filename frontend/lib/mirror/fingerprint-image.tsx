@@ -24,8 +24,25 @@
  */
 
 import { ImageResponse } from "next/og";
-import { OG_PALETTE } from "@/lib/seo";
-import { regions, regionById, type RegionId } from "@/lib/regions";
+import type { RegionId } from "@/lib/regions";
+import {
+  REGION_IDS,
+  REGION_POSITIONS,
+  REGION_SHORT_NAMES,
+  hemisphereInitial,
+} from "@/lib/mirror/region-positions";
+
+// Inline the PALETTE rather than importing from @/lib/seo, which
+// drags `next-intl/locales` into the edge bundle and pushes us back
+// over the 1 MB Edge Function limit on the Hobby plan.
+const PALETTE = {
+  navyDeep: "#0a1428",
+  navyMid: "#0d162e",
+  navyEnd: "#11192e",
+  boneCream: "#f0e8d8",
+  brass: "#c9a961",
+  brassMuted: "rgba(201, 169, 97, 0.18)",
+} as const;
 
 export const FINGERPRINT_SIZE = { width: 1080, height: 1080 } as const;
 export const FINGERPRINT_CONTENT_TYPE = "image/png";
@@ -85,13 +102,7 @@ function dotPosition(pos: readonly [number, number, number]): {
 }
 
 function shortName(id: RegionId): string {
-  return regionById[id].displayName.replace(/\s*\([LR]\)\s*$/i, "");
-}
-
-function hemisphereInitial(id: RegionId): string {
-  if (id.endsWith("_left")) return "L";
-  if (id.endsWith("_right")) return "R";
-  return "";
+  return REGION_SHORT_NAMES[id];
 }
 
 // ── Top-3 helpers ────────────────────────────────────────────────────
@@ -124,10 +135,10 @@ export function renderFingerprintImage(args: {
         style={{
           width: "100%",
           height: "100%",
-          background: `linear-gradient(180deg, ${OG_PALETTE.navyDeep} 0%, ${OG_PALETTE.navyMid} 60%, ${OG_PALETTE.navyEnd} 100%)`,
+          background: `linear-gradient(180deg, ${PALETTE.navyDeep} 0%, ${PALETTE.navyMid} 60%, ${PALETTE.navyEnd} 100%)`,
           display: "flex",
           flexDirection: "column",
-          color: OG_PALETTE.boneCream,
+          color: PALETTE.boneCream,
           fontFamily: "Georgia, serif",
           position: "relative",
           padding: "60px 70px",
@@ -152,7 +163,7 @@ export function renderFingerprintImage(args: {
               letterSpacing: "0.22em",
               textTransform: "uppercase",
               fontFamily: "Menlo, monospace",
-              color: OG_PALETTE.brass,
+              color: PALETTE.brass,
             }}
           >
             Brain Mirror · Your fingerprint
@@ -163,7 +174,7 @@ export function renderFingerprintImage(args: {
               fontSize: text.length > 200 ? 28 : 36,
               lineHeight: 1.35,
               fontStyle: "italic",
-              color: OG_PALETTE.boneCream,
+              color: PALETTE.boneCream,
               marginTop: 28,
               maxHeight: 260,
               overflow: "hidden",
@@ -202,9 +213,9 @@ export function renderFingerprintImage(args: {
               cy={230}
               rx={RADIUS + 30}
               ry={RADIUS + 40}
-              fill={OG_PALETTE.brassMuted}
+              fill={PALETTE.brassMuted}
               fillOpacity={0.08}
-              stroke={OG_PALETTE.brassMuted}
+              stroke={PALETTE.brassMuted}
               strokeWidth={1.5}
             />
             {/* Inter-hemispheric fissure */}
@@ -213,20 +224,20 @@ export function renderFingerprintImage(args: {
               y1={230 - RADIUS - 40}
               x2={CENTER_X}
               y2={230 + RADIUS + 40}
-              stroke={OG_PALETTE.brassMuted}
+              stroke={PALETTE.brassMuted}
               strokeWidth={1}
               strokeOpacity={0.4}
             />
             {/* Region dots */}
-            {regions.map((r) => {
-              const a = activations[r.id] ?? 0;
-              const { cx, cy } = dotPosition(r.position);
+            {REGION_IDS.map((id) => {
+              const a = activations[id] ?? 0;
+              const { cx, cy } = dotPosition(REGION_POSITIONS[id]);
               // Re-center cy onto this SVG's coordinate frame.
               const sy = cy - 310;
               const fill = activationColor(a);
               const size = 18 + Math.round(a * 16); // 18..34 px
               return (
-                <g key={r.id}>
+                <g key={id}>
                   <circle
                     cx={cx}
                     cy={sy}
@@ -271,7 +282,7 @@ export function renderFingerprintImage(args: {
                 key={t.id}
                 style={{ display: "flex", alignItems: "baseline", gap: 8 }}
               >
-                <span style={{ color: OG_PALETTE.brass }}>
+                <span style={{ color: PALETTE.brass }}>
                   {Math.round(t.v * 100)}
                 </span>
                 <span>
@@ -300,7 +311,7 @@ export function renderFingerprintImage(args: {
             style={{
               width: "100%",
               height: 1,
-              background: OG_PALETTE.brass,
+              background: PALETTE.brass,
               opacity: 0.4,
               marginTop: 24,
             }}
