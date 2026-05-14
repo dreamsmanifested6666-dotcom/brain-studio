@@ -243,11 +243,17 @@ export default function BridgesNetwork({
 
         {/* Diagram */}
         <div className="relative mt-10 overflow-x-auto">
+          {/*
+            role="img" would mark the entire SVG as a single non-interactive
+            image, which conflicts with the clickable region/section nodes
+            inside it (axe a11y rule: nested-interactive). The aria-label
+            still names the diagram; default SVG role allows interactive
+            children.
+          */}
           <svg
             viewBox={`0 0 ${SVG_WIDTH} ${layout.totalHeight}`}
             width="100%"
             height={layout.totalHeight}
-            role="img"
             aria-label={t("network.svgLabel")}
             className="block"
           >
