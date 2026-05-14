@@ -78,7 +78,7 @@
     "rooms": {
       "section": "Vuit sales",
       "heading": "Hem construït vuit sales per mostrar-te.",
-      "body": "Sis instruments i dues instal·lacions literàries, totes treballant en la mateixa pregunta. Passa el cursor sobre una porta per veure el patró. Entra quan estiguis preparat.",
+      "body": "Quatre sales codificadores posen el model a treballar, dues sales de psicologia profunda baixen a un llenguatge més antic, dues sales literàries llegeixen Goethe i Dante al costat dels mateixos circuits. Passa el cursor per una porta per veure el patró. Entra quan estiguis preparat.",
       "mirror": {
         "title": "Mirall Cerebral",
         "description": "Enganxa qualsevol text. Mira com es veu la teva escriptura per dins."
@@ -110,6 +110,26 @@
       "dante": {
         "title": "Dante",
         "description": "La Commedia com una arquitectura construïda per a la xarxa per defecte i la cognició encarnada de l'atenció moral."
+      },
+      "atlas": {
+        "title": "Atles de Regions",
+        "description": "Vint regions, cadascuna amb anatomia, funció i quines sales les invoquen."
+      },
+      "bridges": {
+        "title": "Ponts",
+        "description": "Com cooperen les regions — onze patrons canònics sota temes amb nom."
+      },
+      "tours": {
+        "title": "Sis Recorreguts",
+        "description": "Vuit a quinze minuts cadascun. Frase a frase amb el cervell reaccionant al costat."
+      },
+      "depthPsychology": {
+        "title": "Psicologia Profunda",
+        "description": "Tres lectures de Jung en conversa amb la neurociència: Aion, el Llibre Vermell, el tancament gestàltic."
+      },
+      "fieldNotes": {
+        "title": "Notes de Camp",
+        "description": "Peces breus des de les costures entre disciplines — hipocamp, temps, allò que el cervell sap."
       }
     },
     "insights": {
@@ -137,6 +157,16 @@
       "built": "Fet al JIPP, Universitat de Chulalongkorn",
       "encoder": "codificador TRIBE v2",
       "about": "Sobre el projecte"
+    },
+    "instrument": {
+      "section": "L'Instrument",
+      "heading": "Sota les sales.",
+      "body": "Vint regions catalogades una a una, onze ponts anomenats entre elles, sis recorreguts guiats que llegeixen passatges breus amb el cervell reaccionant en temps real. La capa font de tot el que hi ha a sobre."
+    },
+    "longform": {
+      "section": "La Forma Llarga",
+      "heading": "Lectura lenta.",
+      "body": "Dues sèries d'assaigs en curs que conviuen al costat de les sales en lloc de dins d'elles — on la ciència es torna prou llarga com per discutir amb si mateixa."
     }
   },
   "mirror": {

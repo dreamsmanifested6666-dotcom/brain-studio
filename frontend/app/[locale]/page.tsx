@@ -239,6 +239,84 @@ export default async function Home({
         </div>
       </ScrollScene>
 
+      {/* PR 3 — The Instrument. Atlas, Bridges, Tours.
+          Sits between the room grid (Shot 3) and the insight
+          cards (Shot 4) as a quieter, more reference-y register.
+          No ScrollScene wrapper on purpose — these sections
+          shouldn't compete with the room grid's choreography. */}
+      <section className="relative px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16">
+        <div className="mx-auto w-full max-w-[1280px]">
+          <div className="md:mx-auto md:max-w-[40rem] md:text-center">
+            <Caption uppercase as="p" className="text-brass">
+              {t("instrument.section")}
+            </Caption>
+            <Heading className="mt-8 md:text-display md:font-[200]">
+              {t("instrument.heading")}
+            </Heading>
+            <Body className="text-bone-cream/65 mt-6">
+              {t("instrument.body")}
+            </Body>
+          </div>
+          <div className="mt-20 grid grid-cols-1 gap-14 md:mt-24 md:grid-cols-3 md:gap-10">
+            <RoomCard
+              index={0}
+              title={t("rooms.atlas.title")}
+              description={t("rooms.atlas.description")}
+              href="/atlas"
+              pattern={signaturePatterns.atlas}
+            />
+            <RoomCard
+              index={1}
+              title={t("rooms.bridges.title")}
+              description={t("rooms.bridges.description")}
+              href="/bridges"
+              pattern={signaturePatterns.bridges}
+            />
+            <RoomCard
+              index={2}
+              title={t("rooms.tours.title")}
+              description={t("rooms.tours.description")}
+              href="/tours"
+              pattern={signaturePatterns.tours}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* PR 3 — The Long Form. Depth Psychology + Field Notes.
+          Two-card row, same quieter register. */}
+      <section className="relative px-6 pt-20 pb-32 md:px-10 md:pt-24 md:pb-40">
+        <div className="mx-auto w-full max-w-[1280px]">
+          <div className="md:mx-auto md:max-w-[40rem] md:text-center">
+            <Caption uppercase as="p" className="text-brass">
+              {t("longform.section")}
+            </Caption>
+            <Heading className="mt-8 md:text-display md:font-[200]">
+              {t("longform.heading")}
+            </Heading>
+            <Body className="text-bone-cream/65 mt-6">
+              {t("longform.body")}
+            </Body>
+          </div>
+          <div className="mt-20 grid grid-cols-1 gap-12 md:mt-24 md:grid-cols-2 md:gap-10">
+            <RoomCard
+              index={0}
+              title={t("rooms.depthPsychology.title")}
+              description={t("rooms.depthPsychology.description")}
+              href="/depth-psychology"
+              pattern={signaturePatterns.depthPsychology}
+            />
+            <RoomCard
+              index={1}
+              title={t("rooms.fieldNotes.title")}
+              description={t("rooms.fieldNotes.description")}
+              href="/field-notes"
+              pattern={signaturePatterns.fieldNotes}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Shot 4 — Insight cards with parallax */}
       <ScrollScene
         {...shot4}

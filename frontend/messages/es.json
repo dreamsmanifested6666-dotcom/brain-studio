@@ -78,7 +78,7 @@
     "rooms": {
       "section": "Ocho salas",
       "heading": "Construimos ocho salas para mostrarte.",
-      "body": "Seis instrumentos y dos instalaciones literarias, todas trabajando en la misma pregunta. Pasa el cursor sobre una puerta para ver el patrón. Entra cuando estés listo.",
+      "body": "Cuatro salas codificadoras ponen el modelo a trabajar, dos salas de psicología profunda descienden a un lenguaje más antiguo, dos salas literarias leen a Goethe y a Dante junto a los mismos circuitos. Pasa el cursor por una puerta para ver el patrón. Entra cuando estés listo.",
       "mirror": {
         "title": "Espejo Cerebral",
         "description": "Pega cualquier texto. Mira cómo se ve tu escritura por dentro."
@@ -110,6 +110,26 @@
       "dante": {
         "title": "Dante",
         "description": "La Commedia como una arquitectura construida para la red por defecto y la cognición encarnada de la atención moral."
+      },
+      "atlas": {
+        "title": "Atlas de Regiones",
+        "description": "Veinte regiones, cada una con anatomía, función y qué salas las invocan."
+      },
+      "bridges": {
+        "title": "Puentes",
+        "description": "Cómo cooperan las regiones — once patrones canónicos bajo temas con nombre."
+      },
+      "tours": {
+        "title": "Seis Recorridos",
+        "description": "Ocho a quince minutos cada uno. Frase a frase con el cerebro reaccionando al lado."
+      },
+      "depthPsychology": {
+        "title": "Psicología Profunda",
+        "description": "Tres lecturas de Jung en conversación con la neurociencia: Aion, el Libro Rojo, el cierre gestáltico."
+      },
+      "fieldNotes": {
+        "title": "Notas de Campo",
+        "description": "Piezas breves desde las costuras entre disciplinas — hipocampo, tiempo, lo que el cerebro sabe."
       }
     },
     "insights": {
@@ -137,6 +157,16 @@
       "built": "Hecho en JIPP, Universidad de Chulalongkorn",
       "encoder": "codificador TRIBE v2",
       "about": "Acerca"
+    },
+    "instrument": {
+      "section": "El Instrumento",
+      "heading": "Debajo de las salas.",
+      "body": "Veinte regiones catalogadas una por una, once puentes nombrados entre ellas, seis recorridos guiados que leen pasajes breves con el cerebro reaccionando en tiempo real. La capa fuente de todo lo de arriba."
+    },
+    "longform": {
+      "section": "La Forma Larga",
+      "heading": "Lectura lenta.",
+      "body": "Dos series de ensayos en curso que conviven junto a las salas en lugar de dentro de ellas — donde la ciencia se vuelve lo suficientemente larga como para discutir consigo misma."
     }
   },
   "mirror": {

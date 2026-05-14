@@ -78,7 +78,7 @@
     "rooms": {
       "section": "Eight rooms",
       "heading": "We built eight rooms to show you.",
-      "body": "Six instruments and two literary installations, all working on the same question. Hover a doorway to see the pattern. Step inside when you're ready.",
+      "body": "Four encoder rooms put the model to work, two depth-psychology rooms drop into older language, two literary rooms read Goethe and Dante alongside the same circuits. Hover a doorway to see the pattern. Step inside when you're ready.",
       "mirror": {
         "title": "Brain Mirror",
         "description": "Paste any text. Watch what your writing looks like underneath."
@@ -110,6 +110,26 @@
       "dante": {
         "title": "Dante",
         "description": "The Commedia as an architecture built for the default-mode network and the embodied cognition of moral attention."
+      },
+      "atlas": {
+        "title": "Region Atlas",
+        "description": "Twenty regions, each with anatomy, function, and which rooms call on them."
+      },
+      "bridges": {
+        "title": "Bridges",
+        "description": "How the regions cooperate — eleven canonical patterns under named themes."
+      },
+      "tours": {
+        "title": "Six Tours",
+        "description": "Eight to fifteen minutes each. Sentence by sentence with the brain reacting alongside."
+      },
+      "depthPsychology": {
+        "title": "Depth Psychology",
+        "description": "Three readings of Jung in conversation with neuroscience: Aion, the Red Book, gestalt closure."
+      },
+      "fieldNotes": {
+        "title": "Field Notes",
+        "description": "Short pieces from the seams between disciplines — hippocampus, time, what the brain knows."
       }
     },
     "insights": {
@@ -137,6 +157,16 @@
       "built": "Built at Chulalongkorn JIPP",
       "encoder": "TRIBE v2 encoder",
       "about": "About"
+    },
+    "instrument": {
+      "section": "The Instrument",
+      "heading": "Underneath the rooms.",
+      "body": "Twenty regions catalogued one by one, eleven bridges named between them, six guided walks that read short passages with the brain reacting in real time. The source layer for everything above."
+    },
+    "longform": {
+      "section": "The Long Form",
+      "heading": "Slow reading.",
+      "body": "Two ongoing essay series that sit alongside the rooms rather than inside them — where the science gets long enough to argue with itself."
     }
   },
   "mirror": {

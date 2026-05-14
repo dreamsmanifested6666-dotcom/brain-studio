@@ -401,7 +401,14 @@ export const regionById = Object.fromEntries(
  * Each card hover lerps the brain's activations toward one of these.
  */
 export const signaturePatterns: Record<
-  "mirror" | "music" | "crosscultural",
+  | "mirror"
+  | "music"
+  | "crosscultural"
+  | "atlas"
+  | "bridges"
+  | "tours"
+  | "depthPsychology"
+  | "fieldNotes",
   Partial<Record<RegionId, number>>
 > = {
   mirror: {
@@ -435,5 +442,86 @@ export const signaturePatterns: Record<
     mtg_right: 0.55,
     pcc: 0.4,
     precuneus: 0.2,
+  },
+  // PR 3 — five additional patterns for the home-page Instrument
+  // and Long Form sections. Each one is meant to be visually
+  // distinct from the three primary rooms so the cards don't all
+  // look the same.
+
+  // Atlas: a broad, even survey — moderate activation across the
+  // whole 20-region map. The "what's underneath" pattern.
+  atlas: {
+    ifg_left: 0.5,
+    ifg_right: 0.45,
+    pstg_left: 0.55,
+    pstg_right: 0.5,
+    mtg_left: 0.45,
+    mtg_right: 0.4,
+    atl_left: 0.5,
+    atl_right: 0.4,
+    agl_left: 0.5,
+    agl_right: 0.45,
+    hg_left: 0.4,
+    hg_right: 0.4,
+    vmpfc: 0.55,
+    dmpfc: 0.45,
+    pcc: 0.5,
+    precuneus: 0.45,
+    amyg_left: 0.35,
+    amyg_right: 0.35,
+    hipp_left: 0.4,
+    hipp_right: 0.4,
+  },
+  // Bridges: hub regions that participate in many networks —
+  // angular gyrus, MTG, ATL, vmpfc — the connector signal.
+  bridges: {
+    agl_left: 0.85,
+    agl_right: 0.75,
+    mtg_left: 0.78,
+    mtg_right: 0.7,
+    atl_left: 0.7,
+    atl_right: 0.6,
+    vmpfc: 0.75,
+    pcc: 0.65,
+    precuneus: 0.6,
+  },
+  // Tours: language-network-dominant, with PCC/precuneus rising
+  // toward the end (the "still you" closing scene).
+  tours: {
+    ifg_left: 0.88,
+    mtg_left: 0.78,
+    atl_left: 0.72,
+    agl_left: 0.68,
+    pstg_left: 0.7,
+    vmpfc: 0.55,
+    pcc: 0.5,
+    precuneus: 0.45,
+  },
+  // Depth psychology: DMN-saturated. The default network at rest,
+  // self-referential processing, where Jungian material lives.
+  depthPsychology: {
+    pcc: 0.95,
+    precuneus: 0.92,
+    vmpfc: 0.88,
+    dmpfc: 0.75,
+    agl_left: 0.78,
+    agl_right: 0.72,
+    mtg_left: 0.5,
+    atl_left: 0.55,
+    amyg_left: 0.45,
+    amyg_right: 0.4,
+  },
+  // Field notes: hippocampal — the essays are about memory, time,
+  // and what the brain knows. Medial temporal lobe dominant.
+  fieldNotes: {
+    hipp_left: 0.95,
+    hipp_right: 0.9,
+    atl_left: 0.6,
+    atl_right: 0.55,
+    pcc: 0.6,
+    precuneus: 0.55,
+    vmpfc: 0.55,
+    mtg_left: 0.5,
+    amyg_left: 0.35,
   },
 };
