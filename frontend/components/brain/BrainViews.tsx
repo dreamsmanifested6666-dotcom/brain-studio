@@ -5,6 +5,7 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three-stdlib";
 import * as THREE from "three";
 import type { RegionId } from "@/lib/regions";
+import { useBrainStageStore } from "@/store/useBrainStageStore";
 import { Caption } from "@/components/typography/Typography";
 
 /**
@@ -269,13 +270,38 @@ function ViewCanvas({
 
 // ── Public component ────────────────────────────────────────────────
 
+/**
+ * The optional `activations` prop is a *fallback* used before the brain
+ * stage store has anything. In the live page, BrainViews subscribes
+ * directly to `useBrainStageStore.targetActivations` so it swings in
+ * lockstep with the main brain — including the hover-driven spotlight
+ * from `MirrorInspector`. This is what makes the "did the brain just
+ * move?" question unambiguous: the four anatomical views sit right
+ * next to the inspector text and respond visibly to every hover.
+ */
 export default function BrainViews({
   activations,
   className = "",
 }: {
-  activations: Partial<Record<RegionId, number>>;
+  activations?: Partial<Record<RegionId, number>>;
   className?: string;
 }) {
+  // Subscribe to the live brain stage store. This is the same source
+  // the main background brain reads from, so all five views (main +
+  // 4 mini) stay synchronized.
+  const storeActivations = useBrainStageStore(
+    (s) => s.targetActivations,
+  ) as Partial<Record<RegionId, number>>;
+
+  // Use the store value when it's non-empty; fall back to the prop
+  // (the settled prediction) on first paint before the store has any
+  // user data.
+  const liveActivations: Partial<Record<RegionId, number>> = useMemo(() => {
+    const hasStore =
+      storeActivations && Object.keys(storeActivations).length > 0;
+    return hasStore ? storeActivations : (activations ?? {});
+  }, [storeActivations, activations]);
+
   const labels: Record<ViewDef["labelKey"], string> = {
     anterior: "Anterior",
     rightLateral: "Right lateral",
@@ -295,7 +321,7 @@ export default function BrainViews({
         {VIEWS.map((view) => (
           <div key={view.labelKey}>
             <div className="border-bone-cream/10 bg-navy-deep/40 relative aspect-square overflow-hidden rounded-sm border">
-              <ViewCanvas view={view} activations={activations} />
+              <ViewCanvas view={view} activations={liveActivations} />
             </div>
             <Caption
               uppercase

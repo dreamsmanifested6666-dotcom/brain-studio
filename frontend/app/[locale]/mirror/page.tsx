@@ -9,6 +9,7 @@ import MirrorReveal from "@/components/mirror/MirrorReveal";
 import MirrorCaption from "@/components/mirror/MirrorCaption";
 import MirrorInspector from "@/components/mirror/MirrorInspector";
 import BrainViews from "@/components/brain/BrainViews";
+import BrainColorLegend from "@/components/brain/BrainColorLegend";
 import PinnedPredictionCard, {
   type PinnedPrediction,
 } from "@/components/mirror/PinnedPredictionCard";
@@ -135,10 +136,12 @@ export default function MirrorPage() {
             </div>
           )}
 
-          {/* Four-angle brain views: anterior / right / posterior /
-              left. Live-renders the user's same activation pattern
-              from four anatomical perspectives so they can see
-              what's happening in regions the main brain hides. */}
+          {/* Four-angle brain views + color legend. BrainViews
+              subscribes to the live brain stage store so it swings in
+              lockstep with the main brain (including the hover-driven
+              spotlight from MirrorInspector). The legend below
+              explains what the activation colour ramp means — same
+              ramp the main brain and the four mini-brains all use. */}
           {hasResult && latest && (
             <div className="mt-16 md:mt-20">
               <BrainViews
@@ -148,6 +151,7 @@ export default function MirrorPage() {
                   >
                 }
               />
+              <BrainColorLegend className="mt-10 max-w-[34rem]" />
             </div>
           )}
 
