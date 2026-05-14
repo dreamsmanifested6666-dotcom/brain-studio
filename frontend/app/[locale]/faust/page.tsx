@@ -12,6 +12,10 @@ import {
 import MovementHeader from "@/components/literary/MovementHeader";
 import PassageAnalysis from "@/components/literary/PassageAnalysis";
 import TriangulationNote from "@/components/literary/TriangulationNote";
+import PassageActivationScroller from "@/components/brain/PassageActivationScroller";
+import ProvenanceFooter from "@/components/brain/ProvenanceFooter";
+import { loadPassageActivationServer } from "@/lib/loadActivationsServer";
+import type { ParcelActivationFile } from "@/lib/loadActivations";
 
 export async function generateMetadata({
   params,
@@ -51,8 +55,25 @@ export default async function FaustPage({
   const totalMinutes = 22;
   const movement = tCommon("movement");
 
+  // PR-C: Faust passage activations (Neurosynth-derived, HCP-MMP-360).
+  // Each Movement IV passage carries one of these on its <section>
+  // wrapper via data-activation-id; the scroller pushes the active
+  // map to the persistent brain.
+  const faustActivations: Record<string, ParcelActivationFile | null> = {
+    faust_wager: loadPassageActivationServer("faust_wager"),
+    faust_walpurgis: loadPassageActivationServer("faust_walpurgis"),
+    faust_gretchen: loadPassageActivationServer("faust_gretchen"),
+  };
+  const heroProvenance = faustActivations.faust_wager;
+
   return (
     <main className="relative px-6 pt-36 pb-24 md:px-10 md:pt-44">
+      {/* PR-C: scroll-driven passage activation. Anchored on the
+          wager (Movement IV passage I) as the canonical opening. */}
+      <PassageActivationScroller
+        activationFiles={faustActivations}
+        defaultId="faust_wager"
+      />
       <div className="mx-auto max-w-[68rem]">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb">
@@ -94,6 +115,17 @@ export default async function FaustPage({
           >
             {t("subtitle")}
           </Heading>
+          {/* PR-C: provenance for the hero brain. Composition shows
+              the term decomposition of the wager passage; updates
+              implicitly as the scroller moves through passages
+              (the methodology + citation stay the same; only the
+              composition differs). For now, the hero footer
+              represents the entry-frame composition. */}
+          {heroProvenance && (
+            <div className="mt-10 max-w-[42rem]">
+              <ProvenanceFooter file={heroProvenance} />
+            </div>
+          )}
           <div className="text-bone-cream/40 mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2">
             <Mono variant="label" className="tracking-[0.18em]">
               {totalMinutes} {minutesLabel}
@@ -172,7 +204,11 @@ export default async function FaustPage({
             <Body>{t("m4.intro")}</Body>
           </div>
 
-          {/* Passage 1 — The wager */}
+          {/* Passage 1 — The wager. PR-C: data-activation-id binds
+              this section to the real Neurosynth-derived parcel
+              activation; PassageActivationScroller picks it up via
+              IntersectionObserver. */}
+          <div data-activation-id="faust_wager">
           <PassageAnalysis
             index={tCommon("passage") + " I"}
             citation={t("m4.passage1.citation")}
@@ -210,8 +246,10 @@ export default async function FaustPage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
 
-          {/* Passage 2 — The translation scene */}
+          {/* Passage 2 — The translation scene (Walpurgis movement) */}
+          <div data-activation-id="faust_walpurgis">
           <PassageAnalysis
             index={tCommon("passage") + " II"}
             citation={t("m4.passage2.citation")}
@@ -249,8 +287,10 @@ export default async function FaustPage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
 
-          {/* Passage 3 — The mystic chorus */}
+          {/* Passage 3 — The mystic chorus (Gretchen movement) */}
+          <div data-activation-id="faust_gretchen">
           <PassageAnalysis
             index={tCommon("passage") + " III"}
             citation={t("m4.passage3.citation")}
@@ -289,6 +329,7 @@ export default async function FaustPage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
         </section>
 
         {/* Triangulation note — the room's philosophical heart */}

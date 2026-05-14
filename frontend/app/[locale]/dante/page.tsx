@@ -12,6 +12,10 @@ import {
 import MovementHeader from "@/components/literary/MovementHeader";
 import PassageAnalysis from "@/components/literary/PassageAnalysis";
 import TriangulationNote from "@/components/literary/TriangulationNote";
+import PassageActivationScroller from "@/components/brain/PassageActivationScroller";
+import ProvenanceFooter from "@/components/brain/ProvenanceFooter";
+import { loadPassageActivationServer } from "@/lib/loadActivationsServer";
+import type { ParcelActivationFile } from "@/lib/loadActivations";
 
 export async function generateMetadata({
   params,
@@ -44,8 +48,20 @@ export default async function DantePage({
   const totalMinutes = 22;
   const movement = tCommon("movement");
 
+  // PR-C: Dante passage activations.
+  const danteActivations: Record<string, ParcelActivationFile | null> = {
+    dante_nel_mezzo: loadPassageActivationServer("dante_nel_mezzo"),
+    dante_paolo_francesca: loadPassageActivationServer("dante_paolo_francesca"),
+    dante_beatrice: loadPassageActivationServer("dante_beatrice"),
+  };
+  const heroProvenance = danteActivations.dante_nel_mezzo;
+
   return (
     <main className="relative px-6 pt-36 pb-24 md:px-10 md:pt-44">
+      <PassageActivationScroller
+        activationFiles={danteActivations}
+        defaultId="dante_nel_mezzo"
+      />
       <div className="mx-auto max-w-[68rem]">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
@@ -85,6 +101,14 @@ export default async function DantePage({
           >
             {t("subtitle")}
           </Heading>
+          {/* PR-C: provenance for the hero brain (Inferno I.1 / nel
+              mezzo). The scroller swaps activations across passages
+              as the reader moves through Movement IV. */}
+          {heroProvenance && (
+            <div className="mt-10 max-w-[42rem]">
+              <ProvenanceFooter file={heroProvenance} />
+            </div>
+          )}
           <div className="text-bone-cream/40 mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2">
             <Mono variant="label" className="tracking-[0.18em]">
               {totalMinutes} {minutesLabel}
@@ -159,7 +183,10 @@ export default async function DantePage({
             <Body>{t("m4.intro")}</Body>
           </div>
 
-          {/* Passage 1 — Inferno I.1–3 */}
+          {/* Passage 1 — Inferno I.1–3 (nel mezzo del cammin). PR-C:
+              data-activation-id binds this section to its real
+              Neurosynth-derived parcel activation. */}
+          <div data-activation-id="dante_nel_mezzo">
           <PassageAnalysis
             index={tCommon("passage") + " I"}
             citation={t("m4.passage1.citation")}
@@ -197,8 +224,10 @@ export default async function DantePage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
 
-          {/* Passage 2 — Paolo and Francesca */}
+          {/* Passage 2 — Paolo and Francesca (Inferno V) */}
+          <div data-activation-id="dante_paolo_francesca">
           <PassageAnalysis
             index={tCommon("passage") + " II"}
             citation={t("m4.passage2.citation")}
@@ -237,8 +266,10 @@ export default async function DantePage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
 
-          {/* Passage 3 — Paradiso XXXIII.142–145 */}
+          {/* Passage 3 — Paradiso XXXIII.142–145 (Beatrice arc) */}
+          <div data-activation-id="dante_beatrice">
           <PassageAnalysis
             index={tCommon("passage") + " III"}
             citation={t("m4.passage3.citation")}
@@ -275,6 +306,7 @@ export default async function DantePage({
             originalPredictionLabel={t("m4.originalPredictionLabel")}
             translationPredictionLabel={t("m4.translationPredictionLabel")}
           />
+          </div>
         </section>
 
         <TriangulationNote
