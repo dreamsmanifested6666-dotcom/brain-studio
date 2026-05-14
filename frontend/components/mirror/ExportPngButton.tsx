@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import type { RegionId } from "@/lib/regions";
 import { generateCaption } from "@/lib/mirror/caption-generator";
 import { savedExamples } from "@/lib/savedExamples";
+import { captureBrainViews } from "@/components/brain/BrainViews";
 
 /**
  * Move 5 — "Export · PNG 1080×1080" button.
@@ -62,6 +63,15 @@ export default function ExportPngButton({ text, activations }: Props) {
           activations: ex.activations,
         })),
       });
+      // Capture the four BrainViews canvases as PNG data URLs so the
+      // export composition can embed the user's actual rendered brain
+      // (the real fsaverage5 mesh with their TRIBE prediction colours)
+      // rather than the schematic dot pattern we used to ship.
+      const capturedViews = captureBrainViews();
+      const brainImages = capturedViews
+        .filter((v) => v.dataUrl !== null)
+        .map((v) => ({ labelKey: v.labelKey, dataUrl: v.dataUrl as string }));
+
       const res = await fetch("/api/mirror/fingerprint", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -70,6 +80,7 @@ export default function ExportPngButton({ text, activations }: Props) {
           activations,
           caption: caption.text,
           locale,
+          brainImages,
         }),
       });
       if (!res.ok) {

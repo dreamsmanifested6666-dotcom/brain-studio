@@ -27,6 +27,39 @@ type Activations = Partial<Record<RegionId, number>>;
 
 const VALID_REGION_IDS = new Set<string>(REGION_IDS);
 
+export type BrainImage = {
+  labelKey: "anterior" | "rightLateral" | "posterior" | "leftLateral";
+  dataUrl: string;
+};
+
+const VALID_LABEL_KEYS = new Set([
+  "anterior",
+  "rightLateral",
+  "posterior",
+  "leftLateral",
+]);
+
+function sanitizeBrainImages(input: unknown): BrainImage[] {
+  if (!Array.isArray(input)) return [];
+  const out: BrainImage[] = [];
+  for (const item of input.slice(0, 4)) {
+    if (!item || typeof item !== "object") continue;
+    const obj = item as Record<string, unknown>;
+    const labelKey = obj.labelKey;
+    const dataUrl = obj.dataUrl;
+    if (
+      typeof labelKey === "string" &&
+      VALID_LABEL_KEYS.has(labelKey) &&
+      typeof dataUrl === "string" &&
+      dataUrl.startsWith("data:image/png;base64,") &&
+      dataUrl.length < 2_000_000 // 2 MB cap per image; sanity bound
+    ) {
+      out.push({ labelKey: labelKey as BrainImage["labelKey"], dataUrl });
+    }
+  }
+  return out;
+}
+
 function sanitizeActivations(input: unknown): Activations {
   if (!input || typeof input !== "object") return {};
   const out: Activations = {};
@@ -59,6 +92,7 @@ async function readPayload(req: NextRequest): Promise<{
   activations: Activations;
   caption: string;
   locale: string;
+  brainImages: BrainImage[];
 }> {
   if (req.method === "POST") {
     try {
@@ -68,12 +102,21 @@ async function readPayload(req: NextRequest): Promise<{
         activations: sanitizeActivations(body.activations),
         caption: clampString(body.caption, 600),
         locale: clampString(body.locale, 10) || "en",
+        brainImages: sanitizeBrainImages(body.brainImages),
       };
     } catch {
-      return { text: "", activations: {}, caption: "", locale: "en" };
+      return {
+        text: "",
+        activations: {},
+        caption: "",
+        locale: "en",
+        brainImages: [],
+      };
     }
   }
-  // GET
+  // GET — no brainImages support on the GET variant (URLs aren't a
+  // sensible place for ~MB of data URL payload). GET callers see the
+  // schematic fallback in fingerprint-image.tsx.
   const url = new URL(req.url);
   const text = clampString(url.searchParams.get("text") ?? "", 5000);
   const caption = clampString(url.searchParams.get("c") ?? "", 600);
@@ -87,7 +130,7 @@ async function readPayload(req: NextRequest): Promise<{
       activations = {};
     }
   }
-  return { text, activations, caption, locale };
+  return { text, activations, caption, locale, brainImages: [] };
 }
 
 async function handler(req: NextRequest) {

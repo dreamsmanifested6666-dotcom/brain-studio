@@ -236,6 +236,41 @@ const VIEWS: ViewDef[] = [
   { cameraPos: [-2.8, 0, 0], cameraUp: [0, 1, 0], labelKey: "leftLateral" },
 ];
 
+/**
+ * Imperative capture API for the PNG export flow. Finds the four
+ * `BrainViews` canvases by their `data-brain-view` attribute and
+ * returns their pixels as data URLs in anatomical order.
+ *
+ * Requires the canvases to have `preserveDrawingBuffer: true` (we
+ * set this above). Returns null for any view whose canvas isn't on
+ * the page (e.g. on routes without BrainViews mounted).
+ */
+export type CapturedBrainView = {
+  labelKey: ViewDef["labelKey"];
+  dataUrl: string | null;
+};
+
+export function captureBrainViews(): CapturedBrainView[] {
+  if (typeof document === "undefined") {
+    return VIEWS.map((v) => ({ labelKey: v.labelKey, dataUrl: null }));
+  }
+  return VIEWS.map((v) => {
+    const wrapper = document.querySelector<HTMLElement>(
+      `[data-brain-view="${v.labelKey}"]`,
+    );
+    if (!wrapper) return { labelKey: v.labelKey, dataUrl: null };
+    const canvas = wrapper.querySelector<HTMLCanvasElement>("canvas");
+    if (!canvas) return { labelKey: v.labelKey, dataUrl: null };
+    try {
+      const dataUrl = canvas.toDataURL("image/png");
+      return { labelKey: v.labelKey, dataUrl };
+    } catch (err) {
+      console.warn("[captureBrainViews] toDataURL failed", err);
+      return { labelKey: v.labelKey, dataUrl: null };
+    }
+  });
+}
+
 function ViewCanvas({
   view,
   activations,
@@ -253,7 +288,10 @@ function ViewCanvas({
         far: 20,
       }}
       dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      // `preserveDrawingBuffer: true` lets the PNG-export flow call
+      // `canvas.toDataURL()` to capture the rendered pixels into the
+      // shareable fingerprint. Cost is small for these mini canvases.
+      gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
     >
       {/*
         Simple two-light setup — no atmospheric bloom or environment
@@ -320,7 +358,10 @@ export default function BrainViews({
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         {VIEWS.map((view) => (
           <div key={view.labelKey}>
-            <div className="border-bone-cream/10 bg-navy-deep/40 relative aspect-square overflow-hidden rounded-sm border">
+            <div
+              data-brain-view={view.labelKey}
+              className="border-bone-cream/10 bg-navy-deep/40 relative aspect-square overflow-hidden rounded-sm border"
+            >
               <ViewCanvas view={view} activations={liveActivations} />
             </div>
             <Caption

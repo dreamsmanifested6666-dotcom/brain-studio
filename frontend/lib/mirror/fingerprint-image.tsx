@@ -118,16 +118,40 @@ function pickTopN(activations: Activations, n: number) {
 
 // ── Composition ──────────────────────────────────────────────────────
 
+export type BrainImageInput = {
+  labelKey: "anterior" | "rightLateral" | "posterior" | "leftLateral";
+  dataUrl: string;
+};
+
+const VIEW_ORDER: BrainImageInput["labelKey"][] = [
+  "anterior",
+  "rightLateral",
+  "posterior",
+  "leftLateral",
+];
+
+const VIEW_LABELS: Record<BrainImageInput["labelKey"], string> = {
+  anterior: "Anterior",
+  rightLateral: "Right lateral",
+  posterior: "Posterior",
+  leftLateral: "Left lateral",
+};
+
 export function renderFingerprintImage(args: {
   text: string;
   activations: Activations;
   caption: string;
   locale: string;
+  brainImages?: BrainImageInput[];
 }): ImageResponse {
-  const { text, activations, caption, locale } = args;
+  const { text, activations, caption, locale, brainImages = [] } = args;
   const top = pickTopN(activations, 3);
   const truncatedText =
     text.length > 400 ? text.slice(0, 380).trimEnd() + "…" : text;
+  // Index brain images by labelKey for ordered render.
+  const brainsByKey = new Map<BrainImageInput["labelKey"], string>();
+  for (const b of brainImages) brainsByKey.set(b.labelKey, b.dataUrl);
+  const hasRealBrains = brainsByKey.size > 0;
 
   return new ImageResponse(
     (
@@ -185,10 +209,16 @@ export function renderFingerprintImage(args: {
         </div>
 
         {/*
-          Middle third — schematic top-down brain. Outline ellipse +
-          subtle midline + the 20 region dots colour-mapped from the
-          activation pattern. Bigger dots for higher activation so the
-          fingerprint reads at a glance even without colour.
+          Middle third — four anatomical brain views.
+          When the user clicks Export on the live Mirror page, the
+          client captures the four BrainViews canvases as PNG data
+          URLs and POSTs them in `brainImages`. We render those real
+          fsaverage5 mesh renders here (the same brain the user just
+          saw on the page) instead of the dot schematic.
+
+          Fallback: when no brainImages are present (GET callers,
+          older clients), we render the SVG dot schematic so the
+          composition never breaks.
         */}
         <div
           style={{
@@ -200,57 +230,127 @@ export function renderFingerprintImage(args: {
             height: 460,
           }}
         >
-          <svg
-            width={1080}
-            height={460}
-            viewBox="0 0 1080 460"
-            style={{ position: "absolute" }}
-          >
-            {/* Cortical silhouette — peanut shape suggesting the two
-                hemispheres seen top-down. */}
-            <ellipse
-              cx={CENTER_X}
-              cy={230}
-              rx={RADIUS + 30}
-              ry={RADIUS + 40}
-              fill={PALETTE.brassMuted}
-              fillOpacity={0.08}
-              stroke={PALETTE.brassMuted}
-              strokeWidth={1.5}
-            />
-            {/* Inter-hemispheric fissure */}
-            <line
-              x1={CENTER_X}
-              y1={230 - RADIUS - 40}
-              x2={CENTER_X}
-              y2={230 + RADIUS + 40}
-              stroke={PALETTE.brassMuted}
-              strokeWidth={1}
-              strokeOpacity={0.4}
-            />
-            {/* Region dots */}
-            {REGION_IDS.map((id) => {
-              const a = activations[id] ?? 0;
-              const { cx, cy } = dotPosition(REGION_POSITIONS[id]);
-              // Re-center cy onto this SVG's coordinate frame.
-              const sy = cy - 310;
-              const fill = activationColor(a);
-              const size = 18 + Math.round(a * 16); // 18..34 px
-              return (
-                <g key={id}>
-                  <circle
-                    cx={cx}
-                    cy={sy}
-                    r={size}
-                    fill={fill}
-                    fillOpacity={0.92}
-                    stroke="rgba(240, 232, 216, 0.35)"
-                    strokeWidth={1}
-                  />
-                </g>
-              );
-            })}
-          </svg>
+          {hasRealBrains ? (
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                gap: 16,
+                justifyContent: "center",
+                alignItems: "flex-start",
+              }}
+            >
+              {VIEW_ORDER.map((key) => {
+                const url = brainsByKey.get(key);
+                if (!url) return null;
+                return (
+                  <div
+                    key={key}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      width: 235,
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        width: 235,
+                        height: 235,
+                        borderRadius: 4,
+                        border: `1px solid ${PALETTE.brassMuted}`,
+                        background: PALETTE.navyDeep,
+                        overflow: "hidden",
+                      }}
+                    >
+                      {/*
+                        Embed the captured WebGL canvas as a data URL
+                        image. Satori will rasterize it into the final
+                        PNG composition.
+                      */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={url}
+                        alt={VIEW_LABELS[key]}
+                        width={235}
+                        height={235}
+                        style={{
+                          width: 235,
+                          height: 235,
+                          objectFit: "cover",
+                        }}
+                      />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        fontSize: 13,
+                        fontFamily: "Menlo, monospace",
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: "rgba(240, 232, 216, 0.7)",
+                        marginTop: 12,
+                      }}
+                    >
+                      {VIEW_LABELS[key]}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <svg
+              width={1080}
+              height={460}
+              viewBox="0 0 1080 460"
+              style={{ position: "absolute" }}
+            >
+              {/* Cortical silhouette — peanut shape suggesting the two
+                  hemispheres seen top-down. */}
+              <ellipse
+                cx={CENTER_X}
+                cy={230}
+                rx={RADIUS + 30}
+                ry={RADIUS + 40}
+                fill={PALETTE.brassMuted}
+                fillOpacity={0.08}
+                stroke={PALETTE.brassMuted}
+                strokeWidth={1.5}
+              />
+              {/* Inter-hemispheric fissure */}
+              <line
+                x1={CENTER_X}
+                y1={230 - RADIUS - 40}
+                x2={CENTER_X}
+                y2={230 + RADIUS + 40}
+                stroke={PALETTE.brassMuted}
+                strokeWidth={1}
+                strokeOpacity={0.4}
+              />
+              {/* Region dots */}
+              {REGION_IDS.map((id) => {
+                const a = activations[id] ?? 0;
+                const { cx, cy } = dotPosition(REGION_POSITIONS[id]);
+                const sy = cy - 310;
+                const fill = activationColor(a);
+                const size = 18 + Math.round(a * 16);
+                return (
+                  <g key={id}>
+                    <circle
+                      cx={cx}
+                      cy={sy}
+                      r={size}
+                      fill={fill}
+                      fillOpacity={0.92}
+                      stroke="rgba(240, 232, 216, 0.35)"
+                      strokeWidth={1}
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+          )}
         </div>
 
         {/*
