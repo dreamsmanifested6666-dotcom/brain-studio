@@ -10,6 +10,7 @@ import {
 } from "@/store/useBrainStageStore";
 import type { RegionId } from "@/lib/regions";
 import Tracts from "./Tracts";
+import BrassHalos from "./BrassHalos";
 
 /**
  * Anatomical fsaverage mesh as the primary brain visualization.
@@ -229,17 +230,26 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
     const reads: Record<string, number> = targetActivations as Record<string, number>;
     const hasExplicit = Object.values(reads).some((v) => (v ?? 0) > 0.02);
 
-    const lerp = Math.min(1, delta * 3.5);
+    // phase 2: time-based smoothing with a deliberate ~1200 ms window.
+    // The design-critic brief specified `1200ms cubic-bezier(0.16, 1, 0.3, 1)`
+    // for activation lerps. Our underlying smoother is a first-order
+    // exponential — over a 1200 ms window an exponential reaches ~95%
+    // of the target with tau ≈ 400 ms (delta/tau exp curve). This gives
+    // the same "settles in just over a second" feel without the
+    // expense of bookkeeping a per-region start-time bezier evaluator.
+    const dt = Math.min(0.1, delta);
+    const lerp = 1 - Math.exp(-dt / 0.4);
     // Always touch every known region so ambient floors update.
     for (let i = 0; i < allRegionList.length; i++) {
       const r = allRegionList[i];
-      // Ambient "EEG drift": a slow per-region phase wave. Keeps the brain
-      // feeling alive when no specific pattern is loaded. Switches off the
-      // moment a real activation comes in so it doesn't dilute the signal.
-      const phase = elapsed.current * 0.55 + i * 0.42;
-      const ambient = hasExplicit
-        ? 0
-        : 0.05 + Math.max(0, Math.sin(phase)) * 0.13;
+      // Ambient "breathing" idle: a slow per-region phase wave at
+      // 0.18 Hz (~5.5 s per breath). Slower than the previous EEG-style
+      // drift; reads as the brain actually breathing rather than
+      // twitching. Switches off the moment an explicit activation
+      // arrives so it doesn't dilute the signal.
+      const phase = elapsed.current * 0.18 * Math.PI * 2 + i * 0.38;
+      const breathDepth = 0.05 + Math.max(0, Math.sin(phase)) * 0.11;
+      const ambient = hasExplicit ? 0 : breathDepth;
       const explicit = reads[r] ?? 0;
       const tgt = Math.max(explicit, ambient);
       const cur = smoothed.current.get(r) ?? 0;
@@ -332,6 +342,11 @@ export default function BrainAnatomy() {
           own opacity tweening; opacity is 0 until the connectome
           state surfaces a tract id. */}
       <Tracts />
+      {/* Brass halos for the top-3 most-active regions. Sibling of the
+          mesh so they orbit and translate with the brain. Fade in/out
+          on their own timing (600 ms in, 400 ms out). Threshold gated
+          at 0.45 — a region has to genuinely be active to earn one. */}
+      <BrassHalos />
     </group>
   );
 }

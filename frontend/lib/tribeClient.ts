@@ -1,14 +1,23 @@
 /**
- * Frontend client for the TRIBE inference endpoint.
+ * Frontend client for the brain prediction endpoint.
  *
- * Two modes:
- *   - `try` (default): POST to /api/infer/text. On success, return the
- *      real prediction. On 503 or any failure, return null so the caller
- *      falls back to the local placeholder predictor.
+ * Engine cascade on the backend (see `backend/app/main.py`):
+ *   1. TRIBE v2 real           — when checkpoint + Meta packages + GPU.
+ *   2. embedding_baseline_v1   — fastembed BGE-small over 20 curated
+ *                                region anchor texts (the default
+ *                                public deployment).
+ *   3. 503                     — neither engine ready; this client
+ *                                returns null so the caller can fall
+ *                                back to lib/fakePredictor.ts.
+ *
+ * Two call modes:
+ *   - `try` (default): POST /api/infer/text. On success, return the
+ *      prediction. On 503 or any failure, return null.
  *   - `force`: POST and surface errors as exceptions (debug only).
  *
- * `NEXT_PUBLIC_TRIBE_API_BASE` overrides the API base if the FastAPI
- * backend is hosted elsewhere (e.g. on Render). Defaults to local dev.
+ * `NEXT_PUBLIC_TRIBE_API_BASE` overrides the API base. Defaults to
+ * local dev port 8000. In production set it to the Render service URL
+ * (e.g. https://brain-studio-api.onrender.com).
  */
 
 import type { RegionId } from "./regions";
@@ -16,26 +25,38 @@ import type { RegionId } from "./regions";
 const BASE =
   process.env.NEXT_PUBLIC_TRIBE_API_BASE ?? "http://127.0.0.1:8000";
 
+/**
+ * Response envelope shared by every engine. `engine` distinguishes
+ * which one served the prediction (the frontend may surface this as a
+ * subtle label so users can see the difference between TRIBE and the
+ * baseline). `metadata` is engine-specific and intentionally
+ * structurally typed loosely.
+ */
 export type TribeApiPrediction = {
   engine: string;
   text_preview: string;
   regions: Partial<Record<RegionId, number>>;
-  metadata: {
-    checkpoint_path: string;
-    text_backbone: string;
-    hidden_size: number;
-    hemodynamic_offset_s: number;
-  };
+  metadata: Record<string, unknown>;
 };
+
+/**
+ * Whether a given engine name corresponds to a "real" (non-baseline)
+ * prediction. The Mirror room may surface a subtle credit chip when
+ * `engine === "real"` to honor the distinction.
+ */
+export function isRealEngine(engine: string | null | undefined): boolean {
+  return engine === "real" || engine === "real_tribe_v2";
+}
 
 export async function inferText(
   text: string,
-  opts?: { signal?: AbortSignal; force?: boolean },
+  opts?: { signal?: AbortSignal; force?: boolean; pathOverride?: string },
 ): Promise<TribeApiPrediction | null> {
   if (!text.trim()) return null;
 
+  const path = opts?.pathOverride ?? "/api/infer/text";
   try {
-    const res = await fetch(`${BASE}/api/infer/text`, {
+    const res = await fetch(`${BASE}${path}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ text }),
@@ -46,7 +67,7 @@ export async function inferText(
     }
     if (opts?.force) {
       const body = await res.text();
-      throw new Error(`TRIBE API ${res.status}: ${body}`);
+      throw new Error(`Brain API ${res.status}: ${body}`);
     }
     return null;
   } catch (err) {
