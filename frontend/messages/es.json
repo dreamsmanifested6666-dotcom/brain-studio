@@ -271,7 +271,7 @@
     "label": "Atlas de regiones",
     "title": "El cerebro, sala a sala.",
     "intro": "Veinte regiones, escritas con cuidado. Cada página sostiene la anatomía, la función tal como la literatura la describe hoy, los tipos celulares que hay debajo, las conexiones que enrutan la señal, el contexto clínico, la historia de quién lo notó por primera vez, y el hilo de sentido que la lectura desde la psicología profunda quiere mantener cerca.",
-    "statusNote": "{complete} de {total} páginas están completas. Las demás muestran su arquitectura mientras se escribe su prosa.",
+    "statusNote": "Las {complete} de {total} páginas de regiones tienen prosa completa.",
     "inProgress": "En revisión",
     "openCard": "Abrir",
     "previewCard": "Vista previa",
@@ -359,7 +359,7 @@
     "ended": "Recorrido completado.",
     "continueLabel": "Seguir explorando",
     "emptyState": "Aún no hay recorridos disponibles.",
-    "comingSoon": "Más recorridos por venir: cómo lees esta frase (red del lenguaje), cuando algo importa (saliencia), qué sigue siendo tú cuando dejas de intentarlo (modo por defecto), cómo un rostro se convierte en alguien a quien conoces (procesamiento facial), y oír música (auditivo y recompensa).",
+    "comingSoon": "Hay seis recorridos disponibles. Aparecerán más a medida que se incorporen nuevas salas y el modelo de codificación cerebral se conecte a la inferencia en vivo.",
     "footerNote": "Recorridos guiados · el cerebro en movimiento",
     "nowShowing": "En reproducción",
     "activeRegions": "Activado en esta escena"
@@ -509,7 +509,7 @@
       "displayName": "PCC",
       "anatomyName": "Corteza cingulada posterior",
       "scienceGloss": "Un nodo central de la red por defecto. Activa en memoria, vagabundeo mental y pensamiento referido al sí mismo.",
-      "poeticGloss": "La parte de ti que sigue siendo tú cuando dejas de intentarlo. La habitación que queda encendida cuando las demás no."
+      "poeticGloss": "Lo que sigue encendido cuando dejas de atender. La sala que sostiene el modelo del yo en marcha."
     },
     "precuneus": {
       "displayName": "Precúneo",
@@ -954,10 +954,7 @@
     "roadmap": {
       "label": "Hoja de ruta",
       "heading": "Lo que aún pide construirse.",
-      "phase10": "Inferencia real de TRIBE conectada a un backend FastAPI (en este momento el predictor funciona localmente sobre rasgos léxicos).",
-      "phase11": "Formulario de envío de pares, licencias de audio de la Fase 11, mejora de rendimiento.",
-      "phase12": "Auditoría final de accesibilidad + una capa de anotación de largo aliento sobre las citas.",
-      "phaseLabel": "Fase"
+      "body": "Quedan genuinamente cuatro cosas. La inferencia real de TRIBE conectada a un backend FastAPI — el predictor se ejecuta localmente sobre rasgos léxicos y el cargador de modelo fiel a la arquitectura ya está, pero la inferencia en producción aún no. Una revisión nativa en tailandés sobre las traducciones asistidas por máquina en cada página; el conmutador EN/TH existe y la prosa tailandesa espera una lectura cuidadosa. Audio de dominio público o CC-BY para las tres pistas de NeuroMusic Lab, más una vía de contribución para nuevos pares y grabaciones en las salas Transcultural y NeuroMusic. Una auditoría final de accesibilidad y rendimiento en cada ruta, con etiquetas de lector de pantalla en cada región cerebral y tarjetas OG para cada página."
     },
     "closing": {
       "display": "Lo que estamos construyendo es pequeño. La intención no lo es.",

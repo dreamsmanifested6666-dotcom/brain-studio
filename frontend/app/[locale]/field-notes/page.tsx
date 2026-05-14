@@ -105,11 +105,12 @@ export default async function FieldNotesIndex({
                   {e.publishedAt}
                 </Mono>
               </div>
-              {!e.shipped && (
-                <Mono variant="label" className="text-bone-cream/35 mt-2 block">
-                  {t("forthcoming")}
-                </Mono>
-              )}
+              {/* PR 1 / 4b: the duplicate <Mono>{t("forthcoming")}</Mono>
+                  that used to sit here is removed. `e.publishedAt`
+                  already renders `t("forthcoming")` for unshipped
+                  essays — having both rendered the tag twice on the
+                  same card. The inline placement in the meta line is
+                  the more legible spot. */}
             </li>
           ))}
         </ol>

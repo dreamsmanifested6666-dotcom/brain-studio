@@ -271,7 +271,7 @@
     "label": "Atlas de regions",
     "title": "El cervell, sala a sala.",
     "intro": "Vint regions, escrites amb cura. Cada pàgina sosté l'anatomia, la funció tal com la literatura la descriu avui, els tipus cel·lulars que hi ha a sota, les connexions que enruten el senyal, el context clínic, la història de qui ho va notar primer, i el fil de sentit que la lectura des de la psicologia profunda vol mantenir a prop.",
-    "statusNote": "{complete} de {total} pàgines són completes. Les altres mostren la seva arquitectura mentre s'escriu la prosa.",
+    "statusNote": "Les {complete} de {total} pàgines de regions tenen prosa completa.",
     "inProgress": "En revisió",
     "openCard": "Obrir",
     "previewCard": "Vista prèvia",
@@ -359,7 +359,7 @@
     "ended": "Recorregut completat.",
     "continueLabel": "Continuar explorant",
     "emptyState": "Encara no hi ha recorreguts disponibles.",
-    "comingSoon": "Més recorreguts a venir: com llegeixes aquesta frase (xarxa del llenguatge), quan alguna cosa importa (saliència), què continua sent tu quan deixes d'intentar-ho (mode per defecte), com un rostre esdevé algú a qui coneixes (processament facial), i sentir música (auditiu i recompensa).",
+    "comingSoon": "Hi ha sis recorreguts disponibles. N'apareixeran més a mesura que s'incorporin noves sales i el model de codificació cerebral es connecti a la inferència en directe.",
     "footerNote": "Recorreguts guiats · el cervell en moviment",
     "nowShowing": "En reproducció",
     "activeRegions": "Activat en aquesta escena"
@@ -509,7 +509,7 @@
       "displayName": "PCC",
       "anatomyName": "Còrtex cingulada posterior",
       "scienceGloss": "Un node central de la xarxa per defecte. Activa en memòria, divagació mental i pensament referit al si mateix.",
-      "poeticGloss": "La part de tu que segueix sent tu quan deixes d'intentar-ho. La sala que queda encesa quan les altres no."
+      "poeticGloss": "Allò que continua encès quan deixes d'atendre. La sala que manté el model del jo en marxa."
     },
     "precuneus": {
       "displayName": "Precuneus",
@@ -954,10 +954,7 @@
     "roadmap": {
       "label": "Full de ruta",
       "heading": "El que encara demana ser construït.",
-      "phase10": "Inferència real de TRIBE connectada a un backend FastAPI (de moment el predictor funciona localment sobre trets lèxics).",
-      "phase11": "Formulari d'enviament de parelles, llicències d'àudio de la Fase 11, millora de rendiment.",
-      "phase12": "Auditoria final d'accessibilitat + una capa d'anotació de llarg alè sobre les citacions.",
-      "phaseLabel": "Fase"
+      "body": "Queden genuïnament quatre coses. La inferència real de TRIBE connectada a un backend FastAPI — el predictor s'executa localment sobre trets lèxics i el carregador de model fidel a l'arquitectura ja hi és, però la inferència en producció encara no. Una revisió nativa en tailandès sobre les traduccions assistides per màquina a cada pàgina; el commutador EN/TH existeix i la prosa tailandesa espera una lectura curosa. Àudio de domini públic o CC-BY per a les tres pistes de NeuroMusic Lab, més una via de contribució per a nous parells i enregistraments a les sales Transcultural i NeuroMusic. Una auditoria final d'accessibilitat i rendiment a cada ruta, amb etiquetes de lector de pantalla a cada regió cerebral i targetes OG per a cada pàgina."
     },
     "closing": {
       "display": "El que estem construint és petit. La intenció no ho és.",

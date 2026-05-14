@@ -607,29 +607,20 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* 7 — Roadmap */}
+      {/* 7 — Roadmap. The previous phase10/11/12 numbered list was
+          stale: Faust, Dante, Atlas, Bridges, Tours, Depth Psychology,
+          and Field Notes have all shipped. Replaced with a single
+          "what's next" paragraph (`roadmap.body` in i18n) naming the
+          four tasks that genuinely remain. PR 1 / 4d. */}
       <section className="relative px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[920px]">
           <Caption uppercase className="text-brass">
             {t("roadmap.label")}
           </Caption>
           <Heading className="mt-6">{t("roadmap.heading")}</Heading>
-          <ul className="mt-10 space-y-4">
-            {(
-              [
-                ["10", t("roadmap.phase10")],
-                ["11", t("roadmap.phase11")],
-                ["12", t("roadmap.phase12")],
-              ] as const
-            ).map(([n, body]) => (
-              <li key={n} className="flex items-baseline gap-5">
-                <Caption uppercase className="text-brass shrink-0">
-                  {t("roadmap.phaseLabel")} {n}
-                </Caption>
-                <Body className="text-bone-cream/70">{body}</Body>
-              </li>
-            ))}
-          </ul>
+          <Body className="text-bone-cream/70 mt-10 max-w-[40rem]">
+            {t("roadmap.body")}
+          </Body>
         </div>
       </section>
 

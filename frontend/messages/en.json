@@ -271,7 +271,7 @@
     "label": "Region Atlas",
     "title": "The brain, room by room.",
     "intro": "Twenty regions, written carefully. Each page holds the anatomy, the function as the literature currently tells it, the cell types underneath, the connections that route the signal, the clinical context, the history of who first noticed, and the thread of meaning the depth-psychological reading wants nearby.",
-    "statusNote": "{complete} of {total} pages are complete. The others render their architecture while their prose is written.",
+    "statusNote": "All {complete} of {total} region pages have complete prose.",
     "inProgress": "Under review",
     "openCard": "Open",
     "previewCard": "Preview",
@@ -359,7 +359,7 @@
     "ended": "Tour complete.",
     "continueLabel": "Continue exploring",
     "emptyState": "No tours available yet.",
-    "comingSoon": "More tours are forthcoming: how you read this sentence (language network), when something matters (salience), what's still you when you stop trying (default mode), how a face becomes someone you know (face processing), and hearing music (auditory and reward).",
+    "comingSoon": "Six tours are currently available. More will appear as new rooms land and the brain encoding model is wired to live inference.",
     "footerNote": "Guided Tours · the brain in motion",
     "nowShowing": "Now showing",
     "activeRegions": "Lit up in this scene"
@@ -509,7 +509,7 @@
       "displayName": "PCC",
       "anatomyName": "Posterior cingulate cortex",
       "scienceGloss": "A core node of the default-mode network. Active in memory, mind-wandering, and self-related thought.",
-      "poeticGloss": "The part of you that's still you when you stop trying. The room that's lit when the others aren't."
+      "poeticGloss": "What stays lit when you stop attending. The room that holds the model of the ongoing self."
     },
     "precuneus": {
       "displayName": "Precuneus",
@@ -954,10 +954,7 @@
     "roadmap": {
       "label": "Roadmap",
       "heading": "What still wants building.",
-      "phase10": "Real TRIBE inference wired to a FastAPI backend (currently the predictor runs locally on lexical features).",
-      "phase11": "Pair submission form, Phase-11 audio licensing, performance pass.",
-      "phase12": "Final accessibility audit + a long-form annotation layer over the citations.",
-      "phaseLabel": "Phase"
+      "body": "Four things genuinely remain. Real TRIBE inference wired to a FastAPI backend — the predictor currently runs locally on lexical features and the architecture-faithful model loader is in place, but production inference is not. A native Thai review pass on the machine-assisted translations across every page; the EN/TH toggle exists and the Thai prose is awaiting one careful read. Public-domain or CC-BY audio for the three NeuroMusic Lab slots, plus a contribution affordance for new pairs and recordings on the Cross-Cultural and NeuroMusic rooms. A final accessibility and performance audit across every route, with screen-reader labels on every brain region and OG cards for every page."
     },
     "closing": {
       "display": "What we're building is small. The intention is not.",
