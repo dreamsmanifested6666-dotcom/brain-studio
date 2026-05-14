@@ -184,8 +184,8 @@
         "body": "Observa cómo el giro frontal inferior se calienta antes de que se encuentre una palabra. El modelo deja ver el significado en construcción — la media décima de segundo en que un pensamiento todavía se está reuniendo."
       },
       "card2": {
-        "headline": "La música mueve las mismas regiones que te mueven a ti.",
-        "body": "Sigur Rós, Coltrane y una nana tailandesa de luk thung dejan huellas distintas en la corteza auditiva — y en la red por defecto, esa parte de ti que sigue siendo tú cuando dejas de intentarlo."
+        "headline": "La música mueve las mismas regiones que te conmueven.",
+        "body": "Un drone ambiental, una toma de jazz de 1923 y una nana de luk thung tailandés dejan huellas distintas en la corteza auditiva — y en la red neuronal por defecto, la parte de ti que sigue siendo tú cuando dejas de intentarlo."
       },
       "card3": {
         "headline": "Lo que un modelo no logra traducir es también una forma de conocimiento.",
@@ -265,12 +265,12 @@
       "upload": "Subir"
     },
     "essay1": {
-      "headline": "Sigur Rós y la red por defecto.",
-      "body": "El PCC y el precúneo se calientan no porque exista un 'circuito de meditación', sino porque quien escucha deja de intentar seguirlo. Default-mode es la abreviatura de esa parte de ti que sigue siendo tú cuando dejas de intentarlo."
+      "headline": "Drone ambiental y la red neuronal por defecto.",
+      "body": "El PCC y el precúneo se calientan no porque haya un 'circuito de meditación', sino porque el oyente deja de tratar de seguir. La red por defecto es la abreviatura de la parte de ti que sigue siendo tú cuando dejas de intentarlo."
     },
     "essay2": {
-      "headline": "Coltrane y la calidez límbica.",
-      "body": "Naima fue escrita como carta de amor. La amígdala no está dando aquí la alarma del miedo — está pesando la saliencia, marcando las líneas que importan. Sentimiento y forma llegando al mismo compás."
+      "headline": "Jazz temprano y la calidez límbica.",
+      "body": "Dippermouth Blues se grabó en una sola toma en 1923, con un Louis Armstrong de veintiún años al segundo cornetín. La amígdala no está disparando una alarma de miedo aquí — está ponderando saliencia, marcando las líneas de llamada y respuesta que importan. Sentimiento y forma llegando en el mismo compás."
     },
     "essay3": {
       "headline": "La nana que el cuerpo recuerda antes.",
@@ -278,17 +278,17 @@
     },
     "footerNote": "Laboratorio de NeuroMúsica · líneas de tiempo simuladas localmente",
     "tracks": {
-      "sigur-ros-meditation": {
-        "era": "Post-rock · ambient",
-        "framing": "Un drone lento en falsete. La red por defecto se calienta como en la meditación — no porque exista un 'circuito de meditación', sino porque quien escucha deja de intentar seguir."
-      },
-      "coltrane-naima": {
-        "era": "Jazz modal",
-        "framing": "Construido sobre una carta de amor. La corteza auditiva sigue la melodía; la amígdala y las regiones orbitofrontales pesan la calidez — sentimiento y forma llegando al mismo compás."
-      },
       "thai-lullaby": {
         "era": "Folclore tailandés · pentatónico",
         "framing": "Pentatónico, lento, cantado al oído. El hipocampo lleva la escena antes de que las regiones del lenguaje lleguen a la letra — el cuerpo recuerda la canción primero."
+      },
+      "ambient-drone": {
+        "era": "Drone ambiental",
+        "framing": "Un drone lento, sin voz, sin pulso. La red neuronal por defecto se calienta como lo hace en la meditación — no porque haya un 'circuito de meditación', sino porque el oyente deja de tratar de seguir."
+      },
+      "modal-ballad": {
+        "era": "Jazz temprano · conjunto",
+        "framing": "Dos cornetines sobre un clarinete, una grabación de 1923 atenuada por un siglo de goma laca. La corteza auditiva sigue la llamada y respuesta; la calidez viene de la predicción — tu cerebro termina la frase un compás antes que la banda."
       }
     }
   },

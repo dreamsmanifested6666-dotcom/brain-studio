@@ -185,7 +185,7 @@
       },
       "card2": {
         "headline": "Music moves the same regions that move you.",
-        "body": "Sigur Rós, Coltrane, and a Thai luk thung lullaby all bring different fingerprints to the auditory cortex — and to the default-mode network, the part of you that's still you when you stop trying."
+        "body": "An ambient drone, a 1923 jazz cut, and a Thai luk thung lullaby all bring different fingerprints to the auditory cortex — and to the default-mode network, the part of you that's still you when you stop trying."
       },
       "card3": {
         "headline": "What a model can't translate is itself a kind of knowledge.",
@@ -265,12 +265,12 @@
       "upload": "Upload"
     },
     "essay1": {
-      "headline": "Sigur Rós and the default-mode network.",
+      "headline": "Ambient drone and the default-mode network.",
       "body": "The PCC and precuneus warm not because there's a 'meditation circuit,' but because the listener stops trying to follow. Default-mode is shorthand for the part of you that's still you when you stop trying."
     },
     "essay2": {
-      "headline": "Coltrane and the limbic warmth.",
-      "body": "Naima was written as a love letter. The amygdala isn't sounding a fear alarm here — it's weighting salience, marking the lines that matter. Feeling and form arriving on the same beat."
+      "headline": "Early jazz and the limbic warmth.",
+      "body": "Dippermouth Blues was cut in a single take in 1923, twenty-one-year-old Louis Armstrong on second cornet. The amygdala isn't sounding a fear alarm here — it's weighting salience, marking the call-and-response lines that matter. Feeling and form arriving on the same beat."
     },
     "essay3": {
       "headline": "The lullaby remembered first by the body.",
@@ -278,17 +278,17 @@
     },
     "footerNote": "NeuroMusic Lab · timelines simulated locally",
     "tracks": {
-      "sigur-ros-meditation": {
-        "era": "Post-rock · ambient",
-        "framing": "A slow drone in falsetto. The default-mode network warms the way it does in meditation — not because there's a 'meditation circuit,' but because the listener stops trying to follow."
-      },
-      "coltrane-naima": {
-        "era": "Modal jazz",
-        "framing": "Built on a love letter. Auditory cortex tracks the melody; the amygdala and orbitofrontal regions weight the warmth — feeling and form arriving on the same beat."
-      },
       "thai-lullaby": {
         "era": "Thai folk · pentatonic",
         "framing": "Pentatonic, low-tempo, sung close to the ear. The hippocampus carries the scene before the language regions arrive at the lyrics — the body remembers the song first."
+      },
+      "ambient-drone": {
+        "era": "Ambient drone",
+        "framing": "A slow drone, no voice, no pulse. The default-mode network warms the way it does in meditation — not because there's a 'meditation circuit,' but because the listener stops trying to follow."
+      },
+      "modal-ballad": {
+        "era": "Early jazz · ensemble",
+        "framing": "Two cornets over a clarinet, a 1923 recording dimmed by a century of shellac. Auditory cortex tracks the call-and-response; warmth comes from prediction — your brain finishes the phrase a beat before the band does."
       }
     }
   },

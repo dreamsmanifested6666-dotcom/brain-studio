@@ -184,8 +184,8 @@
         "body": "Observa com el gir frontal inferior s'escalfa abans que es trobi una paraula. El model deixa veure el significat en construcció — la mitja dècima de segon en què un pensament encara s'està reunint."
       },
       "card2": {
-        "headline": "La música mou les mateixes regions que et mouen a tu.",
-        "body": "Sigur Rós, Coltrane i una cançó de bressol tailandesa de luk thung deixen empremtes diferents al còrtex auditiu — i a la xarxa per defecte, la part de tu que segueix sent tu quan deixes d'intentar-ho."
+        "headline": "La música mou les mateixes regions que et commouen.",
+        "body": "Un drone ambiental, una presa de jazz de 1923 i una cançó de bressol de luk thung tailandès deixen empremtes diferents a l'escorça auditiva — i a la xarxa neuronal per defecte, la part de tu que continua sent tu quan deixes d'intentar-ho."
       },
       "card3": {
         "headline": "Allò que un model no pot traduir també és una forma de coneixement.",
@@ -265,12 +265,12 @@
       "upload": "Pujar"
     },
     "essay1": {
-      "headline": "Sigur Rós i la xarxa per defecte.",
-      "body": "El PCC i el precuni s'escalfen no perquè existeixi un 'circuit de meditació', sinó perquè qui escolta deixa d'intentar seguir-la. Default-mode és l'abreviatura d'aquella part de tu que segueix sent tu quan deixes d'intentar-ho."
+      "headline": "Drone ambiental i la xarxa neuronal per defecte.",
+      "body": "El PCC i el precune s'escalfen no perquè hi hagi un 'circuit de meditació', sinó perquè l'oient deixa de mirar de seguir. La xarxa per defecte és l'abreviatura de la part de tu que continua sent tu quan deixes d'intentar-ho."
     },
     "essay2": {
-      "headline": "Coltrane i la calidesa límbica.",
-      "body": "Naima va ser escrita com una carta d'amor. L'amígdala no està fent sonar aquí l'alarma de la por — està pesant la sortença, marcant les línies que importen. Sentiment i forma arribant al mateix compàs."
+      "headline": "Jazz primerenc i la calidesa límbica.",
+      "body": "Dippermouth Blues es va gravar en una sola presa el 1923, amb un Louis Armstrong de vint-i-un anys a la segona cornetina. L'amígdala no està disparant una alarma de por aquí — està ponderant saliencia, marcant les línies de crida i resposta que importen. Sentiment i forma arribant al mateix compàs."
     },
     "essay3": {
       "headline": "La cançó de bressol que el cos recorda primer.",
@@ -278,17 +278,17 @@
     },
     "footerNote": "Laboratori de NeuroMúsica · línies de temps simulades localment",
     "tracks": {
-      "sigur-ros-meditation": {
-        "era": "Post-rock · ambient",
-        "framing": "Un drone lent en falset. La xarxa per defecte s'escalfa com en la meditació — no perquè existeixi un 'circuit de meditació', sinó perquè qui escolta deixa d'intentar seguir."
-      },
-      "coltrane-naima": {
-        "era": "Jazz modal",
-        "framing": "Construït sobre una carta d'amor. El còrtex auditiu segueix la melodia; l'amígdala i les regions orbitofrontals pesen la calidesa — sentiment i forma arribant al mateix compàs."
-      },
       "thai-lullaby": {
         "era": "Folklore tailandès · pentatònic",
         "framing": "Pentatònic, lent, cantat a l'oïda. L'hipocamp porta l'escena abans que les regions del llenguatge arribin a la lletra — el cos recorda la cançó primer."
+      },
+      "ambient-drone": {
+        "era": "Drone ambiental",
+        "framing": "Un drone lent, sense veu, sense pols. La xarxa neuronal per defecte s'escalfa com ho fa en la meditació — no perquè hi hagi un 'circuit de meditació', sinó perquè l'oient deixa de mirar de seguir."
+      },
+      "modal-ballad": {
+        "era": "Jazz primerenc · conjunt",
+        "framing": "Dues cornetes sobre un clarinet, una gravació de 1923 atenuada per un segle de goma laca. L'escorça auditiva segueix la crida i resposta; la calidesa ve de la predicció — el teu cervell acaba la frase un compàs abans que la banda."
       }
     }
   },

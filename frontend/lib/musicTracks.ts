@@ -5,11 +5,23 @@
  * activation snapshots. The scrubber interpolates between adjacent samples
  * so the brain breathes continuously as the user moves through a track.
  *
- * Actual audio files are TODO_CONTENT: rights to commercial recordings have
- * to come from the user. For Phase 6 the playback is silent — the room is
- * the brain–music coupling visualization, not music distribution. When
- * audio lands, drop the files at `public/audio/` and uncomment the `src`
- * field on each track.
+ * PR 6: audio status across the three slots.
+ *   - Ambient drone (slot 1):  Stellardrone, "In Time" (CC-BY 3.0). 60 s
+ *                              excerpt at 16 kbps mono opus.
+ *   - Modal ballad (slot 2):   King Oliver's Creole Jazz Band,
+ *                              "Dippermouth Blues" (1923, public domain
+ *                              in the US as of 2024). 60 s excerpt at
+ *                              12 kbps mono opus.
+ *   - Pentatonic lullaby (3):  STILL silent. Authentic Thai traditional
+ *                              under CC license is genuinely rare; the
+ *                              About roadmap notes a contribution path
+ *                              as the route to filling this slot. The
+ *                              editorial framing describes the genre
+ *                              independent of a specific recording.
+ *
+ * License + attribution text lives in `licenseAttribution` and is rendered
+ * by `TrackPlayer` under the player. When `src` is undefined the
+ * "silent preview — submit a recording" affordance shows instead.
  */
 
 import type { RegionId } from "./regions";
@@ -33,6 +45,8 @@ export type MusicTrack = {
   duration: number;
   /** Optional audio src under public/. When undefined, playback is silent. */
   src?: string;
+  /** License + source line, rendered under the player. Plain text. */
+  licenseAttribution?: string;
   /** Region timeline. Must be sorted by `t`. */
   timeline: ActivationFrame[];
 };
@@ -73,13 +87,21 @@ export function sampleTimeline(
 
 export const musicTracks: MusicTrack[] = [
   {
-    id: "sigur-ros-meditation",
-    title: "Sigur Rós · Ágætis byrjun (excerpt)",
-    attribution: "Sigur Rós, 1999",
-    era: "Post-rock · ambient",
+    // PR 6: was "sigur-ros-meditation" — renamed because the slot is
+    // now playing a real CC-BY ambient piece (Stellardrone, "In Time")
+    // rather than pretending to be a Sigur Rós excerpt we don't have
+    // rights to. The editorial framing was always genre-level; only
+    // the title + attribution needed honest replacement.
+    id: "ambient-drone",
+    title: "Stellardrone · In Time (excerpt)",
+    attribution: "Stellardrone, Light Years, 2012",
+    era: "Ambient drone",
     framing:
-      "A slow drone in falsetto. The default-mode network warms the way it does in meditation — not because there's a 'meditation circuit,' but because the listener stops trying to follow.",
+      "A slow drone, no voice, no pulse. The default-mode network warms the way it does in meditation — not because there's a 'meditation circuit,' but because the listener stops trying to follow.",
     duration: 60,
+    src: "/audio/ambient-drone-stellardrone.opus",
+    licenseAttribution:
+      "Stellardrone, “In Time” (Light Years, 2012). CC-BY 3.0 — source: archive.org/details/Stellardrone-LightYears. 60-second excerpt.",
     timeline: [
       { t: 0,  a: { hg_left: 0.32, hg_right: 0.34 } },
       { t: 6,  a: { hg_left: 0.55, hg_right: 0.6, pstg_right: 0.4 } },
@@ -92,13 +114,20 @@ export const musicTracks: MusicTrack[] = [
     ],
   },
   {
-    id: "coltrane-naima",
-    title: "John Coltrane · Naima (excerpt)",
-    attribution: "John Coltrane, 1960",
-    era: "Modal jazz",
+    // PR 6: was "coltrane-naima" — same honesty fix. The new audio
+    // is the King Oliver 1923 recording, public domain in the US as
+    // of 2024. Editorial framing updated to match an early-jazz
+    // ensemble rather than the 1960 ballad it used to gesture at.
+    id: "modal-ballad",
+    title: "King Oliver's Creole Jazz Band · Dippermouth Blues (1923)",
+    attribution: "King Oliver, Louis Armstrong et al., 1923",
+    era: "Early jazz · ensemble",
     framing:
-      "Built on a love letter. Auditory cortex tracks the melody; the amygdala and orbitofrontal regions weight the warmth — feeling and form arriving on the same beat.",
+      "Two cornets over a clarinet, a 1923 recording dimmed by a century of shellac. Auditory cortex tracks the call-and-response; warmth comes from prediction — your brain finishes the phrase a beat before the band does.",
     duration: 60,
+    src: "/audio/modal-ballad-1923.opus",
+    licenseAttribution:
+      "King Oliver's Creole Jazz Band, “Dippermouth Blues,” April 1923, Gennett Records. Public domain in the US (2024). 60-second excerpt — source: archive.org.",
     timeline: [
       { t: 0,  a: { hg_left: 0.38, hg_right: 0.4 } },
       { t: 6,  a: { hg_left: 0.66, hg_right: 0.68, pstg_left: 0.55, pstg_right: 0.6 } },
@@ -111,9 +140,15 @@ export const musicTracks: MusicTrack[] = [
     ],
   },
   {
+    // PR 6: the Thai folk slot stays silent for v1.0. Authentic Thai
+    // traditional under CC license is genuinely rare; the editorial
+    // framing describes the genre, not a specific recording. The
+    // About roadmap names "contribution affordance for new pairs and
+    // recordings on the Cross-Cultural and NeuroMusic rooms" as
+    // remaining work.
     id: "thai-lullaby",
     title: "บทกล่อมเด็ก · A Thai lullaby (excerpt)",
-    attribution: "traditional, arr. anonymous",
+    attribution: "traditional, recording pending contribution",
     era: "Thai folk · pentatonic",
     framing:
       "Pentatonic, low-tempo, sung close to the ear. The hippocampus carries the scene before the language regions arrive at the lyrics — the body remembers the song first.",

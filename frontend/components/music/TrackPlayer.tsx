@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useBrainStageStore } from "@/store/useBrainStageStore";
 import {
@@ -36,6 +36,46 @@ export default function TrackPlayer({
   const resetIdle = useBrainStageStore((s) => s.resetIdle);
   const era = (() => { try { return t(`tracks.${track.id}.era`); } catch { return track.era; } })();
   const framing = (() => { try { return t(`tracks.${track.id}.framing`); } catch { return track.framing; } })();
+
+  // PR 6: real audio. When `track.src` is present we mount an
+  // <audio> element and bind it to the scrubber. `time` stays the
+  // source of truth — audio currentTime is driven by it.
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Sync play state to the audio element.
+  useEffect(() => {
+    const el = audioRef.current;
+    if (!el || !track.src) return;
+    if (playing) {
+      el.play().catch(() => {
+        // Autoplay blocked or src missing — fall back to silent
+        // scrubber so the brain visualization still works.
+        setPlaying(false);
+      });
+    } else {
+      el.pause();
+    }
+  }, [playing, track.src]);
+
+  // Sync currentTime when the scrubber moves (and the user isn't
+  // actively dragging — only when the delta exceeds a small epsilon
+  // so we don't fight the browser's own playback updates).
+  useEffect(() => {
+    const el = audioRef.current;
+    if (!el || !track.src) return;
+    const drift = Math.abs(el.currentTime - time);
+    if (drift > 0.25) el.currentTime = time;
+  }, [time, track.src]);
+
+  // As the audio element plays, push its currentTime back into
+  // `time` so the scrubber and the brain timeline stay synced.
+  useEffect(() => {
+    const el = audioRef.current;
+    if (!el || !track.src) return;
+    const onTimeUpdate = () => setTime(el.currentTime);
+    el.addEventListener("timeupdate", onTimeUpdate);
+    return () => el.removeEventListener("timeupdate", onTimeUpdate);
+  }, [track.src]);
 
   useEffect(() => {
     if (!driveBrain) return;
@@ -87,11 +127,35 @@ export default function TrackPlayer({
         />
       </div>
 
-      {!track.src && (
-        <Caption className="text-bone-cream/65 mt-4 block">
-          Silent preview · licensed audio comes in Phase 11
-        </Caption>
+      {/* PR 6: hidden <audio> element when this track has a real
+          source. Controls come from the scrubber + the play button
+          inside it — the native audio UI never renders. preload
+          metadata so duration is known without buffering the whole
+          clip up front. */}
+      {track.src && (
+        <audio
+          ref={audioRef}
+          src={track.src}
+          preload="metadata"
+          aria-hidden
+        />
       )}
+
+      {/* Attribution / license line. Real tracks get a citation;
+          silent slots get an honest "audio in development" note. */}
+      <div className="mt-4">
+        {track.src && track.licenseAttribution ? (
+          <Caption className="text-bone-cream/55 block leading-relaxed">
+            {track.licenseAttribution}
+          </Caption>
+        ) : (
+          <Caption className="text-bone-cream/55 block leading-relaxed">
+            Silent preview — this slot is awaiting a contributed
+            recording. The brain timeline above is hand-authored so
+            the visualization works without audio.
+          </Caption>
+        )}
+      </div>
     </div>
   );
 }

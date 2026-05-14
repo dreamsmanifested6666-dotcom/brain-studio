@@ -135,7 +135,7 @@ export default function MusicPage() {
           <PinnedStep>
             <InsightEssay
               index={0}
-              trackId="sigur-ros-meditation"
+              trackId="ambient-drone"
               headline={t("essay1.headline")}
               body={t("essay1.body")}
             />
@@ -143,7 +143,7 @@ export default function MusicPage() {
           <PinnedStep>
             <InsightEssay
               index={1}
-              trackId="coltrane-naima"
+              trackId="modal-ballad"
               headline={t("essay2.headline")}
               body={t("essay2.body")}
             />
