@@ -996,7 +996,8 @@
       "builtBody": "La bastida d'enginyeria i els esborranys de prosa es van produir amb Claude (Anthropic, versions del model al llarg de 2025–2026) sota direcció editorial anònima i revisió final. Totes les afirmacions factuals, les citacions, les atribucions de regions i les decisions editorials es van verificar humanament. La veu del lloc i les seves opcions estructurals són de l'autor; la feina d'implementació es va compartir amb el model.",
       "homeLabel": "Llar",
       "homeTitle": "JIPP de Chulalongkorn",
-      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences. Bangkok i les parelles d'estímuls tailandesos vénen d'aquí."
+      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences. Bangkok i les parelles d'estímuls tailandesos vénen d'aquí.",
+      "translationsNote": "Les traduccions al català van ser assistides per model i esperen una revisió nativa. Envia correccions com a GitHub issue al repositori brain-studio."
     },
     "howToUse": {
       "label": "Com fer servir aquest cervell",

@@ -996,7 +996,8 @@
       "builtBody": "El andamiaje de ingeniería y los borradores de prosa se produjeron con Claude (Anthropic, versiones del modelo a lo largo de 2025–2026) bajo dirección editorial anónima y revisión final. Todas las afirmaciones factuales, las citas, las atribuciones de regiones y las decisiones editoriales se verificaron humanamente. La voz del sitio y sus elecciones estructurales son del autor; el trabajo de implementación se compartió con el modelo.",
       "homeLabel": "Hogar",
       "homeTitle": "JIPP de Chulalongkorn",
-      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences. Bangkok y las parejas de estímulos tailandeses vienen de aquí."
+      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences. Bangkok y las parejas de estímulos tailandeses vienen de aquí.",
+      "translationsNote": "Las traducciones al español fueron asistidas por modelo y esperan una revisión nativa. Envía correcciones como GitHub issue al repositorio brain-studio."
     },
     "howToUse": {
       "label": "Cómo usar este cerebro",

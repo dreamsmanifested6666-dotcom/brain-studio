@@ -996,7 +996,8 @@
       "builtBody": "工程脚手架与散文初稿由 Claude（Anthropic，2025–2026 年间的多个模型版本）在匿名编辑指导与最终审校下产出。所有事实陈述、引用、脑区归属与编辑判断均经过人工核验。本站的声音与结构选择属于作者；实现层面的工作则与模型共担。",
       "homeLabel": "家",
       "homeTitle": "朱拉隆功大学 JIPP",
-      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences。曼谷和泰文刺激对都来自这里。"
+      "homeBody": "Joint International Postgraduate Programme in Cognitive Sciences。曼谷和泰文刺激对都来自这里。",
+      "translationsNote": "中文翻译由模型辅助，正在等待母语者审阅。请通过 brain-studio 仓库的 GitHub issue 提交修正。"
     },
     "howToUse": {
       "label": "如何使用这个大脑",

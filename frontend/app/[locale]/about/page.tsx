@@ -443,6 +443,22 @@ export default async function AboutPage({
               </Body>
             </div>
           </div>
+          {/* PR 10: Thai-translation status note. Reads from
+              `credits.translationsNote` — populated only in
+              messages/th.json. Empty string in other locales
+              renders as no node (skipped via the falsy check). */}
+          {(() => {
+            const note = t("credits.translationsNote");
+            if (!note) return null;
+            return (
+              <Body
+                italic
+                className="text-bone-cream/55 mt-12 max-w-[42rem] mx-auto text-center"
+              >
+                {note}
+              </Body>
+            );
+          })()}
         </div>
       </section>
 
