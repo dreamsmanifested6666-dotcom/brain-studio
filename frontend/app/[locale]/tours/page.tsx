@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
+import ToursIndexHero from "@/components/tours/ToursIndexHero";
 import {
   Body,
   Caption,
@@ -15,12 +15,12 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 /**
  * Tours index. Lists every available guided tour as a card.
  *
- * Single-tour auto-redirect: when there's only one tour available
- * (which is currently the case — "the-act-of-remembering"), the
- * index page would force the reader through an unnecessary click
- * before anything plays. Instead we redirect straight into the tour
- * so the page is autonomous: arrive at /tours and the tour begins.
- * Once a second tour ships, the index renders as before.
+ * The page is autonomous: the FEATURED tour (the first registered)
+ * plays on the persistent brain canvas in the background while the
+ * cards list sits below. <ToursIndexHero> drives the brain state
+ * via the same store the player uses; on route change away from
+ * /tours the brain resets to idle. Clicking any card opens that
+ * specific tour in the full-page player.
  */
 export default async function ToursIndex({
   params,
@@ -31,11 +31,7 @@ export default async function ToursIndex({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "tours" });
   const tours = toursForLocale(locale);
-
-  // Autonomous mode: single tour → redirect into the player.
-  if (tours.length === 1) {
-    redirect(`/${locale}/tours/${tours[0].id}`);
-  }
+  const featured = tours[0] ?? null;
 
   return (
     <>
@@ -69,6 +65,17 @@ export default async function ToursIndex({
             {t("intro")}
           </Body>
         </div>
+
+        {/* Now-showing hero — drives the persistent brain through the
+            featured tour's scenes on a real-time clock, looping. The
+            cards below remain the discrete entry points; this hero
+            is what makes the page autonomous instead of static. */}
+        {featured && (
+          <ToursIndexHero
+            tour={featured}
+            labels={{ nowShowing: t("nowShowing"), scene: t("scene") }}
+          />
+        )}
       </section>
 
       <section className="relative px-6 pb-32 pt-16 md:px-10 md:pb-40 md:pt-20">

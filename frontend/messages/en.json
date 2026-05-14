@@ -350,7 +350,8 @@
     "continueLabel": "Continue exploring",
     "emptyState": "No tours available yet.",
     "comingSoon": "More tours are forthcoming: how you read this sentence (language network), when something matters (salience), what's still you when you stop trying (default mode), how a face becomes someone you know (face processing), and hearing music (auditory and reward).",
-    "footerNote": "Guided Tours · the brain in motion"
+    "footerNote": "Guided Tours · the brain in motion",
+    "nowShowing": "Now showing"
   },
   "depthPsychology": {
     "label": "Depth Psychology",
