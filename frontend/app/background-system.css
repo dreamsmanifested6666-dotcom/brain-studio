@@ -1,0 +1,188 @@
+/*
+  Background system — static, four-layer stack scoped per room via
+  data-room attribute on the BackgroundSystem wrapper.
+
+  Layer 1  base color (body's linear-gradient stays — pages stay dark)
+  Layer 2  historical plate, per room (faded watermark, opacity ~0.06)
+  Layer 3  radial halo (centered vignette pulling eye to content)
+  Layer 4  static grain (SVG turbulence tinted sepia/cool)
+
+  All layers are pointer-events: none and fixed-position. The
+  existing PersistentAtmosphere + BrainStage + FilmGrain stack
+  composites on top — this system sits behind them at z-index -2/-1.
+
+  Tuning via CSS custom properties; per-room overrides are 3 lines
+  or fewer (see bottom of file).
+*/
+
+:root {
+  /* Default plate tint — warm bone/sepia. Overridden per room. */
+  --plate-tint: 212, 196, 168; /* #d4c4a8 in r,g,b */
+  /* Plate visibility — never above 0.10 per the brief. */
+  --plate-opacity: 0.06;
+  /* Halo + grain visibility. */
+  --halo-opacity: 0.55;
+  --grain-opacity: 0.03;
+  /* Plate URL — set per-room; default is the home Fludd plate so
+     uncovered routes (field notes, methodology, debug pages) still
+     read as part of the same site. */
+  --plate-url: url("/mandalas/fludd_microcosm.jpg");
+}
+
+/* Master toggle — when the user opts out via Cmd-Shift-B, the whole
+   stack vanishes (the body's existing gradient remains). */
+[data-bg-system="off"] .bg-plate,
+[data-bg-system="off"] .bg-halo,
+[data-bg-system="off"] .bg-grain {
+  display: none;
+}
+
+/* ---------- Layer 2: historical plate ---------- */
+.bg-plate {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: var(--plate-url);
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+  /* ~140% of viewport so edges bleed off-screen, per the spec. */
+  background-size: auto 140vh;
+  /* Tint via mix-blend-mode + base color overlay. The image's
+     own luminance is preserved; we recolour it with the room's
+     palette by overlaying the tint colour. */
+  opacity: var(--plate-opacity);
+  filter: blur(0.5px) sepia(40%) saturate(0.6) brightness(1.05);
+}
+
+/* Tint overlay sits on the same layer to recolour the plate
+   uniformly. The blend mode multiplies the tint into the plate's
+   luminance, so a sepia plate ends up bone-toned and a cool plate
+   ends up stone-toned without per-image colour grading. */
+.bg-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--plate-tint));
+  mix-blend-mode: multiply;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* ---------- Layer 3: radial halo (vignette) ---------- */
+.bg-halo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 110% 90% at 50% 40%,
+    transparent 0%,
+    transparent 30%,
+    rgba(10, 9, 8, calc(var(--halo-opacity) * 0.45)) 65%,
+    rgba(10, 9, 8, var(--halo-opacity)) 100%
+  );
+}
+
+/* ---------- Layer 4: static grain ---------- */
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  /* SVG turbulence — generated inline so we ship zero asset bytes
+     for the grain. baseFrequency 0.9 + numOctaves 2 matches the
+     spec; the colour matrix tints the grain warm so it reads as
+     paper rather than digital noise. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.83  0 0 0 0 0.77  0 0 0 0 0.66  0 0 0 0.8 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  mix-blend-mode: overlay;
+}
+
+/* ---------- Per-room overrides ---------- */
+/* Each room sets its plate URL + (rarely) a tint shift. Three
+   lines or fewer per the brief. */
+
+[data-room="home"] {
+  --plate-url: url("/plates/fludd_microcosm.webp");
+  --plate-opacity: 0.05;
+}
+[data-room="mirror"] {
+  --plate-url: url("/plates/voynich_page.webp");
+}
+[data-room="music"] {
+  --plate-url: url("/plates/bach_autograph.webp");
+}
+[data-room="crosscultural"] {
+  --plate-url: url("/plates/thai_phra_malai.webp");
+}
+[data-room="threshold"] {
+  --plate-url: url("/plates/fludd_microcosm.webp");
+}
+[data-room="archetypes"] {
+  --plate-url: url("/plates/atalanta_fugiens.webp");
+}
+[data-room="cellular"] {
+  --plate-url: url("/plates/cajal_purkinje.webp");
+  /* The descent — cool stone tint instead of warm bone. */
+  --plate-tint: 184, 196, 200;
+}
+[data-room="about"] {
+  --plate-url: url("/plates/vesalius_fabrica.webp");
+}
+/* New / orphan routes inherit the home Fludd plate at 0.04 — they
+   feel like extensions of the home, not orphans. */
+[data-room="field-notes"],
+[data-room="atlas"],
+[data-room="bridges"],
+[data-room="tours"],
+[data-room="depth-psychology"] {
+  --plate-url: url("/plates/fludd_microcosm.webp");
+  --plate-opacity: 0.04;
+}
+
+/* ---------- Accessibility ---------- */
+
+/* prefers-reduced-transparency: drop the halo + grain, keep a
+   subtle plate so the room signature is preserved as colour cue. */
+@media (prefers-reduced-transparency: reduce) {
+  .bg-halo,
+  .bg-grain {
+    display: none;
+  }
+  .bg-plate {
+    opacity: 0.04;
+  }
+}
+
+/* prefers-reduced-motion: no effect needed — the system is already
+   static — but we make the rule explicit so future contributors
+   don't accidentally add a transition. */
+@media (prefers-reduced-motion: reduce) {
+  .bg-plate,
+  .bg-halo,
+  .bg-grain {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Mobile: turbulence is expensive on some Android GPUs; drop the
+   grain opacity and reduce the plate to keep the visual hierarchy
+   intact while saving compositing cost. */
+@media (max-width: 767px) {
+  :root {
+    --grain-opacity: 0.015;
+    --plate-opacity: 0.042;
+  }
+  [data-room="home"],
+  [data-room="field-notes"],
+  [data-room="atlas"],
+  [data-room="bridges"],
+  [data-room="tours"],
+  [data-room="depth-psychology"] {
+    --plate-opacity: 0.035;
+  }
+}

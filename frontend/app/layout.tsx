@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { fontVariablesForLocale } from "./fonts";
 import "./globals.css";
+import "./background-system.css";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import BrainStage from "@/components/brain/BrainStage";
 import RegionAnnouncer from "@/components/brain/RegionAnnouncer";
@@ -11,6 +12,7 @@ import FilmGrain from "@/components/atmospheric/FilmGrain";
 import DeferredClient from "@/components/client/DeferredClient";
 import TransitionOrchestrator from "@/components/motion/TransitionOrchestrator";
 import PersistentAtmosphere from "@/components/atmospheric/PersistentAtmosphere";
+import BackgroundSystem from "@/components/atmospheric/BackgroundSystem";
 
 /**
  * Root layout. Hosts the persistent shell that must survive every
@@ -72,6 +74,12 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${fonts} h-full`} suppressHydrationWarning>
       <body className="text-bone-cream min-h-full antialiased">
+        {/* Background system — four-layer static stack (plate + halo +
+            grain) keyed by [data-room]. Sits at z-index -2/-1, beneath
+            the rest of the persistent shell. See
+            `app/background-system.css` and
+            `components/atmospheric/BackgroundSystem.tsx`. */}
+        <BackgroundSystem />
         <SmoothScroll>
           {/* Persistent atmosphere paints first so the brain canvas
               composites on top of it. Stacking order at z-0:

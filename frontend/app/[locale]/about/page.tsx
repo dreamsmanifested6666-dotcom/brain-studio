@@ -446,6 +446,117 @@ export default async function AboutPage({
         </div>
       </section>
 
+      {/* 6c — Background plates. Every room carries a single historical
+          work at ~6% opacity as the textural backdrop. All sources are
+          public domain. Strings are kept here (not in i18n bundles)
+          because the attributions are proper-noun-heavy and the
+          institution names don't translate — same convention the
+          influences section uses for author names. */}
+      <section className="relative px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[920px]">
+          <Caption uppercase className="text-brass">
+            Background plates
+          </Caption>
+          <Heading className="mt-6 font-[200]">
+            Public-domain works behind every room
+          </Heading>
+          <Body italic className="text-bone-cream/65 mt-6 max-w-[36rem]">
+            Each room carries a single historical work at very low
+            opacity — visible as texture, not illustration. The choice
+            of work is thematic: writing as substrate for the Mirror,
+            an autograph score for the Music Lab, a Phra Malai
+            manuscript for the Cross-Cultural room, Cajal&apos;s
+            Purkinje cell for the descent into Cellular. All sources
+            are public domain.
+          </Body>
+
+          <ul className="mt-10 space-y-5">
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Home · Threshold · default
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Robert Fludd, <em>Utriusque Cosmi Maioris scilicet et
+                Minoris … Historia</em> (1617–1621). Microcosm-macrocosm
+                engraving. Public domain. Source: Wikimedia Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Mirror
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Folio from the Voynich Manuscript (15th c., undeciphered).
+                Beinecke Rare Book and Manuscript Library, Yale
+                University, MS 408. Public domain. Source: Wikimedia
+                Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Music
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Johann Sebastian Bach, autograph manuscript of cantata
+                <em>&nbsp;Du wahrer Gott und Davids Sohn</em>, BWV 56
+                (1726), first page. Berlin State Library. Public
+                domain. Source: Wikimedia Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Cross-Cultural
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Folio from a Thai illuminated <em>samut khoi</em>
+                manuscript of the <em>Legend of Phra Malai</em> (Central
+                Thailand, c. 1800). Los Angeles County Museum of Art,
+                M.76.93.2. Public domain. Source: LACMA Open Access /
+                Wikimedia Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Archetypes
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Michael Maier, emblem from <em>Atalanta Fugiens</em>
+                (1617). Alchemical emblem book. Public domain. Source:
+                Wikimedia Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                Cellular
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Santiago Ramón y Cajal, cortical drawing showing
+                Purkinje cells (c. 1899). Instituto Cajal, Consejo
+                Superior de Investigaciones Científicas (CSIC), Madrid.
+                Public domain. Source: Wikimedia Commons.
+              </Body>
+            </li>
+            <li>
+              <Caption uppercase className="text-bone-cream/70">
+                About
+              </Caption>
+              <Body className="text-bone-cream/60 mt-1">
+                Andreas Vesalius, plate from <em>De humani corporis
+                fabrica libri septem</em> (Basel, 1543). Public domain.
+                Source: Wikimedia Commons.
+              </Body>
+            </li>
+          </ul>
+
+          <Body italic className="text-bone-cream/45 mt-12 text-sm">
+            The background system can be disabled at any time with
+            <kbd className="mx-1 rounded-sm border border-bone-cream/20 px-1.5 py-0.5 font-mono text-xs">⌘⇧B</kbd>
+            (Ctrl-Shift-B on Windows / Linux). The setting persists
+            across visits.
+          </Body>
+        </div>
+      </section>
+
       {/* 6b — How to use this brain (added with the connectome + bridges build) */}
       <section className="relative px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[920px]">
