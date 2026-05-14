@@ -12,6 +12,7 @@ import BrainViews from "@/components/brain/BrainViews";
 import PinnedPredictionCard, {
   type PinnedPrediction,
 } from "@/components/mirror/PinnedPredictionCard";
+import ExportPngButton from "@/components/mirror/ExportPngButton";
 import SavedExampleCard from "@/components/mirror/SavedExampleCard";
 import SaveInsightButton from "@/components/mirror/SaveInsightButton";
 import {
@@ -185,9 +186,20 @@ export default function MirrorPage() {
                     ? "Pinned"
                     : "Pin this prediction"}
                 </button>
-                <Caption uppercase className="text-bone-cream/45">
-                  {t("exportLabel")}
-                </Caption>
+                {/* Move 5 — Export as 1080×1080 PNG. Posts the user's
+                    text + activations + generated caption to a Vercel
+                    Edge route that renders the fingerprint composition
+                    via ImageResponse and streams back the PNG. */}
+                {latest && (
+                  <ExportPngButton
+                    text={latest.text}
+                    activations={
+                      latest.prediction.activations as Partial<
+                        Record<RegionId, number>
+                      >
+                    }
+                  />
+                )}
               </div>
             </>
           )}
