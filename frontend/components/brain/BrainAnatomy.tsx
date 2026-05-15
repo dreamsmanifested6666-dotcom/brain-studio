@@ -245,8 +245,16 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
   const url = MESH_URL[resolution];
   const gltf = useLoader(GLTFLoader, url) as unknown as { scene: THREE.Object3D };
   const meshRef = useRef<THREE.Mesh>(null);
-  const matRef = useRef<THREE.MeshPhysicalMaterial>(null);
-  const opacity = useRef(0.001); // fades in on mount
+  const matRef = useRef<THREE.MeshStandardMaterial>(null);
+  // Visual-elevation hotfix: the original 0.001 → 1.0 fade-in
+  // depended on useFrame catching the matRef before opacity.current
+  // had already climbed past 1.0 (which is also where the ramp guard
+  // exits). When timing slipped — common with the new
+  // meshPhysicalMaterial mount ordering — the ramp was skipped and
+  // the material stayed pinned at 0.001 (= invisible). Start fully
+  // opaque; the per-region colour lerp already does its own fade,
+  // so the entrance still feels gentle.
+  const opacity = useRef(1.0);
   // Visual-elevation Fix 1: brief 800 ms cubic-out ramp triggered on
   // every activation change. The existing ~1200 ms colour lerp on
   // smoothed activations stays (per-region settling); this multiplier
@@ -479,10 +487,13 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
       }
     }
 
-    // Visual-elevation Fix 1: apply the wake ramp to emissive
-    // intensity. Base intensity 0.6; wake adds up to +0.7 with a
-    // cubic-out feel (the linear decay above is the time axis;
-    // squaring weights it toward an "ease-out" perceptual shape).
+    // Visual-elevation Fix 1 (hotfix): apply the wake ramp to
+    // emissive intensity. With the shader injection removed (it
+    // silently failed to compile against three.js r184's standard
+    // shader chunks and rendered the mesh fully transparent),
+    // emissive contribution now comes from the material's flat
+    // `emissive` * intensity. Base 0.22 keeps the surface legible
+    // off-screen; wake adds up to +0.15 with a cubic-out feel.
     //
     // Visual-elevation Fix 2: emissive-breath multiplier
     // [0.95, 1.05] modulates the base intensity on the same 5 s
@@ -500,7 +511,7 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
       // [0.95, 1.05] when breathing, → 1.0 otherwise.
       const breathMul = 1.0 + (breathing ? breathSine * 0.05 : 0);
 
-      m.emissiveIntensity = (0.6 + wakeShaped * 0.7) * breathMul;
+      m.emissiveIntensity = (0.22 + wakeShaped * 0.15) * breathMul;
     }
   });
 
@@ -520,22 +531,15 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
   if (!geometry) return null;
   return (
     <mesh ref={meshRef} geometry={geometry} castShadow={false} receiveShadow={false}>
-      <meshPhysicalMaterial
+      <meshStandardMaterial
         ref={matRef}
         vertexColors
         roughness={0.42}
         metalness={0.05}
         envMapIntensity={0.5}
-        emissive={"#000000"}
-        emissiveIntensity={0.6}
-        thickness={0.3}
-        transmission={isPhone.current ? 0 : 0.15}
-        clearcoat={0.4}
-        clearcoatRoughness={0.55}
-        transparent
-        opacity={0.001}
+        emissive={"#ffffff"}
+        emissiveIntensity={0.32}
         side={THREE.DoubleSide}
-        onBeforeCompile={onBeforeCompile}
       />
     </mesh>
   );

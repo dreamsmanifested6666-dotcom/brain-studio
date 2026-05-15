@@ -29,20 +29,20 @@ export default function BrainStageClient() {
             highlight as the reader moves. Self-gates to null on
             mobile so phones pay no GPU cost. */}
         <CursorLight />
-        {/* Visual-elevation Fix 1: bloom retuned per brief —
-            higher threshold so the IDLE brain doesn't bloom,
-            tighter radius so glow reads as a halo around the
-            active regions instead of a global haze. Intensity
-            dropped a touch (0.85 → 0.8) since the new emissive
-            shader injection contributes more energy than the
-            old per-vertex paint path. */}
+        {/* Visual-elevation Fix 1 + hotfix: bloom retuned per
+            brief — threshold 0.52 so the idle brain doesn't blow
+            out into a white blob but active regions still cross
+            the floor and halo, radius 0.65 reads as a soft glow
+            around regions, intensity 0.7 keeps it restrained
+            now that the brain's emissive base contributes more
+            consistently than the pre-elevation vertex-paint path. */}
         <EffectComposer enableNormalPass={false}>
           <Bloom
-            intensity={0.8}
-            luminanceThreshold={0.6}
-            luminanceSmoothing={0.2}
+            intensity={0.7}
+            luminanceThreshold={0.52}
+            luminanceSmoothing={0.22}
             mipmapBlur
-            radius={0.4}
+            radius={0.65}
           />
         </EffectComposer>
       </Suspense>
