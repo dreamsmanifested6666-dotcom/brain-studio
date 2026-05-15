@@ -230,6 +230,7 @@
     "label": "大脑镜像",
     "title": "随便写点什么吧。",
     "intro": "上方的大脑显示的是已发表研究为与你文本语义相近的文本所关联的预测激活——分布在二十个脑区上，并不是对你的扫描。",
+    "caveatBadge": "BGE-small embedding baseline · TRIBE inference: deferred",
     "exportLabel": "PNG · 1080 × 1080",
     "revealLabel": "你的写作所揭示的",
     "revealIntro": "预测来自运行在免费层后端的嵌入模型；当后端休眠时，由词法启发式代替。两者都不是 TRIBE 推理。",

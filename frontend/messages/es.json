@@ -230,6 +230,7 @@
     "label": "Espejo Cerebral",
     "title": "Escribe algo. Lo que sea.",
     "intro": "El cerebro de arriba muestra lo que la investigación publicada asocia con textos semánticamente cercanos al tuyo — activación predicha en veinte regiones, no una resonancia tuya.",
+    "caveatBadge": "BGE-small embedding baseline · TRIBE inference: deferred",
     "exportLabel": "PNG · 1080 × 1080",
     "revealLabel": "Lo que tu escritura revela",
     "revealIntro": "Las predicciones provienen de un modelo de embeddings ejecutándose en un backend de capa gratuita; cuando el backend duerme, una heurística léxica lo cubre. De cualquier modo: no es una inferencia TRIBE.",

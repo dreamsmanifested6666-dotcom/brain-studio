@@ -230,6 +230,7 @@
     "label": "Mirall Cerebral",
     "title": "Escriu alguna cosa. El que sigui.",
     "intro": "El cervell de dalt mostra el que la recerca publicada associa amb textos semànticament propers al teu — activació predita en vint regions, no una ressonància teva.",
+    "caveatBadge": "BGE-small embedding baseline · TRIBE inference: deferred",
     "exportLabel": "PNG · 1080 × 1080",
     "revealLabel": "El que la teva escriptura revela",
     "revealIntro": "Les prediccions provenen d'un model d'embeddings que s'executa en un backend de capa gratuïta; quan el backend dorm, una heurística lèxica omple el buit. En qualsevol cas: no és una inferència TRIBE.",

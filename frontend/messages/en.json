@@ -230,6 +230,7 @@
     "label": "Brain Mirror",
     "title": "Type something. Anything.",
     "intro": "The brain above shows what published research associates with text semantically near yours — predicted activation across twenty regions, not a scan of you.",
+    "caveatBadge": "BGE-small embedding baseline · TRIBE inference: deferred",
     "exportLabel": "PNG · 1080 × 1080",
     "revealLabel": "What your writing reveals",
     "revealIntro": "Predictions come from an embedding model running on a free-tier backend; when the backend is asleep, a lexical heuristic fills in. Either way: not a TRIBE inference.",

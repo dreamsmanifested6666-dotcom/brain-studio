@@ -25,6 +25,7 @@ import AttributionChip, {
 import ProvenanceBadge, {
   type ProvenanceState,
 } from "@/components/brain/ProvenanceBadge";
+import MirrorCaveatBadge from "./MirrorCaveatBadge";
 
 // audit-fix: Task 10. Soft cap on textarea content — keeps prediction
 // requests bounded and prevents accidental long-paste failures.
@@ -270,6 +271,11 @@ export default function MirrorInput({ onPrediction, initial = "" }: Props) {
       <label htmlFor="mirror-input" className="sr-only">
         {t("title")}
       </label>
+      {/* Reactivity-pass / a11y: persistent honesty badge above the
+          textarea. The Mirror's predictor is BGE-small embedding
+          similarity, not a TRIBE forward pass. Visible during
+          typing, not just after settle. */}
+      <MirrorCaveatBadge />
       <textarea
         id="mirror-input"
         value={value}
