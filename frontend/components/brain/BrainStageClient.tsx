@@ -5,8 +5,9 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { Suspense } from "react";
 import BrainAnatomy from "./BrainAnatomy";
 import BrainLighting from "./BrainLighting";
-import { useBrainStageStore } from "@/store/useBrainStageStore";
 import CursorLight from "./CursorLight";
+import RegionLabels from "./RegionLabels";
+import { useBrainStageStore } from "@/store/useBrainStageStore";
 
 /**
  * The persistent R3F canvas. Mounted once at root layout and never
@@ -33,6 +34,11 @@ export default function BrainStageClient() {
             highlight as the reader moves. Self-gates to null on
             mobile so phones pay no GPU cost. */}
         <CursorLight />
+        {/* Reactivity-pass Fix 19: while Alt is held, each region's
+            canonical displayName renders as a faint HTML overlay
+            projected from the mesh-space centroid via drei's Html.
+            Renders zero DOM nodes when shown=false. */}
+        <RegionLabels />
         {/* Visual-elevation Fix 1 + hotfix: bloom retuned per
             brief — threshold 0.52 so the idle brain doesn't blow
             out into a white blob but active regions still cross
