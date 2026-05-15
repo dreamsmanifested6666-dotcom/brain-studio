@@ -6,6 +6,7 @@ import LocaleLangSync from "@/components/i18n/LocaleLangSync";
 import TranslationStatusBanner from "@/components/i18n/TranslationStatusBanner";
 import SiteHeader from "@/components/nav/SiteHeader";
 import SiteFooter from "@/components/nav/SiteFooter";
+import RoomTemperature from "@/components/atmospheric/RoomTemperature";
 import DeferredLocaleClient from "@/components/client/DeferredLocaleClient";
 import { Caption } from "@/components/typography/Typography";
 
@@ -55,7 +56,17 @@ export default async function LocaleLayout({
       </a>
       <SiteHeader />
       <TranslationStatusBanner />
-      <main id="main" className="relative z-10">
+      {/* Visual-elevation Fix 4: per-room colour temperature.
+          RoomTemperature writes a CSS custom property on <html>
+          based on the active route; the filter on <main> picks
+          it up. Subtle — readers should not consciously notice;
+          they should feel they've entered a different room. */}
+      <RoomTemperature />
+      <main
+        id="main"
+        className="relative z-10"
+        style={{ filter: "var(--temperature-filter, none)" }}
+      >
         {children}
       </main>
       {/* PR 9 — shared SiteFooter. Sits at the layout level so every
