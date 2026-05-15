@@ -12,6 +12,7 @@ import {
 } from "@/components/typography/Typography";
 import ReadingTime from "@/components/typography/ReadingTime";
 import ThresholdM2Moment from "@/components/threshold/ThresholdM2Moment";
+import ThresholdScrollWarm from "@/components/threshold/ThresholdScrollWarm";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -42,7 +43,13 @@ export default async function ThresholdPage({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "threshold" });
   return (
-    <>
+    <div id="threshold-article" data-threshold-article>
+      {/* Reactivity-pass Fix 13: scroll-progress drives a subtle
+          warming filter on <main> via --threshold-warm. The reader
+          descends three movements; the page warms imperceptibly with
+          them. Linear interp from `none` to `sepia(0.06) brightness(0.96)`
+          tied to ScrollTrigger progress over this wrapper. */}
+      <ThresholdScrollWarm trigger="#threshold-article" />
       <Mandala
         src="/mandalas/fludd_microcosm.jpg"
         alt="Robert Fludd, De integra microcosmi harmonia, 1619, Wellcome Collection"
@@ -217,6 +224,6 @@ export default async function ThresholdPage({
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
