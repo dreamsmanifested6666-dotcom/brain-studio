@@ -1063,6 +1063,9 @@
       "disclaimer": "Aquestes no són mesures de cap cervell individual. Són el que la recerca publicada i les metaanàlisis indiquen sobre el cervell mitjà sota l'estímul corresponent. El model no és la ment."
     }
   },
+  "endNote": {
+    "text": "Some rooms here open to a name."
+  },
   "notFound": {
     "label": "Fora de la distribució d'entrenament",
     "title": "No vam aprendre aquesta pàgina.",

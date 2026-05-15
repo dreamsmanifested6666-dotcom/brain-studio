@@ -20,6 +20,7 @@ import AttributedImage from "@/components/content/AttributedImage";
 import MandalaBrainViewer from "@/components/content/MandalaBrainViewer";
 import PersonaKenBurns from "@/components/archetypes/PersonaKenBurns";
 import MuseumMode from "@/components/archetypes/MuseumMode";
+import EndNote from "@/components/closing/EndNote";
 import {
   Body,
   Caption,
@@ -331,6 +332,7 @@ export default async function ArchetypesPage({
         </div>
       </section>
 
+      <EndNote />
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/80">
           {t("footer")}

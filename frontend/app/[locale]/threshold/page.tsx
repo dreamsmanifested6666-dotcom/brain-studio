@@ -13,6 +13,7 @@ import {
 import ReadingTime from "@/components/typography/ReadingTime";
 import ThresholdM2Moment from "@/components/threshold/ThresholdM2Moment";
 import ThresholdScrollWarm from "@/components/threshold/ThresholdScrollWarm";
+import EndNote from "@/components/closing/EndNote";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -224,6 +225,7 @@ export default async function ThresholdPage({
           </div>
         </div>
       </section>
+      <EndNote />
     </div>
   );
 }

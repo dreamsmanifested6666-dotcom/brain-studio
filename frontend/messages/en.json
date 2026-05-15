@@ -1063,6 +1063,9 @@
       "disclaimer": "These are not measurements of any individual brain. They are what published research and meta-analysis indicate about the average brain under the relevant stimulus. The model is not the mind."
     }
   },
+  "endNote": {
+    "text": "Some rooms here open to a name."
+  },
   "notFound": {
     "label": "Out of the training distribution",
     "title": "We didn't learn that page.",

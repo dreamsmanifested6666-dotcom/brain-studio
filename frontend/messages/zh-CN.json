@@ -1063,6 +1063,9 @@
       "disclaimer": "这些并不是任何个体脑部的测量。它们是已发表研究与元分析所揭示的、平均脑在相关刺激下的反应。模型不是心智。"
     }
   },
+  "endNote": {
+    "text": "Some rooms here open to a name."
+  },
   "notFound": {
     "label": "超出训练分布",
     "title": "我们没有学到这个页面。",

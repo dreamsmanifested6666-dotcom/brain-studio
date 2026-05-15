@@ -5,6 +5,7 @@ import PinnedSequence, {
 import ParallaxLayer from "@/components/motion/ParallaxLayer";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import CitationList from "@/components/about/CitationList";
+import EndNote from "@/components/closing/EndNote";
 import {
   Body,
   Caption,
@@ -710,6 +711,8 @@ export default async function AboutPage({
           </p>
         </div>
       </ScrollScene>
+
+      <EndNote />
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/80">

@@ -1063,6 +1063,9 @@
       "disclaimer": "Estas no son mediciones de ningún cerebro individual. Son lo que la investigación publicada y los metaanálisis indican sobre el cerebro promedio bajo el estímulo correspondiente. El modelo no es la mente."
     }
   },
+  "endNote": {
+    "text": "Some rooms here open to a name."
+  },
   "notFound": {
     "label": "Fuera de la distribución de entrenamiento",
     "title": "No aprendimos esa página.",
