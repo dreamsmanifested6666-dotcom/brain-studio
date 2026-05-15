@@ -27,6 +27,15 @@ export type BrainStageState = {
   targetActivations: RegionActivations;
   /** PR-A: HCP-MMP-360 parcel-level activations (real Neurosynth data). */
   parcelActivations: ParcelActivations;
+  /**
+   * Visual-elevation Fix 2: timestamp of the last user interaction
+   * (keystroke in Mirror, scrubber drag in Music, pair / language
+   * toggle in Cross-Cultural, video timeupdate in Encoder). The
+   * idle mesh-scale breathing in BrainAnatomy pauses for 2 s after
+   * this value updates so the breath doesn't compete with the
+   * reader's active engagement.
+   */
+  lastInteractionAt: number;
   visible: boolean;
   /**
    * Which fsaverage mesh resolution the BrainAnatomy is currently rendering.
@@ -48,6 +57,12 @@ export type BrainStageState = {
   setParcelActivations: (p: ParcelActivations) => void;
   setMeshResolution: (r: MeshResolution) => void;
   setVisible: (v: boolean) => void;
+  /**
+   * Visual-elevation Fix 2: stamp `lastInteractionAt = Date.now()`.
+   * Cheap (single setState); callers should fire on every user
+   * input that engages the brain visualization.
+   */
+  markInteraction: () => void;
   resetIdle: () => void;
 };
 
@@ -61,6 +76,7 @@ export const useBrainStageStore = create<BrainStageState>((set) => ({
   lighting: "cinematic",
   targetActivations: idleActivations,
   parcelActivations: idleParcels,
+  lastInteractionAt: 0,
   visible: true,
   meshResolution: "fsaverage5",
 
@@ -81,6 +97,12 @@ export const useBrainStageStore = create<BrainStageState>((set) => ({
 
   setVisible: (v: boolean) => set({ visible: v }),
 
+  markInteraction: () => set({ lastInteractionAt: Date.now() }),
+
   resetIdle: () =>
-    set({ targetActivations: idleActivations, parcelActivations: idleParcels }),
+    set({
+      targetActivations: idleActivations,
+      parcelActivations: idleParcels,
+      lastInteractionAt: 0,
+    }),
 }));

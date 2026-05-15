@@ -319,8 +319,13 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
 
   const targetActivations = useBrainStageStore((s) => s.targetActivations);
   const parcelActivations = useBrainStageStore((s) => s.parcelActivations);
+  // Visual-elevation Fix 2: read the interaction stamp so the
+  // emissive-breath multiplier can pause in concert with the
+  // mesh-scale breath in BrainAnatomy.
+  const lastInteractionAt = useBrainStageStore((s) => s.lastInteractionAt);
 
   const elapsed = useRef(0);
+  const breathElapsedMesh = useRef(0);
 
   // 20 regions in a stable order so the ambient phase per-region is consistent
   // across frames. (Object.keys order on Records is insertion order.)
@@ -478,11 +483,24 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
     // intensity. Base intensity 0.6; wake adds up to +0.7 with a
     // cubic-out feel (the linear decay above is the time axis;
     // squaring weights it toward an "ease-out" perceptual shape).
+    //
+    // Visual-elevation Fix 2: emissive-breath multiplier
+    // [0.95, 1.05] modulates the base intensity on the same 5 s
+    // cycle as the mesh-scale breath. Pauses on interaction.
     const m = matRef.current;
     if (m) {
       const wake = emissiveWake.current;
       const wakeShaped = wake * wake; // ease-out cubic-ish
-      m.emissiveIntensity = 0.6 + wakeShaped * 0.7;
+
+      const now = performance.now();
+      const since = now - lastInteractionAt;
+      const breathing = since > 2000;
+      if (breathing) breathElapsedMesh.current += delta;
+      const breathSine = Math.sin((breathElapsedMesh.current / 5) * Math.PI * 2);
+      // [0.95, 1.05] when breathing, → 1.0 otherwise.
+      const breathMul = 1.0 + (breathing ? breathSine * 0.05 : 0);
+
+      m.emissiveIntensity = (0.6 + wakeShaped * 0.7) * breathMul;
     }
   });
 
@@ -528,11 +546,20 @@ export default function BrainAnatomy() {
   const targetPos = useBrainStageStore((s) => s.targetPosition);
   const targetScale = useBrainStageStore((s) => s.targetScale);
   const targetRot = useBrainStageStore((s) => s.targetRotation);
+  // Visual-elevation Fix 2: subscribe to lastInteractionAt so the
+  // breathing pause check has a fresh read every frame without
+  // calling useStore inside useFrame.
+  const lastInteractionAt = useBrainStageStore((s) => s.lastInteractionAt);
 
   const groupRef = useRef<THREE.Group>(null);
   const tmpVec = useMemo(() => new THREE.Vector3(), []);
   const tmpQuat = useMemo(() => new THREE.Quaternion(), []);
   const tmpEuler = useMemo(() => new THREE.Euler(), []);
+  // Visual-elevation Fix 2: elapsed time the breathing curve runs
+  // against. Distinct from the per-region wave inside
+  // MeshForResolution so the two breathing layers can pause
+  // independently.
+  const breathElapsed = useRef(0);
 
   // PR 8: honor prefers-reduced-motion for the continuous Y rotation.
   // Position/scale/rotation lerping toward an explicit target stays
@@ -553,7 +580,27 @@ export default function BrainAnatomy() {
     if (!g) return;
     tmpVec.set(targetPos[0], targetPos[1], targetPos[2]);
     g.position.lerp(tmpVec, Math.min(1, delta * 3));
-    const ns = THREE.MathUtils.lerp(g.scale.x, targetScale, Math.min(1, delta * 3));
+
+    // Visual-elevation Fix 2: mesh-scale breathing on a 5 s cycle,
+    // 0.99 → 1.01 → 0.99. Multiplicative against the
+    // anchor-driven targetScale so room transitions still feel
+    // like room transitions, and the breath rides on top.
+    //
+    // Pauses when an interaction landed in the last 2 s — typing
+    // in /mirror, scrubbing in /music, tour scrub, pair toggle,
+    // video timeupdate. Then resumes; phase doesn't reset, so the
+    // resumed breath picks up where the brain "would have been"
+    // (avoids a hard inhale-discontinuity on resume).
+    const now = performance.now();
+    const since = now - lastInteractionAt;
+    const breathing = !reduced && since > 2000;
+    if (breathing) breathElapsed.current += delta;
+    const breathSine = Math.sin((breathElapsed.current / 5) * Math.PI * 2);
+    // breathScale ∈ [0.99, 1.01] when breathing, → 1.0 otherwise.
+    const breathAmplitude = breathing ? 0.01 : 0;
+    const breathScale = 1.0 + breathSine * breathAmplitude;
+
+    const ns = THREE.MathUtils.lerp(g.scale.x, targetScale * breathScale, Math.min(1, delta * 3));
     g.scale.setScalar(ns);
     tmpEuler.set(targetRot[0], targetRot[1], targetRot[2]);
     tmpQuat.setFromEuler(tmpEuler);

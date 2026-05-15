@@ -104,6 +104,10 @@ export default function MirrorInput({ onPrediction, initial = "" }: Props) {
     useState<ImpressionisticPrediction | null>(null);
   const setActivations = useBrainStageStore((s) => s.setActivations);
   const resetIdle = useBrainStageStore((s) => s.resetIdle);
+  // Visual-elevation Fix 2: pause the idle mesh-scale breathing
+  // while the reader is actively typing. The breath resumes
+  // ~2 s after the last keystroke (handled in BrainAnatomy).
+  const markInteraction = useBrainStageStore((s) => s.markInteraction);
 
   const impressionistTimer = useRef<number | null>(null);
   const settleTimer = useRef<number | null>(null);
@@ -123,8 +127,12 @@ export default function MirrorInput({ onPrediction, initial = "" }: Props) {
       if (!reducedMotion && next.length > 0) {
         dispatchKeystrokePulse();
       }
+      // Visual-elevation Fix 2: keystroke → mark interaction so the
+      // mesh-scale breath pauses while the reader is engaged. Cheap;
+      // the store setter is a single Date.now() write.
+      markInteraction();
     },
-    [reducedMotion],
+    [reducedMotion, markInteraction],
   );
 
   // Phase 11 Move 1.1: impressionistic predictor on every keystroke

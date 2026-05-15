@@ -98,6 +98,10 @@ export default function VideoTimelineDriver({
     (s) => s.setParcelActivations,
   );
   const resetIdle = useBrainStageStore((s) => s.resetIdle);
+  // Visual-elevation Fix 2: video playing == reader engaged. Mark
+  // every timeupdate so the breath stays paused while the clip
+  // plays. The breath resumes when the user pauses + ~2 s elapse.
+  const markInteraction = useBrainStageStore((s) => s.markInteraction);
 
   // Sort frames once.
   const frames = useMemo(
@@ -115,8 +119,14 @@ export default function VideoTimelineDriver({
   useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
-    const onTime = () => setTime(el.currentTime);
-    const onPlay = () => setPlaying(true);
+    const onTime = () => {
+      setTime(el.currentTime);
+      markInteraction();
+    };
+    const onPlay = () => {
+      setPlaying(true);
+      markInteraction();
+    };
     const onPause = () => setPlaying(false);
     el.addEventListener("timeupdate", onTime);
     el.addEventListener("play", onPlay);
@@ -126,7 +136,7 @@ export default function VideoTimelineDriver({
       el.removeEventListener("play", onPlay);
       el.removeEventListener("pause", onPause);
     };
-  }, []);
+  }, [markInteraction]);
 
   // Cleanup: reset brain when this video unmounts (gallery swap).
   useEffect(() => {

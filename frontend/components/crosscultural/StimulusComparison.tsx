@@ -47,6 +47,9 @@ export default function StimulusComparison() {
   const setParcelActivations = useBrainStageStore(
     (s) => s.setParcelActivations,
   );
+  // Visual-elevation Fix 2: pair / language toggle counts as
+  // interaction; the breath pauses for ~2 s after.
+  const markInteraction = useBrainStageStore((s) => s.markInteraction);
 
   // PR-D: client-side cache of precomputed Neurosynth parcel maps
   // per (pair-id, language). Fetched lazily on first selection
@@ -99,7 +102,10 @@ export default function StimulusComparison() {
               <button
                 key={p.id}
                 type="button"
-                onClick={() => setPairIndex(i)}
+                onClick={() => {
+                  setPairIndex(i);
+                  markInteraction();
+                }}
                 data-hover
                 className={`rounded-sm px-3 py-1.5 transition-colors duration-200 ${
                   sel
@@ -117,8 +123,8 @@ export default function StimulusComparison() {
       {/* English side */}
       <motion.section
         layout
-        onPointerEnter={() => setFocused("english")}
-        onFocus={() => setFocused("english")}
+        onPointerEnter={() => { setFocused("english"); markInteraction(); }}
+        onFocus={() => { setFocused("english"); markInteraction(); }}
         tabIndex={0}
         data-hover
         className={`md:col-span-6 ${
@@ -145,8 +151,8 @@ export default function StimulusComparison() {
       {/* Thai side */}
       <motion.section
         layout
-        onPointerEnter={() => setFocused("thai")}
-        onFocus={() => setFocused("thai")}
+        onPointerEnter={() => { setFocused("thai"); markInteraction(); }}
+        onFocus={() => { setFocused("thai"); markInteraction(); }}
         tabIndex={0}
         data-hover
         className={`md:col-span-6 ${focused === "thai" ? "" : "opacity-70"}`}

@@ -38,6 +38,8 @@ export default function TrackPlayer({
     (s) => s.setParcelActivations,
   );
   const resetIdle = useBrainStageStore((s) => s.resetIdle);
+  // Visual-elevation Fix 2: pause idle breathing on scrub/play.
+  const markInteraction = useBrainStageStore((s) => s.markInteraction);
 
   // PR-D: load this track's precomputed Neurosynth parcel map once
   // the player mounts (or when the track changes). The persistent
@@ -141,8 +143,15 @@ export default function TrackPlayer({
           duration={track.duration}
           playing={playing}
           time={time}
-          onTimeChange={setTime}
-          onPlayToggle={() => setPlaying((p) => !p)}
+          onTimeChange={(t) => {
+            setTime(t);
+            // Fix 2: scrub counts as interaction.
+            markInteraction();
+          }}
+          onPlayToggle={() => {
+            setPlaying((p) => !p);
+            markInteraction();
+          }}
           primary={primary}
         />
       </div>
