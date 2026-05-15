@@ -47,14 +47,16 @@ export default async function Home({
           animate
         />
         <div className="mx-auto max-w-[44rem] text-center">
-          <Caption uppercase as="p" className="text-brass">
-            {t("openingCaption")}
-          </Caption>
+          {/* "THE BRAIN STUDIO" opening caption removed — the site
+              header already carries that branding at the top of every
+              page, and on /en the caption was sitting behind the
+              persistent brain canvas, where the cortex obscured it.
+              Hero display now opens cold, which is the brief's
+              "cold open" intent for Shot 1 anyway. */}
           <HeroDisplay
             line1={t("hero.line1")}
             line2={t("hero.line2")}
             line3={t("hero.line3")}
-            className="mt-10"
           />
           <Caption uppercase as="p" className="text-bone-cream/85 mt-12">
             {t("scrollPrompt")}
