@@ -13,6 +13,8 @@ import ScrollWeight from "@/components/typography/ScrollWeight";
 import MotionSpeedSync from "@/components/motion/MotionSpeedSync";
 import DeepIdleDriver from "@/components/brain/DeepIdleDriver";
 import DeepNightCommand from "@/components/reactivity/DeepNightCommand";
+import NavigationCommands from "@/components/reactivity/NavigationCommands";
+import MotionCommands from "@/components/reactivity/MotionCommands";
 import { Caption } from "@/components/typography/Typography";
 
 /**
@@ -91,6 +93,14 @@ export default async function LocaleLayout({
           The only documented shortcut on the site (About page,
           first affordance bullet). */}
       <DeepNightCommand />
+      {/* Reactivity-pass Fix 15 + 20: Esc routes to /en (unless on
+          home, in museum mode, or in fullscreen); Arrow keys cycle
+          the 7-room cinematic loop. Undocumented. */}
+      <NavigationCommands />
+      {/* Reactivity-pass Fix 16 + 17 + 18: F = fullscreen toggle,
+          Space = pause motion, Shift held = slow-world (0.4×).
+          All gated by the root hook's input-focus guard. */}
+      <MotionCommands />
       {/* Visual-elevation Fix 5 composes a second filter slot on
           top of Fix 4's per-room temperature: `--scene-saturate`,
           driven by transient PinnedCinematic moments (Threshold
