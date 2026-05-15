@@ -179,6 +179,17 @@ export const brainAnchors: Record<RoomId, BrainAnchor> = {
     meshResolution: "fsaverage5",
     visible: true,
   },
+  // Encoder Lab — interactive video gallery. Brain positioned to
+  // the right of the player, larger than the reference-layer
+  // pages because the brain IS the demo here.
+  encoder: {
+    position: [0.55, 0.05, 0],
+    scale: 0.7,
+    rotation: [0, -0.15, 0],
+    lighting: "cinematic",
+    meshResolution: "fsaverage5",
+    visible: true,
+  },
 };
 
 export function anchorFor(room: RoomId): BrainAnchor {

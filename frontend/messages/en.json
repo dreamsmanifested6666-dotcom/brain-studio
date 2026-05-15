@@ -42,7 +42,8 @@
           "mirror": "Paste any text; watch what your writing looks like underneath.",
           "music": "Hear how sound moves the same regions that move you.",
           "crosscultural": "Where the model breaks down across languages.",
-          "cellular": "Descend into real neuron reconstructions; watch a synapse fire."
+          "cellular": "Descend into real neuron reconstructions; watch a synapse fire.",
+          "encoder": "Watch four short CC-licensed clips, see what the average brain does — a TRIBE v2-style demo built on Neurosynth data."
         }
       },
       "literature": {
@@ -77,7 +78,8 @@
         }
       }
     },
-    "siteMap": "Site Map"
+    "siteMap": "Site Map",
+    "encoder": "Encoder"
   },
   "common": {
     "loading": "Loading…",
@@ -181,6 +183,10 @@
       "map": {
         "title": "Site Map",
         "description": "Three columns showing how rooms, regions, and long-form essays cross-reference."
+      },
+      "encoder": {
+        "title": "Encoder Lab",
+        "description": "Watch a clip, see what the average brain does."
       }
     },
     "insights": {
@@ -1237,5 +1243,42 @@
     "encoder": "TRIBE v2 encoder",
     "version": "v1.0 · last reviewed 2026-05-14",
     "github": "Source on GitHub"
+  },
+  "encoder": {
+    "label": "Encoder Lab",
+    "title": "Watch a clip, see what the average brain does.",
+    "intro": "Four short Creative Commons clips, four different cortical systems. Pick one. The brain above re-renders as the video plays — interpolating between editorial keyframes that compose Neurosynth meta-analyses for the moment-by-moment stimulus.",
+    "modeledOn": "Built in the spirit of Meta's TRIBE v2 demo at aidemos.atmeta.com/tribev2, with two honesty differences: every prediction here is precomputed (not live TRIBE inference), and every clip carries its own provenance + license + Neurosynth term composition. When the author runs the Colab notebook with their HuggingFace facebook/tribev2 access, real TRIBE predictions drop in at the same JSON path — the page renders them without code change.",
+    "galleryLabel": "Clips",
+    "provenanceTribe": "TRIBE v2 precomputed (Colab)",
+    "provenanceNeurosynth": "Neurosynth meta-analysis (preview)",
+    "clipLabel": "Clip",
+    "methodologyLabel": "Method",
+    "keyframeLabel": "Keyframe composition",
+    "emptyState": "No activation data available yet — generate via build_video_activations_preview.py or the Colab TRIBE notebook.",
+    "disclaimerLabel": "What this is not",
+    "disclaimerBody": "Not a measurement of your brain. Not even a measurement of any specific brain. What you're seeing is the activation pattern peer-reviewed fMRI literature aggregates for the term composition above, projected onto a standard cortical surface. The model is not the mind. The aggregate is not the person.",
+    "videos": {
+      "water_lily": {
+        "title": "Water lily opening",
+        "region": "Scene · perception · reward",
+        "framing": "A timelapse close-up of a flower opening. Sustained visual perception builds across the clip; subtle reward weighting follows as the bloom completes — the editorial composition tracks the viewer, not the flower."
+      },
+      "piano_grieg": {
+        "title": "Piano · In the Hall of the Mountain King",
+        "region": "Music · auditory · motor",
+        "framing": "Solo piano performance. Auditory cortex tracks pitch and rhythm; the hands visible at the keys engage motor mirror activity; the slow build adds an emotional and reward weighting as the passage intensifies."
+      },
+      "waterfall": {
+        "title": "Svartifoss · long-exposure timelapse",
+        "region": "Motion · scene · default mode",
+        "framing": "A long-exposure timelapse of a waterfall against Icelandic basalt. The smoothed flow weights default-mode and scene-perception over discrete-event terms — what you stare at when a landscape stops being a list of objects."
+      },
+      "davos_speech": {
+        "title": "Speaker at a podium · Mario Molina at Davos",
+        "region": "Face · language · mentalizing",
+        "framing": "A person speaking on camera. Face perception (FFA), speech and language regions, and mentalizing networks all engage — the editorial weighting tracks listener cognition more than the speaker's articulation."
+      }
+    }
   }
 }

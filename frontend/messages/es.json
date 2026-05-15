@@ -42,7 +42,8 @@
           "mirror": "Pega cualquier texto; mira cómo se ve tu escritura por debajo.",
           "music": "Escucha cómo el sonido mueve las mismas regiones que te conmueven.",
           "crosscultural": "Donde el modelo se rompe al cruzar idiomas.",
-          "cellular": "Desciende a reconstrucciones neuronales reales; mira disparar una sinapsis."
+          "cellular": "Desciende a reconstrucciones neuronales reales; mira disparar una sinapsis.",
+          "encoder": "Mira cuatro clips cortos con licencia CC y observa lo que hace el cerebro promedio — un demo al estilo TRIBE v2 sobre datos de Neurosynth."
         }
       },
       "literature": {
@@ -77,7 +78,8 @@
         }
       }
     },
-    "siteMap": "Mapa"
+    "siteMap": "Mapa",
+    "encoder": "Encoder"
   },
   "common": {
     "loading": "Cargando…",
@@ -181,6 +183,10 @@
       "map": {
         "title": "Mapa del Sitio",
         "description": "Tres columnas que muestran cómo se cruzan salas, regiones y ensayos largos."
+      },
+      "encoder": {
+        "title": "Laboratorio del Encoder",
+        "description": "Mira un clip, observa lo que hace el cerebro promedio."
       }
     },
     "insights": {
@@ -1237,5 +1243,42 @@
     "encoder": "Encoder TRIBE v2",
     "version": "v1.0 · última revisión 2026-05-14",
     "github": "Código fuente en GitHub"
+  },
+  "encoder": {
+    "label": "Laboratorio del Encoder",
+    "title": "Mira un clip, observa lo que hace el cerebro promedio.",
+    "intro": "Cuatro clips cortos con licencia Creative Commons, cuatro sistemas corticales distintos. Elige uno. El cerebro de arriba se re-renderiza mientras el vídeo se reproduce — interpolando entre fotogramas clave editoriales que componen metaanálisis de Neurosynth para el estímulo momento a momento.",
+    "modeledOn": "Construido en el espíritu del demo TRIBE v2 de Meta en aidemos.atmeta.com/tribev2, con dos diferencias de honestidad: aquí cada predicción está precalculada (no es inferencia TRIBE en vivo), y cada clip lleva su propia procedencia, licencia y composición de términos de Neurosynth. Cuando el autor ejecute el notebook de Colab con su acceso a facebook/tribev2 en HuggingFace, las predicciones reales de TRIBE caerán en la misma ruta JSON — la página las renderiza sin cambios de código.",
+    "galleryLabel": "Clips",
+    "provenanceTribe": "TRIBE v2 precalculado (Colab)",
+    "provenanceNeurosynth": "Metaanálisis Neurosynth (vista previa)",
+    "clipLabel": "Clip",
+    "methodologyLabel": "Método",
+    "keyframeLabel": "Composición de fotogramas clave",
+    "emptyState": "Aún no hay datos de activación — genéralos con build_video_activations_preview.py o el notebook de Colab de TRIBE.",
+    "disclaimerLabel": "Lo que esto no es",
+    "disclaimerBody": "No es una medida de tu cerebro. Tampoco una medida de ningún cerebro específico. Lo que ves es el patrón de activación que la literatura fMRI revisada por pares agrega para la composición de términos de arriba, proyectado sobre una superficie cortical estándar. El modelo no es la mente. El agregado no es la persona.",
+    "videos": {
+      "water_lily": {
+        "title": "Nenúfar abriéndose",
+        "region": "Escena · percepción · recompensa",
+        "framing": "Un primer plano en timelapse de una flor abriéndose. La percepción visual sostenida se acumula a lo largo del clip; un sutil peso de recompensa sigue conforme la flor culmina — la composición editorial sigue al espectador, no a la flor."
+      },
+      "piano_grieg": {
+        "title": "Piano · En la Cueva del Rey de la Montaña",
+        "region": "Música · auditivo · motor",
+        "framing": "Interpretación de piano solo. La corteza auditiva sigue el tono y el ritmo; las manos visibles en las teclas comprometen la actividad motora en espejo; la lenta construcción añade un peso emocional y de recompensa a medida que el pasaje se intensifica."
+      },
+      "waterfall": {
+        "title": "Svartifoss · timelapse de exposición larga",
+        "region": "Movimiento · escena · red por defecto",
+        "framing": "Un timelapse de exposición larga de una cascada contra basalto islandés. El flujo suavizado pondera la red por defecto y la percepción de escenas sobre términos de eventos discretos — lo que miras cuando un paisaje deja de ser una lista de objetos."
+      },
+      "davos_speech": {
+        "title": "Orador en un atril · Mario Molina en Davos",
+        "region": "Rostro · lenguaje · mentalización",
+        "framing": "Una persona hablando a la cámara. La percepción facial (FFA), las regiones del habla y el lenguaje, y las redes de mentalización se activan — la composición editorial sigue la cognición del oyente más que la articulación del hablante."
+      }
+    }
   }
 }

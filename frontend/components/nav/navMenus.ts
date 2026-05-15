@@ -39,6 +39,7 @@ export const navMenus: NavMenuGroup[] = [
         labelKey: "crosscultural",
         blurbKey: "crosscultural",
       },
+      { href: "/encoder", labelKey: "encoder", blurbKey: "encoder" },
       { href: "/cellular", labelKey: "cellular", blurbKey: "cellular" },
     ],
   },

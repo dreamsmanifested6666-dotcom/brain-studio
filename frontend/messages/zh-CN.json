@@ -42,7 +42,8 @@
           "mirror": "粘贴任何文本，看你的书写在其下方的模样。",
           "music": "听声音如何调动那些会触动你的同一批脑区。",
           "crosscultural": "模型在跨语言时崩塌的地方。",
-          "cellular": "下沉到真实的神经元重建中，看突触放电。"
+          "cellular": "下沉到真实的神经元重建中，看突触放电。",
+          "encoder": "看四段 CC 许可的短片，看看平均脑在做什么 — 基于 Neurosynth 数据的 TRIBE v2 风格演示。"
         }
       },
       "literature": {
@@ -77,7 +78,8 @@
         }
       }
     },
-    "siteMap": "地图"
+    "siteMap": "地图",
+    "encoder": "编码器"
   },
   "common": {
     "loading": "加载中…",
@@ -181,6 +183,10 @@
       "map": {
         "title": "站点地图",
         "description": "三列展示房间、脑区与长篇随笔如何相互交叉。"
+      },
+      "encoder": {
+        "title": "编码器实验室",
+        "description": "看一段视频，看看平均脑在做什么。"
       }
     },
     "insights": {
@@ -1237,5 +1243,42 @@
     "encoder": "TRIBE v2 编码器",
     "version": "v1.0 · 最近审阅 2026-05-14",
     "github": "GitHub 源码"
+  },
+  "encoder": {
+    "label": "编码器实验室",
+    "title": "看一段视频，看看平均脑在做什么。",
+    "intro": "四段 Creative Commons 许可的短片，四种不同的皮层系统。挑一个。上方的脑会随视频播放重新渲染 —— 在编辑性的关键帧之间内插，每个关键帧由该瞬间刺激对应的 Neurosynth 元分析合成而来。",
+    "modeledOn": "在 Meta 的 TRIBE v2 演示页 aidemos.atmeta.com/tribev2 的精神下构建，但有两点诚实差异：此处所有预测都是预先计算的（不是实时 TRIBE 推理），并且每段视频都带有自己的来源、许可与 Neurosynth 词项组合。作者使用 HuggingFace 上的 facebook/tribev2 访问权限运行 Colab 笔记本时，真实的 TRIBE 预测会落到相同的 JSON 路径 —— 页面会在不改代码的情况下渲染它们。",
+    "galleryLabel": "片段",
+    "provenanceTribe": "TRIBE v2 预计算（Colab）",
+    "provenanceNeurosynth": "Neurosynth 元分析（预览）",
+    "clipLabel": "片段",
+    "methodologyLabel": "方法",
+    "keyframeLabel": "关键帧组合",
+    "emptyState": "尚无激活数据 —— 通过 build_video_activations_preview.py 或 Colab TRIBE 笔记本生成。",
+    "disclaimerLabel": "这不是什么",
+    "disclaimerBody": "这不是对你的脑的测量。也不是对任何特定脑的测量。你看到的是经过同行评审的 fMRI 文献对上述词项组合的聚合激活模式，投射在一个标准皮层表面上。模型不是心智。聚合不是个人。",
+    "videos": {
+      "water_lily": {
+        "title": "睡莲绽放",
+        "region": "场景 · 感知 · 奖赏",
+        "framing": "一朵花绽放的近距离延时摄影。持续的视觉感知贯穿整个片段；当花开尽时，一缕奖赏的权重随之而至 —— 编辑性的组合追随的是观看者，而不是花。"
+      },
+      "piano_grieg": {
+        "title": "钢琴 · 在山妖王的洞穴中",
+        "region": "音乐 · 听觉 · 运动",
+        "framing": "独奏钢琴。听觉皮层追踪音高与节奏；可见于琴键上的双手牵动运动镜像活动；缓慢的累积，随乐段强度的提升，在情感与奖赏上加权。"
+      },
+      "waterfall": {
+        "title": "斯瓦尔蒂瀑布 · 长曝光延时",
+        "region": "运动 · 场景 · 默认模式",
+        "framing": "在冰岛玄武岩前的瀑布长曝光延时。平滑的流动让默认模式与场景知觉超过离散事件词项 —— 当一片风景不再是物体的清单时，你凝望的那一切。"
+      },
+      "davos_speech": {
+        "title": "讲台上的演讲者 · 达沃斯的马里奥·莫利纳",
+        "region": "面孔 · 语言 · 心智化",
+        "framing": "一个对着镜头说话的人。面孔知觉（FFA）、语言与言语区域、以及心智化网络都参与其中 —— 编辑性的组合追随的是听者的认知，而不是说话者的发音。"
+      }
+    }
   }
 }

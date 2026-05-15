@@ -37,7 +37,10 @@ export type RoomId =
   // PR 8: /map route added in PR 7 needs a RoomId so the
   // persistent brain orchestrator can resolve it without falling
   // through to home and inheriting the wrong anchor.
-  | "map";
+  | "map"
+  // Encoder Lab — video gallery that drives the brain through
+  // Neurosynth-composite (or real TRIBE) per-frame activations.
+  | "encoder";
 
 export const ALL_ROOM_IDS: readonly RoomId[] = [
   "home",
@@ -56,6 +59,7 @@ export const ALL_ROOM_IDS: readonly RoomId[] = [
   "faust",
   "dante",
   "map",
+  "encoder",
 ];
 
 /**
@@ -104,6 +108,9 @@ export const ROOM_DEPTH: Record<RoomId, number> = {
   dante: 2,
   // PR 8: /map is a reference layer, same depth as Atlas/Bridges/Tours.
   map: 1,
+  // Encoder Lab — interactive, sits at depth 1 alongside the
+  // other lab-style rooms (Mirror, Music, Cross-Cultural).
+  encoder: 1,
   cellular: 3,
 };
 
@@ -142,4 +149,5 @@ export const ROOM_HREF: Record<RoomId, string> = {
   faust: "/faust",
   dante: "/dante",
   map: "/map",
+  encoder: "/encoder",
 };

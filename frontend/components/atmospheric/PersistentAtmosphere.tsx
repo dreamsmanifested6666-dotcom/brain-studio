@@ -147,6 +147,13 @@ const ROOM_ATMOSPHERE: Record<RoomId, RoomAtmosphere> = {
       "radial-gradient(ellipse 1400px 1000px at 50% 0%, rgba(201, 169, 97, 0.04) 0%, transparent 60%)",
     opacity: 0.7,
   },
+  // Encoder Lab — slightly warmer, video-room amber to frame the
+  // player without competing with whatever clip is on screen.
+  encoder: {
+    backgroundImage:
+      "radial-gradient(ellipse 1300px 900px at 30% 10%, rgba(232, 160, 74, 0.08) 0%, transparent 55%), radial-gradient(ellipse 900px 600px at 70% 80%, rgba(201, 169, 97, 0.05) 0%, transparent 60%)",
+    opacity: 0.85,
+  },
 };
 
 function prefersReducedMotion(): boolean {

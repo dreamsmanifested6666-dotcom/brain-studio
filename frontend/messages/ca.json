@@ -42,7 +42,8 @@
           "mirror": "Enganxa qualsevol text; mira com es veu la teva escriptura per sota.",
           "music": "Escolta com el so mou les mateixes regions que et commouen.",
           "crosscultural": "On el model es trenca en creuar llengües.",
-          "cellular": "Baixa a reconstruccions neuronals reals; mira disparar una sinapsi."
+          "cellular": "Baixa a reconstruccions neuronals reals; mira disparar una sinapsi.",
+          "encoder": "Mira quatre clips curts amb llicència CC i observa què fa el cervell mitjà — un demo a l'estil TRIBE v2 sobre dades de Neurosynth."
         }
       },
       "literature": {
@@ -77,7 +78,8 @@
         }
       }
     },
-    "siteMap": "Mapa"
+    "siteMap": "Mapa",
+    "encoder": "Encoder"
   },
   "common": {
     "loading": "Carregant…",
@@ -181,6 +183,10 @@
       "map": {
         "title": "Mapa del Lloc",
         "description": "Tres columnes que mostren com es creuen sales, regions i assaigs llargs."
+      },
+      "encoder": {
+        "title": "Laboratori de l'Encoder",
+        "description": "Mira un clip, observa què fa el cervell mitjà."
       }
     },
     "insights": {
@@ -1237,5 +1243,42 @@
     "encoder": "Encoder TRIBE v2",
     "version": "v1.0 · última revisió 2026-05-14",
     "github": "Codi font a GitHub"
+  },
+  "encoder": {
+    "label": "Laboratori de l'Encoder",
+    "title": "Mira un clip, observa què fa el cervell mitjà.",
+    "intro": "Quatre clips curts amb llicència Creative Commons, quatre sistemes corticals diferents. Tria'n un. El cervell de dalt es re-renderitza mentre el vídeo es reprodueix — interpolant entre fotogrames clau editorials que componen metaanàlisis de Neurosynth per a l'estímul moment a moment.",
+    "modeledOn": "Construït amb l'esperit del demo TRIBE v2 de Meta a aidemos.atmeta.com/tribev2, amb dues diferències d'honestedat: aquí cada predicció està precalculada (no és inferència TRIBE en directe), i cada clip duu la seva pròpia procedència, llicència i composició de termes de Neurosynth. Quan l'autor executi el notebook de Colab amb el seu accés a facebook/tribev2 a HuggingFace, les prediccions reals de TRIBE cauran a la mateixa ruta JSON — la pàgina les renderitza sense canvis de codi.",
+    "galleryLabel": "Clips",
+    "provenanceTribe": "TRIBE v2 precalculat (Colab)",
+    "provenanceNeurosynth": "Metaanàlisi Neurosynth (vista prèvia)",
+    "clipLabel": "Clip",
+    "methodologyLabel": "Mètode",
+    "keyframeLabel": "Composició de fotogrames clau",
+    "emptyState": "Encara no hi ha dades d'activació — genera-les amb build_video_activations_preview.py o el notebook de Colab de TRIBE.",
+    "disclaimerLabel": "El que això no és",
+    "disclaimerBody": "No és una mesura del teu cervell. Tampoc una mesura de cap cervell específic. El que veus és el patró d'activació que la literatura fMRI revisada per parells agrega per a la composició de termes de dalt, projectat sobre una superfície cortical estàndard. El model no és la ment. L'agregat no és la persona.",
+    "videos": {
+      "water_lily": {
+        "title": "Nenúfar obrint-se",
+        "region": "Escena · percepció · recompensa",
+        "framing": "Un primer pla en timelapse d'una flor obrint-se. La percepció visual sostinguda s'acumula al llarg del clip; un subtil pes de recompensa segueix mentre la flor culmina — la composició editorial segueix l'espectador, no la flor."
+      },
+      "piano_grieg": {
+        "title": "Piano · A la cova del rei de la muntanya",
+        "region": "Música · auditiu · motor",
+        "framing": "Interpretació de piano sol. L'escorça auditiva segueix el to i el ritme; les mans visibles a les tecles comprometen l'activitat motora mirall; la lenta construcció afegeix un pes emocional i de recompensa a mesura que el passatge s'intensifica."
+      },
+      "waterfall": {
+        "title": "Svartifoss · timelapse d'exposició llarga",
+        "region": "Moviment · escena · xarxa per defecte",
+        "framing": "Un timelapse d'exposició llarga d'una cascada contra basalt islandès. El flux suavitzat pondera la xarxa per defecte i la percepció d'escenes sobre termes d'esdeveniments discrets — el que mires quan un paisatge deixa de ser una llista d'objectes."
+      },
+      "davos_speech": {
+        "title": "Orador en un faristol · Mario Molina a Davos",
+        "region": "Rostre · llenguatge · mentalització",
+        "framing": "Una persona parlant a la càmera. La percepció facial (FFA), les regions de la parla i el llenguatge, i les xarxes de mentalització s'activen — la composició editorial segueix la cognició de l'oient més que l'articulació del parlant."
+      }
+    }
   }
 }
