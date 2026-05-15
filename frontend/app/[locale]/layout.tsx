@@ -7,6 +7,7 @@ import TranslationStatusBanner from "@/components/i18n/TranslationStatusBanner";
 import SiteHeader from "@/components/nav/SiteHeader";
 import SiteFooter from "@/components/nav/SiteFooter";
 import RoomTemperature from "@/components/atmospheric/RoomTemperature";
+import TimeOfDayTemperature from "@/components/atmospheric/TimeOfDayTemperature";
 import DeferredLocaleClient from "@/components/client/DeferredLocaleClient";
 import ScrollWeight from "@/components/typography/ScrollWeight";
 import MotionSpeedSync from "@/components/motion/MotionSpeedSync";
@@ -64,6 +65,11 @@ export default async function LocaleLayout({
           it up. Subtle — readers should not consciously notice;
           they should feel they've entered a different room. */}
       <RoomTemperature />
+      {/* Reactivity-pass Fix 10: writes --time-temperature on <html>
+          from the system clock so the room temperature compounds
+          with a time-of-day mood (candlelit at 2 a.m., bright at
+          9 a.m.). Re-reads once per hour. */}
+      <TimeOfDayTemperature />
       {/* Visual-elevation Fix 8: writes --scroll-wght on <html>
           from a smoothed scroll-velocity tracker. Display and
           Heading components consume it via font-variation-settings.
@@ -81,8 +87,15 @@ export default async function LocaleLayout({
         id="main"
         className="relative z-10"
         style={{
+          // Filter composition stack (left-to-right is bottom-to-top
+          // in compositing order):
+          //   --temperature-filter   per-room mood (Fix 4)
+          //   --time-temperature     system-clock band (Fix 10)
+          //   --deep-night-filter    D toggle (Fix 14)
+          //   --threshold-warm       scroll-progress on /threshold (Fix 13)
+          //   saturate(--scene-saturate)  transient pin moments (Fix 5)
           filter:
-            "var(--temperature-filter, none) saturate(var(--scene-saturate, 1))",
+            "var(--temperature-filter, none) var(--time-temperature, none) var(--deep-night-filter, none) var(--threshold-warm, none) saturate(var(--scene-saturate, 1))",
         }}
       >
         {children}

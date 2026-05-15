@@ -77,6 +77,23 @@
      read this via font-variation-settings. Reduced-motion
      users see a static 400. */
   --scroll-wght: 400;
+
+  /* Reactivity-pass — additional filter slots composed onto
+     <main> in the locale layout. Initial values are `none` so
+     missing-component fallbacks evaluate cleanly. Filters that
+     write into these (TimeOfDayTemperature, the D-toggle
+     handler, ThresholdScrollWarm) update the property on
+     `<html>` directly via documentElement.style. */
+  --time-temperature: none;       /* Fix 10 — system clock band */
+  --deep-night-filter: none;      /* Fix 14 — D toggle */
+  --threshold-warm: none;         /* Fix 13 — scroll on /threshold */
+
+  /* Reactivity-pass — global motion-speed multiplier mirrored
+     from store.motionScale by <MotionSpeedSync />. Primary
+     consumer is JS (useFrame, FilmGrain rAF, GSAP global
+     timeScale); CSS animations can read it via calc() if they
+     want to respect Shift-slow / Space-pause. */
+  --motion-speed: 1;
 }
 
 html,
