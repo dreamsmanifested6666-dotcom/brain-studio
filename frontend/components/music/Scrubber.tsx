@@ -137,7 +137,7 @@ export default function Scrubber({
         </div>
 
         <Mono variant="label" className="text-bone-cream/85 min-w-[6ch]">
-          {fmtTime(time)} <Caption className="text-bone-cream/35">/</Caption>{" "}
+          {fmtTime(time)} <Caption className="text-bone-cream/55">/</Caption>{" "}
           {fmtTime(duration)}
         </Mono>
       </div>

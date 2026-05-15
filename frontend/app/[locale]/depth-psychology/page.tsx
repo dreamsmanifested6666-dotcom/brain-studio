@@ -64,7 +64,7 @@ export default async function DepthPsychologyLanding({
         <AtmosphericGlow preset="amber-lamp" position="top" intensity="subtle" />
         <div className="mx-auto max-w-[1100px]">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
               <li>
                 <Link href="/" className="hover:text-brass">
                   <Caption uppercase className="tracking-[0.18em]">
@@ -113,7 +113,7 @@ export default async function DepthPsychologyLanding({
             <Body italic className="text-bone-cream/75 mt-4 max-w-[40rem]">
               {t("featured.subtitle")}
             </Body>
-            <Body className="text-bone-cream/60 mt-4 max-w-[44rem]">
+            <Body className="text-bone-cream/80 mt-4 max-w-[44rem]">
               {t("featured.blurb")}
             </Body>
             <Caption
@@ -210,7 +210,7 @@ export default async function DepthPsychologyLanding({
                 >
                   {page.title}
                 </Heading>
-                <Body className="text-bone-cream/60 mt-3 max-w-[22rem]">
+                <Body className="text-bone-cream/80 mt-3 max-w-[22rem]">
                   {page.blurb}
                 </Body>
                 <Caption

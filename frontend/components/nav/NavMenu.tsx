@@ -118,7 +118,7 @@ export default function NavMenu({ group, openId, setOpenId }: Props) {
                     <Caption uppercase className="tracking-[0.14em]">
                       {t(item.labelKey)}
                     </Caption>
-                    <span className="font-editorial text-caption text-bone-cream/50 mt-0.5 block leading-snug">
+                    <span className="font-editorial text-caption text-bone-cream/75 mt-0.5 block leading-snug">
                       {t(`menus.${group.id}.blurbs.${item.blurbKey}`)}
                     </span>
                   </Link>

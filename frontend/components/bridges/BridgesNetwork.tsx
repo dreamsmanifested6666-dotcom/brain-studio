@@ -213,7 +213,7 @@ export default function BridgesNetwork({
                     borderStyle: s === "distant" ? "dashed" : undefined,
                   }}
                 />
-                <Caption className="text-bone-cream/60">
+                <Caption className="text-bone-cream/80">
                   {BRIDGE_STRENGTHS[s].label}
                 </Caption>
               </span>
@@ -230,7 +230,7 @@ export default function BridgesNetwork({
                 className={`rounded-sm border px-3 py-1 transition-colors duration-150 ${
                   filter === b.id
                     ? "border-brass text-brass"
-                    : "border-bone-cream/15 text-bone-cream/60 hover:text-bone-cream/85"
+                    : "border-bone-cream/15 text-bone-cream/80 hover:text-bone-cream/85"
                 }`}
               >
                 <Mono variant="label" className="tracking-[0.18em]">
@@ -463,10 +463,10 @@ function EdgeTooltip({
       </Mono>
       <Caption className="text-bone-cream/90 mt-1 block">
         {tRegions(`${regionId}.displayName`)}
-        <span className="text-bone-cream/50"> · </span>
+        <span className="text-bone-cream/75"> · </span>
         {section.heading}
       </Caption>
-      <Caption italic className="text-bone-cream/60 mt-1 block">
+      <Caption italic className="text-bone-cream/80 mt-1 block">
         {strengthInfo.description}
       </Caption>
     </motion.div>

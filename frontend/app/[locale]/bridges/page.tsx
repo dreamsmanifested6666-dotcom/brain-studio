@@ -98,7 +98,7 @@ export default async function BridgesPage({
       <section className="relative px-6 pt-36 md:px-10 md:pt-44">
         <div className="mx-auto max-w-[1100px]">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
               <li>
                 <Link href="/" className="hover:text-brass">
                   <Caption uppercase className="tracking-[0.18em]">
@@ -223,7 +223,7 @@ export default async function BridgesPage({
                         <Body italic className="text-bone-cream/80">
                           “{block.quote}”
                         </Body>
-                        <Caption className="text-bone-cream/50 mt-3 block">
+                        <Caption className="text-bone-cream/75 mt-3 block">
                           — {block.attribution}
                         </Caption>
                       </blockquote>

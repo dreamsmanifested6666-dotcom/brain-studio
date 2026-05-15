@@ -94,14 +94,14 @@ export default function SiteFooter() {
         </div>
 
         {/* Row 3 — built / institutional credit */}
-        <div className="text-bone-cream/50 pt-3">
+        <div className="text-bone-cream/75 pt-3">
           <Caption uppercase>{t("built")}</Caption>
           <Dot />
           <Caption uppercase>{t("encoder")}</Caption>
         </div>
 
         {/* Row 4 — version + github */}
-        <div className="text-bone-cream/40">
+        <div className="text-bone-cream/70">
           <Caption uppercase>{t("version")}</Caption>
           <Dot />
           <a

@@ -80,7 +80,7 @@ export default function PassageAnalysis({
           </div>
           <Mono
             variant="label"
-            className="text-bone-cream/40 mt-4 block text-[0.7rem] tracking-[0.14em]"
+            className="text-bone-cream/70 mt-4 block text-[0.7rem] tracking-[0.14em]"
           >
             {translationAttribution}
           </Mono>

@@ -93,7 +93,7 @@ export default function BrainPrediction({
           );
         })}
       </ul>
-      <p className="text-bone-cream/35 mt-5 text-[0.7rem] italic leading-snug">
+      <p className="text-bone-cream/55 mt-5 text-[0.7rem] italic leading-snug">
         {disclaimer}
       </p>
     </div>

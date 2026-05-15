@@ -104,14 +104,14 @@ export default async function ThresholdPage({
           <Body className="text-bone-cream/85 mt-6">{t("m1.body2")}</Body>
           <Body className="text-bone-cream/85 mt-6">{t("m1.body3")}</Body>
           <ParallaxLayer speed={0.95}>
-            <Body italic className="text-bone-cream/60 mt-10">{t("m1.italic")}</Body>
+            <Body italic className="text-bone-cream/80 mt-10">{t("m1.italic")}</Body>
           </ParallaxLayer>
           {/* PR 5: ReadingTime kind="movement". The meta string used
               to read "Movement one · ~290 words · 2 min read" — the
               word count came from an early draft and never updated
               as the prose moved. Now: label-only string + numeric
               minutes hardcoded per movement here. */}
-          <div className="text-bone-cream/35 mt-12 block">
+          <div className="text-bone-cream/55 mt-12 block">
             <ReadingTime
               kind="movement"
               numberLabel={t("m1.meta")}
@@ -149,7 +149,7 @@ export default async function ThresholdPage({
             <Body className="text-bone-cream/85 mt-6">{t("m2.body4")}</Body>
             <Body italic className="text-bone-cream/80 mt-8">{t("m2.italic")}</Body>
           </ThresholdM2Moment>
-          <div className="text-bone-cream/35 mt-12 block">
+          <div className="text-bone-cream/55 mt-12 block">
             <ReadingTime
               kind="movement"
               numberLabel={t("m2.meta")}
@@ -181,7 +181,7 @@ export default async function ThresholdPage({
           <Body italic className="text-bone-cream/85 mt-8 text-lg leading-[1.6]">
             {t("m3.italic")}
           </Body>
-          <div className="text-bone-cream/35 mt-12 block">
+          <div className="text-bone-cream/55 mt-12 block">
             <ReadingTime
               kind="movement"
               numberLabel={t("m3.meta")}

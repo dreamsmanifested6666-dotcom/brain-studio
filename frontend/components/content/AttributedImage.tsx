@@ -73,12 +73,12 @@ export default function AttributedImage({
               <div className="text-bone-cream/90">
                 <Caption className="text-bone-cream/90">{prov.title}</Caption>
               </div>
-              <div className="text-bone-cream/60">
+              <div className="text-bone-cream/80">
                 <Caption>
                   {prov.artist} · {prov.date}
                 </Caption>
               </div>
-              <div className="text-bone-cream/60">
+              <div className="text-bone-cream/80">
                 <Caption>{prov.institution}</Caption>
               </div>
               <div>

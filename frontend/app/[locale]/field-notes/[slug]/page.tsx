@@ -104,7 +104,7 @@ export default function FieldNoteReader({
         <Display italic className="mt-8">
           {t(`${meta.key}.title`)}
         </Display>
-        <Body italic className="text-bone-cream/60 mt-6">
+        <Body italic className="text-bone-cream/80 mt-6">
           {t(`${meta.key}.summary`)}
         </Body>
         <div className="text-bone-cream/80 mt-8 block">

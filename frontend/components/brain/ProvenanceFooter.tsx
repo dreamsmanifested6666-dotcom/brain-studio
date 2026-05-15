@@ -38,7 +38,7 @@ export default function ProvenanceFooter({
           {compositionStr}
         </Caption>
         {file.notes ? (
-          <Caption italic className="block leading-relaxed text-bone-cream/50">
+          <Caption italic className="block leading-relaxed text-bone-cream/75">
             {file.notes}
           </Caption>
         ) : null}

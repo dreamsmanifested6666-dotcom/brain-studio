@@ -138,7 +138,7 @@ export default async function AtlasRegionPage({
       <section className="relative px-6 pt-36 md:px-10 md:pt-44">
         <div className="mx-auto max-w-[1180px]">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
               <li>
                 <Link href="/" className="hover:text-brass">
                   <Caption uppercase className="tracking-[0.18em]">
@@ -310,7 +310,7 @@ export default async function AtlasRegionPage({
                 <div className="mt-2" style={{ color: network.accent }}>
                   <Body>{network.displayName}</Body>
                 </div>
-                <Caption className="text-bone-cream/50 mt-1 block max-w-[18rem]">
+                <Caption className="text-bone-cream/75 mt-1 block max-w-[18rem]">
                   {network.shortDescription}
                 </Caption>
               </div>

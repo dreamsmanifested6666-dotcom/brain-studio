@@ -147,7 +147,7 @@ export default function PinnedPredictionCard({
                   </Mono>
                   <Caption uppercase className="tracking-[0.14em]">
                     {shortDisplayName(r.id)}{" "}
-                    <span aria-hidden className="text-bone-cream/40">
+                    <span aria-hidden className="text-bone-cream/70">
                       {shortHemisphere(r.id)}
                     </span>
                   </Caption>
@@ -188,7 +188,7 @@ export default function PinnedPredictionCard({
                         {shortDisplayName(d.id)}{" "}
                         <span
                           aria-hidden
-                          className="text-bone-cream/40"
+                          className="text-bone-cream/70"
                         >
                           {shortHemisphere(d.id)}
                         </span>

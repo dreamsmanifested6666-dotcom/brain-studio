@@ -219,7 +219,7 @@ export default function SearchPalette() {
                 }}
                 onKeyDown={onInputKey}
                 placeholder="Region, researcher, Jungian concept, disorder…"
-                className="placeholder:text-bone-cream/35 text-bone-cream w-full bg-transparent text-body outline-none font-editorial"
+                className="placeholder:text-bone-cream/55 text-bone-cream w-full bg-transparent text-body outline-none font-editorial"
                 aria-label="Search query"
                 spellCheck={false}
                 autoComplete="off"
@@ -306,7 +306,7 @@ export default function SearchPalette() {
                                   )}
                                 </div>
                                 {entry.subtitle && (
-                                  <Caption className="text-bone-cream/50 mt-0.5 block truncate">
+                                  <Caption className="text-bone-cream/75 mt-0.5 block truncate">
                                     {entry.subtitle}
                                   </Caption>
                                 )}
@@ -335,13 +335,13 @@ export default function SearchPalette() {
                 <Mono variant="label" className="border-bone-cream/15 rounded-sm border px-1.5 py-0.5">
                   ↑↓
                 </Mono>
-                <Caption className="text-bone-cream/50">to navigate</Caption>
+                <Caption className="text-bone-cream/75">to navigate</Caption>
                 <Mono variant="label" className="border-bone-cream/15 ml-2 rounded-sm border px-1.5 py-0.5">
                   ↵
                 </Mono>
-                <Caption className="text-bone-cream/50">to select</Caption>
+                <Caption className="text-bone-cream/75">to select</Caption>
               </span>
-              <Caption className="text-bone-cream/35 hidden sm:block">
+              <Caption className="text-bone-cream/55 hidden sm:block">
                 Press {isMac() ? "⌘" : "Ctrl"}+K anywhere
               </Caption>
             </div>

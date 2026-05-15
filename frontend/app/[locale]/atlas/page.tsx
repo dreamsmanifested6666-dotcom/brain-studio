@@ -129,7 +129,7 @@ export default async function AtlasIndex({
                             </Caption>
                           )}
                         </div>
-                        <Body className="text-bone-cream/60 mt-3 max-w-[22rem]">
+                        <Body className="text-bone-cream/80 mt-3 max-w-[22rem]">
                           {tRegions(`${id}.scienceGloss`)}
                         </Body>
                         <Caption

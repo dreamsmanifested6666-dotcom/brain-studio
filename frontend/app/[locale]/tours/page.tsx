@@ -39,7 +39,7 @@ export default async function ToursIndex({
         <AtmosphericGlow preset="amber-lamp" position="top" intensity="subtle" />
         <div className="mx-auto max-w-[1100px]">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
               <li>
                 <Link href="/" className="hover:text-brass">
                   <Caption uppercase className="tracking-[0.18em]">
@@ -122,7 +122,7 @@ export default async function ToursIndex({
                     <Body italic className="text-bone-cream/85 mt-6">
                       {tour.subtitle}
                     </Body>
-                    <Body className="text-bone-cream/60 mt-4 max-w-[42rem]">
+                    <Body className="text-bone-cream/80 mt-4 max-w-[42rem]">
                       {tour.blurb}
                     </Body>
                     <Caption uppercase className="text-brass mt-6 inline-flex items-center gap-2 tracking-[0.18em]">

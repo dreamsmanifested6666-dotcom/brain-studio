@@ -72,7 +72,7 @@ export default function TranslationStatusBanner() {
           type="button"
           onClick={onDismiss}
           aria-label={t("dismiss")}
-          className="text-bone-cream/50 hover:text-bone-cream flex-shrink-0 transition-colors duration-150"
+          className="text-bone-cream/75 hover:text-bone-cream flex-shrink-0 transition-colors duration-150"
           data-hover
         >
           <svg

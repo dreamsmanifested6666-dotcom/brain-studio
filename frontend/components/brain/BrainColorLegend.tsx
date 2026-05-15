@@ -103,7 +103,7 @@ export default function BrainColorLegend({
             >
               {LABELS_EN[s.labelKey]}
             </Caption>
-            <Caption className="text-bone-cream/50 italic">
+            <Caption className="text-bone-cream/75 italic">
               {MEANINGS_EN[s.labelKey]}
             </Caption>
           </li>
@@ -112,7 +112,7 @@ export default function BrainColorLegend({
 
       <Caption
         uppercase
-        className="text-bone-cream/40 mt-4 block tracking-[0.18em] italic"
+        className="text-bone-cream/70 mt-4 block tracking-[0.18em] italic"
       >
         Standard fMRI ramp · cool to warm · informational, not clinical
       </Caption>

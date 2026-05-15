@@ -310,7 +310,7 @@ export default function MirrorPage() {
         <Caption uppercase className="text-bone-cream/80">
           {t("footerStudio")}
         </Caption>
-        <Caption uppercase aria-hidden className="text-bone-cream/40 mx-3">
+        <Caption uppercase aria-hidden className="text-bone-cream/70 mx-3">
           ·
         </Caption>
         <Caption uppercase className="text-bone-cream/80">

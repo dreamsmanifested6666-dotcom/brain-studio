@@ -80,7 +80,7 @@ export default function EncoderLab({ files }: Props) {
                     <Mono
                       variant="label"
                       className={`mt-1 block leading-snug ${
-                        active ? "text-brass/80" : "text-bone-cream/50"
+                        active ? "text-brass/80" : "text-bone-cream/75"
                       }`}
                     >
                       {t(`videos.${id}.region`)} · {file.duration.toFixed(0)}s
@@ -156,7 +156,7 @@ export default function EncoderLab({ files }: Props) {
                   {activeFile.citation}
                 </Caption>
                 {activeFile.video.notes ? (
-                  <Caption italic className="block leading-relaxed text-bone-cream/50">
+                  <Caption italic className="block leading-relaxed text-bone-cream/75">
                     {activeFile.video.notes}
                   </Caption>
                 ) : null}
@@ -174,7 +174,7 @@ export default function EncoderLab({ files }: Props) {
                       <li key={i}>
                         <Mono
                           variant="label"
-                          className="text-bone-cream/60 block"
+                          className="text-bone-cream/80 block"
                         >
                           t={kf.t.toFixed(1)}s ·{" "}
                           {(kf.composition ?? [])

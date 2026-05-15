@@ -371,7 +371,7 @@ export default function MirrorInspector({ text, settledActivations }: Props) {
                   ? "border-brass text-brass bg-brass/10"
                   : hasContribution
                     ? "border-bone-cream/30 text-bone-cream/85 hover:border-brass/60 hover:text-brass"
-                    : "border-bone-cream/10 text-bone-cream/35 hover:border-bone-cream/20"
+                    : "border-bone-cream/10 text-bone-cream/55 hover:border-bone-cream/20"
               }`}
             >
               {regionById[id].displayName.replace(/\s*\([LR]\)\s*$/i, "")}{" "}
@@ -389,7 +389,7 @@ export default function MirrorInspector({ text, settledActivations }: Props) {
 
       <Caption
         uppercase
-        className="text-bone-cream/40 mt-4 block tracking-[0.18em] italic"
+        className="text-bone-cream/70 mt-4 block tracking-[0.18em] italic"
       >
         Hover a word: the brain swings toward its regions. Hover a
         region: the words that voted for it underline. {t("disclaimer")}

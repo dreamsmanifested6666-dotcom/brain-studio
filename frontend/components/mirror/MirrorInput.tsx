@@ -320,7 +320,7 @@ export default function MirrorInput({ onPrediction, initial = "" }: Props) {
         spellCheck={false}
         // audit-fix: Task 10. Soft cap; browser enforces.
         maxLength={MAX_LENGTH}
-        className="font-editorial text-body w-full resize-none bg-transparent leading-[1.65] text-bone-cream italic placeholder:text-bone-cream/60 focus:outline-none"
+        className="font-editorial text-body w-full resize-none bg-transparent leading-[1.65] text-bone-cream italic placeholder:text-bone-cream/80 focus:outline-none"
         data-hover
       />
       <div

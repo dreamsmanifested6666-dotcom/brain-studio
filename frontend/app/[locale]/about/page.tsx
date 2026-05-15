@@ -455,7 +455,7 @@ export default async function AboutPage({
               <Heading as="h3" className="mt-3 font-[200]">
                 {t("credits.modelTitle")}
               </Heading>
-              <Body className="text-bone-cream/60 mt-3">
+              <Body className="text-bone-cream/80 mt-3">
                 {t("credits.modelBody")}
               </Body>
             </div>
@@ -466,7 +466,7 @@ export default async function AboutPage({
               <Heading as="h3" className="mt-3 font-[200]">
                 {t("credits.builtTitle")}
               </Heading>
-              <Body className="text-bone-cream/60 mt-3">
+              <Body className="text-bone-cream/80 mt-3">
                 {t("credits.builtBody")}
               </Body>
             </div>
@@ -477,7 +477,7 @@ export default async function AboutPage({
               <Heading as="h3" className="mt-3 font-[200]">
                 {t("credits.homeTitle")}
               </Heading>
-              <Body className="text-bone-cream/60 mt-3">
+              <Body className="text-bone-cream/80 mt-3">
                 {t("credits.homeBody")}
               </Body>
             </div>
@@ -530,7 +530,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Home · Threshold · default
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Robert Fludd, <em>Utriusque Cosmi Maioris scilicet et
                 Minoris … Historia</em> (1617–1621). Microcosm-macrocosm
                 engraving. Public domain. Source: Wikimedia Commons.
@@ -540,7 +540,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Mirror
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Folio from the Voynich Manuscript (15th c., undeciphered).
                 Beinecke Rare Book and Manuscript Library, Yale
                 University, MS 408. Public domain. Source: Wikimedia
@@ -551,7 +551,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Music
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Johann Sebastian Bach, autograph manuscript of cantata
                 <em>&nbsp;Du wahrer Gott und Davids Sohn</em>, BWV 56
                 (1726), first page. Berlin State Library. Public
@@ -562,7 +562,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Cross-Cultural
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Folio from a Thai illuminated <em>samut khoi</em>
                 manuscript of the <em>Legend of Phra Malai</em> (Central
                 Thailand, c. 1800). Los Angeles County Museum of Art,
@@ -574,7 +574,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Archetypes
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Michael Maier, emblem from <em>Atalanta Fugiens</em>
                 (1617). Alchemical emblem book. Public domain. Source:
                 Wikimedia Commons.
@@ -584,7 +584,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 Cellular
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Santiago Ramón y Cajal, cortical drawing showing
                 Purkinje cells (c. 1899). Instituto Cajal, Consejo
                 Superior de Investigaciones Científicas (CSIC), Madrid.
@@ -595,7 +595,7 @@ export default async function AboutPage({
               <Caption uppercase className="text-bone-cream/85">
                 About
               </Caption>
-              <Body className="text-bone-cream/60 mt-1">
+              <Body className="text-bone-cream/80 mt-1">
                 Andreas Vesalius, plate from <em>De humani corporis
                 fabrica libri septem</em> (Basel, 1543). Public domain.
                 Source: Wikimedia Commons.

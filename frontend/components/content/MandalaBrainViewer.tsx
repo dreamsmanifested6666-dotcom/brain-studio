@@ -112,7 +112,7 @@ export default function MandalaBrainViewer() {
       <Caption uppercase className="text-brass">
         {t("viewerLabel")}
       </Caption>
-      <Body italic className="text-bone-cream/60 mt-3 max-w-[36rem]">
+      <Body italic className="text-bone-cream/80 mt-3 max-w-[36rem]">
         {t("viewerIntro")}
       </Body>
       {/* Integrity-pass: badge identifies the data source driving

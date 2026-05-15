@@ -65,7 +65,7 @@ export default async function DantePage({
       />
       <div className="mx-auto max-w-[68rem]">
         <nav aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+          <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
             <li>
               <Link href="/" className="hover:text-brass">
                 <Caption uppercase className="tracking-[0.18em]">
@@ -111,7 +111,7 @@ export default async function DantePage({
               <ProvenanceFooter file={heroProvenance} />
             </div>
           )}
-          <div className="text-bone-cream/40 mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <div className="text-bone-cream/70 mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2">
             <Mono variant="label" className="tracking-[0.18em]">
               {totalMinutes} {minutesLabel}
             </Mono>

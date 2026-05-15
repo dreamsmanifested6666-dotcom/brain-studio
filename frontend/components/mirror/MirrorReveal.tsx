@@ -78,7 +78,7 @@ export default function MirrorReveal({ topRegions }: Props) {
                   <Body className="text-bone-cream/75 mt-4 max-w-[34rem]">
                     {tr(tRegions, `${entry.id}.scienceGloss`, r.scienceGloss)}
                   </Body>
-                  <Body italic className="text-bone-cream/60 mt-4 max-w-[34rem]">
+                  <Body italic className="text-bone-cream/80 mt-4 max-w-[34rem]">
                     {tr(tRegions, `${entry.id}.poeticGloss`, r.poeticGloss)}
                   </Body>
                   <Link

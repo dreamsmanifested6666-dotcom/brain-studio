@@ -82,7 +82,7 @@ export default async function DepthPsychologyPage({
         <AtmosphericGlow preset="amber-lamp" position="top" intensity="subtle" />
         <div className="mx-auto max-w-[1100px]">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+            <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
               <li>
                 <Link href="/" className="hover:text-brass">
                   <Caption uppercase className="tracking-[0.18em]">

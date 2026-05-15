@@ -54,7 +54,7 @@ export default function ErrorPage({
           </a>
         </div>
         {error.digest && (
-          <Caption className="text-bone-cream/35 mt-10 block">
+          <Caption className="text-bone-cream/55 mt-10 block">
             digest · {error.digest}
           </Caption>
         )}

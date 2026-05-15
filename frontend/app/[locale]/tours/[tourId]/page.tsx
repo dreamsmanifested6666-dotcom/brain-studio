@@ -133,7 +133,7 @@ export default function TourPlayerPage({
               user can see the brain through it. */}
           <div className="md:col-span-7">
             <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/50">
+              <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 text-bone-cream/75">
                 <li>
                   <Link href="/" className="hover:text-brass">
                     <Caption uppercase className="tracking-[0.18em]">
@@ -178,7 +178,7 @@ export default function TourPlayerPage({
               </Mono>
 
               {previousScene && (
-                <Body className="text-bone-cream/60 mt-6 max-w-[28rem]">
+                <Body className="text-bone-cream/80 mt-6 max-w-[28rem]">
                   {previousScene.narration}
                 </Body>
               )}

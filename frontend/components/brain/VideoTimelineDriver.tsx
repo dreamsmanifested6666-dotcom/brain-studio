@@ -162,7 +162,7 @@ export default function VideoTimelineDriver({
       {/* Small scrub-position indicator + play-state — most user
           interaction goes through the native controls; this is a
           quiet status line for the brain-driving timeline. */}
-      <div className="text-bone-cream/40 mt-2 flex items-center justify-between font-mono text-[0.65rem] tracking-[0.16em] uppercase">
+      <div className="text-bone-cream/70 mt-2 flex items-center justify-between font-mono text-[0.65rem] tracking-[0.16em] uppercase">
         <span>{playing ? "Playing" : "Paused"}</span>
         <span>
           {time.toFixed(1)}s / {file.duration.toFixed(1)}s

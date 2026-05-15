@@ -213,10 +213,10 @@ export default function CellularPage() {
                     : selected.neuromorpho_region}
                 </Caption>
                 <Body className="text-bone-cream/80 mt-6">{selected.role}</Body>
-                <Body italic className="text-bone-cream/60 mt-4">
+                <Body italic className="text-bone-cream/80 mt-4">
                   {selected.surprising}
                 </Body>
-                <div className="mt-8 flex flex-wrap gap-4 text-bone-cream/60">
+                <div className="mt-8 flex flex-wrap gap-4 text-bone-cream/80">
                   {selected.reference_pmid?.length ? (
                     <a
                       href={`https://pubmed.ncbi.nlm.nih.gov/${selected.reference_pmid[0]}/`}
@@ -347,7 +347,7 @@ export default function CellularPage() {
               >
                 <Caption uppercase>{t("triggerButton")}</Caption>
               </button>
-              <div className="flex items-center gap-3 text-bone-cream/60">
+              <div className="flex items-center gap-3 text-bone-cream/80">
                 <Caption uppercase className="text-bone-cream/80">
                   {t("speedLabel")}
                 </Caption>
@@ -383,10 +383,10 @@ export default function CellularPage() {
                   italic
                   className={`max-w-[34rem] transition-colors duration-300 ${
                     triggerCount === 0
-                      ? "text-bone-cream/35"
+                      ? "text-bone-cream/55"
                       : i <= stepIdx
                         ? "text-bone-cream/85"
-                        : "text-bone-cream/35"
+                        : "text-bone-cream/55"
                   }`}
                 >
                   {line}

@@ -169,7 +169,7 @@ function TractDetail({ tract }: { tract: Tract }) {
         {tract.description}
       </Body>
       {tract.discoveredBy && (
-        <Caption className="text-bone-cream/50 block">
+        <Caption className="text-bone-cream/75 block">
           <Mono variant="label" className="text-bone-cream/70 mr-2">
             CREDIT
           </Mono>

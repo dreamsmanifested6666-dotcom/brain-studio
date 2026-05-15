@@ -100,7 +100,7 @@ export default function SiteMapColumns() {
       lit
         ? "border-brass/60 bg-brass/5 text-bone-cream"
         : highlight
-          ? "border-bone-cream/5 text-bone-cream/40"
+          ? "border-bone-cream/5 text-bone-cream/70"
           : "border-bone-cream/10 text-bone-cream/85 hover:border-brass/40 hover:text-bone-cream"
     }`;
 

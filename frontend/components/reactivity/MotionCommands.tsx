@@ -79,6 +79,18 @@ export default function MotionCommands() {
       },
       onRelease: () => {
         if (pauseToggleRef.current) return;
+        // Reduced-motion: snap to the pre-hold scale instead of
+        // tweening over a 1 s ease-out — the brief mandates that
+        // every motion in this PR degrades when the user has asked
+        // for less motion, and a 1 s eased ramp IS motion.
+        const reduced =
+          typeof window !== "undefined" &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduced) {
+          shiftRampTween.current?.kill();
+          setMotionScale(beforeShift.current);
+          return;
+        }
         // Ease from current (could be 0.4 or anywhere mid-tween)
         // back to whatever the natural scale was when Shift went
         // down. 1 s ease-out per brief.
