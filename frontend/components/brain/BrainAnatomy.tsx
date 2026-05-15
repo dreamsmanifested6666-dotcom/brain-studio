@@ -514,7 +514,12 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
       const since = now - lastInteractionAt;
       const breathing = since > 2000;
       if (breathing) breathElapsedMesh.current += delta;
-      const breathSine = Math.sin((breathElapsedMesh.current / 5) * Math.PI * 2);
+      // Reactivity-pass Fix 11: deep idle stretches the breath cycle
+      // 5 s → 9 s. Sample via getState() to avoid re-rendering on
+      // every motionScale tick.
+      const deep = useBrainStageStore.getState().idleDepth === 1;
+      const period = deep ? 9 : 5;
+      const breathSine = Math.sin((breathElapsedMesh.current / period) * Math.PI * 2);
       // [0.95, 1.05] when breathing, → 1.0 otherwise.
       const breathMul = 1.0 + (breathing ? breathSine * 0.05 : 0);
 
@@ -522,7 +527,10 @@ function MeshForResolution({ resolution }: { resolution: MeshResolution }) {
       // brain doesn't compete with the hero text on /en. Active
       // regions still bloom via the wake ramp (+0.20 over 800 ms),
       // so the cinematic read on activation is preserved.
-      m.emissiveIntensity = (0.1 + wakeShaped * 0.2) * breathMul;
+      //
+      // Reactivity-pass Fix 11: deep idle lifts the base ~8%.
+      const idleBase = deep ? 0.108 : 0.1;
+      m.emissiveIntensity = (idleBase + wakeShaped * 0.2) * breathMul;
     }
   });
 
@@ -613,7 +621,11 @@ export default function BrainAnatomy() {
     const since = now - lastInteractionAt;
     const breathing = !reduced && since > 2000;
     if (breathing) breathElapsed.current += delta;
-    const breathSine = Math.sin((breathElapsed.current / 5) * Math.PI * 2);
+    // Reactivity-pass Fix 11: deep idle stretches the mesh-scale
+    // breath 5 s → 9 s in lockstep with the emissive breath.
+    const deepGroup = useBrainStageStore.getState().idleDepth === 1;
+    const groupPeriod = deepGroup ? 9 : 5;
+    const breathSine = Math.sin((breathElapsed.current / groupPeriod) * Math.PI * 2);
     // breathScale ∈ [0.99, 1.01] when breathing, → 1.0 otherwise.
     const breathAmplitude = breathing ? 0.01 : 0;
     const breathScale = 1.0 + breathSine * breathAmplitude;

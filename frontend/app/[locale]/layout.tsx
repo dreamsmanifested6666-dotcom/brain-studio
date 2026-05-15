@@ -11,6 +11,7 @@ import TimeOfDayTemperature from "@/components/atmospheric/TimeOfDayTemperature"
 import DeferredLocaleClient from "@/components/client/DeferredLocaleClient";
 import ScrollWeight from "@/components/typography/ScrollWeight";
 import MotionSpeedSync from "@/components/motion/MotionSpeedSync";
+import DeepIdleDriver from "@/components/brain/DeepIdleDriver";
 import { Caption } from "@/components/typography/Typography";
 
 /**
@@ -79,6 +80,11 @@ export default async function LocaleLayout({
           a CSS var and the GSAP global timeline so Shift-held and
           Space-toggle propagate across every animation surface. */}
       <MotionSpeedSync />
+      {/* Reactivity-pass Fix 11: after 20 s with no pointermove /
+          scroll / keydown, set idleDepth = 1 — breathing stretches
+          from 5 s to 9 s and a slow 4-group region cycle runs.
+          Reduced-motion users get only the slower breathing. */}
+      <DeepIdleDriver />
       {/* Visual-elevation Fix 5 composes a second filter slot on
           top of Fix 4's per-room temperature: `--scene-saturate`,
           driven by transient PinnedCinematic moments (Threshold
