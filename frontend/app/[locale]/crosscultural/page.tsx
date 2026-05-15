@@ -9,6 +9,7 @@ import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import StimulusComparison from "@/components/crosscultural/StimulusComparison";
 import FieldNote from "@/components/crosscultural/FieldNote";
 import ProvenanceBadge from "@/components/brain/ProvenanceBadge";
+import CrossCulturalEntryMoment from "@/components/crosscultural/CrossCulturalEntryMoment";
 import {
   Body,
   Caption,
@@ -54,20 +55,26 @@ export default function CrossCulturalPage() {
         />
         <PinnedSequence steps={3}>
           <PinnedStep>
-            <div className="mx-auto max-w-[36rem] text-center">
-              <Caption uppercase className="text-brass">
-                {t("label")}
-              </Caption>
-              <Display italic className="mt-8">
-                {t("entry1")}
-              </Display>
-              {/* Integrity-pass: badge sits beneath the entry
-                  display, adjacent to the persistent brain on
-                  this scene. */}
-              <div className="mt-8 inline-flex">
-                <ProvenanceBadge state="neurosynth" />
+            {/* Visual-elevation Fix 5: across this entry step
+                the brain tilts ~15° on Y and back — a "tilting
+                to hear" gesture for what the model doesn't quite
+                have words for. Returns to baseline on leave. */}
+            <CrossCulturalEntryMoment>
+              <div className="mx-auto max-w-[36rem] text-center">
+                <Caption uppercase className="text-brass">
+                  {t("label")}
+                </Caption>
+                <Display italic className="mt-8">
+                  {t("entry1")}
+                </Display>
+                {/* Integrity-pass: badge sits beneath the entry
+                    display, adjacent to the persistent brain on
+                    this scene. */}
+                <div className="mt-8 inline-flex">
+                  <ProvenanceBadge state="neurosynth" />
+                </div>
               </div>
-            </div>
+            </CrossCulturalEntryMoment>
           </PinnedStep>
           <PinnedStep>
             <div className="mx-auto max-w-[36rem] text-center">

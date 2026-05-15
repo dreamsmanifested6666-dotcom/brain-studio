@@ -3,6 +3,7 @@ import PinnedSequence, { PinnedStep } from "@/components/motion/PinnedSequence";
 import ParallaxLayer from "@/components/motion/ParallaxLayer";
 import RoomCard from "@/components/home/RoomCard";
 import InsightCard from "@/components/home/InsightCard";
+import MirrorCueOnScroll from "@/components/home/MirrorCueOnScroll";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import {
   Display,
@@ -336,11 +337,20 @@ export default async function Home({
           </Caption>
           <div className="mt-12 space-y-20 md:space-y-28">
             <ParallaxLayer speed={0.95}>
-              <InsightCard
-                index={0}
-                headline={t("insights.card1.headline")}
-                body={t("insights.card1.body")}
-              />
+              {/* Visual-elevation Fix 5: as the "language is a brain
+                  event" card enters the viewport, the inferior
+                  frontal gyrus glows in via a transient parcel
+                  activation override. Holds while card1 is on
+                  screen; resets on leave. Pinning is delegated to
+                  the existing ScrollScene; this just fires the
+                  brain cue, so no scroll-trigger conflict. */}
+              <MirrorCueOnScroll>
+                <InsightCard
+                  index={0}
+                  headline={t("insights.card1.headline")}
+                  body={t("insights.card1.body")}
+                />
+              </MirrorCueOnScroll>
             </ParallaxLayer>
             <ParallaxLayer speed={1.05}>
               <InsightCard

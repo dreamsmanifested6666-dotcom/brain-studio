@@ -8,6 +8,7 @@ import * as THREE from "three";
 import { useTranslations } from "next-intl";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import ProvenanceBadge from "@/components/brain/ProvenanceBadge";
+import PinnedCinematic from "@/components/motion/PinnedCinematic";
 import NeuronGeometry from "@/components/cellular/NeuronGeometry";
 import Synapse, {
   NEUROTRANSMITTERS,
@@ -251,7 +252,24 @@ export default function CellularPage() {
         </div>
       </section>
 
-      {/* Section 3 — synapse focus. */}
+      {/* Section 3 — synapse focus. Visual-elevation Fix 5: the
+          synapse fires automatically the first time the reader
+          scrolls this section into view (mirrors the existing
+          "Trigger action potential" button via the same
+          triggerCount ref). Replayable from the button as
+          before. */}
+      <PinnedCinematic
+        id="cellular-synapse-moment"
+        pin={false}
+        start="top 70%"
+        end="top 30%"
+        onEnter={() => {
+          // Only auto-fire once per visit so the section's
+          // controls feel like the source of truth on
+          // subsequent firings.
+          setTriggerCount((c) => (c === 0 ? 1 : c));
+        }}
+      >
       <section className="relative px-6 py-12 md:px-10 md:py-20">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-7">
@@ -375,6 +393,7 @@ export default function CellularPage() {
           </div>
         </div>
       </section>
+      </PinnedCinematic>
 
       <footer className="relative border-t border-bone-cream/10 px-6 py-12 text-center md:px-10">
         <Caption uppercase className="text-bone-cream/65">

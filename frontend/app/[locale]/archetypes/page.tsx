@@ -18,6 +18,7 @@ import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import Mandala from "@/components/decoration/Mandala";
 import AttributedImage from "@/components/content/AttributedImage";
 import MandalaBrainViewer from "@/components/content/MandalaBrainViewer";
+import PersonaKenBurns from "@/components/archetypes/PersonaKenBurns";
 import {
   Body,
   Caption,
@@ -373,12 +374,27 @@ function ArchetypeScene({
         }`}
       >
         <div className="md:col-span-5 md:[direction:ltr]">
-          <AttributedImage
-            prov={img}
-            width={1200}
-            height={1600}
-            priority={archetype.id === "shadow"}
-          />
+          {/* Visual-elevation Fix 5: only the Persona archetype
+              gets the Ken Burns wrapper — pulling from the
+              squirrel up to the lady's face across the pinned
+              scroll window. Restraint: one moment per room. */}
+          {archetype.id === "persona" ? (
+            <PersonaKenBurns>
+              <AttributedImage
+                prov={img}
+                width={1200}
+                height={1600}
+                priority={false}
+              />
+            </PersonaKenBurns>
+          ) : (
+            <AttributedImage
+              prov={img}
+              width={1200}
+              height={1600}
+              priority={archetype.id === "shadow"}
+            />
+          )}
         </div>
         <div className="md:col-span-7 md:[direction:ltr]">
           <Caption uppercase className="text-brass">

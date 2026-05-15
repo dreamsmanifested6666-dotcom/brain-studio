@@ -62,10 +62,17 @@ export default async function LocaleLayout({
           it up. Subtle — readers should not consciously notice;
           they should feel they've entered a different room. */}
       <RoomTemperature />
+      {/* Visual-elevation Fix 5 composes a second filter slot on
+          top of Fix 4's per-room temperature: `--scene-saturate`,
+          driven by transient PinnedCinematic moments (Threshold
+          Movement Two animates this 1 → 0 → 1 across its pin). */}
       <main
         id="main"
         className="relative z-10"
-        style={{ filter: "var(--temperature-filter, none)" }}
+        style={{
+          filter:
+            "var(--temperature-filter, none) saturate(var(--scene-saturate, 1))",
+        }}
       >
         {children}
       </main>

@@ -11,6 +11,7 @@ import {
   Mono,
 } from "@/components/typography/Typography";
 import ReadingTime from "@/components/typography/ReadingTime";
+import ThresholdM2Moment from "@/components/threshold/ThresholdM2Moment";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -127,12 +128,19 @@ export default async function ThresholdPage({
         className="relative px-6 py-24 md:px-10 md:py-32"
       >
         <div className="mx-auto max-w-[40rem]">
-          <Heading className="text-brass font-[200]">{t("m2.heading")}</Heading>
-          <Body className="mt-10">{t("m2.body1")}</Body>
-          <Body className="text-bone-cream/85 mt-6">{t("m2.body2")}</Body>
-          <Body className="text-bone-cream/85 mt-6">{t("m2.body3")}</Body>
-          <Body className="text-bone-cream/85 mt-6">{t("m2.body4")}</Body>
-          <Body italic className="text-bone-cream/80 mt-8">{t("m2.italic")}</Body>
+          {/* Visual-elevation Fix 5: Movement Two's opening line
+              is the pinned cinematic moment. Across its scroll
+              window the scene saturate dips 1 → 0.55 → 1, a
+              cinema chapter-break feel — the room's mood pulls
+              back for a moment before the prose continues. */}
+          <ThresholdM2Moment>
+            <Heading className="text-brass font-[200]">{t("m2.heading")}</Heading>
+            <Body className="mt-10">{t("m2.body1")}</Body>
+            <Body className="text-bone-cream/85 mt-6">{t("m2.body2")}</Body>
+            <Body className="text-bone-cream/85 mt-6">{t("m2.body3")}</Body>
+            <Body className="text-bone-cream/85 mt-6">{t("m2.body4")}</Body>
+            <Body italic className="text-bone-cream/80 mt-8">{t("m2.italic")}</Body>
+          </ThresholdM2Moment>
           <div className="text-bone-cream/35 mt-12 block">
             <ReadingTime
               kind="movement"
