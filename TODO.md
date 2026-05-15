@@ -51,19 +51,23 @@ Threshold need the same audit. Suggested method: grep for
 `oldest|first|only|earliest|fundamental`, fact-check each, and
 either tighten the claim or drop the superlative.
 
-## 5 · Real domain + clean GitHub org
+## 5 · Real domain + clean GitHub org — ✅ DONE
 
-The site lives at `brain-studio-kappa.vercel.app`; the source
-repo is `dreamsmanifested6666-dotcom/brain-studio`. Both undercut
-the academic register the rest of the site works to earn.
+Site moved to `thebrainstudio.org` (Cloudflare registrar, Vercel
+deploy via A record `76.76.21.21`, Let's Encrypt cert auto-
+issued). GitHub repo moved to `thebrainstudio/web` (org +
+repo-rename + personal-username rename to `frankcaules`). Every
+in-code URL reference is centralized through `lib/urls.ts` and
+driven by `NEXT_PUBLIC_SITE_URL` + `NEXT_PUBLIC_GITHUB_URL` env
+vars (set on Vercel).
 
-Author-side actions:
-- Register a domain (suggested: `brain-studio.org` or similar)
-  and point at the Vercel deploy.
-- Create a new GitHub org (e.g. `brain-studio`) and transfer
-  the repo. Update every hardcoded URL across the site (a few in
-  `frontend/components/nav/SiteHeader.tsx` GitHub icon hrefs +
-  the `lib/seo.ts` canonical URL helper).
+Remaining cosmetic items, dashboard-only:
+- Rename the Vercel project + transfer into a Hobby team
+  `thebrainstudio`; rename the personal handle from
+  `frankcaules-2466` to `frankcaules`. Affects only the auto-
+  generated preview-URL slugs, not the live site.
+- Rename the Cloudflare account display name to `The Brain
+  Studio`. Cosmetic, no functional effect.
 
 ## 6 · Accessibility pass with axe DevTools
 

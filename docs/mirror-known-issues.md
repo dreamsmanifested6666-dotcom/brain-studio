@@ -216,13 +216,13 @@ commit on this branch.
 URLs to spot-check after merge:
 
 ```
-https://brain-studio-kappa.vercel.app/en/mirror
+https://thebrainstudio.org/en/mirror
   - hard refresh; type a sentence; verify caption + halos
-https://brain-studio-kappa.vercel.app/api/v1/predict (POST)
+https://thebrainstudio.org/api/v1/predict (POST)
   - embedding baseline; should return engine: "embedding_baseline_v1_hf"
-https://brain-studio-kappa.vercel.app/api/mirror/fingerprint (POST)
+https://thebrainstudio.org/api/mirror/fingerprint (POST)
   - should return image/png 1080×1080
-https://brain-studio-kappa.vercel.app/api/tunnel
+https://thebrainstudio.org/api/tunnel
   - should return { valid: true, url: "..." } when local backend is on
   - otherwise { valid: false, message: "..." }
 ```

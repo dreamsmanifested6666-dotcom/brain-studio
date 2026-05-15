@@ -1,7 +1,7 @@
 # Mirror improvements — what shipped
 
 > Branch `mirror-improvements`. Production:
-> [brain-studio-kappa.vercel.app/en/mirror](https://brain-studio-kappa.vercel.app/en/mirror).
+> [thebrainstudio.org/en/mirror](https://thebrainstudio.org/en/mirror).
 > All five Moves from the design-critic brief plus an auxiliary
 > 4-angle brain view, infra hardening, and analytics. Backend TRIBE v2
 > via Cloudflare quick tunnel pointed at the user's local RTX 3080 Ti.

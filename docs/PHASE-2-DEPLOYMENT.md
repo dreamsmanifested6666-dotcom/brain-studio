@@ -25,7 +25,7 @@ production frontend hits a real predictor instead of falling back to
 
 1. Sign in at <https://render.com> (free account is enough).
 2. Dashboard → **New** → **Blueprint**.
-3. Connect the GitHub repo `dreamsmanifested6666-dotcom/brain-studio`.
+3. Connect the GitHub repo `thebrainstudio/web`.
 4. Render detects `backend/render.yaml` and stages the
    `brain-studio-api` service automatically.
 5. Click **Apply**.
@@ -55,7 +55,7 @@ curl -X POST https://brain-studio-api.onrender.com/api/v1/predict \
 
 ### 4. Verify end-to-end
 
-Open <https://brain-studio-kappa.vercel.app/en/mirror>. Type something
+Open <https://thebrainstudio.org/en/mirror>. Type something
 substantive — e.g. *"I am remembering my grandmother in her kitchen, the
 smell of bread"*. After the 900 ms settle, you should see brass halos
 fade in on the **precuneus**, **left hippocampus**, and **right

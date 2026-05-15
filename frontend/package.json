@@ -1,7 +1,18 @@
 {
-  "name": "frontend",
+  "name": "brain-studio",
   "version": "0.1.0",
   "private": true,
+  "description": "The Brain Studio — cinematic interactive site for Meta's TRIBE v2 brain-encoding model, built at Chulalongkorn JIPP.",
+  "author": "Frank Caules",
+  "license": "MIT",
+  "homepage": "https://thebrainstudio.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thebrainstudio/web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thebrainstudio/web/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

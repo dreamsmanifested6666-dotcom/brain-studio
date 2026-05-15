@@ -2,7 +2,7 @@
 
 Every public route, what's there, what's stubbed.
 
-🔗 **Live:** https://brain-studio-kappa.vercel.app/
+🔗 **Live:** https://thebrainstudio.org
 
 ## Routes
 

@@ -1,6 +1,6 @@
 # The Brain Studio
 
-🔗 **Live preview:** https://brain-studio-kappa.vercel.app/
+🔗 **Live site:** https://thebrainstudio.org
 
 A cinematic educational website powered by Meta's TRIBE v2 brain encoder.
 Three rooms: **Brain Mirror** (paste any text, see your brain "react"),

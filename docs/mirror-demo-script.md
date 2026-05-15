@@ -1,7 +1,7 @@
 # Mirror demo recording — 90-second script
 
 > 1080p screen capture, no audio. Cursor visible. Hard-refresh
-> `brain-studio-kappa.vercel.app/en/mirror` before recording so the
+> `thebrainstudio.org/en/mirror` before recording so the
 > tunnel + Llama warm up.
 
 ## Timing — 90 seconds total
@@ -34,7 +34,7 @@
   before the demo. The tunnel URL must be published via
   `publish_tunnel.py` so the production frontend can discover it
   through `/api/tunnel`.
-- Verify `https://brain-studio-kappa.vercel.app/api/tunnel` returns
+- Verify `https://thebrainstudio.org/api/tunnel` returns
   `valid: true` before pressing record.
 
 ## Common gotchas

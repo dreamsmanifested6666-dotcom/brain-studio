@@ -19,9 +19,8 @@
  * (SiteHeader / SiteFooter) can read them at build time.
  */
 
-const DEFAULT_SITE_URL = "https://brain-studio-kappa.vercel.app";
-const DEFAULT_GITHUB_URL =
-  "https://github.com/dreamsmanifested6666-dotcom/brain-studio";
+const DEFAULT_SITE_URL = "https://thebrainstudio.org";
+const DEFAULT_GITHUB_URL = "https://github.com/thebrainstudio/web";
 
 /** Canonical origin without trailing slash. */
 export const SITE_URL: string =
