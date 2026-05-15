@@ -4,6 +4,7 @@ import ParallaxLayer from "@/components/motion/ParallaxLayer";
 import RoomCard from "@/components/home/RoomCard";
 import InsightCard from "@/components/home/InsightCard";
 import MirrorCueOnScroll from "@/components/home/MirrorCueOnScroll";
+import KeystrokeSequenceHandler from "@/components/home/KeystrokeSequenceHandler";
 import AtmosphericGlow from "@/components/atmospheric/AtmosphericGlow";
 import {
   Display,
@@ -35,6 +36,7 @@ export default async function Home({
 
   return (
     <>
+      <KeystrokeSequenceHandler />
       {/* Shot 1 — Cold open. Amber lamp glow + animated. */}
       <ScrollScene
         {...shot1}
