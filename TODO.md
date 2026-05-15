@@ -181,3 +181,86 @@ mapping) and accessibility consideration: a moving reading surface
 behind static prose is a contraindicated pattern for some readers.
 A reduced-motion default for this animation is mandatory; the
 default state should be "off."
+
+---
+
+# Reactivity backlog
+
+Items deferred from the reactivity-pass PR. Each is real next-step
+work; none is needed for the felt cinema this PR shipped.
+
+## 15 · Subsurface scattering on cortex
+
+Picks up the deferred Fix 1 wet-tissue extras (thickness,
+transmission, clearcoat). Needs a custom shader path that doesn't
+re-introduce the silently-failing onBeforeCompile bug from the
+visual-elevation PR. Scope of its own.
+
+## 16 · Vascular network underlay
+
+Faint pial vasculature visible through the cortex, oxblood at /05.
+Needs an anatomical reference image and either a low-poly mesh or
+procedurally-generated branching texture mapped to mesh UVs.
+
+## 17 · Camera-based room transitions
+
+Rotate-the-brain navigation: room change is a camera move, not a
+page reload. Refactor of route transitions to a camera tween that
+interpolates position + rotation between room states.
+
+## 18 · Museum-lighting per Archetypes painting
+
+In museum mode (Fix 21) each painting could get its own
+directional light cone keyed to the work's dominant tone. Design
+iteration on the gallery feel.
+
+## 19 · Mandala rotation tied to scroll
+
+The decoration Mandala has a `rotationSeconds` prop driving a
+constant rotation. Wire it to scroll velocity instead so the
+mandala becomes a scroll gauge.
+
+## 20 · 30-second idle prose state
+
+"This is what your brain is doing right now, reading this."
+Needs editorial review of the line + an accessibility consideration
+(moving reading surface behind static prose).
+
+## 21 · Geolocation-based time of day
+
+Fix 10 uses naive hour bands. Sunset/sunrise based on lat/long
+would be more accurate but requires geolocation permission — which
+the rest of the site never asks. Backlog until we find a
+permission-free path (IP-derived rough location, etc.).
+
+## 22 · Audio breath layer
+
+Subtle ambient room tone paired with the visual breathing. Needs
+CC-licensed or commissioned source material.
+
+## 23 · Home keystroke sequence — drone audio
+
+The home keystroke handler ships visual-only. License or commission
+a 30 s CC-BY drone loop, or synthesize one via Web Audio (same
+approach as the existing apTick/epspWash cues in
+`lib/audio/synapseCues.ts`).
+
+## 24 · Per-room keystroke sequences
+
+PERSONA on Archetypes, GHOST on Threshold, NGAO on Cross-Cultural.
+Same shape as the home keystroke handler, each composing an
+appropriate activation pattern from regions.ts.
+
+## 25 · Second-tier discovery: Shift + Alt = study mode
+
+Combining slow-world (Shift held) with region labels (Alt held)
+into a single sustained "I'm trying to learn this" state — region
+labels visible, everything at 0.4× speed, optional region-detail
+panel on whatever the cursor is hovering near.
+
+## 26 · Webcam-permission face-distance scaling
+
+Subtle brain-scale modulation tied to detected face distance from
+the camera. Only if webcam permission has already been granted by
+the reader — NEVER prompt for it. Privacy-first; the brain leans
+in when the reader leans in.
