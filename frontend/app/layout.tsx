@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { fontVariablesForLocale } from "./fonts";
 import { SITE_URL } from "@/lib/urls";
 import "./globals.css";
@@ -72,8 +73,10 @@ export default async function RootLayout({
   // actually needs, so non-matching scripts don't trigger their @font-face
   // engagement.
   const fonts = fontVariablesForLocale(locale);
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   return (
     <html lang={locale} className={`${fonts} h-full`} suppressHydrationWarning>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="text-bone-cream min-h-full antialiased">
         {/* Background system — four-layer static stack (plate + halo +
             grain) keyed by [data-room]. Sits at z-index -2/-1, beneath
